@@ -10,7 +10,7 @@
 		09B8031D2590CF9100CA2D19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8031C2590CF9100CA2D19 /* AppDelegate.swift */; };
 		09B8031F2590CF9100CA2D19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8031E2590CF9100CA2D19 /* SceneDelegate.swift */; };
 		09B803212590CF9100CA2D19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B803202590CF9100CA2D19 /* ViewController.swift */; };
-		09B803242590CF9100CA2D19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09B803222590CF9100CA2D19 /* Main.storyboard */; };
+		09B803242590CF9100CA2D19 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09B803222590CF9100CA2D19 /* Splash.storyboard */; };
 		09B803262590CF9200CA2D19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09B803252590CF9200CA2D19 /* Assets.xcassets */; };
 		09B803292590CF9200CA2D19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09B803272590CF9200CA2D19 /* LaunchScreen.storyboard */; };
 		09B803342590CF9300CA2D19 /* RssReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B803332590CF9300CA2D19 /* RssReaderTests.swift */; };
@@ -39,7 +39,7 @@
 		09B8031C2590CF9100CA2D19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09B8031E2590CF9100CA2D19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		09B803202590CF9100CA2D19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		09B803232590CF9100CA2D19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		09B803232590CF9100CA2D19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Splash.storyboard; sourceTree = "<group>"; };
 		09B803252590CF9200CA2D19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09B803282590CF9200CA2D19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09B8032A2590CF9200CA2D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 				09B8031C2590CF9100CA2D19 /* AppDelegate.swift */,
 				09B8031E2590CF9100CA2D19 /* SceneDelegate.swift */,
 				09B803202590CF9100CA2D19 /* ViewController.swift */,
-				09B803222590CF9100CA2D19 /* Main.storyboard */,
+				09B803222590CF9100CA2D19 /* Splash.storyboard */,
 				09B803252590CF9200CA2D19 /* Assets.xcassets */,
 				09B803272590CF9200CA2D19 /* LaunchScreen.storyboard */,
 				09B8032A2590CF9200CA2D19 /* Info.plist */,
@@ -233,7 +233,7 @@
 			files = (
 				09B803292590CF9200CA2D19 /* LaunchScreen.storyboard in Resources */,
 				09B803262590CF9200CA2D19 /* Assets.xcassets in Resources */,
-				09B803242590CF9100CA2D19 /* Main.storyboard in Resources */,
+				09B803242590CF9100CA2D19 /* Splash.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,12 +296,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		09B803222590CF9100CA2D19 /* Main.storyboard */ = {
+		09B803222590CF9100CA2D19 /* Splash.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				09B803232590CF9100CA2D19 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Splash.storyboard;
 			sourceTree = "<group>";
 		};
 		09B803272590CF9200CA2D19 /* LaunchScreen.storyboard */ = {
@@ -446,7 +446,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = terry.RssReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -465,7 +465,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = terry.RssReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
