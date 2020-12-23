@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		098D56B82593746F00EAD41F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56B72593746F00EAD41F /* SplashViewController.swift */; };
+		098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C0259375BC00EAD41F /* Transitioner.swift */; };
 		09B8031D2590CF9100CA2D19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8031C2590CF9100CA2D19 /* AppDelegate.swift */; };
 		09B8031F2590CF9100CA2D19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8031E2590CF9100CA2D19 /* SceneDelegate.swift */; };
 		09B803242590CF9100CA2D19 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09B803222590CF9100CA2D19 /* Splash.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		098D56B72593746F00EAD41F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		098D56C0259375BC00EAD41F /* Transitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitioner.swift; sourceTree = "<group>"; };
 		09B803192590CF9100CA2D19 /* RssReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RssReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B8031C2590CF9100CA2D19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09B8031E2590CF9100CA2D19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		098D56BC2593750E00EAD41F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				09B803272590CF9200CA2D19 /* LaunchScreen.storyboard */,
+				09B803222590CF9100CA2D19 /* Splash.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		098D56BD2593753E00EAD41F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				098D56B72593746F00EAD41F /* SplashViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		098D56BE2593757300EAD41F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		098D56BF2593759200EAD41F /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				098D56C0259375BC00EAD41F /* Transitioner.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		09B803102590CF9100CA2D19 = {
 			isa = PBXGroup;
 			children = (
@@ -101,10 +135,11 @@
 			children = (
 				09B8031C2590CF9100CA2D19 /* AppDelegate.swift */,
 				09B8031E2590CF9100CA2D19 /* SceneDelegate.swift */,
-				09B803222590CF9100CA2D19 /* Splash.storyboard */,
-				098D56B72593746F00EAD41F /* SplashViewController.swift */,
+				098D56BE2593757300EAD41F /* Model */,
+				098D56BC2593750E00EAD41F /* View */,
+				098D56BD2593753E00EAD41F /* Controller */,
+				098D56BF2593759200EAD41F /* Router */,
 				09B803252590CF9200CA2D19 /* Assets.xcassets */,
-				09B803272590CF9200CA2D19 /* LaunchScreen.storyboard */,
 				09B8032A2590CF9200CA2D19 /* Info.plist */,
 			);
 			path = RssReader;
@@ -261,6 +296,7 @@
 				098D56B82593746F00EAD41F /* SplashViewController.swift in Sources */,
 				09B8031D2590CF9100CA2D19 /* AppDelegate.swift in Sources */,
 				09B8031F2590CF9100CA2D19 /* SceneDelegate.swift in Sources */,
+				098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
