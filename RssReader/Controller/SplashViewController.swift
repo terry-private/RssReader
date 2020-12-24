@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SplashViewController: UIViewController {
+class SplashViewController: UIViewController, Transitioner {
 
     override func viewDidLoad() {
         super.viewDidLoad()
