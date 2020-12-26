@@ -3,18 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		098D56B82593746F00EAD41F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56B72593746F00EAD41F /* SplashViewController.swift */; };
 		098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C0259375BC00EAD41F /* Transitioner.swift */; };
 		098D56C62593797A00EAD41F /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C52593797A00EAD41F /* SplashRouter.swift */; };
-		098D56CB25937B6000EAD41F /* SNSAuthenticateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56CA25937B6000EAD41F /* SNSAuthenticateProtocol.swift */; };
-		098D56D025937BFC00EAD41F /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56CF25937BFC00EAD41F /* LoginType.swift */; };
-		098D56D525937C4000EAD41F /* FacebookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56D425937C4000EAD41F /* FacebookModel.swift */; };
-		098D56DA25937C5300EAD41F /* TwitterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56D925937C5300EAD41F /* TwitterModel.swift */; };
-		098D56DF25937C6800EAD41F /* LineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56DE25937C6800EAD41F /* LineModel.swift */; };
+		09ACE146259621AC00FDB597 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09ACE145259621AC00FDB597 /* GoogleService-Info.plist */; };
+		09ACE21C25964E4500FDB597 /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACE21B25964E4500FDB597 /* UserConfig.swift */; };
+		09ACE2212597245800FDB597 /* AutoLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACE2202597245800FDB597 /* AutoLoginModel.swift */; };
+		09ACE22F2597275800FDB597 /* Extension_UIDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACE22E2597275800FDB597 /* Extension_UIDate.swift */; };
+		09ACE24225977DC100FDB597 /* ArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACE24125977DC100FDB597 /* ArticleListViewController.swift */; };
+		09ACE24A25977DED00FDB597 /* ArticleList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09ACE24925977DED00FDB597 /* ArticleList.storyboard */; };
 		09B8031D2590CF9100CA2D19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8031C2590CF9100CA2D19 /* AppDelegate.swift */; };
 		09B8031F2590CF9100CA2D19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8031E2590CF9100CA2D19 /* SceneDelegate.swift */; };
 		09B803242590CF9100CA2D19 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09B803222590CF9100CA2D19 /* Splash.storyboard */; };
@@ -49,11 +50,12 @@
 		098D56B72593746F00EAD41F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		098D56C0259375BC00EAD41F /* Transitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitioner.swift; sourceTree = "<group>"; };
 		098D56C52593797A00EAD41F /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
-		098D56CA25937B6000EAD41F /* SNSAuthenticateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSAuthenticateProtocol.swift; sourceTree = "<group>"; };
-		098D56CF25937BFC00EAD41F /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
-		098D56D425937C4000EAD41F /* FacebookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookModel.swift; sourceTree = "<group>"; };
-		098D56D925937C5300EAD41F /* TwitterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterModel.swift; sourceTree = "<group>"; };
-		098D56DE25937C6800EAD41F /* LineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineModel.swift; sourceTree = "<group>"; };
+		09ACE145259621AC00FDB597 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		09ACE21B25964E4500FDB597 /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
+		09ACE2202597245800FDB597 /* AutoLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLoginModel.swift; sourceTree = "<group>"; };
+		09ACE22E2597275800FDB597 /* Extension_UIDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIDate.swift; sourceTree = "<group>"; };
+		09ACE24125977DC100FDB597 /* ArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewController.swift; sourceTree = "<group>"; };
+		09ACE24925977DED00FDB597 /* ArticleList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArticleList.storyboard; sourceTree = "<group>"; };
 		09B803192590CF9100CA2D19 /* RssReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RssReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B8031C2590CF9100CA2D19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09B8031E2590CF9100CA2D19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,8 +110,8 @@
 		098D56BC2593750E00EAD41F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				09B803272590CF9200CA2D19 /* LaunchScreen.storyboard */,
 				09B803222590CF9100CA2D19 /* Splash.storyboard */,
+				09ACE24925977DED00FDB597 /* ArticleList.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -125,11 +127,8 @@
 		098D56BE2593757300EAD41F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				098D56CA25937B6000EAD41F /* SNSAuthenticateProtocol.swift */,
-				098D56CF25937BFC00EAD41F /* LoginType.swift */,
-				098D56D425937C4000EAD41F /* FacebookModel.swift */,
-				098D56D925937C5300EAD41F /* TwitterModel.swift */,
-				098D56DE25937C6800EAD41F /* LineModel.swift */,
+				09ACE21B25964E4500FDB597 /* UserConfig.swift */,
+				09ACE2202597245800FDB597 /* AutoLoginModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,8 +138,17 @@
 			children = (
 				098D56C0259375BC00EAD41F /* Transitioner.swift */,
 				098D56C52593797A00EAD41F /* SplashRouter.swift */,
+				09ACE24125977DC100FDB597 /* ArticleListViewController.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		09ACE22D2597272E00FDB597 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				09ACE22E2597275800FDB597 /* Extension_UIDate.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		09B803102590CF9100CA2D19 = {
@@ -170,12 +178,15 @@
 			children = (
 				09B8031C2590CF9100CA2D19 /* AppDelegate.swift */,
 				09B8031E2590CF9100CA2D19 /* SceneDelegate.swift */,
+				09B803272590CF9200CA2D19 /* LaunchScreen.storyboard */,
 				098D56BE2593757300EAD41F /* Model */,
 				098D56BC2593750E00EAD41F /* View */,
 				098D56BD2593753E00EAD41F /* Controller */,
 				098D56BF2593759200EAD41F /* Router */,
+				09ACE22D2597272E00FDB597 /* Extension */,
 				09B803252590CF9200CA2D19 /* Assets.xcassets */,
 				09B8032A2590CF9200CA2D19 /* Info.plist */,
+				09ACE145259621AC00FDB597 /* GoogleService-Info.plist */,
 			);
 			path = RssReader;
 			sourceTree = "<group>";
@@ -218,7 +229,6 @@
 				624D9C6C68A233A134D2D40F /* Pods-RssReaderTests.debug.xcconfig */,
 				588E98AEF5AB396D6A35DEB0 /* Pods-RssReaderTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -234,6 +244,7 @@
 				09B803162590CF9100CA2D19 /* Frameworks */,
 				09B803172590CF9100CA2D19 /* Resources */,
 				4C5AB912763E2243466CF11F /* [CP] Embed Pods Frameworks */,
+				DB465DA5EAC04B1F583D8AFC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,6 +283,7 @@
 				09B803372590CF9300CA2D19 /* Frameworks */,
 				09B803382590CF9300CA2D19 /* Resources */,
 				03B3CC6FC6F5860A06106B69 /* [CP] Embed Pods Frameworks */,
+				F6883D40BD7BFCC9DD81531B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -331,6 +343,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				09B803292590CF9200CA2D19 /* LaunchScreen.storyboard in Resources */,
+				09ACE24A25977DED00FDB597 /* ArticleList.storyboard in Resources */,
+				09ACE146259621AC00FDB597 /* GoogleService-Info.plist in Resources */,
 				09B803262590CF9200CA2D19 /* Assets.xcassets in Resources */,
 				09B803242590CF9100CA2D19 /* Splash.storyboard in Resources */,
 			);
@@ -431,6 +445,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DB465DA5EAC04B1F583D8AFC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RssReader/Pods-RssReader-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RssReader/Pods-RssReader-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RssReader/Pods-RssReader-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DCA945A0D610E2D2E6A5F755 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -453,6 +484,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F6883D40BD7BFCC9DD81531B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RssReader-RssReaderUITests/Pods-RssReader-RssReaderUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RssReader-RssReaderUITests/Pods-RssReader-RssReaderUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RssReader-RssReaderUITests/Pods-RssReader-RssReaderUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -460,16 +508,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				098D56DA25937C5300EAD41F /* TwitterModel.swift in Sources */,
-				098D56D025937BFC00EAD41F /* LoginType.swift in Sources */,
-				098D56D525937C4000EAD41F /* FacebookModel.swift in Sources */,
 				098D56C62593797A00EAD41F /* SplashRouter.swift in Sources */,
+				09ACE22F2597275800FDB597 /* Extension_UIDate.swift in Sources */,
+				09ACE2212597245800FDB597 /* AutoLoginModel.swift in Sources */,
 				098D56B82593746F00EAD41F /* SplashViewController.swift in Sources */,
 				09B8031D2590CF9100CA2D19 /* AppDelegate.swift in Sources */,
 				09B8031F2590CF9100CA2D19 /* SceneDelegate.swift in Sources */,
+				09ACE24225977DC100FDB597 /* ArticleListViewController.swift in Sources */,
 				098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */,
-				098D56CB25937B6000EAD41F /* SNSAuthenticateProtocol.swift in Sources */,
-				098D56DF25937C6800EAD41F /* LineModel.swift in Sources */,
+				09ACE21C25964E4500FDB597 /* UserConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,7 +597,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -611,7 +658,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

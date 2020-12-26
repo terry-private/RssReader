@@ -38,6 +38,7 @@ extension Transitioner {
     }
 
     func present(viewController: UIViewController, animated: Bool, completion: (() -> ())? = nil) {
+        print("Transitioner>present")
         present(viewController, animated: animated, completion: completion)
     }
 

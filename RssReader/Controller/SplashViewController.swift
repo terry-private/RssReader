@@ -7,23 +7,43 @@
 
 import UIKit
 
+
 class SplashViewController: UIViewController, Transitioner {
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    private var splashRouter: SplashRouterProtocol?
+    private var autoLoginModel: AutoLoginProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        autoLoginModel?.delegate = self
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        activityIndicator.startAnimating()
+        autoLoginModel?.autoLogin()
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-
+    
+    func inject(splashRouter: SplashRouterProtocol, autoLoginModel: AutoLoginProtocol) {
+        self.splashRouter = splashRouter
+        self.autoLoginModel = autoLoginModel
+    }
+    
 }
+
+extension SplashViewController: AutoLoginDelegate {
+    func didAutoLogin(isSuccess: Bool) {
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+        if isSuccess {
+            print("認証完了")
+        } else {
+            print("認証失敗")
+            splashRouter?.transitionToAuthView()
+        }
+    }
+}
+
+
