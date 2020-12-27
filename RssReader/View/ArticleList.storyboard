@@ -16,18 +16,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42r-wS-j4r">
-                                <rect key="frame" x="142" y="432" width="131" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42r-wS-j4r">
+                                <rect key="frame" x="176.5" y="430" width="61" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="ArticleListView"/>
+                                <state key="normal" title="log out"/>
                                 <connections>
                                     <action selector="tappedButton:" destination="UcH-eY-AEw" eventType="touchUpInside" id="16S-kl-j0E"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ArticleList" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QD-IF-YJj">
+                                <rect key="frame" x="129.5" y="301" width="155" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CFn-Kn-heL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="42r-wS-j4r" firstAttribute="top" secondItem="3QD-IF-YJj" secondAttribute="bottom" constant="86" id="3G2-X2-z2o"/>
+                            <constraint firstItem="42r-wS-j4r" firstAttribute="centerX" secondItem="HK4-0N-1wG" secondAttribute="centerX" id="6yy-jM-nsk"/>
+                            <constraint firstItem="42r-wS-j4r" firstAttribute="centerY" secondItem="HK4-0N-1wG" secondAttribute="centerY" id="Gsa-8b-aKl"/>
+                            <constraint firstItem="3QD-IF-YJj" firstAttribute="centerX" secondItem="HK4-0N-1wG" secondAttribute="centerX" id="sEK-WP-qH7"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cfU-hc-VtV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

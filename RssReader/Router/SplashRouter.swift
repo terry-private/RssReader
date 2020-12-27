@@ -8,8 +8,10 @@
 import Foundation
 import FirebaseUI
 
-protocol SplashRouterProtocol: AnyObject {
-    func transition(isAuthenticated: Bool)
+protocol SplashRouterProtocol {
+    func toAuthView()
+    func toArticleListView()
+    func toSelectRssFeedView()
 }
 
 class SplashRouter: SplashRouterProtocol {
@@ -19,13 +21,6 @@ class SplashRouter: SplashRouterProtocol {
         splashView = view
     }
     
-    func transition(isAuthenticated: Bool) {
-        if isAuthenticated {
-            toArticleListView()
-        } else {
-            toAuthView()
-        }
-    }
     
     func toAuthView() {
         let authUI = FUIAuth.defaultAuthUI()!
@@ -47,11 +42,20 @@ class SplashRouter: SplashRouterProtocol {
         articleListViewController.navigationItem.title = "記事一覧"
         
         let nav = UINavigationController(rootViewController: articleListViewController)
-        nav.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.label, .font:UIFont.systemFont(ofSize: 18, weight: .thin)]
         nav.modalPresentationStyle = .fullScreen
         splashView.present(nav,animated: true, completion: nil)
     }
     
+    func toSelectRssFeedView() {
+        let storyboard = UIStoryboard(name: "SelectRssFeed", bundle: nil)
+        let selectRssFeedViewController = storyboard.instantiateViewController(identifier: "SelectRssFeedViewController") as! SelectRssFeedViewController
+        selectRssFeedViewController.navigationItem.largeTitleDisplayMode = .automatic
+        selectRssFeedViewController.navigationItem.title = "記事の選択"
+        selectRssFeedViewController.inject(selectRssFeedRouter: SelectRssFeedRouter(view: selectRssFeedViewController))
+        let nav = UINavigationController(rootViewController: selectRssFeedViewController)
+        nav.modalPresentationStyle = .fullScreen
+        splashView.present(nav,animated: true, completion: nil)
+    }
     
 }
 

@@ -15,8 +15,30 @@
                     <view key="view" contentMode="scaleToFill" id="ZON-oR-Q7R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGU-5v-f4T">
+                                <rect key="frame" x="173.5" y="430" width="67" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Select!!"/>
+                                <connections>
+                                    <action selector="tappedSelectButton:" destination="E97-32-xFG" eventType="touchUpInside" id="8JA-9G-Vq3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SelectRssFeed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e81-m5-pz3">
+                                <rect key="frame" x="114" y="336" width="186" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="DiM-Fg-MlV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="e81-m5-pz3" firstAttribute="centerX" secondItem="ZON-oR-Q7R" secondAttribute="centerX" id="Lsh-H3-8TL"/>
+                            <constraint firstItem="ZGU-5v-f4T" firstAttribute="centerX" secondItem="ZON-oR-Q7R" secondAttribute="centerX" id="VSv-Ac-dO6"/>
+                            <constraint firstItem="ZGU-5v-f4T" firstAttribute="centerY" secondItem="ZON-oR-Q7R" secondAttribute="centerY" id="e14-YL-EwP"/>
+                            <constraint firstItem="ZGU-5v-f4T" firstAttribute="top" secondItem="e81-m5-pz3" secondAttribute="bottom" constant="59" id="fFm-Pf-Sf0"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iuq-el-rRc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -7,11 +7,25 @@
 
 import UIKit
 
-class SelectRssFeedViewController: UIViewController {
+protocol SelectRssFeedViewProtocol: Transitioner {
+    
+}
 
+class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
+
+    private var selectRssFeedRouter: SelectRssFeedRouterProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    func inject(selectRssFeedRouter: SelectRssFeedRouterProtocol) {
+        self.selectRssFeedRouter = selectRssFeedRouter
+    }
+    
+    @IBAction func tappedSelectButton(_ sender: Any) {
+        selectRssFeedRouter?.toArticleListView()
     }
     
 

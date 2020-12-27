@@ -18,7 +18,6 @@ class ArticleListViewController: UIViewController, Transitioner {
     }
     @IBAction func tappedButton(_ sender: Any) {
         UserConfig().removeUser()
-        dismiss(animated: true, completion: nil)
     }
 
 }
