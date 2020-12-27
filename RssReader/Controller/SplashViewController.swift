@@ -14,18 +14,21 @@ class SplashViewController: UIViewController, SplashViewProtocol {
     
     private var splashRouter: SplashRouterProtocol?
     private var loginModel: LoginProtocol?
-    private var shouldAutoLoginWhenFirst = true
+    private var shouldAutoLogin = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
         loginModel?.autoLoginDelegate = self
     }
     
+    /// 初回表示時にオートログインを試します。
+    /// 初回かどうかはshouldAutoLoginWhenFirst
+    /// - Parameter animated: Bool
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if shouldAutoLoginWhenFirst {
+        if shouldAutoLogin {
             loginModel?.autoLogin()
-            shouldAutoLoginWhenFirst = false
+            shouldAutoLogin = false
         }
     }
     
