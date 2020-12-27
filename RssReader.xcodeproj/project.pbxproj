@@ -12,8 +12,8 @@
 		098D56C62593797A00EAD41F /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C52593797A00EAD41F /* SplashRouter.swift */; };
 		09ACE146259621AC00FDB597 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09ACE145259621AC00FDB597 /* GoogleService-Info.plist */; };
 		09ACE21C25964E4500FDB597 /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACE21B25964E4500FDB597 /* UserConfig.swift */; };
-		09ACE2212597245800FDB597 /* AutoLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACE2202597245800FDB597 /* AutoLoginModel.swift */; };
-		09ACE22F2597275800FDB597 /* Extension_UIDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACE22E2597275800FDB597 /* Extension_UIDate.swift */; };
+		09ACE2212597245800FDB597 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACE2202597245800FDB597 /* LoginModel.swift */; };
+		09ACE22F2597275800FDB597 /* Extension_Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACE22E2597275800FDB597 /* Extension_Date.swift */; };
 		09ACE24225977DC100FDB597 /* ArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACE24125977DC100FDB597 /* ArticleListViewController.swift */; };
 		09ACE24A25977DED00FDB597 /* ArticleList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09ACE24925977DED00FDB597 /* ArticleList.storyboard */; };
 		09B8031D2590CF9100CA2D19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8031C2590CF9100CA2D19 /* AppDelegate.swift */; };
@@ -52,8 +52,8 @@
 		098D56C52593797A00EAD41F /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
 		09ACE145259621AC00FDB597 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		09ACE21B25964E4500FDB597 /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
-		09ACE2202597245800FDB597 /* AutoLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLoginModel.swift; sourceTree = "<group>"; };
-		09ACE22E2597275800FDB597 /* Extension_UIDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIDate.swift; sourceTree = "<group>"; };
+		09ACE2202597245800FDB597 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		09ACE22E2597275800FDB597 /* Extension_Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_Date.swift; sourceTree = "<group>"; };
 		09ACE24125977DC100FDB597 /* ArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewController.swift; sourceTree = "<group>"; };
 		09ACE24925977DED00FDB597 /* ArticleList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArticleList.storyboard; sourceTree = "<group>"; };
 		09B803192590CF9100CA2D19 /* RssReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RssReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +119,9 @@
 		098D56BD2593753E00EAD41F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				098D56C0259375BC00EAD41F /* Transitioner.swift */,
 				098D56B72593746F00EAD41F /* SplashViewController.swift */,
+				09ACE24125977DC100FDB597 /* ArticleListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -128,7 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				09ACE21B25964E4500FDB597 /* UserConfig.swift */,
-				09ACE2202597245800FDB597 /* AutoLoginModel.swift */,
+				09ACE2202597245800FDB597 /* LoginModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -136,9 +138,7 @@
 		098D56BF2593759200EAD41F /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				098D56C0259375BC00EAD41F /* Transitioner.swift */,
 				098D56C52593797A00EAD41F /* SplashRouter.swift */,
-				09ACE24125977DC100FDB597 /* ArticleListViewController.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -146,7 +146,7 @@
 		09ACE22D2597272E00FDB597 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				09ACE22E2597275800FDB597 /* Extension_UIDate.swift */,
+				09ACE22E2597275800FDB597 /* Extension_Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -509,8 +509,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				098D56C62593797A00EAD41F /* SplashRouter.swift in Sources */,
-				09ACE22F2597275800FDB597 /* Extension_UIDate.swift in Sources */,
-				09ACE2212597245800FDB597 /* AutoLoginModel.swift in Sources */,
+				09ACE22F2597275800FDB597 /* Extension_Date.swift in Sources */,
+				09ACE2212597245800FDB597 /* LoginModel.swift in Sources */,
 				098D56B82593746F00EAD41F /* SplashViewController.swift in Sources */,
 				09B8031D2590CF9100CA2D19 /* AppDelegate.swift in Sources */,
 				09B8031F2590CF9100CA2D19 /* SceneDelegate.swift in Sources */,

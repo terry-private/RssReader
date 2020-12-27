@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let splashViewController = UIStoryboard(name: "Splash", bundle: nil).instantiateInitialViewController() as! SplashViewController
         
         // 本番環境
-        splashViewController.inject(splashRouter: SplashRouter(view:splashViewController), autoLoginModel: AutoLoginModel(userConfig: UserConfig()))
+        splashViewController.inject(splashRouter: SplashRouter(view:splashViewController), autoLoginModel: LoginModel(userConfig: UserConfig()))
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = splashViewController

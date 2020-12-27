@@ -12,6 +12,7 @@ protocol UserConfigProtocol {
     var photoURL: URL? {get set}
     var displayName: String? {get set}
     var latestLoginDate: Date? {get set}
+    func removeUser()
 }
 
 class UserConfig: UserConfigProtocol {
@@ -47,6 +48,11 @@ class UserConfig: UserConfigProtocol {
             UserDefaults.standard.set(newValue, forKey: "latestLoginDate")
         }
     }
-    
+    func removeUser() {
+        UserDefaults.standard.removeObject(forKey: "userID")
+        UserDefaults.standard.removeObject(forKey: "photoURL")
+        UserDefaults.standard.removeObject(forKey: "displayName")
+        UserDefaults.standard.removeObject(forKey: "latestLoginDate")
+    }
 
 }

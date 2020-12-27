@@ -22,22 +22,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="G7h-2e-au0">
-                                <rect key="frame" x="188.5" y="481.5" width="37" height="37"/>
-                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="G7h-2e-au0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S67-ZG-2uH"/>
                             <constraint firstItem="uiL-Ed-EE8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zmd-cL-Ufh"/>
-                            <constraint firstItem="G7h-2e-au0" firstAttribute="top" secondItem="uiL-Ed-EE8" secondAttribute="bottom" constant="20" id="a3V-Nu-9d4"/>
                             <constraint firstItem="uiL-Ed-EE8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cys-Ny-XGx"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="activityIndicator" destination="G7h-2e-au0" id="EFr-dZ-4ii"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

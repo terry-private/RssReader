@@ -6,46 +6,52 @@
 //
 
 import Foundation
-import Firebase
 import FirebaseUI
 
 protocol SplashRouterProtocol: AnyObject {
-    func transitionToAuthView()
+    func transition(isAuthenticated: Bool)
 }
 
-class SplashRouter:NSObject, SplashRouterProtocol {
-    private(set) weak var splashView: Transitioner!
-    var authUI: FUIAuth { get { return FUIAuth.defaultAuthUI()!}}
+class SplashRouter: SplashRouterProtocol {
+    private(set) weak var splashView: SplashViewProtocol!
     
-    init(view: Transitioner) {
+    init(view: SplashViewProtocol) {
         splashView = view
     }
     
-    func transitionToAuthView() {
-        authUI.delegate = self
+    func transition(isAuthenticated: Bool) {
+        if isAuthenticated {
+            toArticleListView()
+        } else {
+            toAuthView()
+        }
+    }
+    
+    func toAuthView() {
+        let authUI = FUIAuth.defaultAuthUI()!
+        authUI.delegate = splashView
         authUI.providers = [
             FUIGoogleAuth(),
             FUIOAuth.twitterAuthProvider(),
             FUIEmailAuth()
         ]
         let authViewController = authUI.authViewController()
-//        authViewController.modalPresentationStyle = .fullScreen
+        authViewController.modalPresentationStyle = .fullScreen
         splashView.present(authViewController, animated: true, completion: nil)
     }
     
+    func toArticleListView() {
+        let storyboard = UIStoryboard(name: "ArticleList", bundle: nil)
+        let articleListViewController = storyboard.instantiateViewController(identifier: "ArticleListViewController") as! ArticleListViewController
+        articleListViewController.navigationItem.largeTitleDisplayMode = .automatic
+        articleListViewController.navigationItem.title = "記事一覧"
+        
+        let nav = UINavigationController(rootViewController: articleListViewController)
+        nav.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.label, .font:UIFont.systemFont(ofSize: 18, weight: .thin)]
+        nav.modalPresentationStyle = .fullScreen
+        splashView.present(nav,animated: true, completion: nil)
+    }
+    
     
 }
 
-extension SplashRouter: FUIAuthDelegate{
-    //　認証画面から離れたときに呼ばれる（キャンセルボタン押下含む）
-    public func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?){
-        // 認証に成功した場合
-
-        if error == nil {
-            print("success!!")
-        } else {
-            //失敗した場合
-            print("error")
-        }
-    }
-}

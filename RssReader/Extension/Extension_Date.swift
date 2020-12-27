@@ -1,5 +1,5 @@
 //
-//  Extension_UIDate.swift
+//  Extension_Date.swift
 //  RssReader
 //
 //  Created by 若江照仁 on 2020/12/26.
