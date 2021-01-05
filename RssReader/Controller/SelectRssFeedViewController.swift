@@ -13,6 +13,7 @@ protocol SelectRssFeedViewProtocol: Transitioner {
 
 class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
 
+    @IBOutlet weak var selectRssFeedTableView: UITableView!
     private var selectRssFeedRouter: SelectRssFeedRouterProtocol?
     
     override func viewDidLoad() {
@@ -24,9 +25,19 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
         self.selectRssFeedRouter = selectRssFeedRouter
     }
     
-    @IBAction func tappedSelectButton(_ sender: Any) {
-        selectRssFeedRouter?.toArticleListView()
-    }
+    
     
 
+}
+
+extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    
 }

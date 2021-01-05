@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092DCC0F25A1B97E0036A339 /* SelectRssFeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092DCC0E25A1B97E0036A339 /* SelectRssFeedModel.swift */; };
 		095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */; };
 		095F95F725985F88007DC2D5 /* SelectRssFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */; };
 		095F95FF2598725B007DC2D5 /* SelectRssFeedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F95FE2598725B007DC2D5 /* SelectRssFeedRouter.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		0136653DDE8FA9F7D8BB3E7F /* Pods_RssReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RssReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		092DCC0E25A1B97E0036A339 /* SelectRssFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedModel.swift; sourceTree = "<group>"; };
 		095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewController.swift; sourceTree = "<group>"; };
 		095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectRssFeed.storyboard; sourceTree = "<group>"; };
 		095F95FE2598725B007DC2D5 /* SelectRssFeedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedRouter.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				09ACE21B25964E4500FDB597 /* UserConfig.swift */,
 				09ACE2202597245800FDB597 /* LoginModel.swift */,
+				092DCC0E25A1B97E0036A339 /* SelectRssFeedModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				09B8031D2590CF9100CA2D19 /* AppDelegate.swift in Sources */,
 				09B8031F2590CF9100CA2D19 /* SceneDelegate.swift in Sources */,
 				09ACE24225977DC100FDB597 /* ArticleListViewController.swift in Sources */,
+				092DCC0F25A1B97E0036A339 /* SelectRssFeedModel.swift in Sources */,
 				095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */,
 				098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */,
 				09ACE21C25964E4500FDB597 /* UserConfig.swift in Sources */,
