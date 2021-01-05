@@ -25,6 +25,7 @@ class SelectRssFeedRouter: SelectRssFeedRouterProtocol {
         articleListViewController.navigationItem.title = "記事一覧"
         
         let nav = UINavigationController(rootViewController: articleListViewController)
+        nav.navigationBar.prefersLargeTitles = true
         nav.modalPresentationStyle = .fullScreen
         selectRssFeedView.present(nav,animated: true, completion: nil)
     }
