@@ -19,13 +19,6 @@ class SelectRssFeedRouter: SelectRssFeedRouterProtocol {
     }
     
     func toArticleListView() {
-        let storyboard = UIStoryboard(name: "ArticleList", bundle: nil)
-        let articleListViewController = storyboard.instantiateViewController(identifier: "ArticleListViewController") as! ArticleListViewController
-        articleListViewController.navigationItem.largeTitleDisplayMode = .automatic
-        articleListViewController.navigationItem.title = "記事一覧"
-        
-        let nav = UINavigationController(rootViewController: articleListViewController)
-        nav.modalPresentationStyle = .fullScreen
-        selectRssFeedView.present(nav,animated: true, completion: nil)
+        CommonRouter.toArticleListView(view: selectRssFeedView)
     }
 }
