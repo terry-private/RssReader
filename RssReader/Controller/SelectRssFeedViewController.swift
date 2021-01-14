@@ -27,6 +27,5 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
     @IBAction func tappedSelectButton(_ sender: Any) {
         selectRssFeedRouter?.toArticleListView()
     }
-    
 
 }
