@@ -21,7 +21,6 @@ class SplashRouter: SplashRouterProtocol {
         splashView = view
     }
     
-    
     func toAuthView() {
         let authUI = FUIAuth.defaultAuthUI()!
         authUI.delegate = splashView
