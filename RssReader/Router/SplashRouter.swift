@@ -21,7 +21,6 @@ class SplashRouter: SplashRouterProtocol {
         splashView = view
     }
     
-    
     func toAuthView() {
         CommonRouter.toAuth(view: splashView)
     }
