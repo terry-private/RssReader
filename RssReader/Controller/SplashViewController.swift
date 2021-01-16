@@ -14,7 +14,7 @@ class SplashViewController: UIViewController, SplashViewProtocol {
     
     private var splashRouter: SplashRouterProtocol?
     private var loginModel: LoginProtocol?
-    private var shouldAutoLogin = true
+    private var isAutoLogin = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +26,9 @@ class SplashViewController: UIViewController, SplashViewProtocol {
     /// - Parameter animated: Bool
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if shouldAutoLogin {
+        if isAutoLogin {
             loginModel?.autoLogin()
-            shouldAutoLogin = false
+            isAutoLogin = false
         }
     }
     

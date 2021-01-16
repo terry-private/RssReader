@@ -11,6 +11,7 @@
 		095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */; };
 		095F95F725985F88007DC2D5 /* SelectRssFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */; };
 		095F95FF2598725B007DC2D5 /* SelectRssFeedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F95FE2598725B007DC2D5 /* SelectRssFeedRouter.swift */; };
+		095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FDBEB25A754E2007C8922 /* CommonRouter.swift */; };
 		098D56B82593746F00EAD41F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56B72593746F00EAD41F /* SplashViewController.swift */; };
 		098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C0259375BC00EAD41F /* Transitioner.swift */; };
 		098D56C62593797A00EAD41F /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C52593797A00EAD41F /* SplashRouter.swift */; };
@@ -55,6 +56,7 @@
 		095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewController.swift; sourceTree = "<group>"; };
 		095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectRssFeed.storyboard; sourceTree = "<group>"; };
 		095F95FE2598725B007DC2D5 /* SelectRssFeedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedRouter.swift; sourceTree = "<group>"; };
+		095FDBEB25A754E2007C8922 /* CommonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRouter.swift; sourceTree = "<group>"; };
 		098D56B72593746F00EAD41F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		098D56C0259375BC00EAD41F /* Transitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitioner.swift; sourceTree = "<group>"; };
 		098D56C52593797A00EAD41F /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
@@ -115,6 +117,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		092DCC6925A4AED00036A339 /* Dummy */ = {
+			isa = PBXGroup;
+			children = (
+				092DCC6A25A4AEEE0036A339 /* DummyModel.swift */,
+				092DCC7225A4AF470036A339 /* DummyRouter.swift */,
+			);
+			path = Dummy;
+			sourceTree = "<group>";
+		};
 		098D56BC2593750E00EAD41F /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +160,7 @@
 		098D56BF2593759200EAD41F /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				095FDBEB25A754E2007C8922 /* CommonRouter.swift */,
 				098D56C52593797A00EAD41F /* SplashRouter.swift */,
 				095F95FE2598725B007DC2D5 /* SelectRssFeedRouter.swift */,
 			);
@@ -190,6 +202,7 @@
 			children = (
 				09B8031C2590CF9100CA2D19 /* AppDelegate.swift */,
 				09B8031E2590CF9100CA2D19 /* SceneDelegate.swift */,
+				092DCC6925A4AED00036A339 /* Dummy */,
 				09B803272590CF9200CA2D19 /* LaunchScreen.storyboard */,
 				098D56BE2593757300EAD41F /* Model */,
 				098D56BC2593750E00EAD41F /* View */,
@@ -521,9 +534,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				092DCC6B25A4AEEE0036A339 /* DummyModel.swift in Sources */,
+				092DCC7325A4AF470036A339 /* DummyRouter.swift in Sources */,
 				098D56C62593797A00EAD41F /* SplashRouter.swift in Sources */,
 				09ACE22F2597275800FDB597 /* Extension_Date.swift in Sources */,
 				095F95FF2598725B007DC2D5 /* SelectRssFeedRouter.swift in Sources */,
+				095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */,
 				09ACE2212597245800FDB597 /* LoginModel.swift in Sources */,
 				098D56B82593746F00EAD41F /* SplashViewController.swift in Sources */,
 				09B8031D2590CF9100CA2D19 /* AppDelegate.swift in Sources */,
