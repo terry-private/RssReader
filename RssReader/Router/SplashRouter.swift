@@ -22,38 +22,15 @@ class SplashRouter: SplashRouterProtocol {
     }
     
     func toAuthView() {
-        let authUI = FUIAuth.defaultAuthUI()!
-        authUI.delegate = splashView
-        authUI.providers = [
-            FUIGoogleAuth(),
-            FUIOAuth.twitterAuthProvider(),
-            FUIEmailAuth()
-        ]
-        let authViewController = authUI.authViewController()
-        authViewController.modalPresentationStyle = .fullScreen
-        splashView.present(authViewController, animated: true, completion: nil)
+        CommonRouter.toAuth(view: splashView)
     }
     
     func toArticleListView() {
-        let storyboard = UIStoryboard(name: "ArticleList", bundle: nil)
-        let articleListViewController = storyboard.instantiateViewController(identifier: "ArticleListViewController") as! ArticleListViewController
-        articleListViewController.navigationItem.largeTitleDisplayMode = .automatic
-        articleListViewController.navigationItem.title = "記事一覧"
-        
-        let nav = UINavigationController(rootViewController: articleListViewController)
-        nav.modalPresentationStyle = .fullScreen
-        splashView.present(nav,animated: true, completion: nil)
+        CommonRouter.toArticleListView(view: splashView)
     }
     
     func toSelectRssFeedView() {
-        let storyboard = UIStoryboard(name: "SelectRssFeed", bundle: nil)
-        let selectRssFeedViewController = storyboard.instantiateViewController(identifier: "SelectRssFeedViewController") as! SelectRssFeedViewController
-        selectRssFeedViewController.navigationItem.largeTitleDisplayMode = .automatic
-        selectRssFeedViewController.navigationItem.title = "記事の選択"
-        selectRssFeedViewController.inject(selectRssFeedRouter: SelectRssFeedRouter(view: selectRssFeedViewController))
-        let nav = UINavigationController(rootViewController: selectRssFeedViewController)
-        nav.modalPresentationStyle = .fullScreen
-        splashView.present(nav,animated: true, completion: nil)
+        CommonRouter.toSelectRssFeedView(view: splashView)
     }
     
 }
