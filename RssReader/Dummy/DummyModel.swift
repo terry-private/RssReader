@@ -43,3 +43,8 @@ class DummyLoginModel: LoginProtocol {
         userConfig.latestLoginDate = Date()
     }
 }
+
+
+class DummySelectRFeedModel: SelectRssFeedModelProtocol {
+    
+}
