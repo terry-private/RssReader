@@ -12,13 +12,23 @@ protocol SelectRssFeedViewProtocol: Transitioner {
 }
 
 class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
-    
+    //------------------------------------------------------------------------------------
+    // @IBOutlet
+    //------------------------------------------------------------------------------------
     @IBOutlet weak var selectRssFeedTableView: UITableView!
     @IBOutlet weak var selectedCountLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
+    
+    //------------------------------------------------------------------------------------
+    // 変数宣言
+    //------------------------------------------------------------------------------------
     private var selectRssFeedRouter: SelectRssFeedRouterProtocol?
     private var selectRssFeedModel: SelectRssFeedModelProtocol?
     private var cellId = "cellId"
+    
+    //------------------------------------------------------------------------------------
+    // ライフサイクル関連
+    //------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTable()
@@ -35,6 +45,9 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
         self.selectRssFeedModel = selectRssFeedModel
     }
     
+    //------------------------------------------------------------------------------------
+    // 状態変化系
+    //------------------------------------------------------------------------------------
     func changedSelectedCount() {
         setSelectedCountLabel()
         setConfirmButton()
@@ -45,6 +58,10 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
     func setConfirmButton() {
         confirmButton.isEnabled = (selectRssFeedModel?.selectedRssFeedList.count ?? 0) > 0
     }
+    
+    //------------------------------------------------------------------------------------
+    // @IBAction
+    //------------------------------------------------------------------------------------
     @IBAction func tappedConfirmButton(_ sender: Any) {
         selectRssFeedRouter?.toArticleListView()
     }
@@ -59,24 +76,25 @@ extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSourc
         let cell = selectRssFeedTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SelectRssTableViewCell
         let title = selectRssFeedModel?.rssFeedList[indexPath.row] ?? ""
         let isSelected = selectRssFeedModel?.selectedRssFeedList.contains(title) ?? false
-        cell.rssFeedTitleLabel?.text = "\(title):\(isSelected)"
+        cell.rssFeedTitleLabel?.text = title
         cell.isSelectedRssFeed = isSelected
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let title = selectRssFeedModel?.rssFeedList[indexPath.row] ?? ""
         let cell = selectRssFeedTableView.cellForRow(at: indexPath) as! SelectRssTableViewCell
         if cell.isSelectedRssFeed {
             selectRssFeedModel?.selectedRssFeedList.remove(title)
+            cell.isSelectedRssFeed = false
         } else {
             selectRssFeedModel?.selectedRssFeedList.insert(title)
+            cell.isSelectedRssFeed = true
         }
-        tableView.reloadData()
         changedSelectedCount()
     }
     
 }
-
 
 
 class SelectRssTableViewCell: UITableViewCell {
