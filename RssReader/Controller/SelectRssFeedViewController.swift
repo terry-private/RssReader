@@ -14,12 +14,15 @@ protocol SelectRssFeedViewProtocol: Transitioner {
 class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
     
     @IBOutlet weak var selectRssFeedTableView: UITableView!
+    @IBOutlet weak var selectedCountLabel: UILabel!
+    @IBOutlet weak var confirmButton: UIButton!
     private var selectRssFeedRouter: SelectRssFeedRouterProtocol?
     private var selectRssFeedModel: SelectRssFeedModelProtocol?
     private var cellId = "cellId"
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTable()
+        changedSelectedCount()
     }
     
     func setUpTable() {
@@ -32,9 +35,19 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
         self.selectRssFeedModel = selectRssFeedModel
     }
     
-    
-    
-
+    func changedSelectedCount() {
+        setSelectedCountLabel()
+        setConfirmButton()
+    }
+    func setSelectedCountLabel() {
+        selectedCountLabel.text = String(selectRssFeedModel?.selectedRssFeedList.count ?? 0)
+    }
+    func setConfirmButton() {
+        confirmButton.isEnabled = (selectRssFeedModel?.selectedRssFeedList.count ?? 0) > 0
+    }
+    @IBAction func tappedConfirmButton(_ sender: Any) {
+        selectRssFeedRouter?.toArticleListView()
+    }
 }
 
 extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSource {
@@ -59,6 +72,7 @@ extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSourc
             selectRssFeedModel?.selectedRssFeedList.insert(title)
         }
         tableView.reloadData()
+        changedSelectedCount()
     }
     
 }

@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PHq-qF-nMI">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="768"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellId" id="PbK-vD-8l6" customClass="SelectRssTableViewCell" customModule="RssReader" customModuleProvider="target">
@@ -62,6 +62,49 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sf1-et-uNe">
+                                        <rect key="frame" x="0.0" y="768" width="414" height="50"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="nOX-33-A6Z">
+                                                <rect key="frame" x="135.5" y="15" width="143.5" height="20.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購読する記事：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5h-Fc-tgB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="121.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvF-d1-aAV">
+                                                        <rect key="frame" x="121.5" y="0.0" width="10.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="件" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7N-bf-iyO">
+                                                        <rect key="frame" x="132" y="7" width="11.5" height="13.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qmi-CR-hlB">
+                                                <rect key="frame" x="363" y="10" width="31" height="30"/>
+                                                <state key="normal" title="確定"/>
+                                                <connections>
+                                                    <action selector="tappedConfirmButton:" destination="E97-32-xFG" eventType="touchUpInside" id="ynA-rc-eP6"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Qmi-CR-hlB" secondAttribute="trailing" constant="20" id="DkP-0j-OQ0"/>
+                                            <constraint firstAttribute="height" constant="50" id="JIR-tV-sBT"/>
+                                            <constraint firstItem="nOX-33-A6Z" firstAttribute="centerX" secondItem="Sf1-et-uNe" secondAttribute="centerX" id="T0D-Oi-ERW"/>
+                                            <constraint firstItem="Qmi-CR-hlB" firstAttribute="centerY" secondItem="Sf1-et-uNe" secondAttribute="centerY" id="UU5-z1-vjd"/>
+                                            <constraint firstItem="nOX-33-A6Z" firstAttribute="centerY" secondItem="Sf1-et-uNe" secondAttribute="centerY" id="qAu-Br-6Ao"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -75,7 +118,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="confirmButton" destination="Qmi-CR-hlB" id="hcQ-4a-it3"/>
                         <outlet property="selectRssFeedTableView" destination="PHq-qF-nMI" id="ZUz-Sd-M6K"/>
+                        <outlet property="selectedCountLabel" destination="MvF-d1-aAV" id="tmb-2U-viy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iuq-el-rRc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
