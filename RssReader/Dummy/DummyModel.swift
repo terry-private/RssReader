@@ -46,5 +46,11 @@ class DummyLoginModel: LoginProtocol {
 
 
 class DummySelectRFeedModel: SelectRssFeedModelProtocol {
+    var selectedRssFeedList: Set<String> = Set<String>()
     
+    var rssFeedList: [String] = ["dummy1", "dummy2", "dummy3"]
+    
+    init() {
+        selectedRssFeedList.insert("dummy2")
+    }
 }

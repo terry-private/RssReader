@@ -25,7 +25,6 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
     func setUpTable() {
         selectRssFeedTableView.delegate = self
         selectRssFeedTableView.dataSource = self
-        selectRssFeedTableView.allowsMultipleSelection = true
     }
     
     func inject(selectRssFeedRouter: SelectRssFeedRouterProtocol, selectRssFeedModel: SelectRssFeedModelProtocol) {
@@ -40,24 +39,26 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
 
 extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return selectRssFeedModel?.rssFeedList.count ?? 0
     }
-    
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = selectRssFeedTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SelectRssTableViewCell
-        cell.rssFeedTitleLabel?.text = "sample"
+        let title = selectRssFeedModel?.rssFeedList[indexPath.row] ?? ""
+        let isSelected = selectRssFeedModel?.selectedRssFeedList.contains(title) ?? false
+        cell.rssFeedTitleLabel?.text = "\(title):\(isSelected)"
+        cell.isSelectedRssFeed = isSelected
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
-        cell?.accessoryType = .checkmark
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at:indexPath)
-        cell?.accessoryType = .none
+        let title = selectRssFeedModel?.rssFeedList[indexPath.row] ?? ""
+        let cell = selectRssFeedTableView.cellForRow(at: indexPath) as! SelectRssTableViewCell
+        if cell.isSelectedRssFeed {
+            selectRssFeedModel?.selectedRssFeedList.remove(title)
+        } else {
+            selectRssFeedModel?.selectedRssFeedList.insert(title)
+        }
+        tableView.reloadData()
     }
     
 }
@@ -66,6 +67,18 @@ extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSourc
 
 class SelectRssTableViewCell: UITableViewCell {
     @IBOutlet weak var rssFeedTitleLabel: UILabel!
+    @IBOutlet weak var isSelectedLabel: UILabel!
+    var isSelectedRssFeed: Bool  = false{
+        didSet {
+            if isSelectedRssFeed {
+                isSelectedLabel.textColor = .systemGreen
+                isSelectedLabel.text = "選択済み"
+            } else {
+                isSelectedLabel.textColor = .systemGray
+                isSelectedLabel.text = "未選択"
+            }
+        }
+    }
     override class func awakeFromNib() {
         super.awakeFromNib()
     }

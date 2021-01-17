@@ -24,25 +24,39 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellId" id="PbK-vD-8l6" customClass="SelectRssTableViewCell" customModule="RssReader" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                                <rect key="frame" x="0.0" y="28" width="414" height="41"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PbK-vD-8l6" id="TbT-L5-rbP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="41"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8J-up-3dr">
-                                                            <rect key="frame" x="40" y="11.5" width="41.5" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="S41-sV-KYe">
+                                                            <rect key="frame" x="20" y="10" width="374" height="21"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8J-up-3dr">
+                                                                    <rect key="frame" x="0.0" y="0.5" width="41.5" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IB8-ni-j5m">
+                                                                    <rect key="frame" x="332.5" y="0.5" width="41.5" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="H8J-up-3dr" firstAttribute="leading" secondItem="TbT-L5-rbP" secondAttribute="leadingMargin" constant="20" id="nll-e5-QNj"/>
-                                                        <constraint firstItem="H8J-up-3dr" firstAttribute="centerY" secondItem="TbT-L5-rbP" secondAttribute="centerY" id="qyN-jQ-FKS"/>
+                                                        <constraint firstItem="S41-sV-KYe" firstAttribute="top" secondItem="TbT-L5-rbP" secondAttribute="top" constant="10" id="17V-Vf-YJB"/>
+                                                        <constraint firstItem="S41-sV-KYe" firstAttribute="leading" secondItem="TbT-L5-rbP" secondAttribute="leading" constant="20" id="3WH-ii-D4I"/>
+                                                        <constraint firstAttribute="trailing" secondItem="S41-sV-KYe" secondAttribute="trailing" constant="20" id="pWZ-OG-Enc"/>
+                                                        <constraint firstAttribute="bottom" secondItem="S41-sV-KYe" secondAttribute="bottom" constant="10" id="wp2-pe-RFR"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="isSelectedLabel" destination="IB8-ni-j5m" id="6d3-wh-28Z"/>
                                                     <outlet property="rssFeedTitleLabel" destination="H8J-up-3dr" id="Ae8-Tz-k5V"/>
                                                 </connections>
                                             </tableViewCell>
