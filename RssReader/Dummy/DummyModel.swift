@@ -48,9 +48,12 @@ class DummyLoginModel: LoginProtocol {
 class DummySelectRFeedModel: SelectRssFeedModelProtocol {
     var selectedRssFeedList: Set<String> = Set<String>()
     
-    var rssFeedList: [String] = ["dummy1", "dummy2", "dummy3"]
+    var rssFeedList: [String] = []
     
     init() {
+        for i in 1...50 {
+            rssFeedList.append("dummy\(i)")
+        }
         selectedRssFeedList.insert("dummy2")
     }
 }
