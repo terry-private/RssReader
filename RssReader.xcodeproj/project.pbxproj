@@ -14,6 +14,7 @@
 		095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FDBEB25A754E2007C8922 /* CommonRouter.swift */; };
 		0975611625B2985A007B0D3F /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975611425B2985A007B0D3F /* DummyModel.swift */; };
 		0975611725B2985A007B0D3F /* DummyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975611525B2985A007B0D3F /* DummyRouter.swift */; };
+		0975613F25B73155007B0D3F /* ArticleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975613E25B73155007B0D3F /* ArticleList.swift */; };
 		098D56B82593746F00EAD41F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56B72593746F00EAD41F /* SplashViewController.swift */; };
 		098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C0259375BC00EAD41F /* Transitioner.swift */; };
 		098D56C62593797A00EAD41F /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C52593797A00EAD41F /* SplashRouter.swift */; };
@@ -61,6 +62,7 @@
 		095FDBEB25A754E2007C8922 /* CommonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRouter.swift; sourceTree = "<group>"; };
 		0975611425B2985A007B0D3F /* DummyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
 		0975611525B2985A007B0D3F /* DummyRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyRouter.swift; sourceTree = "<group>"; };
+		0975613E25B73155007B0D3F /* ArticleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleList.swift; sourceTree = "<group>"; };
 		098D56B72593746F00EAD41F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		098D56C0259375BC00EAD41F /* Transitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitioner.swift; sourceTree = "<group>"; };
 		098D56C52593797A00EAD41F /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				09ACE21B25964E4500FDB597 /* UserConfig.swift */,
 				09ACE2202597245800FDB597 /* LoginModel.swift */,
 				092DCC0E25A1B97E0036A339 /* SelectRssFeedModel.swift */,
+				0975613E25B73155007B0D3F /* ArticleList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				0975611625B2985A007B0D3F /* DummyModel.swift in Sources */,
 				09ACE24225977DC100FDB597 /* ArticleListViewController.swift in Sources */,
 				092DCC0F25A1B97E0036A339 /* SelectRssFeedModel.swift in Sources */,
+				0975613F25B73155007B0D3F /* ArticleList.swift in Sources */,
 				095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */,
 				098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */,
 				09ACE21C25964E4500FDB597 /* UserConfig.swift in Sources */,
