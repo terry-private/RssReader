@@ -35,7 +35,7 @@ class DummySplashRouter: SplashRouterProtocol {
         let selectRssFeedViewController = storyboard.instantiateViewController(identifier: "SelectRssFeedViewController") as! SelectRssFeedViewController
         selectRssFeedViewController.navigationItem.largeTitleDisplayMode = .automatic
         selectRssFeedViewController.navigationItem.title = "記事の選択"
-        selectRssFeedViewController.inject(selectRssFeedRouter: SelectRssFeedRouter(view: selectRssFeedViewController))
+        selectRssFeedViewController.inject(selectRssFeedRouter: SelectRssFeedRouter(view: selectRssFeedViewController), selectRssFeedModel: DummySelectRFeedModel())
         let nav = UINavigationController(rootViewController: selectRssFeedViewController)
         nav.modalPresentationStyle = .fullScreen
         splashView.present(nav,animated: true, completion: nil)

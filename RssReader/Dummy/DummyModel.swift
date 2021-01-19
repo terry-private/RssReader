@@ -43,3 +43,17 @@ class DummyLoginModel: LoginProtocol {
         userConfig.latestLoginDate = Date()
     }
 }
+
+
+class DummySelectRFeedModel: SelectRssFeedModelProtocol {
+    var selectedRssFeedList: Set<String> = Set<String>()
+    
+    var rssFeedList: [String] = []
+    
+    init() {
+        for i in 1...50 {
+            rssFeedList.append("dummy\(i)")
+        }
+        selectedRssFeedList.insert("dummy2")
+    }
+}

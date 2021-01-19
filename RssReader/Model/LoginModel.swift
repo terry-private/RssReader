@@ -34,6 +34,7 @@ final class LoginModel: LoginProtocol {
         if let latestDate = userConfig.latestLoginDate {
             if latestDate.addingTimeInterval(60 * 60 * 24 * 7) > Date() {
                 autoLoginDelegate?.didAutoLogin(isSuccess: true)
+                return
             }
         }
         autoLoginDelegate?.didAutoLogin(isSuccess: false)
