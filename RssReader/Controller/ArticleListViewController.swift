@@ -10,6 +10,15 @@ import Firebase
 import FirebaseUI
 
 class ArticleListViewController: UIViewController, Transitioner {
+    //------------------------------------------------------------------------------------
+    // @IBOutlet
+    //------------------------------------------------------------------------------------
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var articleTableView: UITableView!
+    
+    //------------------------------------------------------------------------------------
+    // 変数宣言
+    //------------------------------------------------------------------------------------
     var cellId = "cellId"
     var items: [Item] = [] {
         didSet {
@@ -18,8 +27,10 @@ class ArticleListViewController: UIViewController, Transitioner {
         }
     }
     var articleType: ArticleType = Qiita(tag: "swift")
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var articleTableView: UITableView!
+    
+    //------------------------------------------------------------------------------------
+    // ライフサイクル関連
+    //------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         articleTableView.dataSource = self
@@ -29,6 +40,10 @@ class ArticleListViewController: UIViewController, Transitioner {
         super.viewWillAppear(animated)
         fetchItems()
     }
+    
+    //------------------------------------------------------------------------------------
+    // 関数
+    //------------------------------------------------------------------------------------
     func fetchItems() {
         activityIndicator.startAnimating()
         RssClient.fetchItems(rssApiUrl: articleType.url, completion: {(response) in
@@ -58,7 +73,13 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = articleTableView.cellForRow(at: indexPath) as! ArticleTableViewCell
+        guard let url = URL(string: cell.item?.link ?? "") else { return }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler:  nil)
+        }
+    }
 }
 
 
