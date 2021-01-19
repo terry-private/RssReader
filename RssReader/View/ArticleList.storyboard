@@ -84,6 +84,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" id="x2A-Xn-hGy">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4EE-D7-qrk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -95,6 +99,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="x2A-Xn-hGy" id="uai-5x-XYb"/>
                         <outlet property="articleTableView" destination="8gO-2C-Nc7" id="zJx-8E-ZIX"/>
                     </connections>
                 </viewController>

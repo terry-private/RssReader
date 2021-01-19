@@ -14,9 +14,11 @@ class ArticleListViewController: UIViewController, Transitioner {
     var items: [Item] = [] {
         didSet {
             articleTableView.reloadData()
+            self.activityIndicator.stopAnimating()
         }
     }
     var articleType: ArticleType = Qiita(tag: "swift")
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var articleTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +27,18 @@ class ArticleListViewController: UIViewController, Transitioner {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        fetchItems()
+    }
+    func fetchItems() {
+        activityIndicator.startAnimating()
         RssClient.fetchItems(rssApiUrl: articleType.url, completion: {(response) in
-            guard let items = response else { return }
+            guard let items = response else {
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                }
+                return
+                
+            }
             DispatchQueue.main.async {
                 self.items = items
             }
