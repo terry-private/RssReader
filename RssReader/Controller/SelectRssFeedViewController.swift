@@ -22,9 +22,10 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
     //------------------------------------------------------------------------------------
     // 変数宣言
     //------------------------------------------------------------------------------------
-    private var selectRssFeedRouter: SelectRssFeedRouterProtocol?
     private var selectRssFeedModel: SelectRssFeedModelProtocol?
     private var cellId = "cellId"
+    private var isFirst = true
+    
     
     //------------------------------------------------------------------------------------
     // ライフサイクル関連
@@ -40,11 +41,21 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
         selectRssFeedTableView.dataSource = self
     }
     
-    func inject(selectRssFeedRouter: SelectRssFeedRouterProtocol, selectRssFeedModel: SelectRssFeedModelProtocol) {
-        self.selectRssFeedRouter = selectRssFeedRouter
+    func inject(selectRssFeedModel: SelectRssFeedModelProtocol) {
         self.selectRssFeedModel = selectRssFeedModel
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if isFirst {
+            let splashViewController = UIStoryboard(name: "Splash", bundle: nil).instantiateInitialViewController() as! SplashViewController
+            splashViewController.inject(splashRouter: DummySplashRouter(view:splashViewController, parent: self), autoLoginModel: DummyLoginModel())
+            let nav = UINavigationController(rootViewController: splashViewController)
+            nav.modalPresentationStyle = .fullScreen
+            present(nav, animated: false, completion: nil)
+            isFirst = false
+        }
+    }
     //------------------------------------------------------------------------------------
     // 状態変化系
     //------------------------------------------------------------------------------------
@@ -63,7 +74,7 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
     // @IBAction
     //------------------------------------------------------------------------------------
     @IBAction func tappedConfirmButton(_ sender: Any) {
-        selectRssFeedRouter?.toArticleListView()
+        dismiss(animated: true)
     }
 }
 

@@ -20,5 +20,4 @@ class SelectRssFeedModel: SelectRssFeedModelProtocol {
         rssFeedList = ["test1", "test2"]
         selectedRssFeedList = Set<String>()
     }
-    
 }

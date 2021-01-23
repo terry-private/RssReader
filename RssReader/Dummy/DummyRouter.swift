@@ -11,9 +11,11 @@ import UIKit
 
 class DummySplashRouter: SplashRouterProtocol {
     private(set) weak var splashView: SplashViewProtocol!
+    weak var parent: Transitioner?
     
-    init(view: SplashViewProtocol) {
+    init(view: SplashViewProtocol, parent: Transitioner) {
         splashView = view
+        self.parent = parent
     }
     func toAuthView() {
         toSelectRssFeedView()
@@ -27,18 +29,12 @@ class DummySplashRouter: SplashRouterProtocol {
         
         let nav = UINavigationController(rootViewController: articleListViewController)
         nav.modalPresentationStyle = .fullScreen
+        
         splashView.present(nav,animated: true, completion: nil)
     }
     
     func toSelectRssFeedView() {
-        let storyboard = UIStoryboard(name: "SelectRssFeed", bundle: nil)
-        let selectRssFeedViewController = storyboard.instantiateViewController(identifier: "SelectRssFeedViewController") as! SelectRssFeedViewController
-        selectRssFeedViewController.navigationItem.largeTitleDisplayMode = .automatic
-        selectRssFeedViewController.navigationItem.title = "記事の選択"
-        selectRssFeedViewController.inject(selectRssFeedRouter: SelectRssFeedRouter(view: selectRssFeedViewController), selectRssFeedModel: DummySelectRFeedModel())
-        let nav = UINavigationController(rootViewController: selectRssFeedViewController)
-        nav.modalPresentationStyle = .fullScreen
-        splashView.present(nav,animated: true, completion: nil)
+        splashView.dismiss(animated: true)
     }
     
     

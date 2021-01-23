@@ -16,17 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FirebaseApp.configure()
 
-        let splashViewController = UIStoryboard(name: "Splash", bundle: nil).instantiateInitialViewController() as! SplashViewController
+//        let splashViewController = UIStoryboard(name: "Splash", bundle: nil).instantiateInitialViewController() as! SplashViewController
         
         // 本番環境
 //        splashViewController.inject(splashRouter: SplashRouter(view:splashViewController), autoLoginModel: LoginModel(userConfig: UserConfig()))
         
         // ダミー環境
-        splashViewController.inject(splashRouter: DummySplashRouter(view:splashViewController), autoLoginModel: DummyLoginModel())
+//        splashViewController.inject(splashRouter: DummySplashRouter(view:splashViewController), autoLoginModel: DummyLoginModel())
         
+        let mainTab = MainTabBarController()
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = splashViewController
+        window?.rootViewController = mainTab
         window?.makeKeyAndVisible()
         
         return true

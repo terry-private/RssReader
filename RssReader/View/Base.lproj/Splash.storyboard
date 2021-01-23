@@ -22,14 +22,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4eW-Rq-a6T">
+                                <rect key="frame" x="132" y="511.5" width="150" height="4"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="MkX-Pw-ZmV"/>
+                                </constraints>
+                            </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="4eW-Rq-a6T" firstAttribute="top" secondItem="uiL-Ed-EE8" secondAttribute="bottom" constant="50" id="IAx-j4-OkE"/>
                             <constraint firstItem="uiL-Ed-EE8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zmd-cL-Ufh"/>
                             <constraint firstItem="uiL-Ed-EE8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cys-Ny-XGx"/>
+                            <constraint firstItem="4eW-Rq-a6T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ydU-KJ-ZSd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="progressView" destination="4eW-Rq-a6T" id="iev-F7-0Rw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

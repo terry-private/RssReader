@@ -15,7 +15,10 @@ class SplashViewController: UIViewController, SplashViewProtocol {
     private var splashRouter: SplashRouterProtocol?
     private var loginModel: LoginProtocol?
     private var isAutoLogin = true
-
+    var timer: Timer!
+    var count: Float = 0
+    @IBOutlet weak var progressView: UIProgressView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginModel?.autoLoginDelegate = self
@@ -26,10 +29,27 @@ class SplashViewController: UIViewController, SplashViewProtocol {
     /// - Parameter animated: Bool
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if isAutoLogin {
-            loginModel?.autoLogin()
-            isAutoLogin = false
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.01,
+                                     target: self,
+                                     selector: #selector(timerUpdate),
+                                     userInfo: nil,
+                                     repeats: true)
+    }
+    
+    @objc func timerUpdate() {
+        count += 0.01
+        if count < 1.1 {
+            progressView.setProgress(count, animated: true)
+        } else {
+            timer.invalidate()
+            autoLogin()
         }
+    }
+    
+    func autoLogin() {
+        self.loginModel?.autoLogin()
+        self.isAutoLogin = false
     }
     
     func inject(splashRouter: SplashRouterProtocol, autoLoginModel: LoginProtocol) {

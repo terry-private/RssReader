@@ -15,6 +15,7 @@ class ArticleListViewController: UIViewController, Transitioner {
     //------------------------------------------------------------------------------------
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var articleTableView: UITableView!
+    @IBOutlet weak var splashView: UIView!
     
     //------------------------------------------------------------------------------------
     // 変数宣言
@@ -27,6 +28,7 @@ class ArticleListViewController: UIViewController, Transitioner {
         }
     }
     var articleType: ArticleType = Qiita(tag: "swift")
+    var isFirst = true
     
     //------------------------------------------------------------------------------------
     // ライフサイクル関連
@@ -38,8 +40,33 @@ class ArticleListViewController: UIViewController, Transitioner {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchItems()
+        if isFirst { return }
+        splashView.isHidden = true
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if isFirst {
+            
+            let selectRssFeedViewController = UIStoryboard(name: "SelectRssFeed", bundle: nil).instantiateViewController(identifier: "SelectRssFeedViewController") as! SelectRssFeedViewController
+            selectRssFeedViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
+            selectRssFeedViewController.inject(selectRssFeedModel: DummySelectRFeedModel())
+            selectRssFeedViewController.navigationItem.title = "Rssの選択"
+            
+            let nav = UINavigationController(rootViewController: selectRssFeedViewController)
+            nav.navigationBar.prefersLargeTitles = true
+            nav.modalPresentationStyle = .fullScreen
+            
+//            let splashViewController = UIStoryboard(name: "Splash", bundle: nil).instantiateInitialViewController() as! SplashViewController
+//            splashViewController.inject(splashRouter: DummySplashRouter(view:splashViewController, parent: self), autoLoginModel: DummyLoginModel())
+            
+            present(nav, animated: false, completion: nil)
+//            nav.present(splashViewController, animated: false, completion: nil)
+            isFirst = false
+        } else {
+            fetchItems()
+        }
+    }
+    
     
     //------------------------------------------------------------------------------------
     // 関数

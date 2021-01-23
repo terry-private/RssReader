@@ -16,8 +16,9 @@ protocol SplashRouterProtocol {
 
 class SplashRouter: SplashRouterProtocol {
     private(set) weak var splashView: SplashViewProtocol!
+    weak var parent: Transitioner?
     
-    init(view: SplashViewProtocol) {
+    init(view: SplashViewProtocol, parent: Transitioner) {
         splashView = view
     }
     
@@ -26,11 +27,12 @@ class SplashRouter: SplashRouterProtocol {
     }
     
     func toArticleListView() {
-        CommonRouter.toArticleListView(view: splashView)
+        splashView.dismiss(animated: true)
     }
     
     func toSelectRssFeedView() {
-        CommonRouter.toSelectRssFeedView(view: splashView)
+        parent?.dismiss(animated: false)
+        splashView.dismiss(animated: true)
     }
     
 }
