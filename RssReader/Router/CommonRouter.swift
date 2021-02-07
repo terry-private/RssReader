@@ -12,7 +12,7 @@ class CommonRouter {
     /// 認証画面へ
     /// - Parameter view: FUIAuthDelegateが必要
     /// SplashView = Transitioner + FUIAuthDelegate
-    class func toAuth(view: SplashViewProtocol) {
+    class func toAuth(view: ArticleListViewControllerProtocol) {
         let authUI = FUIAuth.defaultAuthUI()!
         authUI.delegate = view
         authUI.providers = [

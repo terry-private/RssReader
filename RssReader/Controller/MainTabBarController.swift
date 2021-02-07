@@ -18,18 +18,17 @@ class MainTabBarController: UITabBarController, Transitioner {
     
     func setupTab() {
         let articleListViewController = UIStoryboard(name: "ArticleList", bundle: nil).instantiateViewController(identifier: "ArticleListViewController") as! ArticleListViewController
+        
+        //inject
+        articleListViewController.inject(
+            loginModel: DummyLoginModel(),
+            articleListRouter: ArticleListRouter(articleListViewController: articleListViewController)
+        )
         articleListViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .mostRecent, tag: 0)
-        articleListViewController.navigationItem.title = "記事一覧"
         let articleListNav = UINavigationController(rootViewController: articleListViewController)
         articleListNav.navigationBar.prefersLargeTitles = true
         
         viewControllers = [articleListNav, UIViewController()]
         
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-    
 }

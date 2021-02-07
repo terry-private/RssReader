@@ -17,9 +17,8 @@
 		0975614425B731CF007B0D3F /* RssClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975614325B731CF007B0D3F /* RssClient.swift */; };
 		0975614925B732F1007B0D3F /* ArticleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975614825B732F1007B0D3F /* ArticleType.swift */; };
 		0975615725B85F50007B0D3F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975615625B85F50007B0D3F /* MainTabBarController.swift */; };
-		098D56B82593746F00EAD41F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56B72593746F00EAD41F /* SplashViewController.swift */; };
+		097AFF9F25C07736007AC6FA /* ArticleListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097AFF9E25C07735007AC6FA /* ArticleListRouter.swift */; };
 		098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C0259375BC00EAD41F /* Transitioner.swift */; };
-		098D56C62593797A00EAD41F /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C52593797A00EAD41F /* SplashRouter.swift */; };
 		09ACE146259621AC00FDB597 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09ACE145259621AC00FDB597 /* GoogleService-Info.plist */; };
 		09ACE21C25964E4500FDB597 /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACE21B25964E4500FDB597 /* UserConfig.swift */; };
 		09ACE2212597245800FDB597 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACE2202597245800FDB597 /* LoginModel.swift */; };
@@ -28,7 +27,6 @@
 		09ACE24A25977DED00FDB597 /* ArticleList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09ACE24925977DED00FDB597 /* ArticleList.storyboard */; };
 		09B8031D2590CF9100CA2D19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8031C2590CF9100CA2D19 /* AppDelegate.swift */; };
 		09B8031F2590CF9100CA2D19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8031E2590CF9100CA2D19 /* SceneDelegate.swift */; };
-		09B803242590CF9100CA2D19 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09B803222590CF9100CA2D19 /* Splash.storyboard */; };
 		09B803262590CF9200CA2D19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09B803252590CF9200CA2D19 /* Assets.xcassets */; };
 		09B803292590CF9200CA2D19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09B803272590CF9200CA2D19 /* LaunchScreen.storyboard */; };
 		09B803342590CF9300CA2D19 /* RssReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B803332590CF9300CA2D19 /* RssReaderTests.swift */; };
@@ -67,9 +65,8 @@
 		0975614325B731CF007B0D3F /* RssClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssClient.swift; sourceTree = "<group>"; };
 		0975614825B732F1007B0D3F /* ArticleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleType.swift; sourceTree = "<group>"; };
 		0975615625B85F50007B0D3F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		098D56B72593746F00EAD41F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		097AFF9E25C07735007AC6FA /* ArticleListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListRouter.swift; sourceTree = "<group>"; };
 		098D56C0259375BC00EAD41F /* Transitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitioner.swift; sourceTree = "<group>"; };
-		098D56C52593797A00EAD41F /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
 		09ACE145259621AC00FDB597 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		09ACE21B25964E4500FDB597 /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
 		09ACE2202597245800FDB597 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -79,7 +76,6 @@
 		09B803192590CF9100CA2D19 /* RssReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RssReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B8031C2590CF9100CA2D19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09B8031E2590CF9100CA2D19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		09B803232590CF9100CA2D19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Splash.storyboard; sourceTree = "<group>"; };
 		09B803252590CF9200CA2D19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09B803282590CF9200CA2D19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09B8032A2590CF9200CA2D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -139,7 +135,6 @@
 		098D56BC2593750E00EAD41F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				09B803222590CF9100CA2D19 /* Splash.storyboard */,
 				095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */,
 				09ACE24925977DED00FDB597 /* ArticleList.storyboard */,
 			);
@@ -151,7 +146,6 @@
 			children = (
 				098D56C0259375BC00EAD41F /* Transitioner.swift */,
 				0975615625B85F50007B0D3F /* MainTabBarController.swift */,
-				098D56B72593746F00EAD41F /* SplashViewController.swift */,
 				095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */,
 				09ACE24125977DC100FDB597 /* ArticleListViewController.swift */,
 			);
@@ -175,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				095FDBEB25A754E2007C8922 /* CommonRouter.swift */,
-				098D56C52593797A00EAD41F /* SplashRouter.swift */,
+				097AFF9E25C07735007AC6FA /* ArticleListRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -385,7 +379,6 @@
 				09ACE146259621AC00FDB597 /* GoogleService-Info.plist in Resources */,
 				095F95F725985F88007DC2D5 /* SelectRssFeed.storyboard in Resources */,
 				09B803262590CF9200CA2D19 /* Assets.xcassets in Resources */,
-				09B803242590CF9100CA2D19 /* Splash.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,12 +540,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				098D56C62593797A00EAD41F /* SplashRouter.swift in Sources */,
 				09ACE22F2597275800FDB597 /* Extension_Date.swift in Sources */,
 				095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */,
 				0975611725B2985A007B0D3F /* DummyRouter.swift in Sources */,
 				09ACE2212597245800FDB597 /* LoginModel.swift in Sources */,
-				098D56B82593746F00EAD41F /* SplashViewController.swift in Sources */,
 				09B8031D2590CF9100CA2D19 /* AppDelegate.swift in Sources */,
 				09B8031F2590CF9100CA2D19 /* SceneDelegate.swift in Sources */,
 				0975614425B731CF007B0D3F /* RssClient.swift in Sources */,
@@ -564,6 +555,7 @@
 				0975613F25B73155007B0D3F /* ArticleList.swift in Sources */,
 				095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */,
 				098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */,
+				097AFF9F25C07736007AC6FA /* ArticleListRouter.swift in Sources */,
 				09ACE21C25964E4500FDB597 /* UserConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -600,14 +592,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		09B803222590CF9100CA2D19 /* Splash.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				09B803232590CF9100CA2D19 /* Base */,
-			);
-			name = Splash.storyboard;
-			sourceTree = "<group>";
-		};
 		09B803272590CF9200CA2D19 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

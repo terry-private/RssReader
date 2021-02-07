@@ -33,7 +33,7 @@ class DummyLoginModel: LoginProtocol {
         userConfig = DummyUserConfig()
     }
     func autoLogin() {
-        autoLoginDelegate?.didAutoLogin(isSuccess: false)
+        autoLoginDelegate?.didAutoLogin(isSuccess: true)
     }
     
     func setUserConfig(userID: String, photoURL: URL?, displayName: String) {

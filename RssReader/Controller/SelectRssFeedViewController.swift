@@ -12,24 +12,19 @@ protocol SelectRssFeedViewProtocol: Transitioner {
 }
 
 class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
-    //------------------------------------------------------------------------------------
-    // @IBOutlet
-    //------------------------------------------------------------------------------------
+    //MARK:- @IBOutlet
+    
     @IBOutlet weak var selectRssFeedTableView: UITableView!
     @IBOutlet weak var selectedCountLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
     
-    //------------------------------------------------------------------------------------
-    // 変数宣言
-    //------------------------------------------------------------------------------------
+    //MARK:- 変数宣言
+    
     private var selectRssFeedModel: SelectRssFeedModelProtocol?
     private var cellId = "cellId"
-    private var isFirst = true
     
+    //MARK:- ライフサイクル関連
     
-    //------------------------------------------------------------------------------------
-    // ライフサイクル関連
-    //------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTable()
@@ -45,20 +40,9 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
         self.selectRssFeedModel = selectRssFeedModel
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if isFirst {
-            let splashViewController = UIStoryboard(name: "Splash", bundle: nil).instantiateInitialViewController() as! SplashViewController
-            splashViewController.inject(splashRouter: DummySplashRouter(view:splashViewController, parent: self), autoLoginModel: DummyLoginModel())
-            let nav = UINavigationController(rootViewController: splashViewController)
-            nav.modalPresentationStyle = .fullScreen
-            present(nav, animated: false, completion: nil)
-            isFirst = false
-        }
-    }
-    //------------------------------------------------------------------------------------
-    // 状態変化系
-    //------------------------------------------------------------------------------------
+    
+    //MARK:- 状態変化系
+    
     func changedSelectedCount() {
         setSelectedCountLabel()
         setConfirmButton()
@@ -70,13 +54,16 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
         confirmButton.isEnabled = (selectRssFeedModel?.selectedRssFeedList.count ?? 0) > 0
     }
     
-    //------------------------------------------------------------------------------------
-    // @IBAction
-    //------------------------------------------------------------------------------------
+    
+    //MARK:- @IBAction
+    
     @IBAction func tappedConfirmButton(_ sender: Any) {
         dismiss(animated: true)
     }
 }
+
+
+//MARK:- TableView
 
 extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -107,6 +94,7 @@ extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSourc
     
 }
 
+// MARK:- SelectRssTableViewCell
 
 class SelectRssTableViewCell: UITableViewCell {
     @IBOutlet weak var rssFeedTitleLabel: UILabel!

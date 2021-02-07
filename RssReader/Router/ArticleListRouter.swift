@@ -1,15 +1,19 @@
 //
-//  DummyRouter.swift
+//  ArticleListRouter.swift
 //  RssReader
 //
-//  Created by 若江照仁 on 2021/01/05.
+//  Created by 若江照仁 on 2021/01/27.
 //
 
 import Foundation
-import UIKit
 
+protocol ArticleListRouterProtocol {
+    func toAuthView()
+    func toSelectRssFeedView()
+}
 
-class DummyArticleListRouter: ArticleListRouterProtocol {
+/// イニシャライズ時に元のVCをインジェトします。
+class ArticleListRouter: ArticleListRouterProtocol {
     weak var articleListViewController: ArticleListViewControllerProtocol!
     
     init(articleListViewController: ArticleListViewControllerProtocol) {
