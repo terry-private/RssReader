@@ -10,10 +10,18 @@ import Foundation
 protocol RssFeedTypeProtocol {
     var title: String { get }
     var faviconUrl: String { get }
-    func makeRssFeed(tag: Any) -> RssFeed?
+    func makeRssFeed(tag: Any) -> RssFeedProtocol?
 }
 
-class RssFeed {
+protocol RssFeedProtocol {
+    var title: String { get }
+    var tag: String { get }
+    var url: String { get }
+    var faviconUrl: String { get }
+    func fetchArticle(completion: @escaping ([Item]?) -> Void)
+}
+
+class RssFeed: RssFeedProtocol {
     let title: String
     let tag: String
     let url: String

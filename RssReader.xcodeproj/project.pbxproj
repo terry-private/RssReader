@@ -15,6 +15,7 @@
 		096A1AAD25D7CD9A00EBC589 /* QiitaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A1AAC25D7CD9A00EBC589 /* QiitaType.swift */; };
 		096A1AB625D7CE3E00EBC589 /* YahooTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A1AB525D7CE3E00EBC589 /* YahooTag.swift */; };
 		096A1ABE25D7CECD00EBC589 /* YahooType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A1ABD25D7CECD00EBC589 /* YahooType.swift */; };
+		096A1ACB25D8E13700EBC589 /* RssFeedListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A1ACA25D8E13700EBC589 /* RssFeedListModel.swift */; };
 		0975611625B2985A007B0D3F /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975611425B2985A007B0D3F /* DummyModel.swift */; };
 		0975611725B2985A007B0D3F /* DummyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975611525B2985A007B0D3F /* DummyRouter.swift */; };
 		0975613F25B73155007B0D3F /* ArticleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975613E25B73155007B0D3F /* ArticleList.swift */; };
@@ -67,6 +68,7 @@
 		096A1AAC25D7CD9A00EBC589 /* QiitaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaType.swift; sourceTree = "<group>"; };
 		096A1AB525D7CE3E00EBC589 /* YahooTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooTag.swift; sourceTree = "<group>"; };
 		096A1ABD25D7CECD00EBC589 /* YahooType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooType.swift; sourceTree = "<group>"; };
+		096A1ACA25D8E13700EBC589 /* RssFeedListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedListModel.swift; sourceTree = "<group>"; };
 		0975611425B2985A007B0D3F /* DummyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
 		0975611525B2985A007B0D3F /* DummyRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyRouter.swift; sourceTree = "<group>"; };
 		0975613E25B73155007B0D3F /* ArticleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleList.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				096A1AA525D7CC8300EBC589 /* RssFeed.swift */,
+				096A1ACA25D8E13700EBC589 /* RssFeedListModel.swift */,
 				096A1AAB25D7CD7F00EBC589 /* Qiita */,
 				096A1AB425D7CDEC00EBC589 /* Yahoo */,
 			);
@@ -592,6 +595,7 @@
 				092DCC0F25A1B97E0036A339 /* SelectRssFeedModel.swift in Sources */,
 				0975613F25B73155007B0D3F /* ArticleList.swift in Sources */,
 				096A1ABE25D7CECD00EBC589 /* YahooType.swift in Sources */,
+				096A1ACB25D8E13700EBC589 /* RssFeedListModel.swift in Sources */,
 				095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */,
 				098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */,
 				096A1AAD25D7CD9A00EBC589 /* QiitaType.swift in Sources */,
