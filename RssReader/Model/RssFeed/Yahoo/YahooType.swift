@@ -8,7 +8,7 @@
 import Foundation
 
 class YahooType: RssFeedTypeProtocol {
-    let title: String = "Yahoo!"
+    let title: String = "Yahoo!ニュース"
     let faviconUrl: String = "https://s.yimg.jp/c/icon/s/bsc/2.0/favicon.ico"
     func makeRssFeed(tag: Any) -> RssFeedProtocol? {
         guard let tagYahooTag = tag as? YahooTag else { return nil }
