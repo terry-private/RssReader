@@ -23,7 +23,7 @@ struct Feed: Codable {
 
 struct Item: Codable {
     let title: String
-    let pubDate: String
+    let pubDate: String? // YahooNewsにpugDateがnullのものが混じってたのでnullを受け入れられるようにOptional型に変更しておきます。
     let link: String
     let guid: String
 }
@@ -32,4 +32,5 @@ struct Article {
     let item: Item
     let rssFeedTitle: String
     let rssFeedFaviconUrl: String
+    let tag: String
 }

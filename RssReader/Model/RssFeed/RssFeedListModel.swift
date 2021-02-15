@@ -8,7 +8,7 @@
 import Foundation
 
 protocol RssFeedListModelDelegate: AnyObject {
-    func loaded(articleList: [String: Article])
+    func loaded()
 }
 
 protocol RssFeedListModelProtocol {
@@ -28,7 +28,7 @@ class RssFeedListModel: RssFeedListModelProtocol {
     var loadCounter: Int = 0 {
         didSet {
             if loadCounter == 0 {
-                rssFeedListModelDelegate?.loaded(articleList: articleList)
+                rssFeedListModelDelegate?.loaded()
             }
         }
     }

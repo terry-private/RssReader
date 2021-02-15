@@ -53,6 +53,9 @@ class DummyRssFeedListModel: RssFeedListModel {
         if let qiita = QiitaType().makeRssFeed(tag: "swift") {
             rssFeedList.append(qiita)
         }
+        if let qiita = QiitaType().makeRssFeed(tag: "ios") {
+            rssFeedList.append(qiita)
+        }
         if let yahoo = YahooType().makeRssFeed(tag: YahooTag.informationTechnology) {
             rssFeedList.append(yahoo)
         }

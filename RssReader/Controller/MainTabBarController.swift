@@ -21,7 +21,7 @@ class MainTabBarController: UITabBarController, Transitioner {
         
         //inject
         articleListViewController.inject(
-            loginModel: DummyLoginModel(),
+            loginModel: DummyLoginModel(), rssFeedListModel: DummyRssFeedListModel() as RssFeedListModelProtocol,
             articleListRouter: DummyArticleListRouter(articleListViewController: articleListViewController)
         )
         articleListViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .mostRecent, tag: 0)

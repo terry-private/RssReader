@@ -74,7 +74,7 @@ extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // RssFeedセルかAddNewCellか
-        if indexPath.row < rssFeedListModel?.typeList.count ?? 0 {
+        if indexPath.row < rssFeedListModel?.rssFeedList.count ?? 0 {
             let cell = selectRssFeedTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SelectRssTableViewCell
             cell.rssFeed = rssFeedListModel?.rssFeedList[indexPath.row]
             return cell

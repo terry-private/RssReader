@@ -40,7 +40,7 @@ class RssFeed: RssFeedProtocol {
                 return
             }
             for item in items {
-                articles[item.link] = Article(item: item, rssFeedTitle: self.title, rssFeedFaviconUrl: self.faviconUrl)
+                articles[item.link] = Article(item: item, rssFeedTitle: self.title, rssFeedFaviconUrl: self.faviconUrl, tag: self.tag)
             }
             completion(articles)
         }

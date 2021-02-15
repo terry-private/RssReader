@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseUI
+import Nuke
 
 protocol ArticleListViewControllerProtocol: Transitioner, FUIAuthDelegate {
     
@@ -23,17 +24,12 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
     //MARK:- 変数宣言
     
     var cellId = "cellId"
-    var items: [Item] = [] {
-        didSet {
-            articleTableView.reloadData()
-            self.activityIndicator.stopAnimating()
-        }
-    }
-    var articleType: ArticleType = Qiita(tag: "swift")
     var isFirst = true
     
     var loginModel: LoginProtocol?
+    var rssFeedListModel : RssFeedListModelProtocol?
     var articleListRouter: ArticleListRouterProtocol?
+    var sortedArticleKeyList: [String] = []
     
     //MARK:- ライフサイクル関連
     
@@ -61,12 +57,17 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
 
     //MARK:- 関数
     
-    func inject(loginModel: LoginProtocol, articleListRouter: ArticleListRouterProtocol) {
+    func inject(loginModel: LoginProtocol,rssFeedListModel: RssFeedListModelProtocol, articleListRouter: ArticleListRouterProtocol) {
         self.loginModel = loginModel
         self.loginModel?.autoLoginDelegate = self
+        
+        self.rssFeedListModel = rssFeedListModel
+        self.rssFeedListModel?.rssFeedListModelDelegate = self
+        
         self.articleListRouter = articleListRouter
     }
     
+    // フェードアウトするアニメーションの後にオートログインをし始めます。
     func dissMissSplashView() {
         UIView.animate(withDuration: 1, animations: {
             self.splashView.alpha = 0
@@ -79,18 +80,11 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
     
     func fetchItems() {
         activityIndicator.startAnimating()
-        RssClient.fetchItems(rssApiUrl: articleType.url, completion: {(response) in
-            guard let items = response else {
-                DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
-                }
-                return
-                
-            }
-            DispatchQueue.main.async {
-                self.items = items
-            }
-        })
+        rssFeedListModel?.fetchItems()
+    }
+    
+    func articleKeySort() {
+        sortedArticleKeyList = rssFeedListModel?.articleList.keys.sorted() ?? []
     }
 
 }
@@ -99,12 +93,12 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
 
 extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return rssFeedListModel?.articleList.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = articleTableView.dequeueReusableCell(withIdentifier: cellId) as! ArticleTableViewCell
-        cell.setArticle(item: items[indexPath.row], articleType: articleType)
+        cell.article = rssFeedListModel?.articleList[sortedArticleKeyList[indexPath.row]]
         return cell
     }
     
@@ -160,24 +154,32 @@ extension ArticleListViewController: FUIAuthDelegate{
 
 //MARK:- RssFeedListModelDelegate
 extension ArticleListViewController: RssFeedListModelDelegate {
-    func loaded(articleList: [String : Article]) {
-        articleTableView.reloadData()
-        self.activityIndicator.stopAnimating()
+    func loaded() {
+        DispatchQueue.main.async {
+            self.articleKeySort()
+            self.articleTableView.reloadData()
+            self.activityIndicator.stopAnimating()
+        }
     }
 }
 
 //MARK:- ArticleTableViewCell
 
 class ArticleTableViewCell: UITableViewCell {
-    @IBOutlet weak var articleRectangleView: UIView!
-    @IBOutlet weak var articleTypeNameLabel: UILabel!
+    @IBOutlet weak var rssFeedTypeTitleLabel: UILabel!
     @IBOutlet weak var articleTitleLabel: UILabel!
+    @IBOutlet weak var rssFeedTagLabel: UILabel!
     @IBOutlet weak var articlePubDateLabel: UILabel!
-    
-    var articleType: ArticleType? {
+    @IBOutlet weak var faviconImageView: UIImageView!
+    var article: Article? {
         didSet {
-            articleRectangleView.backgroundColor = articleType?.color
-            articleTypeNameLabel.text = articleType?.title
+            if let url = URL(string: article?.rssFeedFaviconUrl ?? "") {
+                Nuke.loadImage(with: url, into: faviconImageView)
+            }
+            rssFeedTypeTitleLabel.text = article?.rssFeedTitle
+            rssFeedTagLabel.text = article?.tag
+            articleTitleLabel.text = article?.item.title
+            articlePubDateLabel.text = article?.item.pubDate
         }
     }
     var item: Item? {
@@ -189,10 +191,5 @@ class ArticleTableViewCell: UITableViewCell {
     
     override class func awakeFromNib() {
         super.awakeFromNib()
-    }
-    
-    func setArticle(item: Item, articleType: ArticleType) {
-        self.item = item
-        self.articleType = articleType
     }
 }
