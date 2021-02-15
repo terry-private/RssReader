@@ -51,15 +51,10 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if isFirst {
-            loginModel?.autoLogin()
             isFirst = false
-        } else {
-            if splashView.isHidden {
-                fetchItems()
-                return
-            }
-            // SelectRssFeedViewがdisMissされた場合のみここに到達する。
             dissMissSplashView()
+        } else {
+            fetchItems()
         }
     }
     
@@ -78,7 +73,7 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         }, completion: {_ in
             self.navigationItem.title = "記事一覧"
             self.splashView.isHidden = true
-            self.fetchItems()
+            self.loginModel?.autoLogin()
         })
     }
     
@@ -127,7 +122,7 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
 extension ArticleListViewController: AutoLoginDelegate {
     func didAutoLogin(isSuccess: Bool) {
         if isSuccess {
-            dissMissSplashView()
+            fetchItems()
         } else {
             articleListRouter?.toAuthView()
         }
@@ -145,7 +140,7 @@ extension ArticleListViewController: FUIAuthDelegate{
             if newUser.uid == loginModel?.userConfig.userID {
                 print("Log in!!")
                 loginModel?.userConfig.latestLoginDate = Date()
-                dissMissSplashView()
+                fetchItems()
                 return
             }
             
@@ -160,6 +155,14 @@ extension ArticleListViewController: FUIAuthDelegate{
         //失敗した場合
         print("can't auth")
         loginModel?.autoLogin()
+    }
+}
+
+//MARK:- RssFeedListModelDelegate
+extension ArticleListViewController: RssFeedListModelDelegate {
+    func loaded(articleList: [String : Article]) {
+        articleTableView.reloadData()
+        self.activityIndicator.stopAnimating()
     }
 }
 

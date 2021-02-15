@@ -16,7 +16,7 @@ class CommonRouter {
         let authUI = FUIAuth.defaultAuthUI()!
         authUI.delegate = view
         authUI.providers = [
-            FUIGoogleAuth(),
+            FUIGoogleAuth(authUI: authUI),
             FUIOAuth.twitterAuthProvider(),
             FUIEmailAuth()
         ]

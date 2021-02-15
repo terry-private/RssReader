@@ -18,7 +18,7 @@ protocol RssFeedProtocol {
     var tag: String { get }
     var url: String { get }
     var faviconUrl: String { get }
-    func fetchArticle(completion: @escaping ([Item]?) -> Void)
+    func fetchArticle(completion: @escaping ([String: Article]?) -> Void)
 }
 
 class RssFeed: RssFeedProtocol {
@@ -32,9 +32,17 @@ class RssFeed: RssFeedProtocol {
         self.url = url
         self.faviconUrl = faviconUrl
     }
-    func fetchArticle(completion: @escaping ([Item]?) -> Void){
+    func fetchArticle(completion: @escaping ([String: Article]?) -> Void){
         RssClient.fetchItems(rssApiUrl: url) { (response) in
-            completion(response)
+            var articles: [String: Article] = [:]
+            guard let items = response else {
+                completion(nil)
+                return
+            }
+            for item in items {
+                articles[item.link] = Article(item: item, rssFeedTitle: self.title, rssFeedFaviconUrl: self.faviconUrl)
+            }
+            completion(articles)
         }
     }
 }

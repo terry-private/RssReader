@@ -16,6 +16,7 @@
 		096A1AB625D7CE3E00EBC589 /* YahooTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A1AB525D7CE3E00EBC589 /* YahooTag.swift */; };
 		096A1ABE25D7CECD00EBC589 /* YahooType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A1ABD25D7CECD00EBC589 /* YahooType.swift */; };
 		096A1ACB25D8E13700EBC589 /* RssFeedListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A1ACA25D8E13700EBC589 /* RssFeedListModel.swift */; };
+		096A1B2425DA554600EBC589 /* Extension_Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A1B2325DA554600EBC589 /* Extension_Dictionary.swift */; };
 		0975611625B2985A007B0D3F /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975611425B2985A007B0D3F /* DummyModel.swift */; };
 		0975611725B2985A007B0D3F /* DummyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975611525B2985A007B0D3F /* DummyRouter.swift */; };
 		0975613F25B73155007B0D3F /* ArticleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975613E25B73155007B0D3F /* ArticleList.swift */; };
@@ -69,6 +70,7 @@
 		096A1AB525D7CE3E00EBC589 /* YahooTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooTag.swift; sourceTree = "<group>"; };
 		096A1ABD25D7CECD00EBC589 /* YahooType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooType.swift; sourceTree = "<group>"; };
 		096A1ACA25D8E13700EBC589 /* RssFeedListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedListModel.swift; sourceTree = "<group>"; };
+		096A1B2325DA554600EBC589 /* Extension_Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_Dictionary.swift; sourceTree = "<group>"; };
 		0975611425B2985A007B0D3F /* DummyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
 		0975611525B2985A007B0D3F /* DummyRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyRouter.swift; sourceTree = "<group>"; };
 		0975613E25B73155007B0D3F /* ArticleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleList.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				09ACE22E2597275800FDB597 /* Extension_Date.swift */,
+				096A1B2325DA554600EBC589 /* Extension_Dictionary.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				0975614925B732F1007B0D3F /* ArticleType.swift in Sources */,
 				096A1AB625D7CE3E00EBC589 /* YahooTag.swift in Sources */,
 				0975611625B2985A007B0D3F /* DummyModel.swift in Sources */,
+				096A1B2425DA554600EBC589 /* Extension_Dictionary.swift in Sources */,
 				09ACE24225977DC100FDB597 /* ArticleListViewController.swift in Sources */,
 				0975615725B85F50007B0D3F /* MainTabBarController.swift in Sources */,
 				092DCC0F25A1B97E0036A339 /* SelectRssFeedModel.swift in Sources */,

@@ -12,7 +12,7 @@ class YahooType: RssFeedTypeProtocol {
     let faviconUrl: String = "https://s.yimg.jp/c/icon/s/bsc/2.0/favicon.ico"
     func makeRssFeed(tag: Any) -> RssFeedProtocol? {
         guard let tagYahooTag = tag as? YahooTag else { return nil }
-        return RssFeed(title: "Yahoo",tag: tagYahooTag.name, url: tagYahooTag.url, faviconUrl: faviconUrl)
+        return RssFeed(title: title,tag: tagYahooTag.name, url: tagYahooTag.url, faviconUrl: faviconUrl)
     }
 }
 

@@ -45,10 +45,11 @@ class DummyLoginModel: LoginProtocol {
 }
 
 
-class DummyRssFeedListModel: RssFeedListModelProtocol {
-    var typeList: [RssFeedTypeProtocol] = [QiitaType(), YahooType()]
-    var rssFeedList: [RssFeedProtocol] = []
-    init() {
+// MARK:- 重複する処理が多いので本番用のサブクラスにします。
+class DummyRssFeedListModel: RssFeedListModel {
+    override init() {
+        super.init()
+        typeList = [QiitaType(), YahooType()]
         if let qiita = QiitaType().makeRssFeed(tag: "swift") {
             rssFeedList.append(qiita)
         }

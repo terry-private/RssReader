@@ -27,3 +27,9 @@ struct Item: Codable {
     let link: String
     let guid: String
 }
+
+struct Article {
+    let item: Item
+    let rssFeedTitle: String
+    let rssFeedFaviconUrl: String
+}
