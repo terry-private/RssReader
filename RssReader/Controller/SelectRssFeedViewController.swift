@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Nuke
 
 protocol SelectRssFeedViewProtocol: Transitioner {
     
@@ -20,8 +21,9 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
     
     //MARK:- 変数宣言
     
-    private var selectRssFeedModel: SelectRssFeedModelProtocol?
+    private var rssFeedListModel: RssFeedListModelProtocol?
     private var cellId = "cellId"
+    private var addNewCellId = "addNewCellId"
     
     //MARK:- ライフサイクル関連
     
@@ -36,8 +38,8 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
         selectRssFeedTableView.dataSource = self
     }
     
-    func inject(selectRssFeedModel: SelectRssFeedModelProtocol) {
-        self.selectRssFeedModel = selectRssFeedModel
+    func inject(rssFeedListModel: RssFeedListModelProtocol) {
+        self.rssFeedListModel = rssFeedListModel
     }
     
     
@@ -48,10 +50,10 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
         setConfirmButton()
     }
     func setSelectedCountLabel() {
-        selectedCountLabel.text = String(selectRssFeedModel?.selectedRssFeedList.count ?? 0)
+        selectedCountLabel.text = String(rssFeedListModel?.rssFeedList.count ?? 0)
     }
     func setConfirmButton() {
-        confirmButton.isEnabled = (selectRssFeedModel?.selectedRssFeedList.count ?? 0) > 0
+        confirmButton.isEnabled = (rssFeedListModel?.rssFeedList.count ?? 0) > 0
     }
     
     
@@ -67,28 +69,22 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
 
 extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return selectRssFeedModel?.rssFeedList.count ?? 0
+        return (rssFeedListModel?.rssFeedList.count ?? 0) + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = selectRssFeedTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SelectRssTableViewCell
-        let title = selectRssFeedModel?.rssFeedList[indexPath.row] ?? ""
-        let isSelected = selectRssFeedModel?.selectedRssFeedList.contains(title) ?? false
-        cell.rssFeedTitleLabel?.text = title
-        cell.isSelectedRssFeed = isSelected
+        // RssFeedセルかAddNewCellか
+        if indexPath.row < rssFeedListModel?.typeList.count ?? 0 {
+            let cell = selectRssFeedTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SelectRssTableViewCell
+            cell.rssFeed = rssFeedListModel?.rssFeedList[indexPath.row]
+            return cell
+        }
+        let cell = selectRssFeedTableView.dequeueReusableCell(withIdentifier: addNewCellId, for: indexPath) as! AddNewRssFeedTableViewCell
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let title = selectRssFeedModel?.rssFeedList[indexPath.row] ?? ""
-        let cell = selectRssFeedTableView.cellForRow(at: indexPath) as! SelectRssTableViewCell
-        if cell.isSelectedRssFeed {
-            selectRssFeedModel?.selectedRssFeedList.remove(title)
-            cell.isSelectedRssFeed = false
-        } else {
-            selectRssFeedModel?.selectedRssFeedList.insert(title)
-            cell.isSelectedRssFeed = true
-        }
+        
         changedSelectedCount()
     }
     
@@ -97,19 +93,25 @@ extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSourc
 // MARK:- SelectRssTableViewCell
 
 class SelectRssTableViewCell: UITableViewCell {
-    @IBOutlet weak var rssFeedTitleLabel: UILabel!
-    @IBOutlet weak var isSelectedLabel: UILabel!
-    var isSelectedRssFeed: Bool  = false{
+    @IBOutlet weak var faviconImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var tagNameLabel: UILabel!
+    var rssFeed: RssFeedProtocol? {
         didSet {
-            if isSelectedRssFeed {
-                isSelectedLabel.textColor = .systemGreen
-                isSelectedLabel.text = "選択済み"
-            } else {
-                isSelectedLabel.textColor = .systemGray
-                isSelectedLabel.text = "未選択"
+            if let url = URL(string: rssFeed?.faviconUrl ?? "") {
+                Nuke.loadImage(with: url, into: faviconImageView)
             }
+            titleLabel.text = rssFeed?.title
+            tagNameLabel.text = rssFeed?.tag
         }
     }
+    override class func awakeFromNib() {
+        super.awakeFromNib()
+    }
+}
+
+class AddNewRssFeedTableViewCell: UITableViewCell {
+    
     override class func awakeFromNib() {
         super.awakeFromNib()
     }

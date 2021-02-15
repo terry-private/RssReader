@@ -54,7 +54,12 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
             loginModel?.autoLogin()
             isFirst = false
         } else {
-            fetchItems()
+            if splashView.isHidden {
+                fetchItems()
+                return
+            }
+            // SelectRssFeedViewがdisMissされた場合のみここに到達する。
+            dissMissSplashView()
         }
     }
     
@@ -140,6 +145,7 @@ extension ArticleListViewController: FUIAuthDelegate{
             if newUser.uid == loginModel?.userConfig.userID {
                 print("Log in!!")
                 loginModel?.userConfig.latestLoginDate = Date()
+                dissMissSplashView()
                 return
             }
             

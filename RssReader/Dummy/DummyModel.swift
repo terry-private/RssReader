@@ -33,7 +33,7 @@ class DummyLoginModel: LoginProtocol {
         userConfig = DummyUserConfig()
     }
     func autoLogin() {
-        autoLoginDelegate?.didAutoLogin(isSuccess: true)
+        autoLoginDelegate?.didAutoLogin(isSuccess: false)
     }
     
     func setUserConfig(userID: String, photoURL: URL?, displayName: String) {
@@ -45,15 +45,15 @@ class DummyLoginModel: LoginProtocol {
 }
 
 
-class DummySelectRFeedModel: SelectRssFeedModelProtocol {
-    var selectedRssFeedList: Set<String> = Set<String>()
-    
-    var rssFeedList: [String] = []
-    
+class DummyRssFeedListModel: RssFeedListModelProtocol {
+    var typeList: [RssFeedTypeProtocol] = [QiitaType(), YahooType()]
+    var rssFeedList: [RssFeedProtocol] = []
     init() {
-        for i in 1...50 {
-            rssFeedList.append("dummy\(i)")
+        if let qiita = QiitaType().makeRssFeed(tag: "swift") {
+            rssFeedList.append(qiita)
         }
-        selectedRssFeedList.insert("dummy2")
+        if let yahoo = YahooType().makeRssFeed(tag: YahooTag.informationTechnology) {
+            rssFeedList.append(yahoo)
+        }
     }
 }
