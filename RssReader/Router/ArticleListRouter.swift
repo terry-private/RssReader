@@ -12,7 +12,7 @@ protocol ArticleListRouterProtocol {
     func toSelectRssFeedView()
 }
 
-/// イニシャライズ時に元のVCをインジェトします。
+/// イニシャライズ時に元のVCをインジェクトします。
 class ArticleListRouter: ArticleListRouterProtocol {
     weak var articleListViewController: ArticleListViewControllerProtocol!
     
