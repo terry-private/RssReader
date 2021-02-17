@@ -26,14 +26,14 @@ class MainTabBarController: UITabBarController, Transitioner {
             articleListRouter: DummyArticleListRouter(articleListViewController: articleListViewController)
         )
         articleListViewController.tabBarItem = UITabBarItem(title: "記事一覧", image: UIImage(systemName: "list.bullet.rectangle"), tag: 0)
-        let articleListNav = UINavigationController(rootViewController: articleListViewController)
-        articleListNav.navigationBar.prefersLargeTitles = true
+        let articleListNav = UINavigationController(articleListViewController)
         
         // MARK:- settingViewController
         let settingViewController = UIStoryboard(name: "Setting", bundle: nil).instantiateViewController(identifier: "SettingViewController") as! SettingViewController
         settingViewController.tabBarItem = UITabBarItem(title: "設定", image: UIImage(systemName: "gear"), tag: 0)
+        let settingNav = UINavigationController(settingViewController)
         
-        viewControllers = [articleListNav, settingViewController]
+        viewControllers = [articleListNav, settingNav]
         
     }
 }
