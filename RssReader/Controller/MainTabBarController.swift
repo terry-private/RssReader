@@ -17,18 +17,23 @@ class MainTabBarController: UITabBarController, Transitioner {
     
     
     func setupTab() {
+        //MARK:- articleViewController
         let articleListViewController = UIStoryboard(name: "ArticleList", bundle: nil).instantiateViewController(identifier: "ArticleListViewController") as! ArticleListViewController
         
         //inject
         articleListViewController.inject(
-            loginModel: DummyLoginModel(), rssFeedListModel: DummyRssFeedListModel() as RssFeedListModelProtocol,
+            loginModel: DummyLoginModel(), rssFeedListModel: DummyRssFeedListModel(),
             articleListRouter: DummyArticleListRouter(articleListViewController: articleListViewController)
         )
-        articleListViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .mostRecent, tag: 0)
+        articleListViewController.tabBarItem = UITabBarItem(title: "記事一覧", image: UIImage(systemName: "list.bullet.rectangle"), tag: 0)
         let articleListNav = UINavigationController(rootViewController: articleListViewController)
         articleListNav.navigationBar.prefersLargeTitles = true
         
-        viewControllers = [articleListNav, UIViewController()]
+        // MARK:- settingViewController
+        let settingViewController = UIStoryboard(name: "Setting", bundle: nil).instantiateViewController(identifier: "SettingViewController") as! SettingViewController
+        settingViewController.tabBarItem = UITabBarItem(title: "設定", image: UIImage(systemName: "gear"), tag: 0)
+        
+        viewControllers = [articleListNav, settingViewController]
         
     }
 }
