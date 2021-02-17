@@ -12,7 +12,7 @@ class CommonRouter {
     /// 認証画面へ
     /// - Parameter view: FUIAuthDelegateが必要
     /// SplashView = Transitioner + FUIAuthDelegate
-    class func toAuth(view: SplashViewProtocol) {
+    class func toAuth(view: ArticleListViewControllerProtocol) {
         let authUI = FUIAuth.defaultAuthUI()!
         authUI.delegate = view
         authUI.providers = [
@@ -42,10 +42,10 @@ class CommonRouter {
         let selectRssFeedViewController = storyboard.instantiateViewController(identifier: "SelectRssFeedViewController") as! SelectRssFeedViewController
         selectRssFeedViewController.navigationItem.largeTitleDisplayMode = .automatic
         selectRssFeedViewController.navigationItem.title = "RSS Feedの選択"
-        selectRssFeedViewController.inject(selectRssFeedRouter: SelectRssFeedRouter(view: selectRssFeedViewController), selectRssFeedModel: SelectRssFeedModel())
+        selectRssFeedViewController.inject(selectRssFeedModel: SelectRssFeedModel())
         let nav = UINavigationController(rootViewController: selectRssFeedViewController)
         nav.navigationBar.prefersLargeTitles = true
         nav.modalPresentationStyle = .fullScreen
-        view.present(nav,animated: true, completion: nil)
+        view.present(nav,animated: false, completion: nil)
     }
 }

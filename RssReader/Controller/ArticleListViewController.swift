@@ -6,19 +6,22 @@
 //
 
 import UIKit
-import Firebase
 import FirebaseUI
 
-class ArticleListViewController: UIViewController, Transitioner {
-    //------------------------------------------------------------------------------------
-    // @IBOutlet
-    //------------------------------------------------------------------------------------
+protocol ArticleListViewControllerProtocol: Transitioner, FUIAuthDelegate {
+    
+}
+
+class ArticleListViewController: UIViewController, ArticleListViewControllerProtocol {
+    
+    //MARK:- @IBOutlet
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var articleTableView: UITableView!
+    @IBOutlet weak var splashView: UIView!
     
-    //------------------------------------------------------------------------------------
-    // 変数宣言
-    //------------------------------------------------------------------------------------
+    //MARK:- 変数宣言
+    
     var cellId = "cellId"
     var items: [Item] = [] {
         didSet {
@@ -27,23 +30,53 @@ class ArticleListViewController: UIViewController, Transitioner {
         }
     }
     var articleType: ArticleType = Qiita(tag: "swift")
+    var isFirst = true
     
-    //------------------------------------------------------------------------------------
-    // ライフサイクル関連
-    //------------------------------------------------------------------------------------
+    var loginModel: LoginProtocol?
+    var articleListRouter: ArticleListRouterProtocol?
+    
+    //MARK:- ライフサイクル関連
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         articleTableView.dataSource = self
         articleTableView.delegate = self
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchItems()
+        
     }
     
-    //------------------------------------------------------------------------------------
-    // 関数
-    //------------------------------------------------------------------------------------
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if isFirst {
+            loginModel?.autoLogin()
+            isFirst = false
+        } else {
+            fetchItems()
+        }
+    }
+    
+
+    //MARK:- 関数
+    
+    func inject(loginModel: LoginProtocol, articleListRouter: ArticleListRouterProtocol) {
+        self.loginModel = loginModel
+        self.loginModel?.autoLoginDelegate = self
+        self.articleListRouter = articleListRouter
+    }
+    
+    func dissMissSplashView() {
+        UIView.animate(withDuration: 1, animations: {
+            self.splashView.alpha = 0
+        }, completion: {_ in
+            self.navigationItem.title = "記事一覧"
+            self.splashView.isHidden = true
+            self.fetchItems()
+        })
+    }
+    
     func fetchItems() {
         activityIndicator.startAnimating()
         RssClient.fetchItems(rssApiUrl: articleType.url, completion: {(response) in
@@ -61,6 +94,8 @@ class ArticleListViewController: UIViewController, Transitioner {
     }
 
 }
+
+//MARK:- TableView
 
 extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,6 +117,47 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
     }
 }
 
+//MARK:- AutoLoginDelegate
+
+extension ArticleListViewController: AutoLoginDelegate {
+    func didAutoLogin(isSuccess: Bool) {
+        if isSuccess {
+            dissMissSplashView()
+        } else {
+            articleListRouter?.toAuthView()
+        }
+    }
+}
+
+//MARK:- FUIAuthDelegate
+
+extension ArticleListViewController: FUIAuthDelegate{
+    //　認証画面から離れたときに呼ばれる（キャンセルボタン押下含む）
+    public func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?){
+        if let newUser = user {
+            
+            // 登録済みのユーザーの場合
+            if newUser.uid == loginModel?.userConfig.userID {
+                print("Log in!!")
+                loginModel?.userConfig.latestLoginDate = Date()
+                return
+            }
+            
+            // 新規ユーザーの場合
+            print("Sign up!!")
+            loginModel?.setUserConfig(userID: newUser.uid, photoURL: newUser.photoURL, displayName: newUser.displayName ?? "")
+            articleListRouter?.toSelectRssFeedView()
+            return
+            
+        }
+        
+        //失敗した場合
+        print("can't auth")
+        loginModel?.autoLogin()
+    }
+}
+
+//MARK:- ArticleTableViewCell
 
 class ArticleTableViewCell: UITableViewCell {
     @IBOutlet weak var articleRectangleView: UIView!
