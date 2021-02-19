@@ -23,6 +23,8 @@
 		0975614425B731CF007B0D3F /* RssClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975614325B731CF007B0D3F /* RssClient.swift */; };
 		0975615725B85F50007B0D3F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975615625B85F50007B0D3F /* MainTabBarController.swift */; };
 		097AFF9F25C07736007AC6FA /* ArticleListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097AFF9E25C07735007AC6FA /* ArticleListRouter.swift */; };
+		0983205125DFF0A700AA8662 /* SelectRssFeedType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0983205025DFF0A700AA8662 /* SelectRssFeedType.storyboard */; };
+		0983205625DFF92000AA8662 /* SelectRssFeedTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */; };
 		098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C0259375BC00EAD41F /* Transitioner.swift */; };
 		09ACE146259621AC00FDB597 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09ACE145259621AC00FDB597 /* GoogleService-Info.plist */; };
 		09ACE21C25964E4500FDB597 /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACE21B25964E4500FDB597 /* UserConfig.swift */; };
@@ -76,6 +78,8 @@
 		0975614325B731CF007B0D3F /* RssClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssClient.swift; sourceTree = "<group>"; };
 		0975615625B85F50007B0D3F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		097AFF9E25C07735007AC6FA /* ArticleListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListRouter.swift; sourceTree = "<group>"; };
+		0983205025DFF0A700AA8662 /* SelectRssFeedType.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectRssFeedType.storyboard; sourceTree = "<group>"; };
+		0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedTypeViewController.swift; sourceTree = "<group>"; };
 		098D56C0259375BC00EAD41F /* Transitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitioner.swift; sourceTree = "<group>"; };
 		09ACE145259621AC00FDB597 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		09ACE21B25964E4500FDB597 /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */,
+				0983205025DFF0A700AA8662 /* SelectRssFeedType.storyboard */,
 				09ACE24925977DED00FDB597 /* ArticleList.storyboard */,
 			);
 			path = View;
@@ -185,6 +190,7 @@
 				098D56C0259375BC00EAD41F /* Transitioner.swift */,
 				0975615625B85F50007B0D3F /* MainTabBarController.swift */,
 				095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */,
+				0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */,
 				09ACE24125977DC100FDB597 /* ArticleListViewController.swift */,
 			);
 			path = Controller;
@@ -416,6 +422,7 @@
 				09B803292590CF9200CA2D19 /* LaunchScreen.storyboard in Resources */,
 				09ACE24A25977DED00FDB597 /* ArticleList.storyboard in Resources */,
 				09ACE146259621AC00FDB597 /* GoogleService-Info.plist in Resources */,
+				0983205125DFF0A700AA8662 /* SelectRssFeedType.storyboard in Resources */,
 				095F95F725985F88007DC2D5 /* SelectRssFeed.storyboard in Resources */,
 				09B803262590CF9200CA2D19 /* Assets.xcassets in Resources */,
 			);
@@ -597,6 +604,7 @@
 				096A1ABE25D7CECD00EBC589 /* YahooType.swift in Sources */,
 				096A1ACB25D8E13700EBC589 /* RssFeedListModel.swift in Sources */,
 				095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */,
+				0983205625DFF92000AA8662 /* SelectRssFeedTypeViewController.swift in Sources */,
 				098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */,
 				096A1AAD25D7CD9A00EBC589 /* QiitaType.swift in Sources */,
 				097AFF9F25C07736007AC6FA /* ArticleListRouter.swift in Sources */,
