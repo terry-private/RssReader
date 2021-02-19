@@ -6,6 +6,7 @@ target 'RssReader' do
   use_frameworks!
   pod 'Firebase/Analytics'
   pod 'FirebaseUI'
+  pod 'Nuke'
   # Pods for RssReader
 
   target 'RssReaderTests' do

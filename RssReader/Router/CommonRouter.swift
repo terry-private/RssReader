@@ -16,7 +16,7 @@ class CommonRouter {
         let authUI = FUIAuth.defaultAuthUI()!
         authUI.delegate = view
         authUI.providers = [
-            FUIGoogleAuth(),
+            FUIGoogleAuth(authUI: authUI),
             FUIOAuth.twitterAuthProvider(),
             FUIEmailAuth()
         ]
@@ -42,7 +42,7 @@ class CommonRouter {
         let selectRssFeedViewController = storyboard.instantiateViewController(identifier: "SelectRssFeedViewController") as! SelectRssFeedViewController
         selectRssFeedViewController.navigationItem.largeTitleDisplayMode = .automatic
         selectRssFeedViewController.navigationItem.title = "RSS Feedの選択"
-        selectRssFeedViewController.inject(selectRssFeedModel: SelectRssFeedModel())
+        selectRssFeedViewController.inject(rssFeedListModel: DummyRssFeedListModel())
         let nav = UINavigationController(rootViewController: selectRssFeedViewController)
         nav.navigationBar.prefersLargeTitles = true
         nav.modalPresentationStyle = .fullScreen

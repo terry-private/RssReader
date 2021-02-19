@@ -17,7 +17,8 @@ class DummyArticleListRouter: ArticleListRouterProtocol {
     }
     
     func toAuthView() {
-        CommonRouter.toAuth(view: articleListViewController)
+//        CommonRouter.toAuth(view: articleListViewController)
+        toSelectRssFeedView()
     }
     func toSelectRssFeedView() {
         CommonRouter.toSelectRssFeedView(view: articleListViewController)

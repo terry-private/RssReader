@@ -11,11 +11,16 @@
 		095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */; };
 		095F95F725985F88007DC2D5 /* SelectRssFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */; };
 		095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FDBEB25A754E2007C8922 /* CommonRouter.swift */; };
+		096A1AA625D7CC8300EBC589 /* RssFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A1AA525D7CC8300EBC589 /* RssFeed.swift */; };
+		096A1AAD25D7CD9A00EBC589 /* QiitaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A1AAC25D7CD9A00EBC589 /* QiitaType.swift */; };
+		096A1AB625D7CE3E00EBC589 /* YahooTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A1AB525D7CE3E00EBC589 /* YahooTag.swift */; };
+		096A1ABE25D7CECD00EBC589 /* YahooType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A1ABD25D7CECD00EBC589 /* YahooType.swift */; };
+		096A1ACB25D8E13700EBC589 /* RssFeedListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A1ACA25D8E13700EBC589 /* RssFeedListModel.swift */; };
+		096A1B2425DA554600EBC589 /* Extension_Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A1B2325DA554600EBC589 /* Extension_Dictionary.swift */; };
 		0975611625B2985A007B0D3F /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975611425B2985A007B0D3F /* DummyModel.swift */; };
 		0975611725B2985A007B0D3F /* DummyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975611525B2985A007B0D3F /* DummyRouter.swift */; };
 		0975613F25B73155007B0D3F /* ArticleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975613E25B73155007B0D3F /* ArticleList.swift */; };
 		0975614425B731CF007B0D3F /* RssClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975614325B731CF007B0D3F /* RssClient.swift */; };
-		0975614925B732F1007B0D3F /* ArticleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975614825B732F1007B0D3F /* ArticleType.swift */; };
 		0975615725B85F50007B0D3F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975615625B85F50007B0D3F /* MainTabBarController.swift */; };
 		097AFF9F25C07736007AC6FA /* ArticleListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097AFF9E25C07735007AC6FA /* ArticleListRouter.swift */; };
 		098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C0259375BC00EAD41F /* Transitioner.swift */; };
@@ -59,11 +64,16 @@
 		095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewController.swift; sourceTree = "<group>"; };
 		095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectRssFeed.storyboard; sourceTree = "<group>"; };
 		095FDBEB25A754E2007C8922 /* CommonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRouter.swift; sourceTree = "<group>"; };
+		096A1AA525D7CC8300EBC589 /* RssFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeed.swift; sourceTree = "<group>"; };
+		096A1AAC25D7CD9A00EBC589 /* QiitaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaType.swift; sourceTree = "<group>"; };
+		096A1AB525D7CE3E00EBC589 /* YahooTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooTag.swift; sourceTree = "<group>"; };
+		096A1ABD25D7CECD00EBC589 /* YahooType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooType.swift; sourceTree = "<group>"; };
+		096A1ACA25D8E13700EBC589 /* RssFeedListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedListModel.swift; sourceTree = "<group>"; };
+		096A1B2325DA554600EBC589 /* Extension_Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_Dictionary.swift; sourceTree = "<group>"; };
 		0975611425B2985A007B0D3F /* DummyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
 		0975611525B2985A007B0D3F /* DummyRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyRouter.swift; sourceTree = "<group>"; };
 		0975613E25B73155007B0D3F /* ArticleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleList.swift; sourceTree = "<group>"; };
 		0975614325B731CF007B0D3F /* RssClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssClient.swift; sourceTree = "<group>"; };
-		0975614825B732F1007B0D3F /* ArticleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleType.swift; sourceTree = "<group>"; };
 		0975615625B85F50007B0D3F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		097AFF9E25C07735007AC6FA /* ArticleListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListRouter.swift; sourceTree = "<group>"; };
 		098D56C0259375BC00EAD41F /* Transitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitioner.swift; sourceTree = "<group>"; };
@@ -132,6 +142,34 @@
 			path = Dummy;
 			sourceTree = "<group>";
 		};
+		096A1AAA25D7CD6000EBC589 /* RssFeed */ = {
+			isa = PBXGroup;
+			children = (
+				096A1AA525D7CC8300EBC589 /* RssFeed.swift */,
+				096A1ACA25D8E13700EBC589 /* RssFeedListModel.swift */,
+				096A1AAB25D7CD7F00EBC589 /* Qiita */,
+				096A1AB425D7CDEC00EBC589 /* Yahoo */,
+			);
+			path = RssFeed;
+			sourceTree = "<group>";
+		};
+		096A1AAB25D7CD7F00EBC589 /* Qiita */ = {
+			isa = PBXGroup;
+			children = (
+				096A1AAC25D7CD9A00EBC589 /* QiitaType.swift */,
+			);
+			path = Qiita;
+			sourceTree = "<group>";
+		};
+		096A1AB425D7CDEC00EBC589 /* Yahoo */ = {
+			isa = PBXGroup;
+			children = (
+				096A1AB525D7CE3E00EBC589 /* YahooTag.swift */,
+				096A1ABD25D7CECD00EBC589 /* YahooType.swift */,
+			);
+			path = Yahoo;
+			sourceTree = "<group>";
+		};
 		098D56BC2593750E00EAD41F /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,8 +197,8 @@
 				09ACE2202597245800FDB597 /* LoginModel.swift */,
 				092DCC0E25A1B97E0036A339 /* SelectRssFeedModel.swift */,
 				0975613E25B73155007B0D3F /* ArticleList.swift */,
-				0975614825B732F1007B0D3F /* ArticleType.swift */,
 				0975614325B731CF007B0D3F /* RssClient.swift */,
+				096A1AAA25D7CD6000EBC589 /* RssFeed */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				09ACE22E2597275800FDB597 /* Extension_Date.swift */,
+				096A1B2325DA554600EBC589 /* Extension_Dictionary.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -542,19 +581,24 @@
 			files = (
 				09ACE22F2597275800FDB597 /* Extension_Date.swift in Sources */,
 				095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */,
+				096A1AA625D7CC8300EBC589 /* RssFeed.swift in Sources */,
 				0975611725B2985A007B0D3F /* DummyRouter.swift in Sources */,
 				09ACE2212597245800FDB597 /* LoginModel.swift in Sources */,
 				09B8031D2590CF9100CA2D19 /* AppDelegate.swift in Sources */,
 				09B8031F2590CF9100CA2D19 /* SceneDelegate.swift in Sources */,
 				0975614425B731CF007B0D3F /* RssClient.swift in Sources */,
-				0975614925B732F1007B0D3F /* ArticleType.swift in Sources */,
+				096A1AB625D7CE3E00EBC589 /* YahooTag.swift in Sources */,
 				0975611625B2985A007B0D3F /* DummyModel.swift in Sources */,
+				096A1B2425DA554600EBC589 /* Extension_Dictionary.swift in Sources */,
 				09ACE24225977DC100FDB597 /* ArticleListViewController.swift in Sources */,
 				0975615725B85F50007B0D3F /* MainTabBarController.swift in Sources */,
 				092DCC0F25A1B97E0036A339 /* SelectRssFeedModel.swift in Sources */,
 				0975613F25B73155007B0D3F /* ArticleList.swift in Sources */,
+				096A1ABE25D7CECD00EBC589 /* YahooType.swift in Sources */,
+				096A1ACB25D8E13700EBC589 /* RssFeedListModel.swift in Sources */,
 				095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */,
 				098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */,
+				096A1AAD25D7CD9A00EBC589 /* QiitaType.swift in Sources */,
 				097AFF9F25C07736007AC6FA /* ArticleListRouter.swift in Sources */,
 				09ACE21C25964E4500FDB597 /* UserConfig.swift in Sources */,
 			);

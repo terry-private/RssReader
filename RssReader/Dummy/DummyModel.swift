@@ -33,7 +33,7 @@ class DummyLoginModel: LoginProtocol {
         userConfig = DummyUserConfig()
     }
     func autoLogin() {
-        autoLoginDelegate?.didAutoLogin(isSuccess: true)
+        autoLoginDelegate?.didAutoLogin(isSuccess: false)
     }
     
     func setUserConfig(userID: String, photoURL: URL?, displayName: String) {
@@ -45,15 +45,19 @@ class DummyLoginModel: LoginProtocol {
 }
 
 
-class DummySelectRFeedModel: SelectRssFeedModelProtocol {
-    var selectedRssFeedList: Set<String> = Set<String>()
-    
-    var rssFeedList: [String] = []
-    
-    init() {
-        for i in 1...50 {
-            rssFeedList.append("dummy\(i)")
+// MARK:- 重複する処理が多いので本番用のサブクラスにします。
+class DummyRssFeedListModel: RssFeedListModel {
+    override init() {
+        super.init()
+        typeList = [QiitaType(), YahooType()]
+        if let qiita = QiitaType().makeRssFeed(tag: "swift") {
+            rssFeedList.append(qiita)
         }
-        selectedRssFeedList.insert("dummy2")
+        if let qiita = QiitaType().makeRssFeed(tag: "ios") {
+            rssFeedList.append(qiita)
+        }
+        if let yahoo = YahooType().makeRssFeed(tag: YahooTag.informationTechnology) {
+            rssFeedList.append(yahoo)
+        }
     }
 }
