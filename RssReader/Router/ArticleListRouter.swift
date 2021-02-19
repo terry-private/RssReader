@@ -8,22 +8,25 @@
 import Foundation
 
 protocol ArticleListRouterProtocol {
+    var articleListViewController: ArticleListViewControllerProtocol? { get set }
     func toAuthView()
-    func toSelectRssFeedView()
+    func toSelectRssFeedView(rssFeedListModel: RssFeedListModelProtocol)
 }
-
-/// イニシャライズ時に元のVCをインジェトします。
-class ArticleListRouter: ArticleListRouterProtocol {
-    weak var articleListViewController: ArticleListViewControllerProtocol!
-    
-    init(articleListViewController: ArticleListViewControllerProtocol) {
+extension ArticleListRouterProtocol {
+    mutating func inject(articleListViewController: ArticleListViewControllerProtocol) {
         self.articleListViewController = articleListViewController
     }
+}
+
+/// イニシャライズ時に元のVCをインジェクトします。
+class ArticleListRouter: ArticleListRouterProtocol {
+    weak var articleListViewController: ArticleListViewControllerProtocol?
+    
     
     func toAuthView() {
-        CommonRouter.toAuth(view: articleListViewController)
+        CommonRouter.toAuth(view: articleListViewController!)
     }
-    func toSelectRssFeedView() {
-        CommonRouter.toSelectRssFeedView(view: articleListViewController)
+    func toSelectRssFeedView(rssFeedListModel: RssFeedListModelProtocol) {
+        CommonRouter.toSelectRssFeedView(view: articleListViewController!, rssFeedListModel: rssFeedListModel)
     }
 }

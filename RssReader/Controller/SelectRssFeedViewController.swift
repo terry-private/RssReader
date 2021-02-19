@@ -31,12 +31,12 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
         super.viewDidLoad()
         setUpTable()
         changedSelectedCount()
-        selectRssFeedTableView.register(UINib(nibName: "RssFeedTableViewCell", bundle: nil), forCellReuseIdentifier: cellId)
     }
     
     func setUpTable() {
         selectRssFeedTableView.delegate = self
         selectRssFeedTableView.dataSource = self
+        selectRssFeedTableView.register(UINib(nibName: "RssFeedTableViewCell", bundle: nil), forCellReuseIdentifier: cellId)
     }
     
     func inject(rssFeedListModel: RssFeedListModelProtocol) {

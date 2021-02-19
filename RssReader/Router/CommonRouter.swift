@@ -25,23 +25,13 @@ class CommonRouter {
         view.present(authViewController, animated: true, completion: nil)
     }
     
-    class func toArticleListView(view: Transitioner) {
-        let storyboard = UIStoryboard(name: "ArticleList", bundle: nil)
-        let articleListViewController = storyboard.instantiateViewController(identifier: "ArticleListViewController") as! ArticleListViewController
-        articleListViewController.navigationItem.title = "記事一覧"
-        
-        let nav = UINavigationController(articleListViewController)
-        nav.modalPresentationStyle = .fullScreen
-        view.present(nav,animated: true, completion: nil)
-    }
-    
-    class func toSelectRssFeedView(view: Transitioner) {
+    class func toSelectRssFeedView(view: Transitioner, rssFeedListModel: RssFeedListModelProtocol) {
         let storyboard = UIStoryboard(name: "SelectRssFeed", bundle: nil)
         let selectRssFeedViewController = storyboard.instantiateViewController(identifier: "SelectRssFeedViewController") as! SelectRssFeedViewController
         selectRssFeedViewController.navigationItem.title = "RSS Feedの選択"
-        selectRssFeedViewController.inject(rssFeedListModel: DummyRssFeedListModel())
+        selectRssFeedViewController.inject(rssFeedListModel: rssFeedListModel)
         let nav = UINavigationController(selectRssFeedViewController)
         nav.modalPresentationStyle = .fullScreen
-        view.present(nav,animated: false, completion: nil)
+        view.present(nav,animated: true, completion: nil)
     }
 }

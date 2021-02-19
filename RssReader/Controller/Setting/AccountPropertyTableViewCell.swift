@@ -20,7 +20,9 @@ class AccountPropertyTableviewCell: UITableViewCell {
         }
         
     }
-    override class func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
+        myImageView.layer.cornerRadius = myImageView.bounds.width / 2
     }
+    
 }
