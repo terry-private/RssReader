@@ -48,4 +48,16 @@ class CommonRouter {
         nav.modalPresentationStyle = .fullScreen
         view.present(nav,animated: false, completion: nil)
     }
+    
+    class func toSelectRssFeedTypeView<T>(view: T, typeList: [RssFeedTypeProtocol]) where T: Transitioner, T: SelectRssFeedDelegate {
+        let storyboard = UIStoryboard(name: "SelectRssFeedType", bundle: nil)
+        let selectRssFeedTypeViewController = storyboard.instantiateViewController(identifier: "SelectRssFeedTypeViewController") as! SelectRssFeedTypeViewController
+        selectRssFeedTypeViewController.navigationItem.largeTitleDisplayMode = .automatic
+        selectRssFeedTypeViewController.navigationItem.title = "購読記事の選択"
+        selectRssFeedTypeViewController.typeList = typeList
+        selectRssFeedTypeViewController.delegate = view
+        let nav = UINavigationController(rootViewController: selectRssFeedTypeViewController)
+        nav.navigationBar.prefersLargeTitles = true
+        view.present(nav, animated: true, completion: nil)
+    }
 }

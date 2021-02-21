@@ -86,8 +86,18 @@ extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         changedSelectedCount()
+        if indexPath.row == rssFeedListModel?.rssFeedList.count {
+            CommonRouter.toSelectRssFeedTypeView(view: self, typeList: rssFeedListModel!.typeList)
+        }
     }
     
+}
+
+extension SelectRssFeedViewController: SelectRssFeedDelegate {
+    func setRssFeed(rssFeed: RssFeedProtocol) {
+        rssFeedListModel?.rssFeedList.append(rssFeed)
+        selectRssFeedTableView.reloadData()
+    }
 }
 
 // MARK:- SelectRssTableViewCell

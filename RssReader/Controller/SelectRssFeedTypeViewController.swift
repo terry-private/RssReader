@@ -8,6 +8,10 @@
 import UIKit
 import Nuke
 
+protocol SelectRssFeedDelegate: AnyObject {
+    func setRssFeed(rssFeed: RssFeedProtocol)
+}
+
 protocol SelectRssFeedTypeViewControllerProtocol: Transitioner {
     
 }
@@ -17,9 +21,12 @@ class SelectRssFeedTypeViewController: UIViewController, SelectRssFeedTypeViewCo
     
     let cellId = "cellId"
     var typeList: [RssFeedTypeProtocol] = []
+    weak var delegate: SelectRssFeedDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        rssFeedTypeListTableView.delegate = self
+        rssFeedTypeListTableView.dataSource = self
     }
 }
 
@@ -35,7 +42,16 @@ extension SelectRssFeedTypeViewController: UITableViewDelegate, UITableViewDataS
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            delegate!.setRssFeed(rssFeed: typeList[0].makeRssFeed(tag: "python")!)
+            dismiss(animated: true)
+        default:
+            return
+        }
+        
+    }
 }
 
 class RssFeedTypeListTableViewCell: UITableViewCell {
