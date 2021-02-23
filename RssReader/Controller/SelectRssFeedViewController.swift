@@ -87,6 +87,37 @@ extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         changedSelectedCount()
+        if indexPath.row == rssFeedListModel?.rssFeedList.count {
+            CommonRouter.toSelectRssFeedTypeView(view: self, typeList: rssFeedListModel!.typeList)
+        }
+    }
+    
+}
+
+extension SelectRssFeedViewController: SelectRssFeedDelegate {
+    func setRssFeed(rssFeed: RssFeedProtocol) {
+        rssFeedListModel?.rssFeedList.append(rssFeed)
+        selectRssFeedTableView.reloadData()
+    }
+}
+
+// MARK:- SelectRssTableViewCell
+
+class SelectRssTableViewCell: UITableViewCell {
+    @IBOutlet weak var faviconImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var tagNameLabel: UILabel!
+    var rssFeed: RssFeedProtocol? {
+        didSet {
+            if let url = URL(string: rssFeed?.faviconUrl ?? "") {
+                Nuke.loadImage(with: url, into: faviconImageView)
+            }
+            titleLabel.text = rssFeed?.title
+            tagNameLabel.text = rssFeed?.tag
+        }
+    }
+    override class func awakeFromNib() {
+        super.awakeFromNib()
     }
     
 }
