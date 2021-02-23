@@ -59,7 +59,6 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
     
     func inject(loginModel: LoginProtocol,rssFeedListModel: RssFeedListModelProtocol, articleListRouter: ArticleListRouterProtocol) {
         self.loginModel = loginModel
-        self.loginModel?.autoLoginDelegate = self
         
         self.rssFeedListModel = rssFeedListModel
         self.rssFeedListModel?.rssFeedListModelDelegate = self
@@ -75,7 +74,7 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         }, completion: {_ in
             self.navigationItem.title = "記事一覧"
             self.splashView.isHidden = true
-            self.loginModel?.autoLogin()
+            self.loginModel?.autoLogin(autoLoginDelegate: self)
         })
     }
     
@@ -149,7 +148,7 @@ extension ArticleListViewController: FUIAuthDelegate{
         
         //失敗した場合
         print("can't auth")
-        loginModel?.autoLogin()
+        loginModel?.autoLogin(autoLoginDelegate: self)
     }
 }
 

@@ -27,13 +27,11 @@ class DummyUserConfig: UserConfigProtocol {
 /// 必ずオートログインに失敗するやつです。
 class DummyLoginModel: LoginProtocol {
     var userConfig: UserConfigProtocol
-    
-    var autoLoginDelegate: AutoLoginDelegate?
     init() {
         userConfig = DummyUserConfig()
     }
-    func autoLogin() {
-        autoLoginDelegate?.didAutoLogin(isSuccess: false)
+    func autoLogin(autoLoginDelegate: AutoLoginDelegate) {
+        autoLoginDelegate.didAutoLogin(isSuccess: false)
     }
     
     func setUserConfig(userID: String, photoURL: URL?, displayName: String) {

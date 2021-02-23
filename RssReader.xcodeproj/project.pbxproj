@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		09174EAA25E403A600756E6D /* SelectYahooTag.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09174EA925E403A600756E6D /* SelectYahooTag.storyboard */; };
 		09174EAF25E405D700756E6D /* SelectYahooTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */; };
+		09174ED925E53ADC00756E6D /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174ED825E53ADC00756E6D /* CommonData.swift */; };
 		095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */; };
 		095F95F725985F88007DC2D5 /* SelectRssFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */; };
 		095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FDBEB25A754E2007C8922 /* CommonRouter.swift */; };
@@ -73,6 +74,7 @@
 		0136653DDE8FA9F7D8BB3E7F /* Pods_RssReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RssReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		09174EA925E403A600756E6D /* SelectYahooTag.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectYahooTag.storyboard; sourceTree = "<group>"; };
 		09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYahooTagViewController.swift; sourceTree = "<group>"; };
+		09174ED825E53ADC00756E6D /* CommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
 		095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewController.swift; sourceTree = "<group>"; };
 		095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectRssFeed.storyboard; sourceTree = "<group>"; };
 		095FDBEB25A754E2007C8922 /* CommonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRouter.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 		098D56BE2593757300EAD41F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				09174ED825E53ADC00756E6D /* CommonData.swift */,
 				09ACE21B25964E4500FDB597 /* UserConfig.swift */,
 				09ACE2202597245800FDB597 /* LoginModel.swift */,
 				0975613E25B73155007B0D3F /* ArticleList.swift */,
@@ -647,6 +650,7 @@
 				099BB8A825DD1171003AF947 /* AccountPropertyTableViewCell.swift in Sources */,
 				096A1AB625D7CE3E00EBC589 /* YahooTag.swift in Sources */,
 				0975611625B2985A007B0D3F /* DummyModel.swift in Sources */,
+				09174ED925E53ADC00756E6D /* CommonData.swift in Sources */,
 				096A1B2425DA554600EBC589 /* Extension_Dictionary.swift in Sources */,
 				09ACE24225977DC100FDB597 /* ArticleListViewController.swift in Sources */,
 				0975615725B85F50007B0D3F /* MainTabBarController.swift in Sources */,
