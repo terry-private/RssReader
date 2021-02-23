@@ -65,6 +65,7 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         self.rssFeedListModel?.rssFeedListModelDelegate = self
         
         self.articleListRouter = articleListRouter
+        self.articleListRouter?.inject(articleListViewController: self)
     }
     
     // フェードアウトするアニメーションの後にオートログインをし始めます。
@@ -104,7 +105,7 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = articleTableView.cellForRow(at: indexPath) as! ArticleTableViewCell
-        guard let url = URL(string: cell.item?.link ?? "") else { return }
+        guard let url = URL(string: cell.article?.item.link ?? "") else { return }
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler:  nil)
         }
@@ -141,7 +142,7 @@ extension ArticleListViewController: FUIAuthDelegate{
             // 新規ユーザーの場合
             print("Sign up!!")
             loginModel?.setUserConfig(userID: newUser.uid, photoURL: newUser.photoURL, displayName: newUser.displayName ?? "")
-            articleListRouter?.toSelectRssFeedView()
+            articleListRouter?.toSelectRssFeedView(rssFeedListModel: rssFeedListModel!) // 強制アンラップ
             return
             
         }
@@ -180,12 +181,6 @@ class ArticleTableViewCell: UITableViewCell {
             rssFeedTagLabel.text = article?.tag
             articleTitleLabel.text = article?.item.title
             articlePubDateLabel.text = article?.item.pubDate
-        }
-    }
-    var item: Item? {
-        didSet {
-            articleTitleLabel.text = item?.title
-            articlePubDateLabel.text = item?.pubDate
         }
     }
     
