@@ -14,5 +14,8 @@ class YahooType: RssFeedTypeProtocol {
         guard let tagYahooTag = tag as? YahooTag else { return nil }
         return RssFeed(title: title,tag: tagYahooTag.name, url: tagYahooTag.url, faviconUrl: faviconUrl)
     }
+    func toSelectTag<T>(view: T) where T : SelectRssFeedDelegate, T : Transitioner {
+        CommonRouter.toSelectYahooTagView(view: view)
+    }
 }
 

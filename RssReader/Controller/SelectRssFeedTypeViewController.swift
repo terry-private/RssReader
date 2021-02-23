@@ -48,51 +48,7 @@ extension SelectRssFeedTypeViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0:
-            // アラート画面で新規ノートのタイトルを入力させます。
-            var alertTextField: UITextField?
-            let alert = UIAlertController(title: "Qiitaの購読記事", message: "タグを入力", preferredStyle: UIAlertController.Style.alert)
-            
-            // テキストフィールド追加
-            alert.addTextField(configurationHandler: {(textField: UITextField!) in
-                alertTextField = textField
-                textField.text = ""
-                textField.placeholder = "タグ"
-                // textField.isSecureTextEntry = true
-            })
-            
-            // キャンセルボタン追加
-            alert.addAction(
-                UIAlertAction(
-                    title: "Cancel",
-                    style: UIAlertAction.Style.cancel,
-                    handler: nil))
-            
-            // OKボタン追加
-            alert.addAction(
-                UIAlertAction(
-                    title: "OK",
-                    style: UIAlertAction.Style.default) { _ in
-                    if let text = alertTextField?.text {
-                        if text != "" { // ちゃんとしたバリデーションはまた作ります。
-                            self.setRssFeed(rssFeed: QiitaType().makeRssFeed(tag: text)!)// 強制アンラップ
-                            self.dismiss(animated: true)
-                        }
-                    }
-                }
-            )
-            
-            self.present(alert, animated: true, completion: nil)
-            
-            return
-        case 1:
-            CommonRouter.toSelectYahooTagView(view: self)
-            return
-        default:
-            return
-        }
-        
+        typeList[indexPath.row].toSelectTag(view: self)
     }
 }
 
