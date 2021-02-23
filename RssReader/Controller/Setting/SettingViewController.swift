@@ -8,14 +8,15 @@
 import UIKit
 import Nuke
 
-class SettingViewController: UIViewController {
+class SettingViewController: UIViewController, Transitioner {
     //MARK:- @IBOutlet
     
     @IBOutlet weak var settingTableView: UITableView!
     
     //MARK:- 変数宣言
-    var cellId = "cellId"
-    var accountPropertyTableViewCellId = "accountPropertyTableViewCellId"
+    private let cellId = "cellId"
+    private let addNewCellId = "addNewCellId"
+    private let accountPropertyTableViewCellId = "accountPropertyTableViewCellId"
     private var rssFeedKeyList: [String] = []
     
     //MARK:- ライフサイクル関連
@@ -34,6 +35,7 @@ class SettingViewController: UIViewController {
         settingTableView.delegate = self
         settingTableView.register(UINib(nibName: "RssFeedTableViewCell", bundle: nil), forCellReuseIdentifier: cellId)
         settingTableView.register(UINib(nibName: "AccountProperty", bundle: nil), forCellReuseIdentifier: accountPropertyTableViewCellId)
+        settingTableView.register(UINib(nibName: "AddNewRssFeedTableViewCell", bundle: nil), forCellReuseIdentifier: addNewCellId)
     }
     func rssFeedKeySort() {
         rssFeedKeyList = CommonData.rssFeedListModel.rssFeedList.keys.sorted()
@@ -61,7 +63,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return CommonData.rssFeedListModel.rssFeedList.count
+            return CommonData.rssFeedListModel.rssFeedList.count + 1
         default:
             return 0
         }
@@ -74,6 +76,10 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             cell.userConfig = CommonData.loginModel.userConfig
             return cell
         case 1:
+            if CommonData.rssFeedListModel.rssFeedList.count == indexPath.row {
+                let cell = settingTableView.dequeueReusableCell(withIdentifier: addNewCellId, for: indexPath) as! AddNewRssFeedTableViewCell
+                return cell
+            }
             let cell = settingTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! RssFeedTableViewCell
             cell.rssFeed = CommonData.rssFeedListModel.rssFeedList[rssFeedKeyList[indexPath.row]]
             return cell
@@ -82,6 +88,10 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    // sectionが1の時だけ編集モードにしたい
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.section == 1 && indexPath.row < CommonData.rssFeedListModel.rssFeedList.count
+    }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
@@ -95,6 +105,20 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == CommonData.rssFeedListModel.rssFeedList.count {
+            CommonRouter.toSelectRssFeedTypeView(view: self)
+        }
+    }
     
-    
+}
+
+
+extension SettingViewController: SelectRssFeedDelegate {
+    func setRssFeed(rssFeed: RssFeedProtocol) {
+        CommonData.rssFeedListModel.rssFeedList[rssFeed.url] = rssFeed
+        rssFeedKeySort()
+        settingTableView.reloadData()
+    }
 }

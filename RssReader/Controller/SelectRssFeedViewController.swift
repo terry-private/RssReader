@@ -21,8 +21,8 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
     
     //MARK:- 変数宣言
     private var rssFeedKeyList: [String] = []
-    private var cellId = "cellId"
-    private var addNewCellId = "addNewCellId"
+    private let cellId = "cellId"
+    private let addNewCellId = "addNewCellId"
     
     //MARK:- ライフサイクル関連
     
@@ -40,6 +40,7 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
         selectRssFeedTableView.delegate = self
         selectRssFeedTableView.dataSource = self
         selectRssFeedTableView.register(UINib(nibName: "RssFeedTableViewCell", bundle: nil), forCellReuseIdentifier: cellId)
+        selectRssFeedTableView.register(UINib(nibName: "AddNewRssFeedTableViewCell", bundle: nil), forCellReuseIdentifier: addNewCellId)
     }
     //MARK:- 状態変化系
     
@@ -91,6 +92,10 @@ extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSourc
         }
     }
     
+    // addNewのセルは削除出来ないようにするため
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.row < CommonData.rssFeedListModel.rssFeedList.count
+    }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         CommonData.rssFeedListModel.rssFeedList.removeValue(forKey: rssFeedKeyList[indexPath.row])
