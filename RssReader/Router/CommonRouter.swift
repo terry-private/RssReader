@@ -12,7 +12,7 @@ class CommonRouter {
     /// 認証画面へ
     /// - Parameter view: FUIAuthDelegateが必要
     /// SplashView = Transitioner + FUIAuthDelegate
-    class func toAuth(view: ArticleListViewControllerProtocol) {
+    class func toAuth<T>(view: T) where T: Transitioner, T: FUIAuthDelegate  {
         let authUI = FUIAuth.defaultAuthUI()!
         authUI.delegate = view
         authUI.providers = [
@@ -25,21 +25,19 @@ class CommonRouter {
         view.present(authViewController, animated: true, completion: nil)
     }
     
-    class func toSelectRssFeedView(view: Transitioner, rssFeedListModel: RssFeedListModelProtocol) {
+    class func toSelectRssFeedView(view: Transitioner) {
         let storyboard = UIStoryboard(name: "SelectRssFeed", bundle: nil)
         let selectRssFeedViewController = storyboard.instantiateViewController(identifier: "SelectRssFeedViewController") as! SelectRssFeedViewController
         selectRssFeedViewController.navigationItem.title = "RSS Feedの選択"
-        selectRssFeedViewController.inject(rssFeedListModel: rssFeedListModel)
         let nav = UINavigationController(selectRssFeedViewController)
         nav.modalPresentationStyle = .fullScreen
         view.present(nav,animated: true, completion: nil)
     }
     
-    class func toSelectRssFeedTypeView<T>(view: T, typeList: [RssFeedTypeProtocol]) where T: Transitioner, T: SelectRssFeedDelegate {
+    class func toSelectRssFeedTypeView<T>(view: T) where T: Transitioner, T: SelectRssFeedDelegate {
         let storyboard = UIStoryboard(name: "SelectRssFeedType", bundle: nil)
         let selectRssFeedTypeViewController = storyboard.instantiateViewController(identifier: "SelectRssFeedTypeViewController") as! SelectRssFeedTypeViewController
         selectRssFeedTypeViewController.navigationItem.title = "購読記事の選択"
-        selectRssFeedTypeViewController.typeList = typeList
         selectRssFeedTypeViewController.delegate = view
         let nav = UINavigationController(selectRssFeedTypeViewController)
         view.present(nav, animated: true, completion: nil)

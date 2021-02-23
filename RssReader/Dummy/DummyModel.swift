@@ -49,13 +49,10 @@ class DummyRssFeedListModel: RssFeedListModel {
         super.init()
         typeList = [QiitaType(), YahooType()]
         if let qiita = QiitaType().makeRssFeed(tag: "swift") {
-            rssFeedList.append(qiita)
-        }
-        if let qiita = QiitaType().makeRssFeed(tag: "ios") {
-            rssFeedList.append(qiita)
+            rssFeedList[qiita.url] = qiita
         }
         if let yahoo = YahooType().makeRssFeed(tag: YahooTag.informationTechnology) {
-            rssFeedList.append(yahoo)
+            rssFeedList[yahoo.url] = yahoo
         }
     }
 }

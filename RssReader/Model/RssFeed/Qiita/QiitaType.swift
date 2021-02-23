@@ -16,6 +16,8 @@ class QiitaType: RssFeedTypeProtocol {
         return RssFeed(title: title, tag: tagString, url: makeJsonUrl(tag: tagString), faviconUrl: faviconUrl)
     }
     
+    // String.addingPercentEncoding(withAllowedCharacters: .urlPasswordAllowed)でtagを含めたQiitaのRssのアドレスを%エンコード
+    // https://qiita.com/yum_fishing/items/db029c097197e6b27fba この記事を参考にしてます。
     func makeJsonUrl(tag: String) -> String {
         let qiitaRssUrl = "https://qiita.com/tags/\(tag)/feed".addingPercentEncoding(withAllowedCharacters: .urlPasswordAllowed)!
         return "https://api.rss2json.com/v1/api.json?rss_url=" + qiitaRssUrl

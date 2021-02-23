@@ -16,8 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FirebaseApp.configure()
         
-        CommonData.loginModel = LoginModel(userConfig: UserConfig())
-        CommonData.rssFeedListModel = RssFeedListModel()
+        
+        // 本番環境
+//        CommonData.loginModel = LoginModel(userConfig: UserConfig())
+//        CommonData.rssFeedListModel = RssFeedListModel()
+        
+        // ダミー環境
+        CommonData.loginModel = DummyLoginModel()
+        CommonData.rssFeedListModel = DummyRssFeedListModel()
         
         let mainTab = MainTabBarController()
         window = UIWindow(frame: UIScreen.main.bounds)

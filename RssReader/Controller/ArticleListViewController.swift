@@ -26,8 +26,6 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
     var cellId = "cellId"
     var isFirst = true
     
-    var loginModel: LoginProtocol?
-    var rssFeedListModel : RssFeedListModelProtocol?
     var articleListRouter: ArticleListRouterProtocol?
     var sortedArticleKeyList: [String] = []
     
@@ -57,14 +55,8 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
 
     //MARK:- 関数
     
-    func inject(loginModel: LoginProtocol,rssFeedListModel: RssFeedListModelProtocol, articleListRouter: ArticleListRouterProtocol) {
-        self.loginModel = loginModel
-        
-        self.rssFeedListModel = rssFeedListModel
-        self.rssFeedListModel?.rssFeedListModelDelegate = self
-        
+    func inject(articleListRouter: ArticleListRouterProtocol) {
         self.articleListRouter = articleListRouter
-        self.articleListRouter?.inject(articleListViewController: self)
     }
     
     // フェードアウトするアニメーションの後にオートログインをし始めます。
@@ -74,17 +66,17 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         }, completion: {_ in
             self.navigationItem.title = "記事一覧"
             self.splashView.isHidden = true
-            self.loginModel?.autoLogin(autoLoginDelegate: self)
+            CommonData.loginModel.autoLogin(autoLoginDelegate: self)
         })
     }
     
     func fetchItems() {
         activityIndicator.startAnimating()
-        rssFeedListModel?.fetchItems()
+        CommonData.rssFeedListModel.fetchItems(rssFeedListModelDelegate: self)
     }
     
     func articleKeySort() {
-        sortedArticleKeyList = rssFeedListModel?.articleList.keys.sorted() ?? []
+        sortedArticleKeyList = CommonData.rssFeedListModel.articleList.keys.sorted()
     }
 
 }
@@ -93,12 +85,12 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
 
 extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rssFeedListModel?.articleList.count ?? 0
+        return CommonData.rssFeedListModel.articleList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = articleTableView.dequeueReusableCell(withIdentifier: cellId) as! ArticleTableViewCell
-        cell.article = rssFeedListModel?.articleList[sortedArticleKeyList[indexPath.row]]
+        cell.article = CommonData.rssFeedListModel.articleList[sortedArticleKeyList[indexPath.row]]
         return cell
     }
     
@@ -118,7 +110,7 @@ extension ArticleListViewController: AutoLoginDelegate {
         if isSuccess {
             fetchItems()
         } else {
-            articleListRouter?.toAuthView()
+            articleListRouter?.toAuthView(view: self)
         }
     }
 }
@@ -131,24 +123,24 @@ extension ArticleListViewController: FUIAuthDelegate{
         if let newUser = user {
             
             // 登録済みのユーザーの場合
-            if newUser.uid == loginModel?.userConfig.userID {
+            if newUser.uid == CommonData.loginModel.userConfig.userID {
                 print("Log in!!")
-                loginModel?.userConfig.latestLoginDate = Date()
+                CommonData.loginModel.userConfig.latestLoginDate = Date()
                 fetchItems()
                 return
             }
             
             // 新規ユーザーの場合
             print("Sign up!!")
-            loginModel?.setUserConfig(userID: newUser.uid, photoURL: newUser.photoURL, displayName: newUser.displayName ?? "")
-            articleListRouter?.toSelectRssFeedView(rssFeedListModel: rssFeedListModel!) // 強制アンラップ
+            CommonData.loginModel.setUserConfig(userID: newUser.uid, photoURL: newUser.photoURL, displayName: newUser.displayName ?? "")
+            articleListRouter?.toSelectRssFeedView(view: self)
             return
             
         }
         
         //失敗した場合
         print("can't auth")
-        loginModel?.autoLogin(autoLoginDelegate: self)
+        CommonData.loginModel.autoLogin(autoLoginDelegate: self)
     }
 }
 

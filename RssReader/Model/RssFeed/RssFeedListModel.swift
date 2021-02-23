@@ -13,15 +13,15 @@ protocol RssFeedListModelDelegate: AnyObject {
 
 protocol RssFeedListModelProtocol {
     var typeList: [RssFeedTypeProtocol] { get set }
-    var rssFeedList: [RssFeedProtocol] { get set }
+    var rssFeedList: [String: RssFeedProtocol] { get set }
     var articleList: [String: Article] { get set }
     var rssFeedListModelDelegate: RssFeedListModelDelegate? { get set}
-    func fetchItems()
+    func fetchItems(rssFeedListModelDelegate: RssFeedListModelDelegate)
 }
 
 class RssFeedListModel: RssFeedListModelProtocol {
     var typeList: [RssFeedTypeProtocol] = []
-    var rssFeedList: [RssFeedProtocol] = []
+    var rssFeedList: [String: RssFeedProtocol] = [:]
     var articleList: [String: Article] = [:]
     
     var loadCounter: Int = 0 {
@@ -32,15 +32,16 @@ class RssFeedListModel: RssFeedListModelProtocol {
         }
     }
     
-    weak var rssFeedListModelDelegate: RssFeedListModelDelegate?
+    internal weak var rssFeedListModelDelegate: RssFeedListModelDelegate?
     
     /// rssFeedを一つずつ読み込んでいく
     /// すべてfetchしたかどうかはloadCounterで管理します。
     /// 待ち合わせの仕方がわからないので一旦この方法で進めます。
-    func fetchItems() {
+    func fetchItems(rssFeedListModelDelegate: RssFeedListModelDelegate) {
+        self.rssFeedListModelDelegate = rssFeedListModelDelegate
         loadCounter = rssFeedList.count
-        for rssFeed in rssFeedList {
-            rssFeed.fetchArticle { (articles) in
+        for rssFeed in rssFeedList.keys {
+            rssFeedList[rssFeed]!.fetchArticle { (articles) in
                 if let articleList = articles {
                     self.articleList += articleList // extensionで辞書の足し算をできるようにしてます。
                 }

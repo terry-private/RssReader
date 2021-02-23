@@ -6,18 +6,18 @@
 //
 
 import Foundation
-
-protocol SettingModelProtocol {
-    var loginModel: LoginProtocol { get set }
-    var rssFeedListModel: RssFeedListModelProtocol { get set }
-}
-
-final class SettingModel: SettingModelProtocol {    
-    var loginModel: LoginProtocol
-    var rssFeedListModel: RssFeedListModelProtocol
-    
-    init(loginModel: LoginProtocol, rssFeedListModel: RssFeedListModelProtocol) {
-        self.loginModel = loginModel
-        self.rssFeedListModel = rssFeedListModel
-    }
-}
+//
+//protocol SettingModelProtocol {
+//    var loginModel: LoginProtocol { get set }
+//    var rssFeedListModel: RssFeedListModelProtocol { get set }
+//}
+//
+//final class SettingModel: SettingModelProtocol {    
+//    var loginModel: LoginProtocol
+//    var rssFeedListModel: RssFeedListModelProtocol
+//    
+//    init(loginModel: LoginProtocol, rssFeedListModel: RssFeedListModelProtocol) {
+//        self.loginModel = loginModel
+//        self.rssFeedListModel = rssFeedListModel
+//    }
+//}
