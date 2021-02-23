@@ -43,7 +43,7 @@ class RssFeedListModel: RssFeedListModelProtocol {
         for rssFeed in rssFeedList {
             rssFeed.fetchArticle { (articles) in
                 if let articleList = articles {
-                    self.articleList += articleList
+                    self.articleList += articleList // extensionで辞書の足し算をできるようにしてます。
                 }
                 self.loadCounter -= 1
             }

@@ -36,6 +36,7 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
     func setUpTable() {
         selectRssFeedTableView.delegate = self
         selectRssFeedTableView.dataSource = self
+        selectRssFeedTableView.register(UINib(nibName: "RssFeedTableViewCell", bundle: nil), forCellReuseIdentifier: cellId)
     }
     
     func inject(rssFeedListModel: RssFeedListModelProtocol) {
@@ -75,7 +76,7 @@ extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // RssFeedセルかAddNewCellか
         if indexPath.row < rssFeedListModel?.rssFeedList.count ?? 0 {
-            let cell = selectRssFeedTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SelectRssTableViewCell
+            let cell = selectRssFeedTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! RssFeedTableViewCell
             cell.rssFeed = rssFeedListModel?.rssFeedList[indexPath.row]
             return cell
         }
@@ -90,25 +91,7 @@ extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSourc
     
 }
 
-// MARK:- SelectRssTableViewCell
-
-class SelectRssTableViewCell: UITableViewCell {
-    @IBOutlet weak var faviconImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var tagNameLabel: UILabel!
-    var rssFeed: RssFeedProtocol? {
-        didSet {
-            if let url = URL(string: rssFeed?.faviconUrl ?? "") {
-                Nuke.loadImage(with: url, into: faviconImageView)
-            }
-            titleLabel.text = rssFeed?.title
-            tagNameLabel.text = rssFeed?.tag
-        }
-    }
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-    }
-}
+// MARK:- AddNewRssFeedTableViewCell
 
 class AddNewRssFeedTableViewCell: UITableViewCell {
     
