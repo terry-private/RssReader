@@ -10,17 +10,11 @@ import UIKit
 
 
 class DummyArticleListRouter: ArticleListRouterProtocol {
-    weak var articleListViewController: ArticleListViewControllerProtocol!
-    
-    init(articleListViewController: ArticleListViewControllerProtocol) {
-        self.articleListViewController = articleListViewController
-    }
-    
+    weak var articleListViewController: ArticleListViewControllerProtocol?
     func toAuthView() {
-//        CommonRouter.toAuth(view: articleListViewController)
-        toSelectRssFeedView()
+        toSelectRssFeedView(rssFeedListModel: DummyRssFeedListModel())
     }
-    func toSelectRssFeedView() {
-        CommonRouter.toSelectRssFeedView(view: articleListViewController)
+    func toSelectRssFeedView(rssFeedListModel: RssFeedListModelProtocol) {
+        CommonRouter.toSelectRssFeedView(view: articleListViewController!, rssFeedListModel: rssFeedListModel)
     }
 }

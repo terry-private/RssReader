@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		092DCC0F25A1B97E0036A339 /* SelectRssFeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092DCC0E25A1B97E0036A339 /* SelectRssFeedModel.swift */; };
 		095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */; };
 		095F95F725985F88007DC2D5 /* SelectRssFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */; };
 		095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FDBEB25A754E2007C8922 /* CommonRouter.swift */; };
@@ -25,7 +24,15 @@
 		097AFF9F25C07736007AC6FA /* ArticleListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097AFF9E25C07735007AC6FA /* ArticleListRouter.swift */; };
 		0983205125DFF0A700AA8662 /* SelectRssFeedType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0983205025DFF0A700AA8662 /* SelectRssFeedType.storyboard */; };
 		0983205625DFF92000AA8662 /* SelectRssFeedTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */; };
+		0981AEB825DF5A3B009F1E8A /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0981AEB725DF5A3B009F1E8A /* SettingModel.swift */; };
 		098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C0259375BC00EAD41F /* Transitioner.swift */; };
+		099BB88A25DCA816003AF947 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 099BB88925DCA816003AF947 /* Setting.storyboard */; };
+		099BB88F25DCDAA8003AF947 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BB88E25DCDAA8003AF947 /* SettingViewController.swift */; };
+		099BB89525DD035A003AF947 /* AccountProperty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 099BB89425DD035A003AF947 /* AccountProperty.xib */; };
+		099BB89A25DD05DB003AF947 /* RssFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 099BB89925DD05DB003AF947 /* RssFeedTableViewCell.xib */; };
+		099BB89F25DD0672003AF947 /* RssFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BB89E25DD0672003AF947 /* RssFeedTableViewCell.swift */; };
+		099BB8A825DD1171003AF947 /* AccountPropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BB8A725DD1171003AF947 /* AccountPropertyTableViewCell.swift */; };
+		099BB8B325DD5B47003AF947 /* Extension_UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BB8B225DD5B47003AF947 /* Extension_UINavigationController.swift */; };
 		09ACE146259621AC00FDB597 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09ACE145259621AC00FDB597 /* GoogleService-Info.plist */; };
 		09ACE21C25964E4500FDB597 /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACE21B25964E4500FDB597 /* UserConfig.swift */; };
 		09ACE2212597245800FDB597 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACE2202597245800FDB597 /* LoginModel.swift */; };
@@ -62,7 +69,6 @@
 
 /* Begin PBXFileReference section */
 		0136653DDE8FA9F7D8BB3E7F /* Pods_RssReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RssReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		092DCC0E25A1B97E0036A339 /* SelectRssFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedModel.swift; sourceTree = "<group>"; };
 		095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewController.swift; sourceTree = "<group>"; };
 		095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectRssFeed.storyboard; sourceTree = "<group>"; };
 		095FDBEB25A754E2007C8922 /* CommonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRouter.swift; sourceTree = "<group>"; };
@@ -80,7 +86,15 @@
 		097AFF9E25C07735007AC6FA /* ArticleListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListRouter.swift; sourceTree = "<group>"; };
 		0983205025DFF0A700AA8662 /* SelectRssFeedType.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectRssFeedType.storyboard; sourceTree = "<group>"; };
 		0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedTypeViewController.swift; sourceTree = "<group>"; };
+		0981AEB725DF5A3B009F1E8A /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		098D56C0259375BC00EAD41F /* Transitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitioner.swift; sourceTree = "<group>"; };
+		099BB88925DCA816003AF947 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		099BB88E25DCDAA8003AF947 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		099BB89425DD035A003AF947 /* AccountProperty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountProperty.xib; sourceTree = "<group>"; };
+		099BB89925DD05DB003AF947 /* RssFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RssFeedTableViewCell.xib; sourceTree = "<group>"; };
+		099BB89E25DD0672003AF947 /* RssFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedTableViewCell.swift; sourceTree = "<group>"; };
+		099BB8A725DD1171003AF947 /* AccountPropertyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPropertyTableViewCell.swift; sourceTree = "<group>"; };
+		099BB8B225DD5B47003AF947 /* Extension_UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UINavigationController.swift; sourceTree = "<group>"; };
 		09ACE145259621AC00FDB597 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		09ACE21B25964E4500FDB597 /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
 		09ACE2202597245800FDB597 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -179,7 +193,9 @@
 			children = (
 				095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */,
 				0983205025DFF0A700AA8662 /* SelectRssFeedType.storyboard */,
+				099BB89925DD05DB003AF947 /* RssFeedTableViewCell.xib */,
 				09ACE24925977DED00FDB597 /* ArticleList.storyboard */,
+				099BB89325DD02F4003AF947 /* Setting */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,7 +207,9 @@
 				0975615625B85F50007B0D3F /* MainTabBarController.swift */,
 				095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */,
 				0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */,
+				099BB89E25DD0672003AF947 /* RssFeedTableViewCell.swift */,
 				09ACE24125977DC100FDB597 /* ArticleListViewController.swift */,
+				099BB8A325DD096C003AF947 /* Setting */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -201,8 +219,8 @@
 			children = (
 				09ACE21B25964E4500FDB597 /* UserConfig.swift */,
 				09ACE2202597245800FDB597 /* LoginModel.swift */,
-				092DCC0E25A1B97E0036A339 /* SelectRssFeedModel.swift */,
 				0975613E25B73155007B0D3F /* ArticleList.swift */,
+				0981AEB725DF5A3B009F1E8A /* SettingModel.swift */,
 				0975614325B731CF007B0D3F /* RssClient.swift */,
 				096A1AAA25D7CD6000EBC589 /* RssFeed */,
 			);
@@ -218,11 +236,30 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		099BB89325DD02F4003AF947 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				099BB88925DCA816003AF947 /* Setting.storyboard */,
+				099BB89425DD035A003AF947 /* AccountProperty.xib */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		099BB8A325DD096C003AF947 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				099BB88E25DCDAA8003AF947 /* SettingViewController.swift */,
+				099BB8A725DD1171003AF947 /* AccountPropertyTableViewCell.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		09ACE22D2597272E00FDB597 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				09ACE22E2597275800FDB597 /* Extension_Date.swift */,
 				096A1B2325DA554600EBC589 /* Extension_Dictionary.swift */,
+				099BB8B225DD5B47003AF947 /* Extension_UINavigationController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -419,12 +456,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				099BB89A25DD05DB003AF947 /* RssFeedTableViewCell.xib in Resources */,
 				09B803292590CF9200CA2D19 /* LaunchScreen.storyboard in Resources */,
 				09ACE24A25977DED00FDB597 /* ArticleList.storyboard in Resources */,
 				09ACE146259621AC00FDB597 /* GoogleService-Info.plist in Resources */,
 				0983205125DFF0A700AA8662 /* SelectRssFeedType.storyboard in Resources */,
+				099BB89525DD035A003AF947 /* AccountProperty.xib in Resources */,
 				095F95F725985F88007DC2D5 /* SelectRssFeed.storyboard in Resources */,
 				09B803262590CF9200CA2D19 /* Assets.xcassets in Resources */,
+				099BB88A25DCA816003AF947 /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,21 +630,25 @@
 				095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */,
 				096A1AA625D7CC8300EBC589 /* RssFeed.swift in Sources */,
 				0975611725B2985A007B0D3F /* DummyRouter.swift in Sources */,
+				099BB89F25DD0672003AF947 /* RssFeedTableViewCell.swift in Sources */,
+				099BB8B325DD5B47003AF947 /* Extension_UINavigationController.swift in Sources */,
 				09ACE2212597245800FDB597 /* LoginModel.swift in Sources */,
 				09B8031D2590CF9100CA2D19 /* AppDelegate.swift in Sources */,
 				09B8031F2590CF9100CA2D19 /* SceneDelegate.swift in Sources */,
 				0975614425B731CF007B0D3F /* RssClient.swift in Sources */,
+				099BB8A825DD1171003AF947 /* AccountPropertyTableViewCell.swift in Sources */,
 				096A1AB625D7CE3E00EBC589 /* YahooTag.swift in Sources */,
 				0975611625B2985A007B0D3F /* DummyModel.swift in Sources */,
 				096A1B2425DA554600EBC589 /* Extension_Dictionary.swift in Sources */,
 				09ACE24225977DC100FDB597 /* ArticleListViewController.swift in Sources */,
 				0975615725B85F50007B0D3F /* MainTabBarController.swift in Sources */,
-				092DCC0F25A1B97E0036A339 /* SelectRssFeedModel.swift in Sources */,
 				0975613F25B73155007B0D3F /* ArticleList.swift in Sources */,
 				096A1ABE25D7CECD00EBC589 /* YahooType.swift in Sources */,
 				096A1ACB25D8E13700EBC589 /* RssFeedListModel.swift in Sources */,
 				095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */,
 				0983205625DFF92000AA8662 /* SelectRssFeedTypeViewController.swift in Sources */,
+				0981AEB825DF5A3B009F1E8A /* SettingModel.swift in Sources */,
+				099BB88F25DCDAA8003AF947 /* SettingViewController.swift in Sources */,
 				098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */,
 				096A1AAD25D7CD9A00EBC589 /* QiitaType.swift in Sources */,
 				097AFF9F25C07736007AC6FA /* ArticleListRouter.swift in Sources */,
