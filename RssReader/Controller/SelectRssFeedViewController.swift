@@ -91,6 +91,13 @@ extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSourc
         }
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        CommonData.rssFeedListModel.rssFeedList.removeValue(forKey: rssFeedKeyList[indexPath.row])
+        rssFeedKeySort()
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+    
 }
 
 extension SelectRssFeedViewController: SelectRssFeedDelegate {

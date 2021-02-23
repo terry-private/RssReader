@@ -82,5 +82,19 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            return
+        case 1:
+            CommonData.rssFeedListModel.rssFeedList.removeValue(forKey: rssFeedKeyList[indexPath.row])
+            rssFeedKeySort()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+        default:
+            return
+        }
+    }
+    
     
 }
