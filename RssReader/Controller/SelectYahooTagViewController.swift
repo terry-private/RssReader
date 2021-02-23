@@ -14,7 +14,7 @@ protocol SelectYahooTagViewControllerProtocol: Transitioner {
 class SelectYahooTagViewController: UIViewController, Transitioner {
     @IBOutlet weak var yahooTagTableView: UITableView!
     private let cellId = "cellId"
-    private var feedList: [ArticleList]?
+    weak var delegate: SelectRssFeedDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         yahooTagTableView.delegate = self
@@ -28,11 +28,13 @@ extension SelectYahooTagViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = yahooTagTableView.dequeueReusableCell(withIdentifier: cellId) as! YahooTagTableViewCell
-        YahooTag.allCases[indexPath.row]
+        cell.textLabel?.text = "「\(YahooTag.allCases[indexPath.row].name)」タグのついた記事"
         return cell
     }
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.setRssFeed(rssFeed: YahooType().makeRssFeed(tag: YahooTag.allCases[indexPath.row])!)
+        dismiss(animated: true)
+    }
 }
 
 class YahooTagTableViewCell: UITableViewCell {

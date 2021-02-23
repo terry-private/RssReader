@@ -38,12 +38,18 @@ class CommonRouter {
     class func toSelectRssFeedTypeView<T>(view: T, typeList: [RssFeedTypeProtocol]) where T: Transitioner, T: SelectRssFeedDelegate {
         let storyboard = UIStoryboard(name: "SelectRssFeedType", bundle: nil)
         let selectRssFeedTypeViewController = storyboard.instantiateViewController(identifier: "SelectRssFeedTypeViewController") as! SelectRssFeedTypeViewController
-        selectRssFeedTypeViewController.navigationItem.largeTitleDisplayMode = .automatic
         selectRssFeedTypeViewController.navigationItem.title = "購読記事の選択"
         selectRssFeedTypeViewController.typeList = typeList
         selectRssFeedTypeViewController.delegate = view
-        let nav = UINavigationController(rootViewController: selectRssFeedTypeViewController)
-        nav.navigationBar.prefersLargeTitles = true
+        let nav = UINavigationController(selectRssFeedTypeViewController)
         view.present(nav, animated: true, completion: nil)
+    }
+    
+    class func toSelectYahooTagView<T>(view: T) where T: Transitioner, T: SelectRssFeedDelegate {
+        let storyboard = UIStoryboard(name: "SelectYahooTag", bundle: nil)
+        let selectYahooTagViewController = storyboard.instantiateViewController(identifier: "SelectYahooTagViewController") as! SelectYahooTagViewController
+        selectYahooTagViewController.navigationItem.title = "Yahoo!Newsタグの選択"
+        selectYahooTagViewController.delegate = view
+        view.pushViewController(selectYahooTagViewController, animated: true)
     }
 }

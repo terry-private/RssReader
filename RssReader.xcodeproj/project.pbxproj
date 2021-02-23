@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		09174EAA25E403A600756E6D /* SelectYahooTag.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09174EA925E403A600756E6D /* SelectYahooTag.storyboard */; };
 		09174EAF25E405D700756E6D /* SelectYahooTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */; };
-		092DCC0F25A1B97E0036A339 /* SelectRssFeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092DCC0E25A1B97E0036A339 /* SelectRssFeedModel.swift */; };
 		095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */; };
 		095F95F725985F88007DC2D5 /* SelectRssFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */; };
 		095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FDBEB25A754E2007C8922 /* CommonRouter.swift */; };
@@ -25,9 +24,9 @@
 		0975614425B731CF007B0D3F /* RssClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975614325B731CF007B0D3F /* RssClient.swift */; };
 		0975615725B85F50007B0D3F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975615625B85F50007B0D3F /* MainTabBarController.swift */; };
 		097AFF9F25C07736007AC6FA /* ArticleListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097AFF9E25C07735007AC6FA /* ArticleListRouter.swift */; };
+		0981AEB825DF5A3B009F1E8A /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0981AEB725DF5A3B009F1E8A /* SettingModel.swift */; };
 		0983205125DFF0A700AA8662 /* SelectRssFeedType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0983205025DFF0A700AA8662 /* SelectRssFeedType.storyboard */; };
 		0983205625DFF92000AA8662 /* SelectRssFeedTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */; };
-		0981AEB825DF5A3B009F1E8A /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0981AEB725DF5A3B009F1E8A /* SettingModel.swift */; };
 		098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C0259375BC00EAD41F /* Transitioner.swift */; };
 		099BB88A25DCA816003AF947 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 099BB88925DCA816003AF947 /* Setting.storyboard */; };
 		099BB88F25DCDAA8003AF947 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BB88E25DCDAA8003AF947 /* SettingViewController.swift */; };
@@ -74,7 +73,6 @@
 		0136653DDE8FA9F7D8BB3E7F /* Pods_RssReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RssReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		09174EA925E403A600756E6D /* SelectYahooTag.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectYahooTag.storyboard; sourceTree = "<group>"; };
 		09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYahooTagViewController.swift; sourceTree = "<group>"; };
-		092DCC0E25A1B97E0036A339 /* SelectRssFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedModel.swift; sourceTree = "<group>"; };
 		095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewController.swift; sourceTree = "<group>"; };
 		095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectRssFeed.storyboard; sourceTree = "<group>"; };
 		095FDBEB25A754E2007C8922 /* CommonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRouter.swift; sourceTree = "<group>"; };
@@ -90,9 +88,9 @@
 		0975614325B731CF007B0D3F /* RssClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssClient.swift; sourceTree = "<group>"; };
 		0975615625B85F50007B0D3F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		097AFF9E25C07735007AC6FA /* ArticleListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListRouter.swift; sourceTree = "<group>"; };
+		0981AEB725DF5A3B009F1E8A /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		0983205025DFF0A700AA8662 /* SelectRssFeedType.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectRssFeedType.storyboard; sourceTree = "<group>"; };
 		0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedTypeViewController.swift; sourceTree = "<group>"; };
-		0981AEB725DF5A3B009F1E8A /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		098D56C0259375BC00EAD41F /* Transitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitioner.swift; sourceTree = "<group>"; };
 		099BB88925DCA816003AF947 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		099BB88E25DCDAA8003AF947 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -214,9 +212,9 @@
 				0975615625B85F50007B0D3F /* MainTabBarController.swift */,
 				095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */,
 				0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */,
+				09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */,
 				099BB89E25DD0672003AF947 /* RssFeedTableViewCell.swift */,
 				09ACE24125977DC100FDB597 /* ArticleListViewController.swift */,
-				09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */,
 				099BB8A325DD096C003AF947 /* Setting */,
 			);
 			path = Controller;
