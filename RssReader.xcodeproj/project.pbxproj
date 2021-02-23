@@ -656,6 +656,7 @@
 				096A1ABE25D7CECD00EBC589 /* YahooType.swift in Sources */,
 				096A1ACB25D8E13700EBC589 /* RssFeedListModel.swift in Sources */,
 				095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */,
+				0983205625DFF92000AA8662 /* SelectRssFeedTypeViewController.swift in Sources */,
 				0981AEB825DF5A3B009F1E8A /* SettingModel.swift in Sources */,
 				099BB88F25DCDAA8003AF947 /* SettingViewController.swift in Sources */,
 				098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */,
