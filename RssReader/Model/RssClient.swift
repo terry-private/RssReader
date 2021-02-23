@@ -40,4 +40,33 @@ class RssClient {
         })
         task.resume()
     }
+    
+    class func fetchArticleList(rssApiUrl: String, completion: @escaping (ArticleList?) -> Void) {
+        
+        guard let url = URL(string: rssApiUrl) else {
+            completion(nil)
+            return
+        }
+
+        let task = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
+
+            if error != nil {
+                completion(nil)
+                return
+            }
+
+            guard let data = data else {
+                completion(nil)
+                return
+            }
+
+            let decoder = JSONDecoder()
+            guard let articleList = try?decoder.decode(ArticleList.self, from: data) else {
+                completion(nil)
+                return
+            }
+            completion(articleList)
+        })
+        task.resume()
+    }
 }
