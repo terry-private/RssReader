@@ -16,7 +16,7 @@ class QiitaType: RssFeedTypeProtocol {
         return RssFeed(title: title, tag: tagString, url: "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fqiita.com%2Ftags%2F\(tag)%2Ffeed", faviconUrl: faviconUrl)
     }
     func toSelectTag<T>(view: T) where T: Transitioner, T: SelectRssFeedDelegate {
-        // アラート画面で新規ノートのタイトルを入力させます。
+        // アラート画面でTagを入力させます。
         var alertTextField: UITextField?
         let alert = UIAlertController(title: "Qiitaの購読記事", message: "タグを入力", preferredStyle: UIAlertController.Style.alert)
         
@@ -30,17 +30,17 @@ class QiitaType: RssFeedTypeProtocol {
         // キャンセルボタン追加
         alert.addAction(
             UIAlertAction(
-                title: "Cancel",
+                title: "キャンセル",
                 style: UIAlertAction.Style.cancel,
                 handler: nil))
         
-        // OKボタン追加
+        // 確定ボタン追加
         alert.addAction(
             UIAlertAction(
-                title: "OK",
+                title: "確定",
                 style: UIAlertAction.Style.default) { _ in
                 if let text = alertTextField?.text {
-                    if text != "" { // ちゃんとしたバリデーションはまた作ります。
+                    if self.urlValidation(text) { // ちゃんとしたバリデーションはまた作ります。
                         view.setRssFeed(rssFeed: QiitaType().makeRssFeed(tag: text)!)// 強制アンラップ
                         view.dismiss(animated: true)
                     }
@@ -49,5 +49,11 @@ class QiitaType: RssFeedTypeProtocol {
         )
         
         view.present(alert, animated: true, completion: nil)
+    }
+    func urlValidation(_ urlString: String) -> Bool{
+        guard URL(string: urlString) != nil else {
+            return false
+        }
+        return true
     }
 }
