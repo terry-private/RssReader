@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		091251D725E5F92F00F9CFCA /* ArticleDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 091251D625E5F92F00F9CFCA /* ArticleDetail.storyboard */; };
 		091251DC25E629E800F9CFCA /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091251DB25E629E800F9CFCA /* ArticleDetailViewController.swift */; };
+		0912520C25E687BD00F9CFCA /* FilterMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0912520B25E687BD00F9CFCA /* FilterMenu.storyboard */; };
+		0912521125E68D1300F9CFCA /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0912521025E68D1300F9CFCA /* FilterModel.swift */; };
 		09174EAA25E403A600756E6D /* SelectYahooTag.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09174EA925E403A600756E6D /* SelectYahooTag.storyboard */; };
 		09174EAF25E405D700756E6D /* SelectYahooTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */; };
 		09174ED925E53ADC00756E6D /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174ED825E53ADC00756E6D /* CommonData.swift */; };
@@ -76,6 +78,8 @@
 		0136653DDE8FA9F7D8BB3E7F /* Pods_RssReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RssReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		091251D625E5F92F00F9CFCA /* ArticleDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArticleDetail.storyboard; sourceTree = "<group>"; };
 		091251DB25E629E800F9CFCA /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
+		0912520B25E687BD00F9CFCA /* FilterMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FilterMenu.storyboard; sourceTree = "<group>"; };
+		0912521025E68D1300F9CFCA /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		09174EA925E403A600756E6D /* SelectYahooTag.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectYahooTag.storyboard; sourceTree = "<group>"; };
 		09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYahooTagViewController.swift; sourceTree = "<group>"; };
 		09174ED825E53ADC00756E6D /* CommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
@@ -161,6 +165,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0912521525E6925400F9CFCA /* FilterMenu */ = {
+			isa = PBXGroup;
+			children = (
+				0912520B25E687BD00F9CFCA /* FilterMenu.storyboard */,
+			);
+			path = FilterMenu;
+			sourceTree = "<group>";
+		};
 		092DCC6925A4AED00036A339 /* Dummy */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +220,7 @@
 				09ACE24925977DED00FDB597 /* ArticleList.storyboard */,
 				091251D625E5F92F00F9CFCA /* ArticleDetail.storyboard */,
 				09174EA925E403A600756E6D /* SelectYahooTag.storyboard */,
+				0912521525E6925400F9CFCA /* FilterMenu */,
 				099BB89325DD02F4003AF947 /* Setting */,
 			);
 			path = View;
@@ -237,6 +250,7 @@
 				09ACE2202597245800FDB597 /* LoginModel.swift */,
 				0975613E25B73155007B0D3F /* ArticleList.swift */,
 				0975614325B731CF007B0D3F /* RssClient.swift */,
+				0912521025E68D1300F9CFCA /* FilterModel.swift */,
 				096A1AAA25D7CD6000EBC589 /* RssFeed */,
 			);
 			path = Model;
@@ -481,6 +495,7 @@
 				09174EAA25E403A600756E6D /* SelectYahooTag.storyboard in Resources */,
 				099BB89525DD035A003AF947 /* AccountProperty.xib in Resources */,
 				095F95F725985F88007DC2D5 /* SelectRssFeed.storyboard in Resources */,
+				0912520C25E687BD00F9CFCA /* FilterMenu.storyboard in Resources */,
 				09B803262590CF9200CA2D19 /* Assets.xcassets in Resources */,
 				099BB88A25DCA816003AF947 /* Setting.storyboard in Resources */,
 			);
@@ -659,6 +674,7 @@
 				096A1AB625D7CE3E00EBC589 /* YahooTag.swift in Sources */,
 				0975611625B2985A007B0D3F /* DummyModel.swift in Sources */,
 				09174ED925E53ADC00756E6D /* CommonData.swift in Sources */,
+				0912521125E68D1300F9CFCA /* FilterModel.swift in Sources */,
 				096A1B2425DA554600EBC589 /* Extension_Dictionary.swift in Sources */,
 				09ACE24225977DC100FDB597 /* ArticleListViewController.swift in Sources */,
 				0975615725B85F50007B0D3F /* MainTabBarController.swift in Sources */,

@@ -41,7 +41,6 @@ class RssFeed: RssFeedProtocol {
                 return
             }
             for item in items {
-                let c = CommonData.rssFeedListModel
                 if !CommonData.rssFeedListModel.articleList.keys.contains(item.link) {
                     articles[item.link] = Article(item: item, rssFeedTitle: self.title,rssFeedUrl: self.url, rssFeedFaviconUrl: self.faviconUrl, tag: self.tag)
                 }

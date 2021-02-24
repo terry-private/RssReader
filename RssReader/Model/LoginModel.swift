@@ -30,7 +30,7 @@ final class LoginModel: LoginProtocol {
     func autoLogin(autoLoginDelegate: AutoLoginDelegate) {
         // 前回の認証が一週間以内の場合のみオートログイン成功と判定します。
         if let latestDate = userConfig.latestLoginDate {
-            if latestDate.addingTimeInterval(60 * 60 * 24 * 7) > Date() {
+            if latestDate > Date().addingTimeInterval(-60 * 60 * 24 * 7) {
                 autoLoginDelegate.didAutoLogin(isSuccess: true)
                 return
             }

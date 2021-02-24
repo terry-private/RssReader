@@ -40,6 +40,22 @@ struct Article {
             readDate = Date()
         }
     }
-    var laterRead: Bool = false
-    var isStar: Bool = false
+    var laterRead: Bool = false {
+        didSet {
+            if laterRead {
+                CommonData.rssFeedListModel.laterReadList.insert(item.link)
+            } else {
+                CommonData.rssFeedListModel.laterReadList.remove(item.link)
+            }
+        }
+    }
+    var isStar: Bool = false {
+        didSet {
+            if isStar {
+                CommonData.rssFeedListModel.starList.insert(item.link)
+            } else {
+                CommonData.rssFeedListModel.starList.remove(item.link)
+            }
+        }
+    }
 }

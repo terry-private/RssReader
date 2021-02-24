@@ -16,6 +16,7 @@ protocol RssFeedListModelProtocol {
     var rssFeedList: [String: RssFeedProtocol] { get set }
     var articleList: [String: Article] { get set }
     var starList: Set<String> { get set }
+    var laterReadList: Set<String> { get set }
     func fetchItems(rssFeedListModelDelegate: RssFeedListModelDelegate)
 }
 
@@ -24,6 +25,7 @@ class RssFeedListModel: RssFeedListModelProtocol {
     var rssFeedList: [String: RssFeedProtocol] = [:] // RssFeed.urlをkeyにしてます。
     var articleList: [String: Article] = [:] // item.linkをkeyにしてます。
     var starList: Set<String> = []
+    var laterReadList: Set<String> = []
     var loadCounter: Int = 0 {
         didSet {
             if loadCounter == 0 {
@@ -56,7 +58,7 @@ class RssFeedListModel: RssFeedListModelProtocol {
     func refreshArticleList() {
         let articleListKeys = articleList.keys
         for key in articleListKeys {
-            if  !rssFeedList.keys.contains(articleList[key]!.rssFeedUrl) && !starList.contains(key){
+            if  !rssFeedList.keys.contains(articleList[key]!.rssFeedUrl) && !starList.contains(key) && !laterReadList.contains(key){
                 articleList.removeValue(forKey: key)
             }
         }
