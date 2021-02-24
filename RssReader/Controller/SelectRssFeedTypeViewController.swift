@@ -27,6 +27,11 @@ class SelectRssFeedTypeViewController: UIViewController, SelectRssFeedTypeViewCo
         super.viewDidLoad()
         rssFeedTypeListTableView.delegate = self
         rssFeedTypeListTableView.dataSource = self
+        let closeButton = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: #selector(close))
+        navigationItem.leftBarButtonItem = closeButton
+    }
+    @objc func close(){
+        dismiss(animated: true)
     }
 }
 
@@ -43,14 +48,13 @@ extension SelectRssFeedTypeViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0:
-            delegate!.setRssFeed(rssFeed: typeList[0].makeRssFeed(tag: "python")!)
-            dismiss(animated: true)
-        default:
-            return
-        }
-        
+        typeList[indexPath.row].toSelectTag(view: self)
+    }
+}
+
+extension SelectRssFeedTypeViewController: SelectRssFeedDelegate {
+    func setRssFeed(rssFeed: RssFeedProtocol) {
+        delegate?.setRssFeed(rssFeed: rssFeed)
     }
 }
 

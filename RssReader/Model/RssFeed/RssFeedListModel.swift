@@ -15,7 +15,6 @@ protocol RssFeedListModelProtocol {
     var typeList: [RssFeedTypeProtocol] { get set }
     var rssFeedList: [RssFeedProtocol] { get set }
     var articleList: [String: Article] { get set }
-    var loadCounter: Int { get set }
     var rssFeedListModelDelegate: RssFeedListModelDelegate? { get set}
     func fetchItems()
 }

@@ -10,7 +10,6 @@ import Foundation
 protocol SettingModelProtocol {
     var loginModel: LoginProtocol { get set }
     var rssFeedListModel: RssFeedListModelProtocol { get set }
-    init(loginModel: LoginProtocol, rssFeedListModel: RssFeedListModelProtocol)
 }
 
 final class SettingModel: SettingModelProtocol {    

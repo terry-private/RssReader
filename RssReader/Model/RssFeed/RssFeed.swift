@@ -11,6 +11,7 @@ protocol RssFeedTypeProtocol {
     var title: String { get }
     var faviconUrl: String { get }
     func makeRssFeed(tag: Any) -> RssFeedProtocol?
+    func toSelectTag<T>(view: T) where T: Transitioner, T: SelectRssFeedDelegate
 }
 
 protocol RssFeedProtocol {
