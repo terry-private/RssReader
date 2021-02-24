@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		091251D725E5F92F00F9CFCA /* ArticleDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 091251D625E5F92F00F9CFCA /* ArticleDetail.storyboard */; };
+		091251DC25E629E800F9CFCA /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091251DB25E629E800F9CFCA /* ArticleDetailViewController.swift */; };
 		09174EAA25E403A600756E6D /* SelectYahooTag.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09174EA925E403A600756E6D /* SelectYahooTag.storyboard */; };
 		09174EAF25E405D700756E6D /* SelectYahooTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */; };
 		09174ED925E53ADC00756E6D /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174ED825E53ADC00756E6D /* CommonData.swift */; };
@@ -72,6 +74,8 @@
 
 /* Begin PBXFileReference section */
 		0136653DDE8FA9F7D8BB3E7F /* Pods_RssReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RssReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		091251D625E5F92F00F9CFCA /* ArticleDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArticleDetail.storyboard; sourceTree = "<group>"; };
+		091251DB25E629E800F9CFCA /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
 		09174EA925E403A600756E6D /* SelectYahooTag.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectYahooTag.storyboard; sourceTree = "<group>"; };
 		09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYahooTagViewController.swift; sourceTree = "<group>"; };
 		09174ED825E53ADC00756E6D /* CommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 				0983205025DFF0A700AA8662 /* SelectRssFeedType.storyboard */,
 				099BB89925DD05DB003AF947 /* RssFeedTableViewCell.xib */,
 				09ACE24925977DED00FDB597 /* ArticleList.storyboard */,
+				091251D625E5F92F00F9CFCA /* ArticleDetail.storyboard */,
 				09174EA925E403A600756E6D /* SelectYahooTag.storyboard */,
 				099BB89325DD02F4003AF947 /* Setting */,
 			);
@@ -218,6 +223,7 @@
 				09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */,
 				099BB89E25DD0672003AF947 /* RssFeedTableViewCell.swift */,
 				09ACE24125977DC100FDB597 /* ArticleListViewController.swift */,
+				091251DB25E629E800F9CFCA /* ArticleDetailViewController.swift */,
 				099BB8A325DD096C003AF947 /* Setting */,
 			);
 			path = Controller;
@@ -467,6 +473,7 @@
 			files = (
 				099BB89A25DD05DB003AF947 /* RssFeedTableViewCell.xib in Resources */,
 				09174EE425E573E100756E6D /* AddNewRssFeedTableViewCell.xib in Resources */,
+				091251D725E5F92F00F9CFCA /* ArticleDetail.storyboard in Resources */,
 				09B803292590CF9200CA2D19 /* LaunchScreen.storyboard in Resources */,
 				09ACE24A25977DED00FDB597 /* ArticleList.storyboard in Resources */,
 				09ACE146259621AC00FDB597 /* GoogleService-Info.plist in Resources */,
@@ -660,6 +667,7 @@
 				096A1ACB25D8E13700EBC589 /* RssFeedListModel.swift in Sources */,
 				095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */,
 				0983205625DFF92000AA8662 /* SelectRssFeedTypeViewController.swift in Sources */,
+				091251DC25E629E800F9CFCA /* ArticleDetailViewController.swift in Sources */,
 				099BB88F25DCDAA8003AF947 /* SettingViewController.swift in Sources */,
 				098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */,
 				096A1AAD25D7CD9A00EBC589 /* QiitaType.swift in Sources */,

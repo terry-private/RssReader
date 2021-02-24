@@ -50,4 +50,12 @@ class CommonRouter {
         selectYahooTagViewController.delegate = view
         view.pushViewController(selectYahooTagViewController, animated: true)
     }
+    
+    class func toArticleDetailView(view: Transitioner, article: Article) {
+        let storyboard = UIStoryboard(name: "ArticleDetail", bundle: nil)
+        let articleDetailViewController = storyboard.instantiateViewController(identifier: "ArticleDetailViewController") as! ArticleDetailViewController
+        articleDetailViewController.navigationItem.title = article.item.title
+        articleDetailViewController.article = article
+        view.present(articleDetailViewController, animated: true, completion: nil)
+    }
 }
