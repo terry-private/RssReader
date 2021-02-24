@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Article Detail View Controller-->
+        <scene sceneID="rvn-yU-fpf">
+            <objects>
+                <viewController storyboardIdentifier="ArticleDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nHK-Zy-z6y" customClass="ArticleDetailViewController" customModule="RssReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f5W-7z-dqe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KK8-3b-RIO">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXA-yR-qUi">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="754"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZlP-JL-3D9">
+                                        <rect key="frame" x="0.0" y="754" width="414" height="64"/>
+                                        <items>
+                                            <barButtonItem image="chevron.left" catalog="system" id="mdh-Db-SXC">
+                                                <connections>
+                                                    <action selector="goBack:" destination="nHK-Zy-z6y" id="528-zk-fCK"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="CCN-ba-hfy"/>
+                                            <barButtonItem image="chevron.right" catalog="system" id="tkn-Yp-uxh">
+                                                <connections>
+                                                    <action selector="goForward:" destination="nHK-Zy-z6y" id="dUO-cB-cmK"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="KM2-DQ-THS"/>
+                                            <barButtonItem image="star" catalog="system" id="xxA-YT-uoF">
+                                                <connections>
+                                                    <action selector="tappedStarButton:" destination="nHK-Zy-z6y" id="3Hw-SC-XL9"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="tzg-2s-shd"/>
+                                            <barButtonItem image="safari" catalog="system" id="m5r-W8-Qfu">
+                                                <connections>
+                                                    <action selector="toSafari:" destination="nHK-Zy-z6y" id="awT-4B-PR1"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
+                                </subviews>
+                            </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="sMt-Dm-lNR">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Sdz-8C-6Mu"/>
+                        <constraints>
+                            <constraint firstItem="Sdz-8C-6Mu" firstAttribute="trailing" secondItem="KK8-3b-RIO" secondAttribute="trailing" id="IjY-wE-Mg0"/>
+                            <constraint firstItem="KK8-3b-RIO" firstAttribute="leading" secondItem="Sdz-8C-6Mu" secondAttribute="leading" id="P94-ue-J61"/>
+                            <constraint firstItem="KK8-3b-RIO" firstAttribute="top" secondItem="Sdz-8C-6Mu" secondAttribute="top" id="US0-em-uz2"/>
+                            <constraint firstItem="Sdz-8C-6Mu" firstAttribute="bottom" secondItem="sMt-Dm-lNR" secondAttribute="bottom" id="UqK-n6-0JC"/>
+                            <constraint firstItem="sMt-Dm-lNR" firstAttribute="leading" secondItem="Sdz-8C-6Mu" secondAttribute="leading" id="d2j-C5-CtV"/>
+                            <constraint firstItem="sMt-Dm-lNR" firstAttribute="trailing" secondItem="Sdz-8C-6Mu" secondAttribute="trailing" id="dgy-Mx-F4W"/>
+                            <constraint firstItem="Sdz-8C-6Mu" firstAttribute="bottom" secondItem="KK8-3b-RIO" secondAttribute="bottom" id="fH9-W3-h8K"/>
+                            <constraint firstItem="sMt-Dm-lNR" firstAttribute="top" secondItem="Sdz-8C-6Mu" secondAttribute="top" id="tNE-N4-wxG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="indicator" destination="sMt-Dm-lNR" id="Pb2-Dl-4Xc"/>
+                        <outlet property="starButton" destination="xxA-YT-uoF" id="lpJ-zM-WyW"/>
+                        <outlet property="webView" destination="jXA-yR-qUi" id="6qf-Ai-fHQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jkH-fM-iBl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-446" y="-30"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="safari" catalog="system" width="128" height="121"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+    </resources>
+</document>

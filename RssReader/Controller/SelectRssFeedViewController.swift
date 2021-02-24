@@ -34,7 +34,6 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         rssFeedKeySort()
-        changedSelectedCount()
     }
     func setUpTable() {
         selectRssFeedTableView.delegate = self
@@ -56,6 +55,7 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
     }
     func rssFeedKeySort() {
         rssFeedKeyList = CommonData.rssFeedListModel.rssFeedList.keys.sorted()
+        changedSelectedCount()
     }
     
     //MARK:- @IBAction
@@ -96,8 +96,8 @@ extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return indexPath.row < CommonData.rssFeedListModel.rssFeedList.count
     }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
         CommonData.rssFeedListModel.rssFeedList.removeValue(forKey: rssFeedKeyList[indexPath.row])
         rssFeedKeySort()
         tableView.deleteRows(at: [indexPath], with: .automatic)
