@@ -20,7 +20,6 @@ class SelectRssFeedTypeViewController: UIViewController, SelectRssFeedTypeViewCo
     @IBOutlet weak var rssFeedTypeListTableView: UITableView!
     
     let cellId = "cellId"
-    var typeList: [RssFeedTypeProtocol] = []
     weak var delegate: SelectRssFeedDelegate?
     
     override func viewDidLoad() {
@@ -38,17 +37,17 @@ class SelectRssFeedTypeViewController: UIViewController, SelectRssFeedTypeViewCo
 
 extension SelectRssFeedTypeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        typeList.count
+        CommonData.rssFeedListModel.typeList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = rssFeedTypeListTableView.dequeueReusableCell(withIdentifier: cellId) as! RssFeedTypeListTableViewCell
-        cell.rssFeedType = typeList[indexPath.row]
+        cell.rssFeedType = CommonData.rssFeedListModel.typeList[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        typeList[indexPath.row].toSelectTag(view: self)
+        CommonData.rssFeedListModel.typeList[indexPath.row].toSelectTag(view: self)
     }
 }
 

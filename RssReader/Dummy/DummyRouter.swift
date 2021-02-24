@@ -6,15 +6,14 @@
 //
 
 import Foundation
-import UIKit
+import FirebaseUI
 
 
 class DummyArticleListRouter: ArticleListRouterProtocol {
-    weak var articleListViewController: ArticleListViewControllerProtocol?
-    func toAuthView() {
-        toSelectRssFeedView(rssFeedListModel: DummyRssFeedListModel())
+    func toAuthView<T>(view: T) where T: Transitioner, T: FUIAuthDelegate {
+        CommonRouter.toSelectRssFeedView(view: view)
     }
-    func toSelectRssFeedView(rssFeedListModel: RssFeedListModelProtocol) {
-        CommonRouter.toSelectRssFeedView(view: articleListViewController!, rssFeedListModel: rssFeedListModel)
+    func toSelectRssFeedView(view: Transitioner) {
+        CommonRouter.toSelectRssFeedView(view: view)
     }
 }

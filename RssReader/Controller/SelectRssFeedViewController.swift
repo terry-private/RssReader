@@ -20,30 +20,28 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
     @IBOutlet weak var confirmButton: UIButton!
     
     //MARK:- 変数宣言
-    
-    private var rssFeedListModel: RssFeedListModelProtocol?
-    private var cellId = "cellId"
-    private var addNewCellId = "addNewCellId"
+    private var rssFeedKeyList: [String] = []
+    private let cellId = "cellId"
+    private let addNewCellId = "addNewCellId"
     
     //MARK:- ライフサイクル関連
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTable()
-        changedSelectedCount()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        rssFeedKeySort()
+        changedSelectedCount()
+    }
     func setUpTable() {
         selectRssFeedTableView.delegate = self
         selectRssFeedTableView.dataSource = self
         selectRssFeedTableView.register(UINib(nibName: "RssFeedTableViewCell", bundle: nil), forCellReuseIdentifier: cellId)
+        selectRssFeedTableView.register(UINib(nibName: "AddNewRssFeedTableViewCell", bundle: nil), forCellReuseIdentifier: addNewCellId)
     }
-    
-    func inject(rssFeedListModel: RssFeedListModelProtocol) {
-        self.rssFeedListModel = rssFeedListModel
-    }
-    
-    
     //MARK:- 状態変化系
     
     func changedSelectedCount() {
@@ -51,12 +49,14 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
         setConfirmButton()
     }
     func setSelectedCountLabel() {
-        selectedCountLabel.text = String(rssFeedListModel?.rssFeedList.count ?? 0)
+        selectedCountLabel.text = String(CommonData.rssFeedListModel.rssFeedList.count)
     }
     func setConfirmButton() {
-        confirmButton.isEnabled = (rssFeedListModel?.rssFeedList.count ?? 0) > 0
+        confirmButton.isEnabled = CommonData.rssFeedListModel.rssFeedList.count > 0
     }
-    
+    func rssFeedKeySort() {
+        rssFeedKeyList = CommonData.rssFeedListModel.rssFeedList.keys.sorted()
+    }
     
     //MARK:- @IBAction
     
@@ -70,14 +70,14 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
 
 extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (rssFeedListModel?.rssFeedList.count ?? 0) + 1
+        return rssFeedKeyList.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // RssFeedセルかAddNewCellか
-        if indexPath.row < rssFeedListModel?.rssFeedList.count ?? 0 {
+        if indexPath.row < CommonData.rssFeedListModel.rssFeedList.count {
             let cell = selectRssFeedTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! RssFeedTableViewCell
-            cell.rssFeed = rssFeedListModel?.rssFeedList[indexPath.row]
+            cell.rssFeed = CommonData.rssFeedListModel.rssFeedList[rssFeedKeyList[indexPath.row]]
             return cell
         }
         let cell = selectRssFeedTableView.dequeueReusableCell(withIdentifier: addNewCellId, for: indexPath) as! AddNewRssFeedTableViewCell
@@ -87,16 +87,28 @@ extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         changedSelectedCount()
-        if indexPath.row == rssFeedListModel?.rssFeedList.count {
-            CommonRouter.toSelectRssFeedTypeView(view: self, typeList: rssFeedListModel!.typeList)
+        if indexPath.row == CommonData.rssFeedListModel.rssFeedList.count {
+            CommonRouter.toSelectRssFeedTypeView(view: self)
         }
+    }
+    
+    // addNewのセルは削除出来ないようにするため
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.row < CommonData.rssFeedListModel.rssFeedList.count
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        CommonData.rssFeedListModel.rssFeedList.removeValue(forKey: rssFeedKeyList[indexPath.row])
+        rssFeedKeySort()
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
 }
 
 extension SelectRssFeedViewController: SelectRssFeedDelegate {
     func setRssFeed(rssFeed: RssFeedProtocol) {
-        rssFeedListModel?.rssFeedList.append(rssFeed)
+        CommonData.rssFeedListModel.rssFeedList[rssFeed.url] = rssFeed
+        rssFeedKeySort()
         selectRssFeedTableView.reloadData()
     }
 }

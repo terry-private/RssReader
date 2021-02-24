@@ -16,28 +16,26 @@ protocol AutoLoginDelegate: AnyObject {
 
 protocol LoginProtocol {
     var userConfig: UserConfigProtocol {get set}
-    var autoLoginDelegate: AutoLoginDelegate? {get set}
-    func autoLogin()
+    func autoLogin(autoLoginDelegate: AutoLoginDelegate)
     func setUserConfig(userID: String, photoURL: URL?, displayName: String)
 }
 
 final class LoginModel: LoginProtocol {
     var userConfig: UserConfigProtocol
-    weak var autoLoginDelegate: AutoLoginDelegate?
     
     init(userConfig: UserConfigProtocol) {
         self.userConfig = userConfig
     }
     
-    func autoLogin() {
+    func autoLogin(autoLoginDelegate: AutoLoginDelegate) {
         // 前回の認証が一週間以内の場合のみオートログイン成功と判定します。
         if let latestDate = userConfig.latestLoginDate {
             if latestDate.addingTimeInterval(60 * 60 * 24 * 7) > Date() {
-                autoLoginDelegate?.didAutoLogin(isSuccess: true)
+                autoLoginDelegate.didAutoLogin(isSuccess: true)
                 return
             }
         }
-        autoLoginDelegate?.didAutoLogin(isSuccess: false)
+        autoLoginDelegate.didAutoLogin(isSuccess: false)
     }
 
     func setUserConfig(userID: String, photoURL: URL?, displayName: String) {

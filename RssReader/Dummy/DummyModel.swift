@@ -27,13 +27,11 @@ class DummyUserConfig: UserConfigProtocol {
 /// 必ずオートログインに失敗するやつです。
 class DummyLoginModel: LoginProtocol {
     var userConfig: UserConfigProtocol
-    
-    var autoLoginDelegate: AutoLoginDelegate?
     init() {
         userConfig = DummyUserConfig()
     }
-    func autoLogin() {
-        autoLoginDelegate?.didAutoLogin(isSuccess: false)
+    func autoLogin(autoLoginDelegate: AutoLoginDelegate) {
+        autoLoginDelegate.didAutoLogin(isSuccess: false)
     }
     
     func setUserConfig(userID: String, photoURL: URL?, displayName: String) {
@@ -51,13 +49,10 @@ class DummyRssFeedListModel: RssFeedListModel {
         super.init()
         typeList = [QiitaType(), YahooType()]
         if let qiita = QiitaType().makeRssFeed(tag: "swift") {
-            rssFeedList.append(qiita)
-        }
-        if let qiita = QiitaType().makeRssFeed(tag: "ios") {
-            rssFeedList.append(qiita)
+            rssFeedList[qiita.url] = qiita
         }
         if let yahoo = YahooType().makeRssFeed(tag: YahooTag.informationTechnology) {
-            rssFeedList.append(yahoo)
+            rssFeedList[yahoo.url] = yahoo
         }
     }
 }

@@ -6,27 +6,19 @@
 //
 
 import Foundation
+import FirebaseUI
 
 protocol ArticleListRouterProtocol {
-    var articleListViewController: ArticleListViewControllerProtocol? { get set }
-    func toAuthView()
-    func toSelectRssFeedView(rssFeedListModel: RssFeedListModelProtocol)
-}
-extension ArticleListRouterProtocol {
-    mutating func inject(articleListViewController: ArticleListViewControllerProtocol) {
-        self.articleListViewController = articleListViewController
-    }
+    func toAuthView<T>(view: T) where T: Transitioner, T: FUIAuthDelegate
+    func toSelectRssFeedView(view: Transitioner)
 }
 
 /// イニシャライズ時に元のVCをインジェクトします。
 class ArticleListRouter: ArticleListRouterProtocol {
-    weak var articleListViewController: ArticleListViewControllerProtocol?
-    
-    
-    func toAuthView() {
-        CommonRouter.toAuth(view: articleListViewController!)
+    func toAuthView<T>(view: T) where T: Transitioner, T: FUIAuthDelegate {
+        CommonRouter.toAuth(view: view)
     }
-    func toSelectRssFeedView(rssFeedListModel: RssFeedListModelProtocol) {
-        CommonRouter.toSelectRssFeedView(view: articleListViewController!, rssFeedListModel: rssFeedListModel)
+    func toSelectRssFeedView(view: Transitioner) {
+        CommonRouter.toSelectRssFeedView(view: view)
     }
 }
