@@ -56,6 +56,8 @@ class CommonRouter {
         let articleDetailViewController = storyboard.instantiateViewController(identifier: "ArticleDetailViewController") as! ArticleDetailViewController
         articleDetailViewController.navigationItem.title = article.item.title
         articleDetailViewController.article = article
-        view.present(articleDetailViewController, animated: true, completion: nil)
+        let nav = UINavigationController(rootViewController: articleDetailViewController)
+        nav.modalPresentationStyle = .fullScreen
+        view.present(nav, animated: true, completion: nil)
     }
 }

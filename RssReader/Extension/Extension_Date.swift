@@ -23,17 +23,34 @@ extension DateFormatter {
         df.dateFormat = dateFormat
         return df
     }
+    static func longDateFormatter() -> DateFormatter  {
+        let df = DateFormatter()
+        df.timeZone = TimeZone.gmt
+        df.locale = Locale.japan
+        df.dateStyle = .long
+        return df
+    }
+    static func pubDateFormatter() -> DateFormatter {
+        let df = DateFormatter()
+        df.timeZone = TimeZone.gmt
+        df.locale = Locale.japan
+        df.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        return df
+    }
 }
+
+private let longDateFormatter = DateFormatter.longDateFormatter()
+private let pubDateFormatter = DateFormatter.pubDateFormatter()
 
 extension Date {
     init() {
         self = Date(timeIntervalSinceNow: TimeInterval(TimeZone.japan.secondsFromGMT()))
     }
+    init(string: String) {
+        self = pubDateFormatter.date(from: string)!
+    }
+    
     func longDate() -> String{
-        let f = DateFormatter()
-        f.locale = .japan
-        f.timeZone = TimeZone.gmt
-        f.dateStyle = .long
-        return f.string(from: self)
+        return longDateFormatter.string(from: self)
     }
 }

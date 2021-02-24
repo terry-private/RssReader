@@ -95,6 +95,7 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        CommonData.rssFeedListModel.articleList[sortedArticleKeyList[indexPath.row]]!.read = true
         CommonRouter.toArticleDetailView(view: self, article: CommonData.rssFeedListModel.articleList[sortedArticleKeyList[indexPath.row]]!)
     }
 }
@@ -159,6 +160,8 @@ class ArticleTableViewCell: UITableViewCell {
     @IBOutlet weak var rssFeedTagLabel: UILabel!
     @IBOutlet weak var articlePubDateLabel: UILabel!
     @IBOutlet weak var faviconImageView: UIImageView!
+    @IBOutlet weak var starImageView: UIImageView!
+    @IBOutlet weak var readCheckImageView: UIImageView!
     var article: Article? {
         didSet {
             if let url = URL(string: article?.rssFeedFaviconUrl ?? "") {
@@ -167,7 +170,20 @@ class ArticleTableViewCell: UITableViewCell {
             rssFeedTypeTitleLabel.text = article?.rssFeedTitle
             rssFeedTagLabel.text = article?.tag
             articleTitleLabel.text = article?.item.title
-            articlePubDateLabel.text = article?.item.pubDate
+            let pubDate = Date(string: article!.item.pubDate!)
+            articlePubDateLabel.text = pubDate.longDate()
+            if article?.read ?? false {
+                readCheckImageView.alpha = 1
+            } else {
+                readCheckImageView.alpha = 0
+            }
+            
+            if article?.isStar ?? false {
+                starImageView.alpha = 1
+            } else {
+                starImageView.alpha = 0
+            }
+            
         }
     }
     
