@@ -18,6 +18,7 @@ protocol RssFeedProtocol {
     var title: String { get }
     var tag: String { get }
     var url: String { get }
+    var display: Bool { get set }
     var faviconUrl: String { get }
     func fetchArticle(completion: @escaping ([String: Article]?) -> Void)
 }
@@ -27,6 +28,7 @@ class RssFeed: RssFeedProtocol {
     let tag: String
     let url: String
     let faviconUrl: String
+    var display: Bool = true
     init(title: String, tag: String, url: String, faviconUrl: String) {
         self.title = title
         self.tag = tag

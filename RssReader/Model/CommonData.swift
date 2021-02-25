@@ -10,4 +10,5 @@ import Foundation
 struct CommonData {
     static var rssFeedListModel: RssFeedListModelProtocol!
     static var loginModel: LoginProtocol!
+    static var filterModel: FilterModelProtocol!
 }

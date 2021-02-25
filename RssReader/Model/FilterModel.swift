@@ -10,7 +10,14 @@ import Foundation
 enum SortType {
     case pubDate
     case rssFeedType
-    
+    var name: String {
+        switch self {
+        case .pubDate:
+            return "発刊日順"
+        case .rssFeedType:
+            return "記事タイプ順"
+        }
+    }
 }
 
 protocol FilterModelProtocol {
@@ -18,23 +25,16 @@ protocol FilterModelProtocol {
     var pubDateAfter: Int { get set }
     var sortType: SortType { get set }
     var orderByDesc: Bool { get set }
-    var rssFeedListKeys: [String] { get set }
     
 }
 
-class FilterModel: FilterModelProtocol {
-    
-    var containRead: Bool = true
-    var pubDateAfter: Int = 3
-    var sortType: SortType = .rssFeedType
-    var orderByDesc: Bool = true
-    var rssFeedListKeys: [String] = []
+extension FilterModelProtocol {
     func sort(articleList: [String: Article]) -> [String] {
         var sortedList: [String: Article] = [:]
         for key in articleList.keys {
             guard let article = articleList[key] else { continue }
             if containRead && article.read { continue }
-            
+            if !CommonData.rssFeedListModel.rssFeedList[article.rssFeedUrl]!.display { continue }
             if let pubDateString = article.item.pubDate {
                 let pubDate = Date(string: pubDateString)
                 if pubDate < Date().addingTimeInterval(TimeInterval(-60 * 60 * 24 * pubDateAfter)) {
@@ -58,4 +58,13 @@ class FilterModel: FilterModelProtocol {
             }
         }
     }
+}
+
+class FilterModel: FilterModelProtocol {
+    
+    var containRead: Bool = true
+    var pubDateAfter: Int = 3
+    var sortType: SortType = .rssFeedType
+    var orderByDesc: Bool = true
+    
 }

@@ -35,6 +35,13 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         super.viewDidLoad()
         articleTableView.dataSource = self
         articleTableView.delegate = self
+        
+        let hamburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentFilterMenu))
+        hamburgerMenuButton.tintColor = .systemBlue
+        navigationItem.leftBarButtonItem = hamburgerMenuButton
+    }
+    @objc func presentFilterMenu(){
+        CommonRouter.toFilterMenuView(view: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
