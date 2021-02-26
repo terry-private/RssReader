@@ -167,7 +167,7 @@ extension ArticleListViewController: RssFeedListModelDelegate {
 extension ArticleListViewController: ArticleKeySortable {
     
     func articleKeySort() {
-        sortedArticleKeyList = CommonData.filterModel.sort(articleList:CommonData.rssFeedListModel.articleList)
+        sortedArticleKeyList = CommonData.filterModel.sortMainList(articleList:CommonData.rssFeedListModel.articleList)
         articleTableView.reloadData()
     }
 }

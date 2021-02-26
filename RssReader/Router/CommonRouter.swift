@@ -68,7 +68,7 @@ class CommonRouter {
         filterMenuViewController.articleKeySortable = view
         filterMenuViewController.navigationItem.title = "フィルター"
         let nav = SideMenuNavigationController(rootViewController: filterMenuViewController)
-        nav.menuWidth = view.view.bounds.width - 60
+        nav.menuWidth = view.view.bounds.width - 40
         nav.presentationStyle = .menuSlideIn
         nav.presentationStyle.presentingEndAlpha = 0.5
         nav.leftSide = true

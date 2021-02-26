@@ -24,6 +24,8 @@
 		0912527D25E87E8700F9CFCA /* RssFeedDisplayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0912527C25E87E8700F9CFCA /* RssFeedDisplayTableViewCell.swift */; };
 		0912528225E8C43200F9CFCA /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0912528125E8C43200F9CFCA /* ArticleTableViewCell.xib */; };
 		0912528725E8C92800F9CFCA /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0912528625E8C92800F9CFCA /* ArticleTableViewCell.swift */; };
+		0912529425E8D30A00F9CFCA /* StarList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0912529325E8D30A00F9CFCA /* StarList.storyboard */; };
+		0912529925E8DD3D00F9CFCA /* StarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0912529825E8DD3D00F9CFCA /* StarListViewController.swift */; };
 		09174EAA25E403A600756E6D /* SelectYahooTag.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09174EA925E403A600756E6D /* SelectYahooTag.storyboard */; };
 		09174EAF25E405D700756E6D /* SelectYahooTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */; };
 		09174ED925E53ADC00756E6D /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174ED825E53ADC00756E6D /* CommonData.swift */; };
@@ -106,6 +108,8 @@
 		0912527C25E87E8700F9CFCA /* RssFeedDisplayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedDisplayTableViewCell.swift; sourceTree = "<group>"; };
 		0912528125E8C43200F9CFCA /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
 		0912528625E8C92800F9CFCA /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		0912529325E8D30A00F9CFCA /* StarList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StarList.storyboard; sourceTree = "<group>"; };
+		0912529825E8DD3D00F9CFCA /* StarListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarListViewController.swift; sourceTree = "<group>"; };
 		09174EA925E403A600756E6D /* SelectYahooTag.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectYahooTag.storyboard; sourceTree = "<group>"; };
 		09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYahooTagViewController.swift; sourceTree = "<group>"; };
 		09174ED825E53ADC00756E6D /* CommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 				09ACE24125977DC100FDB597 /* ArticleListViewController.swift */,
 				0912528625E8C92800F9CFCA /* ArticleTableViewCell.swift */,
 				091251DB25E629E800F9CFCA /* ArticleDetailViewController.swift */,
+				0912529825E8DD3D00F9CFCA /* StarListViewController.swift */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				09ACE24925977DED00FDB597 /* ArticleList.storyboard */,
 				0912528125E8C43200F9CFCA /* ArticleTableViewCell.xib */,
 				091251D625E5F92F00F9CFCA /* ArticleDetail.storyboard */,
+				0912529325E8D30A00F9CFCA /* StarList.storyboard */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -548,6 +554,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0912529425E8D30A00F9CFCA /* StarList.storyboard in Resources */,
 				099BB89A25DD05DB003AF947 /* RssFeedTableViewCell.xib in Resources */,
 				0912527825E87AA100F9CFCA /* RssFeedDisplayTableViewCell.xib in Resources */,
 				09174EE425E573E100756E6D /* AddNewRssFeedTableViewCell.xib in Resources */,
@@ -754,6 +761,7 @@
 				0975615725B85F50007B0D3F /* MainTabBarController.swift in Sources */,
 				0912527325E80F3500F9CFCA /* PubDateAfterTableViewCell.swift in Sources */,
 				0975613F25B73155007B0D3F /* ArticleList.swift in Sources */,
+				0912529925E8DD3D00F9CFCA /* StarListViewController.swift in Sources */,
 				096A1ABE25D7CECD00EBC589 /* YahooType.swift in Sources */,
 				096A1ACB25D8E13700EBC589 /* RssFeedListModel.swift in Sources */,
 				095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */,
