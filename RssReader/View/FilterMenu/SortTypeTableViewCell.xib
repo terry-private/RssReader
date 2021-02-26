@@ -30,6 +30,9 @@
                                     <segment title="発行日順"/>
                                     <segment title="記事タイプ順"/>
                                 </segments>
+                                <connections>
+                                    <action selector="sortTypeChanged:" destination="fa9-wF-4Hf" eventType="valueChanged" id="xCj-1K-Ghy"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                     </stackView>
@@ -41,6 +44,9 @@
                     <constraint firstItem="sU5-rF-M5f" firstAttribute="leading" secondItem="ItY-O3-4vR" secondAttribute="leading" constant="10" id="pIf-hY-9Mo"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="sortTypeSegmentedControl" destination="G7h-g7-ub3" id="PZZ-Z2-vYy"/>
+            </connections>
             <point key="canvasLocation" x="38" y="99"/>
         </tableViewCell>
     </objects>

@@ -26,6 +26,9 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zes-yR-ZF5">
                                 <rect key="frame" x="345" y="6" width="51" height="31"/>
+                                <connections>
+                                    <action selector="readChanged:" destination="aKb-k8-5Db" eventType="valueChanged" id="p17-AI-bCi"/>
+                                </connections>
                             </switch>
                         </subviews>
                     </stackView>
@@ -37,6 +40,10 @@
                     <constraint firstAttribute="bottom" secondItem="e3x-LC-pN1" secondAttribute="bottom" constant="5" id="vgb-Hj-Jjv"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="readLabel" destination="B77-1v-yTQ" id="AMf-Vt-GGW"/>
+                <outlet property="readSwitch" destination="zes-yR-ZF5" id="Fyp-A4-b7z"/>
+            </connections>
             <point key="canvasLocation" x="-300" y="8.3705357142857135"/>
         </tableViewCell>
     </objects>

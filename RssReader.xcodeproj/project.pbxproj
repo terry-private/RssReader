@@ -20,6 +20,8 @@
 		0912526925E8087D00F9CFCA /* OrderByTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0912526825E8087D00F9CFCA /* OrderByTableViewCell.swift */; };
 		0912526E25E80D4800F9CFCA /* PubDateAfterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0912526D25E80D4800F9CFCA /* PubDateAfterTableViewCell.xib */; };
 		0912527325E80F3500F9CFCA /* PubDateAfterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0912527225E80F3500F9CFCA /* PubDateAfterTableViewCell.swift */; };
+		0912527825E87AA100F9CFCA /* RssFeedDisplayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0912527725E87AA100F9CFCA /* RssFeedDisplayTableViewCell.xib */; };
+		0912527D25E87E8700F9CFCA /* RssFeedDisplayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0912527C25E87E8700F9CFCA /* RssFeedDisplayTableViewCell.swift */; };
 		09174EAA25E403A600756E6D /* SelectYahooTag.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09174EA925E403A600756E6D /* SelectYahooTag.storyboard */; };
 		09174EAF25E405D700756E6D /* SelectYahooTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */; };
 		09174ED925E53ADC00756E6D /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174ED825E53ADC00756E6D /* CommonData.swift */; };
@@ -98,6 +100,8 @@
 		0912526825E8087D00F9CFCA /* OrderByTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderByTableViewCell.swift; sourceTree = "<group>"; };
 		0912526D25E80D4800F9CFCA /* PubDateAfterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PubDateAfterTableViewCell.xib; sourceTree = "<group>"; };
 		0912527225E80F3500F9CFCA /* PubDateAfterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubDateAfterTableViewCell.swift; sourceTree = "<group>"; };
+		0912527725E87AA100F9CFCA /* RssFeedDisplayTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RssFeedDisplayTableViewCell.xib; sourceTree = "<group>"; };
+		0912527C25E87E8700F9CFCA /* RssFeedDisplayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedDisplayTableViewCell.swift; sourceTree = "<group>"; };
 		09174EA925E403A600756E6D /* SelectYahooTag.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectYahooTag.storyboard; sourceTree = "<group>"; };
 		09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYahooTagViewController.swift; sourceTree = "<group>"; };
 		09174ED825E53ADC00756E6D /* CommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
@@ -191,6 +195,7 @@
 				0912525425E7F43100F9CFCA /* SortTypeTableViewCell.xib */,
 				0912526325E7FE8B00F9CFCA /* OrderByTableViewCell.xib */,
 				0912526D25E80D4800F9CFCA /* PubDateAfterTableViewCell.xib */,
+				0912527725E87AA100F9CFCA /* RssFeedDisplayTableViewCell.xib */,
 			);
 			path = FilterMenu;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				0912525E25E7F77400F9CFCA /* SortTypeTableViewCell.swift */,
 				0912526825E8087D00F9CFCA /* OrderByTableViewCell.swift */,
 				0912527225E80F3500F9CFCA /* PubDateAfterTableViewCell.swift */,
+				0912527C25E87E8700F9CFCA /* RssFeedDisplayTableViewCell.swift */,
 			);
 			path = FilterMenu;
 			sourceTree = "<group>";
@@ -521,6 +527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				099BB89A25DD05DB003AF947 /* RssFeedTableViewCell.xib in Resources */,
+				0912527825E87AA100F9CFCA /* RssFeedDisplayTableViewCell.xib in Resources */,
 				09174EE425E573E100756E6D /* AddNewRssFeedTableViewCell.xib in Resources */,
 				091251D725E5F92F00F9CFCA /* ArticleDetail.storyboard in Resources */,
 				0912526425E7FE8B00F9CFCA /* OrderByTableViewCell.xib in Resources */,
@@ -701,6 +708,7 @@
 				09ACE22F2597275800FDB597 /* Extension_Date.swift in Sources */,
 				0912521B25E7D7E000F9CFCA /* FilterMenuViewController.swift in Sources */,
 				095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */,
+				0912527D25E87E8700F9CFCA /* RssFeedDisplayTableViewCell.swift in Sources */,
 				096A1AA625D7CC8300EBC589 /* RssFeed.swift in Sources */,
 				0912525A25E7F68000F9CFCA /* ContainReadTableViewCell.swift in Sources */,
 				0975611725B2985A007B0D3F /* DummyRouter.swift in Sources */,

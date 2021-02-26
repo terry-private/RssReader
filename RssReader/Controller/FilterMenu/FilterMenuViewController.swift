@@ -9,22 +9,32 @@ import UIKit
 
 class FilterMenuViewController: UIViewController, Transitioner {
     @IBOutlet weak var filterMenuListTableView: UITableView!
-    
+    private var rssFeedKeyList: [String] = []
     private let containReadTableViewCellId = "containReadTableViewCellId"
     private let sortTypeTableViewCellId = "sortTypeTableViewCellId"
-    private let orderByTableViewCell = "orderByTableViewCell"
-    private let pubDateAfterTableViewCell = "pubDateAfterTableViewCell"
+    private let orderByTableViewCellId = "orderByTableViewCellId"
+    private let pubDateAfterTableViewCellId = "pubDateAfterTableViewCellId"
+    private let rssFeedDisplayTableViewCellId = "rssFeedDisplayTableViewCellId"
+    
+    weak var articleKeySortable: ArticleKeySortable?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTable()
+        rssFeedKeyList = CommonData.rssFeedListModel.rssFeedList.keys.sorted()
     }
     func setUpTable() {
         filterMenuListTableView.delegate = self
         filterMenuListTableView.dataSource = self
         filterMenuListTableView.register(UINib(nibName: "SortTypeTableViewCell", bundle: nil), forCellReuseIdentifier: sortTypeTableViewCellId)
         filterMenuListTableView.register(UINib(nibName: "ContainReadTableViewCell", bundle: nil), forCellReuseIdentifier: containReadTableViewCellId)
-        filterMenuListTableView.register(UINib(nibName: "OrderByTableViewCell", bundle: nil), forCellReuseIdentifier: orderByTableViewCell)
-        filterMenuListTableView.register(UINib(nibName: "PubDateAfterTableViewCell", bundle: nil), forCellReuseIdentifier: pubDateAfterTableViewCell)
+        filterMenuListTableView.register(UINib(nibName: "OrderByTableViewCell", bundle: nil), forCellReuseIdentifier: orderByTableViewCellId)
+        filterMenuListTableView.register(UINib(nibName: "PubDateAfterTableViewCell", bundle: nil), forCellReuseIdentifier: pubDateAfterTableViewCellId)
+        filterMenuListTableView.register(UINib(nibName: "RssFeedDisplayTableViewCell", bundle: nil), forCellReuseIdentifier: rssFeedDisplayTableViewCellId)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        articleKeySortable?.articleKeySort()
     }
 }
 extension FilterMenuViewController: UITableViewDelegate, UITableViewDataSource {
@@ -66,16 +76,28 @@ extension FilterMenuViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             if indexPath.row == 0 {
                 let cell = filterMenuListTableView.dequeueReusableCell(withIdentifier: sortTypeTableViewCellId) as! SortTypeTableViewCell
+                cell.sortTypeSegmentedControl.selectedSegmentIndex = CommonData.filterModel.sortType.index
                 return cell
             } else {
-                let cell = filterMenuListTableView.dequeueReusableCell(withIdentifier: orderByTableViewCell) as! OrderByTableViewCell
+                let cell = filterMenuListTableView.dequeueReusableCell(withIdentifier: orderByTableViewCellId) as! OrderByTableViewCell
+                if CommonData.filterModel.orderByDesc {
+                    cell.orderBySegmentedControl.selectedSegmentIndex = 0
+                } else {
+                    cell.orderBySegmentedControl.selectedSegmentIndex = 1
+                }
                 return cell
             }
         case 1:
             let cell = filterMenuListTableView.dequeueReusableCell(withIdentifier: containReadTableViewCellId) as! ContainReadTableViewCell
+            cell.readSwitch.setOn(CommonData.filterModel.containRead, animated: false)
             return cell
         case 2:
-            let cell = filterMenuListTableView.dequeueReusableCell(withIdentifier: pubDateAfterTableViewCell) as! PubDateAfterTableViewCell
+            let cell = filterMenuListTableView.dequeueReusableCell(withIdentifier: pubDateAfterTableViewCellId) as! PubDateAfterTableViewCell
+            cell.pubDateAfterSegmentedControl.selectedSegmentIndex = CommonData.filterModel.pubDateAfter - 1
+            return cell
+        case 3:
+            let cell = filterMenuListTableView.dequeueReusableCell(withIdentifier: rssFeedDisplayTableViewCellId) as! RssFeedDisplayTableViewCell
+            cell.rssFeedKey = rssFeedKeyList[indexPath.row]
             return cell
         default:
             return UITableViewCell()

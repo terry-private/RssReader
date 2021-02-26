@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="pubDateAfterTableViewCell" id="r8D-Ht-KZU" customClass="PubDateAfterTableViewCell" customModule="RssReader" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="pubDateAfterTableViewCellId" id="r8D-Ht-KZU" customClass="PubDateAfterTableViewCell" customModule="RssReader" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r8D-Ht-KZU" id="bfs-Zh-tcl">
@@ -29,6 +29,9 @@
                                     <segment title="6日"/>
                                     <segment title="7日"/>
                                 </segments>
+                                <connections>
+                                    <action selector="pubDateAfterChanged:" destination="r8D-Ht-KZU" eventType="valueChanged" id="viF-b4-yig"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                     </stackView>
@@ -40,6 +43,9 @@
                     <constraint firstItem="ien-hm-3iG" firstAttribute="top" secondItem="bfs-Zh-tcl" secondAttribute="top" constant="5" id="ys7-pP-uPr"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="pubDateAfterSegmentedControl" destination="d3q-6l-gEW" id="Ovc-LX-Kr4"/>
+            </connections>
             <point key="canvasLocation" x="-118" y="131"/>
         </tableViewCell>
     </objects>

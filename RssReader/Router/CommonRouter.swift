@@ -62,9 +62,10 @@ class CommonRouter {
         view.present(nav, animated: true, completion: nil)
     }
     
-    class func toFilterMenuView(view: Transitioner) {
+    class func toFilterMenuView<T>(view: T) where T: Transitioner, T: ArticleKeySortable {
         let storyboard = UIStoryboard(name: "FilterMenu", bundle: nil)
         let filterMenuViewController = storyboard.instantiateViewController(withIdentifier: "FilterMenuViewController") as! FilterMenuViewController
+        filterMenuViewController.articleKeySortable = view
         filterMenuViewController.navigationItem.title = "フィルター"
         let nav = SideMenuNavigationController(rootViewController: filterMenuViewController)
         nav.menuWidth = view.view.bounds.width - 60

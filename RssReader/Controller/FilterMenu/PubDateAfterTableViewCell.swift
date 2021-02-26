@@ -8,7 +8,11 @@
 import UIKit
 
 class PubDateAfterTableViewCell: UITableViewCell {
+    @IBOutlet weak var pubDateAfterSegmentedControl: UISegmentedControl!
     override class func awakeFromNib() {
         super.awakeFromNib()
+    }
+    @IBAction func pubDateAfterChanged(_ sender: Any) {
+        CommonData.filterModel.pubDateAfter = pubDateAfterSegmentedControl.selectedSegmentIndex + 1
     }
 }

@@ -8,7 +8,11 @@
 import UIKit
 
 class SortTypeTableViewCell: UITableViewCell {
+    @IBOutlet weak var sortTypeSegmentedControl: UISegmentedControl!
     override class func awakeFromNib() {
         super.awakeFromNib()
+    }
+    @IBAction func sortTypeChanged(_ sender: Any) {
+        CommonData.filterModel.sortType = SortType.allCases[sortTypeSegmentedControl.selectedSegmentIndex]
     }
 }

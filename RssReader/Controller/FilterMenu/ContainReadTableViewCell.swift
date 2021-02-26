@@ -8,7 +8,12 @@
 import UIKit
 
 class ContainReadTableViewCell: UITableViewCell {
+    @IBOutlet weak var readLabel: UILabel!
+    @IBOutlet weak var readSwitch: UISwitch!
     override class func awakeFromNib() {
         super.awakeFromNib()
+    }
+    @IBAction func readChanged(_ sender: Any) {
+        CommonData.filterModel.containRead = readSwitch.isOn
     }
 }
