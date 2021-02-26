@@ -15,8 +15,6 @@ protocol RssFeedListModelProtocol {
     var typeList: [RssFeedTypeProtocol] { get set }
     var rssFeedList: [String: RssFeedProtocol] { get set }
     var articleList: [String: Article] { get set }
-    var starList: Set<String> { get set }
-    var laterReadList: Set<String> { get set }
     func fetchItems(rssFeedListModelDelegate: RssFeedListModelDelegate)
 }
 
@@ -24,8 +22,7 @@ class RssFeedListModel: RssFeedListModelProtocol {
     var typeList: [RssFeedTypeProtocol] = []
     var rssFeedList: [String: RssFeedProtocol] = [:] // RssFeed.urlをkeyにしてます。
     var articleList: [String: Article] = [:] // item.linkをkeyにしてます。
-    var starList: Set<String> = []
-    var laterReadList: Set<String> = []
+    
     var loadCounter: Int = 0 {
         didSet {
             if loadCounter == 0 {
@@ -56,10 +53,10 @@ class RssFeedListModel: RssFeedListModelProtocol {
     // RssFeedを削除したときにArticleListからタグ付けされていない記事を削除します。
     // 今後保管済みの記事を扱うなどする場合はここで条件分岐すればいいかと
     func refreshArticleList() {
-        let articleListKeys = articleList.keys
-        for key in articleListKeys {
-            if  !rssFeedList.keys.contains(articleList[key]!.rssFeedUrl) && !starList.contains(key) && !laterReadList.contains(key){
-                articleList.removeValue(forKey: key)
+        let articleListValues = articleList.values
+        for article in articleListValues {
+            if  !rssFeedList.keys.contains(article.rssFeedUrl) && !article.isStar && !article.laterRead{
+                articleList.removeValue(forKey: article.item.link)
             }
         }
     }
