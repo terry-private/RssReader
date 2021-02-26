@@ -43,6 +43,7 @@
                     <constraint firstItem="ien-hm-3iG" firstAttribute="top" secondItem="bfs-Zh-tcl" secondAttribute="top" constant="5" id="ys7-pP-uPr"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="pubDateAfterSegmentedControl" destination="d3q-6l-gEW" id="Ovc-LX-Kr4"/>
             </connections>

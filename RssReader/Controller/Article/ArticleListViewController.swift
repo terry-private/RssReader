@@ -13,8 +13,8 @@ protocol ArticleListViewControllerProtocol: Transitioner, FUIAuthDelegate {
     
 }
 
-protocol ArticleKeySortable: AnyObject {
-    func articleKeySort()
+protocol KeysSortable: AnyObject {
+    func keysSort()
 }
 
 class ArticleListViewController: UIViewController, ArticleListViewControllerProtocol {
@@ -57,7 +57,7 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
                 let hamburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentFilterMenu))
                 hamburgerMenuButton.tintColor = .systemBlue
                 navigationItem.leftBarButtonItem = hamburgerMenuButton
-                self.navigationItem.title = "記事一覧"
+                navigationItem.title = "最新記事"
                 isFirst = false
             }
             fetchItems()
@@ -158,15 +158,15 @@ extension ArticleListViewController: FUIAuthDelegate{
 extension ArticleListViewController: RssFeedListModelDelegate {
     func loaded() {
         DispatchQueue.main.async {
-            self.articleKeySort()
+            self.keysSort()
             self.activityIndicator.stopAnimating()
         }
     }
 }
 
-extension ArticleListViewController: ArticleKeySortable {
+extension ArticleListViewController: KeysSortable {
     
-    func articleKeySort() {
+    func keysSort() {
         sortedArticleKeyList = CommonData.filterModel.sortMainList(articleList:CommonData.rssFeedListModel.articleList)
         articleTableView.reloadData()
     }

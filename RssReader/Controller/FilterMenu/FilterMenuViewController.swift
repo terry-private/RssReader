@@ -16,7 +16,7 @@ class FilterMenuViewController: UIViewController, Transitioner {
     private let pubDateAfterTableViewCellId = "pubDateAfterTableViewCellId"
     private let rssFeedDisplayTableViewCellId = "rssFeedDisplayTableViewCellId"
     
-    weak var articleKeySortable: ArticleKeySortable?
+    weak var articleKeySortable: KeysSortable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class FilterMenuViewController: UIViewController, Transitioner {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        articleKeySortable?.articleKeySort()
+        articleKeySortable?.keysSort()
     }
 }
 extension FilterMenuViewController: UITableViewDelegate, UITableViewDataSource {

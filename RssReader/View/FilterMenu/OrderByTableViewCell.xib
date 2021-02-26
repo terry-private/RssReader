@@ -44,6 +44,7 @@
                     <constraint firstAttribute="bottom" secondItem="6Sj-q9-I5r" secondAttribute="bottom" constant="5" id="laI-xI-sam"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="orderBySegmentedControl" destination="QkF-FD-oIp" id="LxV-lj-e3k"/>
             </connections>

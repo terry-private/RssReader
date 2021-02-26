@@ -86,6 +86,7 @@
                     <constraint firstItem="pfu-G7-zdk" firstAttribute="top" secondItem="8J9-uH-EnT" secondAttribute="top" constant="5" id="lC3-mp-INU"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="faviconImageView" destination="dmj-NQ-3Jl" id="NMC-Oh-tQI"/>
                 <outlet property="isDisplay" destination="O1c-vb-tB4" id="rCN-21-tCw"/>

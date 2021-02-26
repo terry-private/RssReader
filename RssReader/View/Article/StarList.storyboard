@@ -31,7 +31,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="starListTableVIew" destination="fZY-6q-sAM" id="bhr-Uc-nxw"/>
+                        <outlet property="starListTableView" destination="fZY-6q-sAM" id="mMn-NF-jJw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbb-81-iIJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
