@@ -26,6 +26,8 @@
 		0912528725E8C92800F9CFCA /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0912528625E8C92800F9CFCA /* ArticleTableViewCell.swift */; };
 		0912529425E8D30A00F9CFCA /* StarList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0912529325E8D30A00F9CFCA /* StarList.storyboard */; };
 		0912529925E8DD3D00F9CFCA /* StarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0912529825E8DD3D00F9CFCA /* StarListViewController.swift */; };
+		0912529E25E9190700F9CFCA /* LaterReadList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0912529D25E9190700F9CFCA /* LaterReadList.storyboard */; };
+		091252A325E9195F00F9CFCA /* LaterReadListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091252A225E9195F00F9CFCA /* LaterReadListViewController.swift */; };
 		09174EAA25E403A600756E6D /* SelectYahooTag.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09174EA925E403A600756E6D /* SelectYahooTag.storyboard */; };
 		09174EAF25E405D700756E6D /* SelectYahooTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */; };
 		09174ED925E53ADC00756E6D /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174ED825E53ADC00756E6D /* CommonData.swift */; };
@@ -110,6 +112,8 @@
 		0912528625E8C92800F9CFCA /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		0912529325E8D30A00F9CFCA /* StarList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StarList.storyboard; sourceTree = "<group>"; };
 		0912529825E8DD3D00F9CFCA /* StarListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarListViewController.swift; sourceTree = "<group>"; };
+		0912529D25E9190700F9CFCA /* LaterReadList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaterReadList.storyboard; sourceTree = "<group>"; };
+		091252A225E9195F00F9CFCA /* LaterReadListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterReadListViewController.swift; sourceTree = "<group>"; };
 		09174EA925E403A600756E6D /* SelectYahooTag.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectYahooTag.storyboard; sourceTree = "<group>"; };
 		09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYahooTagViewController.swift; sourceTree = "<group>"; };
 		09174ED825E53ADC00756E6D /* CommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
@@ -228,6 +232,7 @@
 				0912528625E8C92800F9CFCA /* ArticleTableViewCell.swift */,
 				091251DB25E629E800F9CFCA /* ArticleDetailViewController.swift */,
 				0912529825E8DD3D00F9CFCA /* StarListViewController.swift */,
+				091252A225E9195F00F9CFCA /* LaterReadListViewController.swift */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 				09ACE24925977DED00FDB597 /* ArticleList.storyboard */,
 				0912528125E8C43200F9CFCA /* ArticleTableViewCell.xib */,
 				091251D625E5F92F00F9CFCA /* ArticleDetail.storyboard */,
+				0912529D25E9190700F9CFCA /* LaterReadList.storyboard */,
 				0912529325E8D30A00F9CFCA /* StarList.storyboard */,
 			);
 			path = Article;
@@ -558,6 +564,7 @@
 				099BB89A25DD05DB003AF947 /* RssFeedTableViewCell.xib in Resources */,
 				0912527825E87AA100F9CFCA /* RssFeedDisplayTableViewCell.xib in Resources */,
 				09174EE425E573E100756E6D /* AddNewRssFeedTableViewCell.xib in Resources */,
+				0912529E25E9190700F9CFCA /* LaterReadList.storyboard in Resources */,
 				091251D725E5F92F00F9CFCA /* ArticleDetail.storyboard in Resources */,
 				0912526425E7FE8B00F9CFCA /* OrderByTableViewCell.xib in Resources */,
 				09B803292590CF9200CA2D19 /* LaunchScreen.storyboard in Resources */,
@@ -754,6 +761,7 @@
 				096A1AB625D7CE3E00EBC589 /* YahooTag.swift in Sources */,
 				0975611625B2985A007B0D3F /* DummyModel.swift in Sources */,
 				09174ED925E53ADC00756E6D /* CommonData.swift in Sources */,
+				091252A325E9195F00F9CFCA /* LaterReadListViewController.swift in Sources */,
 				0912521125E68D1300F9CFCA /* FilterModel.swift in Sources */,
 				0912525F25E7F77400F9CFCA /* SortTypeTableViewCell.swift in Sources */,
 				096A1B2425DA554600EBC589 /* Extension_Dictionary.swift in Sources */,

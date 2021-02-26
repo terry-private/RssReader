@@ -11,7 +11,7 @@ import WebKit
 class ArticleDetailViewController: UIViewController, Transitioner {
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
-    @IBOutlet weak var starButton: UIBarButtonItem!
+    @IBOutlet weak var laterTrayButton: UIBarButtonItem!
     var article: Article?
     
     // MARK:- ライフサイクル系
@@ -19,14 +19,21 @@ class ArticleDetailViewController: UIViewController, Transitioner {
         super.viewDidLoad()
         let closeButton = UIBarButtonItem(title: "閉じる", style: .plain, target: self, action: #selector(close))
         navigationItem.leftBarButtonItem = closeButton
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadUrl()
+        setLaterReadButton()
         setStarButton()
     }
-    @objc func close(){
+    @objc func close() {
         dismiss(animated: true)
+    }
+    @objc func tappedStar() {
+        guard let star = CommonData.rssFeedListModel.articleList[(article?.item.link)!]?.isStar else { return }
+        CommonData.rssFeedListModel.articleList[(article?.item.link)!]?.isStar = !star
+        setStarButton()
     }
     // MARK:- @IBAction
     @IBAction func goBack(_ sender: Any) {
@@ -41,10 +48,10 @@ class ArticleDetailViewController: UIViewController, Transitioner {
             UIApplication.shared.open(url, options: [:], completionHandler:  nil)
         }
     }
-    @IBAction func tappedStarButton(_ sender: Any) {
-        guard let star = CommonData.rssFeedListModel.articleList[(article?.item.link)!]?.isStar else { return }
-        CommonData.rssFeedListModel.articleList[(article?.item.link)!]?.isStar = !star
-        setStarButton()
+    @IBAction func tappedLaterReadButton(_ sender: Any) {
+        guard let laterRead = CommonData.rssFeedListModel.articleList[(article?.item.link)!]?.laterRead else { return }
+        CommonData.rssFeedListModel.articleList[(article?.item.link)!]?.laterRead = !laterRead
+        setLaterReadButton()
     }
     
     // MARK:- メソッド系
@@ -54,14 +61,25 @@ class ArticleDetailViewController: UIViewController, Transitioner {
             webView.load(request)
         }
     }
-    
     func setStarButton() {
         if CommonData.rssFeedListModel.articleList[(article?.item.link)!]?.isStar ?? false {
-            starButton.image = UIImage(systemName: "star.fill")
+            let starButton = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(tappedStar))
             starButton.tintColor = .systemYellow
+            navigationItem.rightBarButtonItem = starButton
         } else {
-            starButton.image = UIImage(systemName: "star")
-            starButton.tintColor = .systemBlue
+            let starButton = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(tappedStar))
+            starButton.tintColor = .systemGray
+            navigationItem.rightBarButtonItem = starButton
+        }
+    }
+    
+    func setLaterReadButton() {
+        if CommonData.rssFeedListModel.articleList[(article?.item.link)!]?.laterRead ?? false {
+            laterTrayButton.image = UIImage(systemName: "tray.fill")
+            laterTrayButton.tintColor = .systemGreen
+        } else {
+            laterTrayButton.image = UIImage(systemName: "tray")
+            laterTrayButton.tintColor = .systemBlue
         }
     }
 }

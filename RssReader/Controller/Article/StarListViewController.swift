@@ -42,6 +42,11 @@ extension StarListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.article = CommonData.rssFeedListModel.articleList[starListKeys[indexPath.row]]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        CommonData.rssFeedListModel.articleList[starListKeys[indexPath.row]]!.read = true
+        CommonRouter.toArticleDetailView(view: self, article: CommonData.rssFeedListModel.articleList[starListKeys[indexPath.row]]!)
+    }
 }
 
 extension StarListViewController: KeysSortable {

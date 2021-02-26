@@ -28,6 +28,13 @@ class MainTabBarController: UITabBarController, Transitioner {
         }
     }
     
+    private var laterReadNav: UINavigationController {
+        let laterReadListViewController = UIStoryboard(name: "LaterReadList", bundle: nil).instantiateViewController(identifier: "LaterReadListViewController") as! LaterReadListViewController
+        
+        laterReadListViewController.tabBarItem = UITabBarItem(title: "後で読む", image: UIImage(systemName: "tray"), tag: 0)
+        return UINavigationController(laterReadListViewController)
+    }
+    
     private var starListNav: UINavigationController {
         let starListViewController = UIStoryboard(name: "StarList", bundle: nil).instantiateViewController(identifier: "StarListViewController") as! StarListViewController
         
@@ -53,6 +60,6 @@ class MainTabBarController: UITabBarController, Transitioner {
     }
 
     func setupTab() {
-        viewControllers = [articleListNav, starListNav, settingNav]
+        viewControllers = [articleListNav, laterReadNav, starListNav, settingNav]
     }
 }
