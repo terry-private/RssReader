@@ -47,6 +47,7 @@ class QiitaType: RssFeedTypeProtocol {
                 title: "確定",
                 style: UIAlertAction.Style.default) { _ in
                 if let text = alertTextField?.text {
+                    if text == "" { return }
                     let urlString = self.makeJsonUrl(tag: text)
                     if self.urlValidation(urlString) {
                         view.setRssFeed(rssFeed: QiitaType().makeRssFeed(tag: text)!)// 強制アンラップ

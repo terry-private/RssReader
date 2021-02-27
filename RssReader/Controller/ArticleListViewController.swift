@@ -13,6 +13,10 @@ protocol ArticleListViewControllerProtocol: Transitioner, FUIAuthDelegate {
     
 }
 
+protocol ArticleKeySortable: AnyObject {
+    func articleKeySort()
+}
+
 class ArticleListViewController: UIViewController, ArticleListViewControllerProtocol {
     
     //MARK:- @IBOutlet
@@ -35,6 +39,10 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         super.viewDidLoad()
         articleTableView.dataSource = self
         articleTableView.delegate = self
+        
+    }
+    @objc func presentFilterMenu(){
+        CommonRouter.toFilterMenuView(view: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,14 +52,24 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if isFirst {
-            isFirst = false
-            dissMissSplashView()
-        } else {
+        if splashView.isHidden {
+            if isFirst {
+                let hamburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentFilterMenu))
+                hamburgerMenuButton.tintColor = .systemBlue
+                navigationItem.leftBarButtonItem = hamburgerMenuButton
+                self.navigationItem.title = "記事一覧"
+                isFirst = false
+            }
             fetchItems()
+        } else {
+            dissMissSplashView()
         }
+        
     }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+
 
     //MARK:- 関数
     
@@ -64,7 +82,6 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         UIView.animate(withDuration: 1, animations: {
             self.splashView.alpha = 0
         }, completion: {_ in
-            self.navigationItem.title = "記事一覧"
             self.splashView.isHidden = true
             CommonData.loginModel.autoLogin(autoLoginDelegate: self)
         })
@@ -74,10 +91,6 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         activityIndicator.startAnimating()
         CommonData.rssFeedListModel.fetchItems(rssFeedListModelDelegate: self)
     }
-    
-    func articleKeySort() {
-        sortedArticleKeyList = CommonData.rssFeedListModel.articleList.keys.sorted()
-    }
 
 }
 
@@ -85,7 +98,7 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
 
 extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CommonData.rssFeedListModel.articleList.count
+        return sortedArticleKeyList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -146,12 +159,18 @@ extension ArticleListViewController: RssFeedListModelDelegate {
     func loaded() {
         DispatchQueue.main.async {
             self.articleKeySort()
-            self.articleTableView.reloadData()
             self.activityIndicator.stopAnimating()
         }
     }
 }
 
+extension ArticleListViewController: ArticleKeySortable {
+    
+    func articleKeySort() {
+        sortedArticleKeyList = CommonData.filterModel.sort(articleList:CommonData.rssFeedListModel.articleList)
+        articleTableView.reloadData()
+    }
+}
 //MARK:- ArticleTableViewCell
 
 class ArticleTableViewCell: UITableViewCell {

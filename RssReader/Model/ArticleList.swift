@@ -34,12 +34,7 @@ struct Article {
     let rssFeedUrl: String
     let rssFeedFaviconUrl: String
     let tag: String
-    var readDate: Date?
-    var read: Bool = false {
-        didSet {
-            readDate = Date()
-        }
-    }
+    var read: Bool = false
     var laterRead: Bool = false
     var isStar: Bool = false
 }

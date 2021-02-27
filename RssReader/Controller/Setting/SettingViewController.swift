@@ -106,9 +106,16 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if indexPath.row == CommonData.rssFeedListModel.rssFeedList.count {
-            CommonRouter.toSelectRssFeedTypeView(view: self)
+        switch indexPath.section{
+        case 0:
+            return
+        case 1:
+            if indexPath.row == CommonData.rssFeedListModel.rssFeedList.count {
+                CommonRouter.toSelectRssFeedTypeView(view: self)
+            }
+            return
+        default:
+            return
         }
     }
     

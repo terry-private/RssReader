@@ -56,3 +56,11 @@ class DummyRssFeedListModel: RssFeedListModel {
         }
     }
 }
+
+class DummyFilterModel: FilterModelProtocol {
+    var containRead: Bool = true
+    var pubDateAfter: Int = 3
+    var sortType: SortType = .rssFeedType
+    var orderByDesc: Bool = true
+    var rssFeedListKeys: [String] = []
+}

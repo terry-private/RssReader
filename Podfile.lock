@@ -407,11 +407,13 @@ PODS:
   - SDWebImage (5.10.4):
     - SDWebImage/Core (= 5.10.4)
   - SDWebImage/Core (5.10.4)
+  - SideMenu (6.5.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
   - FirebaseUI
   - Nuke
+  - SideMenu
 
 SPEC REPOS:
   trunk:
@@ -443,6 +445,7 @@ SPEC REPOS:
     - Nuke
     - PromisesObjC
     - SDWebImage
+    - SideMenu
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -473,7 +476,8 @@ SPEC CHECKSUMS:
   Nuke: 44439f7a92e665a4f927ecd73cb51f91d93b0e0c
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
+  SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: 7c770dbb4b4953deef38384c80f21ae3ee3a453d
+PODFILE CHECKSUM: c15f401243c33c0b730c8be74daba6bf74db633a
 
 COCOAPODS: 1.10.1

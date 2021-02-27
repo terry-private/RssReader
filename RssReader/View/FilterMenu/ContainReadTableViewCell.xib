@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="containReadTableViewCellId" id="aKb-k8-5Db" customClass="ContainReadTableViewCell" customModule="RssReader" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aKb-k8-5Db" id="kWI-Jk-GsO">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="e3x-LC-pN1">
+                        <rect key="frame" x="10" y="5" width="394" height="43"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="既読を表示する" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B77-1v-yTQ">
+                                <rect key="frame" x="0.0" y="11.5" width="121.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zes-yR-ZF5">
+                                <rect key="frame" x="345" y="6" width="51" height="31"/>
+                                <connections>
+                                    <action selector="readChanged:" destination="aKb-k8-5Db" eventType="valueChanged" id="p17-AI-bCi"/>
+                                </connections>
+                            </switch>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="e3x-LC-pN1" firstAttribute="top" secondItem="kWI-Jk-GsO" secondAttribute="top" constant="5" id="Lco-nv-mtC"/>
+                    <constraint firstItem="e3x-LC-pN1" firstAttribute="leading" secondItem="kWI-Jk-GsO" secondAttribute="leading" constant="10" id="On8-3Z-9Em"/>
+                    <constraint firstAttribute="trailing" secondItem="e3x-LC-pN1" secondAttribute="trailing" constant="10" id="mhd-Ks-wow"/>
+                    <constraint firstAttribute="bottom" secondItem="e3x-LC-pN1" secondAttribute="bottom" constant="5" id="vgb-Hj-Jjv"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="readLabel" destination="B77-1v-yTQ" id="AMf-Vt-GGW"/>
+                <outlet property="readSwitch" destination="zes-yR-ZF5" id="Fyp-A4-b7z"/>
+            </connections>
+            <point key="canvasLocation" x="-300" y="8.3705357142857135"/>
+        </tableViewCell>
+    </objects>
+</document>
