@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseUI
 import Nuke
 
 class SettingViewController: UIViewController, Transitioner {
@@ -27,7 +28,12 @@ class SettingViewController: UIViewController, Transitioner {
         setUpTable()
     }
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         rssFeedKeySort()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if CommonData.loginModel.userConfig.userID == nil { CommonRouter.toAuth(view: self)}
     }
     
     func setUpTable() {
@@ -105,17 +111,17 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
     }
+    
+    // MARK:- didSelectRowAt
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section{
         case 0:
-            return
+            CommonData.loginModel.toLogoutAlert(view: self)
         case 1:
             if indexPath.row == CommonData.rssFeedListModel.rssFeedList.count {
                 CommonRouter.toSelectRssFeedTypeView(view: self)
             }
-            return
-        default:
-            return
+        default: break
         }
     }
     
@@ -127,5 +133,40 @@ extension SettingViewController: SelectRssFeedDelegate {
         CommonData.rssFeedListModel.rssFeedList[rssFeed.url] = rssFeed
         rssFeedKeySort()
         settingTableView.reloadData()
+    }
+}
+
+extension SettingViewController: LogoutDelegate {
+    func didLogout() {
+        settingTableView.reloadData()
+        CommonRouter.toAuth(view: self)
+    }
+}
+
+
+extension SettingViewController: FUIAuthDelegate {
+    //　認証画面から離れたときに呼ばれる（キャンセルボタン押下含む）
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?){
+        if let newUser = user {
+            
+            // 登録済みのユーザーの場合
+            if newUser.uid == CommonData.loginModel.userConfig.userID {
+                print("Log in!!")
+                CommonData.loginModel.userConfig.latestLoginDate = Date()
+                settingTableView.reloadData()
+                return
+            }
+            
+            // 新規ユーザーの場合
+            print("Sign up!!")
+            CommonData.loginModel.setUserConfig(userID: newUser.uid, photoURL: newUser.photoURL, displayName: newUser.displayName ?? "")
+            settingTableView.reloadData()
+            return
+            
+        }
+        
+        //失敗した場合
+        print("can't auth")
+        CommonRouter.toAuth(view: self)
     }
 }

@@ -129,7 +129,7 @@ extension ArticleListViewController: AutoLoginDelegate {
 
 extension ArticleListViewController: FUIAuthDelegate{
     //　認証画面から離れたときに呼ばれる（キャンセルボタン押下含む）
-    public func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?){
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?){
         if let newUser = user {
             
             // 登録済みのユーザーの場合

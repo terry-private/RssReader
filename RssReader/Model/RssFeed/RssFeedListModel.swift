@@ -19,7 +19,7 @@ protocol RssFeedListModelProtocol {
 }
 
 class RssFeedListModel: RssFeedListModelProtocol {
-    var typeList: [RssFeedTypeProtocol] = []
+    var typeList: [RssFeedTypeProtocol] = [QiitaType(), YahooType()]
     var rssFeedList: [String: RssFeedProtocol] = [:] // RssFeed.urlをkeyにしてます。
     var articleList: [String: Article] = [:] // item.linkをkeyにしてます。
     

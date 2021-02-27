@@ -26,6 +26,10 @@ class DummyUserConfig: UserConfigProtocol {
 
 /// 必ずオートログインに失敗するやつです。
 class DummyLoginModel: LoginProtocol {
+    func toLogoutAlert<T>(view: T) where T : LogoutDelegate, T : Transitioner {
+        view.didLogout()
+    }
+    
     var userConfig: UserConfigProtocol
     init() {
         userConfig = DummyUserConfig()

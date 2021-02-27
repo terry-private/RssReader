@@ -9,10 +9,10 @@ import UIKit
 
 class MainTabBarController: UITabBarController, Transitioner {
     // 本番環境
-//    var articleListRouter: ArticleListRouterProtocol = ArticleListRouter()
+    private var articleListRouter: ArticleListRouterProtocol = ArticleListRouter()
     
     // テスト環境
-    private var articleListRouter: ArticleListRouterProtocol = DummyArticleListRouter()
+//    private var articleListRouter: ArticleListRouterProtocol = DummyArticleListRouter()
     
     // MARK:- TabにセットするUINavigationControllers
     private var articleListNav: UINavigationController {
