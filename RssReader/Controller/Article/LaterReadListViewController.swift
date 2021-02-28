@@ -44,7 +44,7 @@ extension LaterReadListViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        CommonData.rssFeedListModel.articleList[laterReadListKeys[indexPath.row]]!.read = true
+        CommonData.rssFeedListModel.changeRead(articleKey: laterReadListKeys[indexPath.row], read: true)
         CommonRouter.toArticleDetailView(view: self, article: CommonData.rssFeedListModel.articleList[laterReadListKeys[indexPath.row]]!)
     }
     

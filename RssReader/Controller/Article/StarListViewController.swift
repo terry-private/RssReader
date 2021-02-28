@@ -44,7 +44,7 @@ extension StarListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        CommonData.rssFeedListModel.articleList[starListKeys[indexPath.row]]!.read = true
+        CommonData.rssFeedListModel.changeRead(articleKey: starListKeys[indexPath.row], read: true)
         CommonRouter.toArticleDetailView(view: self, article: CommonData.rssFeedListModel.articleList[starListKeys[indexPath.row]]!)
     }
 }
