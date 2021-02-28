@@ -7,7 +7,7 @@
 
 import Foundation
 import Firebase
-
+import RealmSwift
 
 /// 認証結果をVCに渡します。
 protocol AutoLoginDelegate: AnyObject {

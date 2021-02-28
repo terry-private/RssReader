@@ -54,10 +54,7 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         super.viewDidAppear(animated)
         if splashView.isHidden {
             if isFirst {
-                let hamburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentFilterMenu))
-                hamburgerMenuButton.tintColor = .systemBlue
-                navigationItem.leftBarButtonItem = hamburgerMenuButton
-                navigationItem.title = "最新記事"
+                setUpBarItem()
                 isFirst = false
             }
             fetchItems()
@@ -66,10 +63,12 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         }
         
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    func setUpBarItem() {
+        let hamburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentFilterMenu))
+        hamburgerMenuButton.tintColor = .systemBlue
+        navigationItem.leftBarButtonItem = hamburgerMenuButton
+        navigationItem.title = "最新記事"
     }
-
 
     //MARK:- 関数
     
@@ -118,6 +117,8 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
 extension ArticleListViewController: AutoLoginDelegate {
     func didAutoLogin(isSuccess: Bool) {
         if isSuccess {
+            isFirst = false
+            setUpBarItem()
             fetchItems()
         } else {
             articleListRouter?.toAuthView(view: self)

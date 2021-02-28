@@ -404,6 +404,11 @@ PODS:
   - nanopb/encode (2.30907.0)
   - Nuke (9.2.4)
   - PromisesObjC (1.2.12)
+  - Realm (10.5.2):
+    - Realm/Headers (= 10.5.2)
+  - Realm/Headers (10.5.2)
+  - RealmSwift (10.5.2):
+    - Realm (= 10.5.2)
   - SDWebImage (5.10.4):
     - SDWebImage/Core (= 5.10.4)
   - SDWebImage/Core (5.10.4)
@@ -413,6 +418,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - FirebaseUI
   - Nuke
+  - RealmSwift
   - SideMenu
 
 SPEC REPOS:
@@ -444,6 +450,8 @@ SPEC REPOS:
     - nanopb
     - Nuke
     - PromisesObjC
+    - Realm
+    - RealmSwift
     - SDWebImage
     - SideMenu
 
@@ -475,9 +483,11 @@ SPEC CHECKSUMS:
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   Nuke: 44439f7a92e665a4f927ecd73cb51f91d93b0e0c
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  Realm: 2e1bc0d28301006176692da234deff51f867d5ae
+  RealmSwift: a522ad39715e8b4e491af4460059bc32b84f5a9b
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: c15f401243c33c0b730c8be74daba6bf74db633a
+PODFILE CHECKSUM: 2e84fc9afe88ac6b5656cf8d22ba940716a64aff
 
 COCOAPODS: 1.10.1

@@ -8,6 +8,7 @@ target 'RssReader' do
   pod 'FirebaseUI'
   pod 'Nuke'
   pod 'SideMenu'
+  pod 'RealmSwift'
   # Pods for RssReader
 
   target 'RssReaderTests' do
