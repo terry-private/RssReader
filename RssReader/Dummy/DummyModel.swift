@@ -10,10 +10,10 @@ import Foundation
 
 
 class DummyUserConfig: UserConfigProtocol {
-    var userID: String?
-    var photoURL: URL?
-    var displayName: String?
-    var latestLoginDate: Date?
+    var userID: String? = "dummyId"
+    var photoURL: URL? = nil
+    var displayName: String? = "dummyName"
+    var latestLoginDate: Date? = Date()
     func removeUser() {
         userID = nil
         photoURL = nil
@@ -27,7 +27,7 @@ class DummyUserConfig: UserConfigProtocol {
 /// 必ずオートログインに失敗するやつです。
 class DummyLoginModel: LoginProtocol {
     func toLogoutAlert<T>(view: T) where T : LogoutDelegate, T : Transitioner {
-        view.didLogout()
+//        view.didLogout()
     }
     
     var userConfig: UserConfigProtocol
@@ -35,7 +35,7 @@ class DummyLoginModel: LoginProtocol {
         userConfig = DummyUserConfig()
     }
     func autoLogin(autoLoginDelegate: AutoLoginDelegate) {
-        autoLoginDelegate.didAutoLogin(isSuccess: false)
+        autoLoginDelegate.didAutoLogin(isSuccess: true)
     }
     
     func setUserConfig(userID: String, photoURL: URL?, displayName: String) {
@@ -58,6 +58,15 @@ class DummyRssFeedListModel: RssFeedListModel {
         if let yahoo = YahooType().makeRssFeed(tag: YahooTag.informationTechnology) {
             rssFeedList[yahoo.url] = yahoo
         }
+    }
+    override func changeStar(articleKey: String, isStar: Bool) {
+        articleList[articleKey]?.isStar = isStar
+    }
+    override func changeLaterRead(articleKey: String, laterRead: Bool) {
+        articleList[articleKey]?.laterRead = laterRead
+    }
+    override func changeRead(articleKey: String, read: Bool) {
+        articleList[articleKey]?.read = read
     }
 }
 

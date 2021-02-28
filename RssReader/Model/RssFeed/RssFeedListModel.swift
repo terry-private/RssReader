@@ -17,6 +17,9 @@ protocol RssFeedListModelProtocol {
     var rssFeedList: [String: RssFeedProtocol] { get set }
     var articleList: [String: Article] { get set }
     func fetchItems(rssFeedListModelDelegate: RssFeedListModelDelegate)
+    func changeStar(articleKey: String, isStar: Bool)
+    func changeLaterRead(articleKey: String, laterRead: Bool)
+    func changeRead(articleKey: String, read: Bool)
 }
 
 
@@ -29,7 +32,6 @@ class RssFeedListModel: RssFeedListModelProtocol {
             let realmRssFeeds = realm.objects(RssFeed.self)
             for rssFeed in realmRssFeeds {
                 rssFeeds[rssFeed.url] = rssFeed
-                print(rssFeed)
             }
             return rssFeeds
         }
@@ -37,9 +39,8 @@ class RssFeedListModel: RssFeedListModelProtocol {
             let realm = try! Realm()
             let results = realm.objects(RssFeed.self)
             // newValueにない元々のRssFeedを消す動作をするのと同時に
-            // 元々あるRssFeedは重複してaddしないようにします。
+            // 元々あるRssFeedは重複してaddしないように重複リストを作成します。
             var duplicatedKeys = [String]()
-            
             
             for result in results {
                 if newValue.keys.contains(result.url) {
@@ -52,6 +53,7 @@ class RssFeedListModel: RssFeedListModelProtocol {
             }
             let newValues = newValue.values
             for rssFeed in newValues {
+                // 重複リストになければ追加します。
                 if !duplicatedKeys.contains(rssFeed.url) {
                     try! realm.write{
                         realm.add(rssFeed as! RssFeed)
@@ -61,7 +63,47 @@ class RssFeedListModel: RssFeedListModelProtocol {
             
         }
     }
-    var articleList: [String: Article] = [:]
+    var articleList: [String: Article] {
+        get {
+            let realm = try! Realm()
+            let realmArticles = realm.objects(RealmArticle.self)
+            var articles = [String: Article]()
+            for realmArticle in realmArticles {
+                var article = Article(item: Item(title: realmArticle.title, pubDate: realmArticle.pubDate, link: realmArticle.link, guid: realmArticle.guid), rssFeedTitle: realmArticle.rssFeedTitle, rssFeedUrl: realmArticle.rssFeedUrl, rssFeedFaviconUrl: realmArticle.rssFeedFaviconUrl, tag: realmArticle.tag)
+                article.isStar = realmArticle.isStar
+                article.laterRead = realmArticle.laterRead
+                article.read = realmArticle.read
+                articles[realmArticle.link] = article
+            }
+            return articles
+        }
+        set {
+            let realm = try! Realm()
+            let realmArticles = realm.objects(RealmArticle.self)
+            // newValueにない元々のRssFeedを消す動作をするのと同時に
+            // 元々あるRssFeedは重複してaddしないように重複リストを作成します。
+            var duplicatedKeys = [String]()
+            
+            for realmArticle in realmArticles {
+                if newValue.keys.contains(realmArticle.link) {
+                    duplicatedKeys.append(realmArticle.link)
+                } else {
+                    try! realm.write{
+                        realm.delete(realmArticle)
+                    }
+                }
+            }
+            let newValues = newValue.values
+            for article in newValues {
+                // 重複リストになければ追加します。
+                if !duplicatedKeys.contains(article.item.link) {
+                    try! realm.write{
+                        realm.add(RealmArticle(article: article))
+                    }
+                }
+            }
+        }
+    }
     var loadCounter: Int = 0 {
         didSet {
             if loadCounter == 0 {
@@ -99,6 +141,30 @@ class RssFeedListModel: RssFeedListModelProtocol {
             if  !rssFeedListKeys.contains(article.rssFeedUrl) && !article.isStar && !article.laterRead{
                 articleList.removeValue(forKey: article.item.link)
             }
+        }
+    }
+    
+    func changeStar(articleKey: String, isStar: Bool) {
+        let realm = try! Realm()
+        let article = realm.object(ofType: RealmArticle.self, forPrimaryKey: articleKey)
+        try! realm.write {
+            article?.isStar = isStar
+        }
+    }
+    
+    func changeLaterRead(articleKey: String, laterRead: Bool) {
+        let realm = try! Realm()
+        let article = realm.object(ofType: RealmArticle.self, forPrimaryKey: articleKey)
+        try! realm.write {
+            article?.laterRead = laterRead
+        }
+    }
+    
+    func changeRead(articleKey: String, read: Bool) {
+        let realm = try! Realm()
+        let article = realm.object(ofType: RealmArticle.self, forPrimaryKey: articleKey)
+        try! realm.write {
+            article?.read = read
         }
     }
 }
