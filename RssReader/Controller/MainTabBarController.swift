@@ -23,9 +23,23 @@ class MainTabBarController: UITabBarController, Transitioner {
             articleListViewController.inject(
                 articleListRouter: articleListRouter
             )
-            articleListViewController.tabBarItem = UITabBarItem(title: "記事一覧", image: UIImage(systemName: "list.bullet.rectangle"), tag: 0)
+            articleListViewController.tabBarItem = UITabBarItem(title: "最新記事", image: UIImage(systemName: "list.bullet.rectangle"), tag: 0)
             return UINavigationController(articleListViewController)
         }
+    }
+    
+    private var laterReadNav: UINavigationController {
+        let laterReadListViewController = UIStoryboard(name: "LaterReadList", bundle: nil).instantiateViewController(identifier: "LaterReadListViewController") as! LaterReadListViewController
+        
+        laterReadListViewController.tabBarItem = UITabBarItem(title: "後で読む", image: UIImage(systemName: "tray"), tag: 0)
+        return UINavigationController(laterReadListViewController)
+    }
+    
+    private var starListNav: UINavigationController {
+        let starListViewController = UIStoryboard(name: "StarList", bundle: nil).instantiateViewController(identifier: "StarListViewController") as! StarListViewController
+        
+        starListViewController.tabBarItem = UITabBarItem(title: "お気に入り", image: UIImage(systemName: "star"), tag: 0)
+        return UINavigationController(starListViewController)
     }
     
     private var settingNav: UINavigationController {
@@ -37,6 +51,7 @@ class MainTabBarController: UITabBarController, Transitioner {
         }
     }
     
+    
     // MARK:- ライフサイクル系
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +60,6 @@ class MainTabBarController: UITabBarController, Transitioner {
     }
 
     func setupTab() {
-        viewControllers = [articleListNav, settingNav]
+        viewControllers = [articleListNav, laterReadNav, starListNav, settingNav]
     }
 }

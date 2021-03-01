@@ -41,9 +41,9 @@
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="KM2-DQ-THS"/>
-                                            <barButtonItem image="star" catalog="system" id="xxA-YT-uoF">
+                                            <barButtonItem image="tray" catalog="system" id="xxA-YT-uoF">
                                                 <connections>
-                                                    <action selector="tappedStarButton:" destination="nHK-Zy-z6y" id="3Hw-SC-XL9"/>
+                                                    <action selector="tappedLaterReadButton:" destination="nHK-Zy-z6y" id="3Hw-SC-XL9"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="tzg-2s-shd"/>
@@ -74,7 +74,7 @@
                     </view>
                     <connections>
                         <outlet property="indicator" destination="sMt-Dm-lNR" id="Pb2-Dl-4Xc"/>
-                        <outlet property="starButton" destination="xxA-YT-uoF" id="lpJ-zM-WyW"/>
+                        <outlet property="laterTrayButton" destination="xxA-YT-uoF" id="lpJ-zM-WyW"/>
                         <outlet property="webView" destination="jXA-yR-qUi" id="6qf-Ai-fHQ"/>
                     </connections>
                 </viewController>
@@ -87,6 +87,6 @@
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="safari" catalog="system" width="128" height="121"/>
-        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="tray" catalog="system" width="128" height="88"/>
     </resources>
 </document>

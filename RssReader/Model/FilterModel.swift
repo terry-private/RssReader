@@ -37,7 +37,7 @@ protocol FilterModelProtocol {
 }
 
 extension FilterModelProtocol {
-    func sort(articleList: [String: Article]) -> [String] {
+    private func sort(articleList: [String: Article]) -> [String] {
         var sortedList: [String: Article] = [:]
         for key in articleList.keys {
             guard let article = articleList[key] else { continue }
@@ -65,6 +65,33 @@ extension FilterModelProtocol {
                 return sortedList.keys.sorted { $0 < $1}
             }
         }
+    }
+    func sortMainList(articleList: [String: Article]) -> [String] {
+        var mainList: [String: Article] = [:]
+        for article in articleList.values {
+            if !article.laterRead {
+                mainList[article.item.link] = article
+            }
+        }
+        return sort(articleList: mainList)
+    }
+    func sortStarList(articleList: [String: Article]) -> [String] {
+        var starList: [String: Article] = [:]
+        for article in articleList.values {
+            if article.isStar {
+                starList[article.item.link] = article
+            }
+        }
+        return sort(articleList: starList)
+    }
+    func sortLaterReadList(articleList: [String: Article]) -> [String] {
+        var laterReadList: [String: Article] = [:]
+        for article in articleList.values {
+            if article.laterRead {
+                laterReadList[article.item.link] = article
+            }
+        }
+        return sort(articleList: laterReadList)
     }
 }
 

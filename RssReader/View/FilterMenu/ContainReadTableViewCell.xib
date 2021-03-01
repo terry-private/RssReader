@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="e3x-LC-pN1">
-                        <rect key="frame" x="10" y="5" width="394" height="43"/>
+                        <rect key="frame" x="30" y="5" width="354" height="43"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="既読を表示する" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B77-1v-yTQ">
                                 <rect key="frame" x="0.0" y="11.5" width="121.5" height="20.5"/>
@@ -25,7 +25,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zes-yR-ZF5">
-                                <rect key="frame" x="345" y="6" width="51" height="31"/>
+                                <rect key="frame" x="305" y="6" width="51" height="31"/>
                                 <connections>
                                     <action selector="readChanged:" destination="aKb-k8-5Db" eventType="valueChanged" id="p17-AI-bCi"/>
                                 </connections>
@@ -35,11 +35,12 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="e3x-LC-pN1" firstAttribute="top" secondItem="kWI-Jk-GsO" secondAttribute="top" constant="5" id="Lco-nv-mtC"/>
-                    <constraint firstItem="e3x-LC-pN1" firstAttribute="leading" secondItem="kWI-Jk-GsO" secondAttribute="leading" constant="10" id="On8-3Z-9Em"/>
-                    <constraint firstAttribute="trailing" secondItem="e3x-LC-pN1" secondAttribute="trailing" constant="10" id="mhd-Ks-wow"/>
+                    <constraint firstItem="e3x-LC-pN1" firstAttribute="leading" secondItem="kWI-Jk-GsO" secondAttribute="leading" constant="30" id="On8-3Z-9Em"/>
+                    <constraint firstAttribute="trailing" secondItem="e3x-LC-pN1" secondAttribute="trailing" constant="30" id="mhd-Ks-wow"/>
                     <constraint firstAttribute="bottom" secondItem="e3x-LC-pN1" secondAttribute="bottom" constant="5" id="vgb-Hj-Jjv"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="readLabel" destination="B77-1v-yTQ" id="AMf-Vt-GGW"/>
                 <outlet property="readSwitch" destination="zes-yR-ZF5" id="Fyp-A4-b7z"/>

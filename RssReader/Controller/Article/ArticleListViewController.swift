@@ -13,8 +13,8 @@ protocol ArticleListViewControllerProtocol: Transitioner, FUIAuthDelegate {
     
 }
 
-protocol ArticleKeySortable: AnyObject {
-    func articleKeySort()
+protocol KeysSortable: AnyObject {
+    func keysSort()
 }
 
 class ArticleListViewController: UIViewController, ArticleListViewControllerProtocol {
@@ -27,7 +27,7 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
     
     //MARK:- 変数宣言
     
-    var cellId = "cellId"
+    var articleTableViewCellId = "articleTableViewCellId"
     var isFirst = true
     
     var articleListRouter: ArticleListRouterProtocol?
@@ -39,7 +39,7 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         super.viewDidLoad()
         articleTableView.dataSource = self
         articleTableView.delegate = self
-        
+        articleTableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: articleTableViewCellId)
     }
     @objc func presentFilterMenu(){
         CommonRouter.toFilterMenuView(view: self)
@@ -57,7 +57,7 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
                 let hamburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentFilterMenu))
                 hamburgerMenuButton.tintColor = .systemBlue
                 navigationItem.leftBarButtonItem = hamburgerMenuButton
-                self.navigationItem.title = "記事一覧"
+                navigationItem.title = "最新記事"
                 isFirst = false
             }
             fetchItems()
@@ -102,7 +102,7 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = articleTableView.dequeueReusableCell(withIdentifier: cellId) as! ArticleTableViewCell
+        let cell = articleTableView.dequeueReusableCell(withIdentifier: articleTableViewCellId) as! ArticleTableViewCell
         cell.article = CommonData.rssFeedListModel.articleList[sortedArticleKeyList[indexPath.row]]
         return cell
     }
@@ -158,55 +158,16 @@ extension ArticleListViewController: FUIAuthDelegate{
 extension ArticleListViewController: RssFeedListModelDelegate {
     func loaded() {
         DispatchQueue.main.async {
-            self.articleKeySort()
+            self.keysSort()
             self.activityIndicator.stopAnimating()
         }
     }
 }
 
-extension ArticleListViewController: ArticleKeySortable {
+extension ArticleListViewController: KeysSortable {
     
-    func articleKeySort() {
-        sortedArticleKeyList = CommonData.filterModel.sort(articleList:CommonData.rssFeedListModel.articleList)
+    func keysSort() {
+        sortedArticleKeyList = CommonData.filterModel.sortMainList(articleList:CommonData.rssFeedListModel.articleList)
         articleTableView.reloadData()
-    }
-}
-//MARK:- ArticleTableViewCell
-
-class ArticleTableViewCell: UITableViewCell {
-    @IBOutlet weak var rssFeedTypeTitleLabel: UILabel!
-    @IBOutlet weak var articleTitleLabel: UILabel!
-    @IBOutlet weak var rssFeedTagLabel: UILabel!
-    @IBOutlet weak var articlePubDateLabel: UILabel!
-    @IBOutlet weak var faviconImageView: UIImageView!
-    @IBOutlet weak var starImageView: UIImageView!
-    @IBOutlet weak var readCheckImageView: UIImageView!
-    var article: Article? {
-        didSet {
-            if let url = URL(string: article?.rssFeedFaviconUrl ?? "") {
-                Nuke.loadImage(with: url, into: faviconImageView)
-            }
-            rssFeedTypeTitleLabel.text = article?.rssFeedTitle
-            rssFeedTagLabel.text = article?.tag
-            articleTitleLabel.text = article?.item.title
-            let pubDate = Date(string: article!.item.pubDate!)
-            articlePubDateLabel.text = pubDate.longDate()
-            if article?.read ?? false {
-                readCheckImageView.alpha = 1
-            } else {
-                readCheckImageView.alpha = 0
-            }
-            
-            if article?.isStar ?? false {
-                starImageView.alpha = 1
-            } else {
-                starImageView.alpha = 0
-            }
-            
-        }
-    }
-    
-    override class func awakeFromNib() {
-        super.awakeFromNib()
     }
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Later Read List View Controller-->
+        <scene sceneID="8h5-CK-h3F">
+            <objects>
+                <viewController storyboardIdentifier="LaterReadListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Z2n-Ri-Npl" customClass="LaterReadListViewController" customModule="RssReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4zR-og-h3I">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dH9-83-Ma3">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9JE-Su-amw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dH9-83-Ma3" firstAttribute="top" secondItem="9JE-Su-amw" secondAttribute="top" id="Mhl-CW-BD7"/>
+                            <constraint firstItem="9JE-Su-amw" firstAttribute="trailing" secondItem="dH9-83-Ma3" secondAttribute="trailing" id="SMl-gy-G5s"/>
+                            <constraint firstItem="9JE-Su-amw" firstAttribute="bottom" secondItem="dH9-83-Ma3" secondAttribute="bottom" id="oEv-fd-JBY"/>
+                            <constraint firstItem="dH9-83-Ma3" firstAttribute="leading" secondItem="9JE-Su-amw" secondAttribute="leading" id="tLY-Gl-Q5X"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="laterReadListTableView" destination="dH9-83-Ma3" id="YaL-BK-omy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gqn-fc-ZFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="280" y="-240"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
