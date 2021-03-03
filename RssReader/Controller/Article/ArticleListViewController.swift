@@ -42,6 +42,12 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         articleTableView.dataSource = self
         articleTableView.delegate = self
         articleTableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: articleTableViewCellId)
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshTable), for: UIControl.Event.valueChanged)
+        articleTableView.refreshControl = refreshControl
+    }
+    @objc func refreshTable() {
+        CommonData.rssFeedListModel.fetchItems(rssFeedListModelDelegate: self)
     }
     @objc func presentFilterMenu(){
         CommonRouter.toFilterMenuView(view: self)
@@ -170,6 +176,7 @@ extension ArticleListViewController: RssFeedListModelDelegate {
         DispatchQueue.main.async {
             self.keysSort()
             self.activityIndicator.stopAnimating()
+            self.articleTableView.refreshControl?.endRefreshing()
         }
     }
 }
