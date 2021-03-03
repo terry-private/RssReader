@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import RealmSwift
 
 class ArticleDetailViewController: UIViewController, Transitioner {
     @IBOutlet weak var webView: WKWebView!
@@ -31,8 +32,9 @@ class ArticleDetailViewController: UIViewController, Transitioner {
         dismiss(animated: true)
     }
     @objc func tappedStar() {
-        guard let star = CommonData.rssFeedListModel.articleList[(article?.item.link)!]?.isStar else { return }
-        CommonData.rssFeedListModel.articleList[(article?.item.link)!]?.isStar = !star
+        let newIsStar = !article!.isStar
+        article?.isStar = newIsStar
+        CommonData.rssFeedListModel.changeStar(articleKey: article!.item.link, isStar: newIsStar)
         setStarButton()
     }
     // MARK:- @IBAction
@@ -49,8 +51,9 @@ class ArticleDetailViewController: UIViewController, Transitioner {
         }
     }
     @IBAction func tappedLaterReadButton(_ sender: Any) {
-        guard let laterRead = CommonData.rssFeedListModel.articleList[(article?.item.link)!]?.laterRead else { return }
-        CommonData.rssFeedListModel.articleList[(article?.item.link)!]?.laterRead = !laterRead
+        let newLaterRead = !article!.laterRead
+        article?.laterRead = newLaterRead
+        CommonData.rssFeedListModel.changeLaterRead(articleKey: article!.item.link, laterRead: newLaterRead)
         setLaterReadButton()
     }
     
@@ -62,7 +65,8 @@ class ArticleDetailViewController: UIViewController, Transitioner {
         }
     }
     func setStarButton() {
-        if CommonData.rssFeedListModel.articleList[(article?.item.link)!]?.isStar ?? false {
+        let isStar = CommonData.rssFeedListModel.articleList[article!.item.link]?.isStar
+        if isStar ?? false {
             let starButton = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(tappedStar))
             starButton.tintColor = .systemYellow
             navigationItem.rightBarButtonItem = starButton

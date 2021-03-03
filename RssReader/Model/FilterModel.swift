@@ -42,7 +42,11 @@ extension FilterModelProtocol {
         for key in articleList.keys {
             guard let article = articleList[key] else { continue }
             if !containRead && article.read { continue }
-            if !CommonData.rssFeedListModel.rssFeedList[article.rssFeedUrl]!.display { continue }
+            
+            // 購読RssFeedに登録されている記事なのに表示モードがオフの場合だけ飛ばします。
+            if let rssFeed = CommonData.rssFeedListModel.rssFeedList[article.rssFeedUrl] {
+                if !rssFeed.display { continue }
+            }
             if let pubDateString = article.item.pubDate {
                 let pubDate = Date(string: pubDateString)
                 if pubDate < Date().addingTimeInterval(TimeInterval(-60 * 60 * 24 * pubDateAfter)) {

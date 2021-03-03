@@ -54,10 +54,7 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         super.viewDidAppear(animated)
         if splashView.isHidden {
             if isFirst {
-                let hamburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentFilterMenu))
-                hamburgerMenuButton.tintColor = .systemBlue
-                navigationItem.leftBarButtonItem = hamburgerMenuButton
-                navigationItem.title = "最新記事"
+                setUpBarItem()
                 isFirst = false
             }
             fetchItems()
@@ -66,10 +63,12 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         }
         
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    func setUpBarItem() {
+        let hamburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentFilterMenu))
+        hamburgerMenuButton.tintColor = .systemBlue
+        navigationItem.leftBarButtonItem = hamburgerMenuButton
+        navigationItem.title = "最新記事"
     }
-
 
     //MARK:- 関数
     
@@ -108,7 +107,7 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        CommonData.rssFeedListModel.articleList[sortedArticleKeyList[indexPath.row]]!.read = true
+        CommonData.rssFeedListModel.changeRead(articleKey: sortedArticleKeyList[indexPath.row], read: true)
         CommonRouter.toArticleDetailView(view: self, article: CommonData.rssFeedListModel.articleList[sortedArticleKeyList[indexPath.row]]!)
     }
 }
@@ -118,6 +117,8 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
 extension ArticleListViewController: AutoLoginDelegate {
     func didAutoLogin(isSuccess: Bool) {
         if isSuccess {
+            isFirst = false
+            setUpBarItem()
             fetchItems()
         } else {
             articleListRouter?.toAuthView(view: self)
@@ -129,7 +130,7 @@ extension ArticleListViewController: AutoLoginDelegate {
 
 extension ArticleListViewController: FUIAuthDelegate{
     //　認証画面から離れたときに呼ばれる（キャンセルボタン押下含む）
-    public func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?){
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?){
         if let newUser = user {
             
             // 登録済みのユーザーの場合

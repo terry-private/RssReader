@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct ArticleList: Codable {
     let feed: Feed
@@ -37,4 +38,36 @@ struct Article {
     var read: Bool = false
     var laterRead: Bool = false
     var isStar: Bool = false
+}
+
+class RealmArticle: Object {
+    // Itemの関連プロパティ
+    @objc dynamic var title: String!
+    @objc dynamic var pubDate: String?
+    @objc dynamic var link: String!
+    @objc dynamic var guid: String!
+    override static func primaryKey() -> String? {
+        return "link"
+    }
+    // Articleの関連プロパティ
+    @objc dynamic var rssFeedTitle: String!
+    @objc dynamic var rssFeedUrl: String!
+    @objc dynamic var rssFeedFaviconUrl: String!
+    @objc dynamic var tag: String!
+    @objc dynamic var read: Bool = false
+    @objc dynamic var laterRead: Bool = false
+    @objc dynamic var isStar: Bool = false
+    convenience init(article: Article) {
+        self.init()
+        title = article.item.title
+        pubDate = article.item.pubDate
+        link = article.item.link
+        guid = article.item.guid
+        
+        rssFeedTitle = article.rssFeedTitle
+        rssFeedUrl = article.rssFeedUrl
+        rssFeedFaviconUrl = article.rssFeedFaviconUrl
+        tag = article.tag
+    }
+    
 }

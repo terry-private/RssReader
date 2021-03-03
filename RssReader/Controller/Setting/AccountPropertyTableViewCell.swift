@@ -15,6 +15,8 @@ class AccountPropertyTableviewCell: UITableViewCell {
         didSet {
             if let url = userConfig?.photoURL {
                 Nuke.loadImage(with: url, into: myImageView)
+            } else {
+                myImageView.image = UIImage(systemName: "person")
             }
             myDisplayNameLabel.text = userConfig?.displayName
         }

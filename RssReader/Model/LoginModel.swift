@@ -7,17 +7,20 @@
 
 import Foundation
 import Firebase
-
+import RealmSwift
 
 /// 認証結果をVCに渡します。
 protocol AutoLoginDelegate: AnyObject {
     func didAutoLogin(isSuccess: Bool)
 }
-
+protocol LogoutDelegate: AnyObject {
+    func didLogout()
+}
 protocol LoginProtocol {
     var userConfig: UserConfigProtocol {get set}
     func autoLogin(autoLoginDelegate: AutoLoginDelegate)
     func setUserConfig(userID: String, photoURL: URL?, displayName: String)
+    func toLogoutAlert<T>(view: T) where T: Transitioner, T: LogoutDelegate
 }
 
 final class LoginModel: LoginProtocol {
@@ -44,5 +47,27 @@ final class LoginModel: LoginProtocol {
         userConfig.displayName = displayName
         userConfig.latestLoginDate = Date()
     }
-
+    func toLogoutAlert<T>(view: T) where T: Transitioner, T: LogoutDelegate {
+        
+        let alert = UIAlertController(title: "ログアウト", message: "ログアウトしますか？", preferredStyle: UIAlertController.Style.alert)
+        
+        // キャンセルボタン追加
+        alert.addAction(
+            UIAlertAction(
+                title: "キャンセル",
+                style: UIAlertAction.Style.cancel,
+                handler: nil))
+        
+        // 確定ボタン追加
+        alert.addAction(
+            UIAlertAction(
+                title: "ログアウト",
+                style: UIAlertAction.Style.destructive) { _ in
+                self.userConfig.removeUser()
+                view.didLogout()
+            }
+        )
+        
+        view.present(alert, animated: true, completion: nil)
+    }
 }

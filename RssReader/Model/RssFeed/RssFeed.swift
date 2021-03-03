@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol RssFeedTypeProtocol {
     var title: String { get }
@@ -23,19 +24,64 @@ protocol RssFeedProtocol {
     func fetchArticle(completion: @escaping ([String: Article]?) -> Void)
 }
 
-class RssFeed: RssFeedProtocol {
-    let title: String
-    let tag: String
-    let url: String
-    let faviconUrl: String
-    var display: Bool = true
-    init(title: String, tag: String, url: String, faviconUrl: String) {
-        self.title = title
-        self.tag = tag
-        self.url = url
-        self.faviconUrl = faviconUrl
+class RssFeed: Object {
+    @objc dynamic var _title: String = ""
+    @objc dynamic private var _tag: String = ""
+    @objc dynamic private var _url: String = ""
+    @objc dynamic private var _faviconUrl: String = ""
+    @objc dynamic private var _display: Bool = true
+    convenience init(title: String, tag: String, url: String, faviconUrl: String) {
+        self.init()
+        _title = title
+        _tag = tag
+        _url = url
+        _faviconUrl = faviconUrl
     }
+    override static func primaryKey() -> String? {
+        return "_url"
+    }
+}
+
+extension RssFeed: RssFeedProtocol {
+    var title: String {
+        get {
+            return _title
+        }
+    }
+    var tag: String {
+        get {
+            return _tag
+        }
+    }
+    var url: String {
+        get {
+            return _url
+        }
+    }
+    var faviconUrl: String {
+        get {
+            return _faviconUrl
+        }
+    }
+    var display: Bool {
+        get {
+            _display
+        }
+        set {
+            let realm = try! Realm()
+            try! realm.write {
+                _display = newValue
+            }
+        }
+    }
+    
+    
     func fetchArticle(completion: @escaping ([String: Article]?) -> Void){
+        // RssClientの別スレっっどの処理中にRealmObject(今回はself)にアクセスできないため別名の変数をこの関数内で保持しておきます。
+        let myTag = self.tag
+        let myTitle = self.title
+        let myUrl = self.url
+        let myFaviconUrl = self.faviconUrl
         RssClient.fetchItems(rssApiUrl: url) { (response) in
             var articles: [String: Article] = [:]
             guard let items = response else {
@@ -44,7 +90,7 @@ class RssFeed: RssFeedProtocol {
             }
             for item in items {
                 if !CommonData.rssFeedListModel.articleList.keys.contains(item.link) {
-                    articles[item.link] = Article(item: item, rssFeedTitle: self.title,rssFeedUrl: self.url, rssFeedFaviconUrl: self.faviconUrl, tag: self.tag)
+                    articles[item.link] = Article(item: item, rssFeedTitle: myTitle, rssFeedUrl: myUrl, rssFeedFaviconUrl: myFaviconUrl, tag: myTag)
                 }
             }
             completion(articles)

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct CommonData {
     static var rssFeedListModel: RssFeedListModelProtocol!
