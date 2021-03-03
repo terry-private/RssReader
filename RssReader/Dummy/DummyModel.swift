@@ -27,6 +27,8 @@ class DummyUserConfig: UserConfigProtocol {
 /// 必ずオートログインに失敗するやつです。
 class DummyLoginModel: LoginProtocol {
     func toLogoutAlert<T>(view: T) where T : LogoutDelegate, T : Transitioner {
+        // ダミーでログアウトの動きを確認するようのコードです。
+        // コメントアウトを外すとタッチでログアウトするのでその後の動きが確認できます。
 //        view.didLogout()
     }
     
