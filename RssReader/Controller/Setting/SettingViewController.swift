@@ -106,13 +106,13 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     // sectionが1の時だけ編集モードにしたい
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return indexPath.section == 1 && indexPath.row < CommonData.rssFeedListModel.rssFeedList.count
+        return indexPath.section == 2 && indexPath.row < CommonData.rssFeedListModel.rssFeedList.count
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
             return
-        case 1:
+        case 2:
             CommonData.rssFeedListModel.rssFeedList.removeValue(forKey: rssFeedKeyList[indexPath.row])
             rssFeedKeySort()
             tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -127,7 +127,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section{
         case 0:
             CommonData.loginModel.toLogoutAlert(view: self)
-        case 1:
+        case 2:
             if indexPath.row == CommonData.rssFeedListModel.rssFeedList.count {
                 CommonRouter.toSelectRssFeedTypeView(view: self)
             }
