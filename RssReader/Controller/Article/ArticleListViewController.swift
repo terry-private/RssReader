@@ -33,6 +33,8 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
     var articleListRouter: ArticleListRouterProtocol?
     var sortedArticleKeyList: [String] = []
     
+    var timer = Timer()
+    
     //MARK:- ライフサイクル関連
     
     override func viewDidLoad() {
@@ -47,7 +49,9 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(CommonData.filterModel.fetchTimeInterval * 60), repeats: true, block: { (timer) in
+            self.fetchItems()
+        })
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -62,6 +66,11 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
             dissMissSplashView()
         }
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer.invalidate()
     }
     func setUpBarItem() {
         let hamburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentFilterMenu))

@@ -33,7 +33,7 @@ protocol FilterModelProtocol {
     var pubDateAfter: Int { get set }
     var sortType: SortType { get set }
     var orderByDesc: Bool { get set }
-    
+    var fetchTimeInterval: Int { get set}
 }
 
 extension FilterModelProtocol {
@@ -104,4 +104,6 @@ class FilterModel: FilterModelProtocol {
     var pubDateAfter: Int = 3
     var sortType: SortType = .rssFeedType
     var orderByDesc: Bool = true
+    /// 分
+    var fetchTimeInterval: Int = 1
 }
