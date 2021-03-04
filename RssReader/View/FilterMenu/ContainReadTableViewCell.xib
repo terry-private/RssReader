@@ -19,8 +19,8 @@
                         <rect key="frame" x="30" y="5" width="354" height="43"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="既読を表示する" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B77-1v-yTQ">
-                                <rect key="frame" x="0.0" y="11.5" width="121.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="0.0" y="12" width="114.5" height="19.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
