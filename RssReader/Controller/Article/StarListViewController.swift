@@ -47,6 +47,41 @@ extension StarListViewController: UITableViewDelegate, UITableViewDataSource {
         CommonData.rssFeedListModel.changeRead(articleKey: starListKeys[indexPath.row], read: true)
         CommonRouter.toArticleDetailView(view: self, article: CommonData.rssFeedListModel.articleList[starListKeys[indexPath.row]]!)
     }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        // シェアのアクションを設定する
+        let starAction = UIContextualAction(style: .normal  , title: "share") {
+            (contextAction, view, completionHandler) in
+            let newIsStar = !CommonData.rssFeedListModel.articleList[self.starListKeys[indexPath.row]]!.isStar
+            CommonData.rssFeedListModel.changeStar(articleKey: self.starListKeys[indexPath.row], isStar: newIsStar)
+            self.keysSort()
+            completionHandler(true)
+        }
+        // シェアボタンのデザインを設定する
+        let starImage = UIImage(systemName: "star.fill")?.withTintColor(.white, renderingMode: .alwaysTemplate)
+        starAction.image = starImage
+        starAction.backgroundColor = .systemYellow
+        
+        // 削除のアクションを設定する
+        let laterReadAction = UIContextualAction(style: .destructive, title:"laterRead") {
+            (contextAction, view, completionHandler) in
+            let newLaterRead = !CommonData.rssFeedListModel.articleList[self.starListKeys[indexPath.row]]!.laterRead
+            CommonData.rssFeedListModel.changeLaterRead(articleKey: self.starListKeys[indexPath.row], laterRead: newLaterRead)
+            self.keysSort()
+            completionHandler(true)
+        }
+        // 削除ボタンのデザインを設定する
+        let laterReadImage = UIImage(systemName: "tray.fill")?.withTintColor(.white , renderingMode: .alwaysTemplate)
+        laterReadAction.image = laterReadImage
+        laterReadAction.backgroundColor = .systemGreen
+        
+        // スワイプでの削除を無効化して設定する
+        let swipeAction = UISwipeActionsConfiguration(actions:[laterReadAction, starAction])
+        swipeAction.performsFirstActionWithFullSwipe = false
+        
+        return swipeAction
+        
+    }
 }
 
 extension StarListViewController: KeysSortable {
