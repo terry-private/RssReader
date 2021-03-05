@@ -48,22 +48,22 @@ extension LaterReadListViewController: UITableViewDelegate, UITableViewDataSourc
         CommonRouter.toArticleDetailView(view: self, article: CommonData.rssFeedListModel.articleList[laterReadListKeys[indexPath.row]]!)
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    // MARK:- 右側のスワイプメニュー
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        // シェアのアクションを設定する
-        let starAction = UIContextualAction(style: .normal  , title: "share") {
+        let starAction = UIContextualAction(style: .normal  , title: "star") {
             (contextAction, view, completionHandler) in
             let newIsStar = !CommonData.rssFeedListModel.articleList[self.laterReadListKeys[indexPath.row]]!.isStar
             CommonData.rssFeedListModel.changeStar(articleKey: self.laterReadListKeys[indexPath.row], isStar: newIsStar)
             self.keysSort()
             completionHandler(true)
         }
-        // シェアボタンのデザインを設定する
         let starImage = UIImage(systemName: "star.fill")?.withTintColor(.white, renderingMode: .alwaysTemplate)
         starAction.image = starImage
         starAction.backgroundColor = .systemYellow
         
-        // 削除のアクションを設定する
+       
         let laterReadAction = UIContextualAction(style: .destructive, title:"laterRead") {
             (contextAction, view, completionHandler) in
             let newLaterRead = !CommonData.rssFeedListModel.articleList[self.laterReadListKeys[indexPath.row]]!.laterRead
@@ -71,17 +71,31 @@ extension LaterReadListViewController: UITableViewDelegate, UITableViewDataSourc
             self.keysSort()
             completionHandler(true)
         }
-        // 削除ボタンのデザインを設定する
         let laterReadImage = UIImage(systemName: "tray.fill")?.withTintColor(.white , renderingMode: .alwaysTemplate)
         laterReadAction.image = laterReadImage
         laterReadAction.backgroundColor = .systemGreen
         
-        // スワイプでの削除を無効化して設定する
         let swipeAction = UISwipeActionsConfiguration(actions:[laterReadAction, starAction])
         swipeAction.performsFirstActionWithFullSwipe = false
         
         return swipeAction
         
+    }
+    
+    // MARK:- 左側のスワイプメニュー
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let isRead = CommonData.rssFeedListModel.articleList[self.laterReadListKeys[indexPath.row]]!.read
+        let title =  isRead ? "未読にする": "既読にする"
+        let readAction = UIContextualAction(style: .normal, title: title) { (action, view, completionHandler) in
+            CommonData.rssFeedListModel.changeRead(articleKey: self.laterReadListKeys[indexPath.row], read: !isRead)
+            self.keysSort()
+            completionHandler(true)
+        }
+        let readImage = UIImage(systemName: "checkmark.circle.fill")
+        if !isRead { readAction.image = readImage }
+        readAction.backgroundColor = isRead ? .systemGray3 : .systemBlue
+        return UISwipeActionsConfiguration(actions: [readAction])
     }
 }
 
