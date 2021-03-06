@@ -23,11 +23,13 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var articleTableView: UITableView!
+    @IBOutlet weak var articleCollectionView: UICollectionView!
     @IBOutlet weak var splashView: UIView!
     
     //MARK:- 変数宣言
     
-    var articleTableViewCellId = "articleTableViewCellId"
+    private let articleTableViewCellId = "articleTableViewCellId"
+    private let articleCollectionViewCellId = "articleCollectionViewCellId"
     var isFirst = true
     
     var articleListRouter: ArticleListRouterProtocol?
@@ -39,12 +41,16 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        articleTableView.dataSource = self
-        articleTableView.delegate = self
-        articleTableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: articleTableViewCellId)
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshTable), for: UIControl.Event.valueChanged)
-        articleTableView.refreshControl = refreshControl
+        setUpTable()
+        articleCollectionView.delegate = self
+        articleCollectionView.dataSource = self
+        articleCollectionView.register(UINib(nibName: "ArticleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: articleCollectionViewCellId)
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        let horizontalSpace : CGFloat = 20
+        let cellSize : CGFloat = view.bounds.width / 2 - horizontalSpace
+        layout.itemSize = CGSize(width: cellSize, height: cellSize)
+        articleCollectionView.collectionViewLayout = layout
     }
     @objc func refreshTable() {
         CommonData.rssFeedListModel.fetchItems(rssFeedListModelDelegate: self)
@@ -55,6 +61,7 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        articleTableView.isHidden = true
         timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(CommonData.filterModel.fetchTimeInterval * 60), repeats: true, block: { (timer) in
             self.fetchItems()
         })
@@ -77,6 +84,14 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         timer.invalidate()
+    }
+    func setUpTable() {
+        articleTableView.dataSource = self
+        articleTableView.delegate = self
+        articleTableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: articleTableViewCellId)
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshTable), for: UIControl.Event.valueChanged)
+        articleTableView.refreshControl = refreshControl
     }
     func setUpBarItem() {
         let hamburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentFilterMenu))
@@ -127,6 +142,25 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
     }
 }
 
+extension ArticleListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(sortedArticleKeyList.count)
+        return sortedArticleKeyList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = articleCollectionView.dequeueReusableCell(withReuseIdentifier: articleCollectionViewCellId, for: indexPath) as! ArticleCollectionViewCell
+        cell.article = CommonData.rssFeedListModel.articleList[sortedArticleKeyList[indexPath.row]]
+        return cell
+    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let horizontalSpace : CGFloat = 20
+//        let cellSize : CGFloat = self.view.bounds.width / 2 - horizontalSpace
+//        print(cellSize)
+//        return CGSize(width: cellSize, height: cellSize)
+//    }
+}
 //MARK:- AutoLoginDelegate
 
 extension ArticleListViewController: AutoLoginDelegate {
@@ -186,5 +220,6 @@ extension ArticleListViewController: KeysSortable {
     func keysSort() {
         sortedArticleKeyList = CommonData.filterModel.sortMainList(articleList:CommonData.rssFeedListModel.articleList)
         articleTableView.reloadData()
+        articleCollectionView.reloadData()
     }
 }
