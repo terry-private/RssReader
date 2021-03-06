@@ -19,6 +19,7 @@ class SettingViewController: UIViewController, Transitioner {
     private let addNewCellId = "addNewCellId"
     private let accountPropertyTableViewCellId = "accountPropertyTableViewCellId"
     private let fetchTimeIntervalTableViewCellId = "fetchTimeIntervalTableViewCellId"
+    private let displayModeTableViewCellId = "displayModeTableViewCellId"
     private var rssFeedKeyList: [String] = []
     
     //MARK:- ライフサイクル関連
@@ -44,6 +45,7 @@ class SettingViewController: UIViewController, Transitioner {
         settingTableView.register(UINib(nibName: "AccountProperty", bundle: nil), forCellReuseIdentifier: accountPropertyTableViewCellId)
         settingTableView.register(UINib(nibName: "AddNewRssFeedTableViewCell", bundle: nil), forCellReuseIdentifier: addNewCellId)
         settingTableView.register(UINib(nibName: "FetchTimeInterval", bundle: nil), forCellReuseIdentifier: fetchTimeIntervalTableViewCellId)
+        settingTableView.register(UINib(nibName: "DisplayMode", bundle: nil), forCellReuseIdentifier: displayModeTableViewCellId)
     }
     func rssFeedKeySort() {
         rssFeedKeyList = CommonData.rssFeedListModel.rssFeedList.keys.sorted()
@@ -60,13 +62,15 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             return "RSS取得間隔"
         case 2:
+            return "表示モード"
+        case 3:
             return "購読記事一覧"
         default:
             return ""
         }
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        3
+        4
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
@@ -75,6 +79,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             return 1
         case 2:
+            return 1
+        case 3:
             return CommonData.rssFeedListModel.rssFeedList.count + 1
         default:
             return 0
@@ -92,6 +98,10 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             cell.fetchTimeIntervalSegmentedControl.selectedSegmentIndex = CommonData.filterModel.fetchTimeInterval
             return cell
         case 2:
+            let cell = settingTableView.dequeueReusableCell(withIdentifier: displayModeTableViewCellId, for: indexPath) as! DisplayModeTableViewCell
+            cell.displayModeSegmentedControl.selectedSegmentIndex = CommonData.filterModel.displayMode.index
+            return cell
+        case 3:
             if CommonData.rssFeedListModel.rssFeedList.count == indexPath.row {
                 let cell = settingTableView.dequeueReusableCell(withIdentifier: addNewCellId, for: indexPath) as! AddNewRssFeedTableViewCell
                 return cell
@@ -110,8 +120,6 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch indexPath.section {
-        case 0:
-            return
         case 2:
             CommonData.rssFeedListModel.rssFeedList.removeValue(forKey: rssFeedKeyList[indexPath.row])
             rssFeedKeySort()

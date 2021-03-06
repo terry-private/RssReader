@@ -42,26 +42,15 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTable()
-        articleCollectionView.delegate = self
-        articleCollectionView.dataSource = self
-        articleCollectionView.register(UINib(nibName: "ArticleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: articleCollectionViewCellId)
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        let horizontalSpace : CGFloat = 20
-        let cellSize : CGFloat = view.bounds.width / 2 - horizontalSpace
-        layout.itemSize = CGSize(width: cellSize, height: cellSize)
-        articleCollectionView.collectionViewLayout = layout
-    }
-    @objc func refreshTable() {
-        CommonData.rssFeedListModel.fetchItems(rssFeedListModelDelegate: self)
-    }
-    @objc func presentFilterMenu(){
-        CommonRouter.toFilterMenuView(view: self)
+        setUpCollection()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        articleTableView.isHidden = true
+        // FilterModel.displayModeでテーブルとコレクションのどちらを表示するかの切り替え
+        articleTableView.isHidden = CommonData.filterModel.displayMode == .collectionMode
+        articleCollectionView.isHidden = CommonData.filterModel.displayMode == .tableMode
+
         timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(CommonData.filterModel.fetchTimeInterval * 60), repeats: true, block: { (timer) in
             self.fetchItems()
         })
@@ -89,15 +78,42 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         articleTableView.dataSource = self
         articleTableView.delegate = self
         articleTableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: articleTableViewCellId)
+        // 引っ張ってくるくる
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshTable), for: UIControl.Event.valueChanged)
         articleTableView.refreshControl = refreshControl
+    }
+    func setUpCollection() {
+        articleCollectionView.delegate = self
+        articleCollectionView.dataSource = self
+        articleCollectionView.register(UINib(nibName: "ArticleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: articleCollectionViewCellId)
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.minimumLineSpacing = 20
+        let horizontalSpace : CGFloat = 20
+        let cellSize : CGFloat = view.bounds.width / 2 - horizontalSpace
+        layout.itemSize = CGSize(width: cellSize, height: cellSize)
+        articleCollectionView.collectionViewLayout = layout
+        // 引っ張ってくるくる
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshCollection), for: UIControl.Event.valueChanged)
+        articleCollectionView.refreshControl = refreshControl
     }
     func setUpBarItem() {
         let hamburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentFilterMenu))
         hamburgerMenuButton.tintColor = .systemBlue
         navigationItem.leftBarButtonItem = hamburgerMenuButton
         navigationItem.title = "最新記事"
+    }
+    
+    @objc func refreshTable() {
+        CommonData.rssFeedListModel.fetchItems(rssFeedListModelDelegate: self)
+    }
+    @objc func refreshCollection() {
+        CommonData.rssFeedListModel.fetchItems(rssFeedListModelDelegate: self)
+    }
+    @objc func presentFilterMenu(){
+        CommonRouter.toFilterMenuView(view: self)
     }
 
     //MARK:- 関数
@@ -142,9 +158,10 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
     }
 }
 
+// MARK:- CollectionView
+
 extension ArticleListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(sortedArticleKeyList.count)
         return sortedArticleKeyList.count
     }
     
@@ -153,13 +170,11 @@ extension ArticleListViewController: UICollectionViewDelegate, UICollectionViewD
         cell.article = CommonData.rssFeedListModel.articleList[sortedArticleKeyList[indexPath.row]]
         return cell
     }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let horizontalSpace : CGFloat = 20
-//        let cellSize : CGFloat = self.view.bounds.width / 2 - horizontalSpace
-//        print(cellSize)
-//        return CGSize(width: cellSize, height: cellSize)
-//    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        CommonData.rssFeedListModel.changeRead(articleKey: sortedArticleKeyList[indexPath.row], read: true)
+        CommonRouter.toArticleDetailView(view: self, article: CommonData.rssFeedListModel.articleList[sortedArticleKeyList[indexPath.row]]!)
+    }
 }
 //MARK:- AutoLoginDelegate
 
@@ -210,7 +225,11 @@ extension ArticleListViewController: RssFeedListModelDelegate {
         DispatchQueue.main.async {
             self.keysSort()
             self.activityIndicator.stopAnimating()
-            self.articleTableView.refreshControl?.endRefreshing()
+            if CommonData.filterModel.displayMode == .tableMode {
+                self.articleTableView.refreshControl?.endRefreshing()
+            } else {
+                self.articleCollectionView.refreshControl?.endRefreshing()
+            }
         }
     }
 }
@@ -219,7 +238,10 @@ extension ArticleListViewController: KeysSortable {
     
     func keysSort() {
         sortedArticleKeyList = CommonData.filterModel.sortMainList(articleList:CommonData.rssFeedListModel.articleList)
-        articleTableView.reloadData()
-        articleCollectionView.reloadData()
+        if CommonData.filterModel.displayMode == .tableMode {
+            articleTableView.reloadData()
+        } else {
+            articleCollectionView.reloadData()
+        }
     }
 }

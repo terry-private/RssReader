@@ -47,6 +47,7 @@ protocol FilterModelProtocol {
     var sortType: SortType { get set }
     var orderByDesc: Bool { get set }
     var fetchTimeInterval: Int { get set}
+    var displayMode: DisplayMode { get set }
 }
 
 extension FilterModelProtocol {
@@ -121,7 +122,7 @@ class FilterModel: FilterModelProtocol {
     var fetchTimeInterval: Int = 1
     
     /// 表示モード
-    var displayMode: DisplayMode = .tableMode
+    var displayMode: DisplayMode = .collectionMode
 }
 
 

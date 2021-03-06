@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="displayModeTableViewCellId" id="rj0-Os-c8e" customClass="DisplayModeTableViewCell" customModule="RssReader" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rj0-Os-c8e" id="OR1-yI-dh5">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oUN-BS-Rc9">
+                        <rect key="frame" x="20" y="15" width="374" height="15"/>
+                        <segments>
+                            <segment title="" image="line.horizontal.3.decrease" catalog="system"/>
+                            <segment title="" image="square.grid.2x2" catalog="system"/>
+                        </segments>
+                        <connections>
+                            <action selector="changedDisplayMode:" destination="rj0-Os-c8e" eventType="valueChanged" id="T8I-8v-KZj"/>
+                        </connections>
+                    </segmentedControl>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="oUN-BS-Rc9" firstAttribute="leading" secondItem="OR1-yI-dh5" secondAttribute="leading" constant="20" id="9ox-gb-4gn"/>
+                    <constraint firstItem="oUN-BS-Rc9" firstAttribute="top" secondItem="OR1-yI-dh5" secondAttribute="top" constant="15" id="KLB-XL-iIz"/>
+                    <constraint firstAttribute="bottom" secondItem="oUN-BS-Rc9" secondAttribute="bottom" constant="15" id="aKg-I0-zEc"/>
+                    <constraint firstAttribute="trailing" secondItem="oUN-BS-Rc9" secondAttribute="trailing" constant="20" id="yS6-36-fvg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="displayModeSegmentedControl" destination="oUN-BS-Rc9" id="Fv2-0F-jUr"/>
+            </connections>
+            <point key="canvasLocation" x="44" y="95"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="line.horizontal.3.decrease" catalog="system" width="128" height="73"/>
+        <image name="square.grid.2x2" catalog="system" width="128" height="114"/>
+    </resources>
+</document>

@@ -23,8 +23,9 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             if let faviconUrl = URL(string: article?.rssFeedFaviconUrl ?? "") {
                 Nuke.loadImage(with: faviconUrl, into: faviconImageView)
             }
+            
+            // wordpressのapiでサムネイル画像を作成
             let thumbnailUrlString = "https://s.wordpress.com/mshots/v1/\(article!.item.link.addingPercentEncoding(withAllowedCharacters: .urlPasswordAllowed) ?? "")?w=800"
-            print(thumbnailUrlString)
             if let thumbnailUrl = URL(string: thumbnailUrlString) {
                 let request = ImageRequest(
                     url: thumbnailUrl,
@@ -38,15 +39,19 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             let pubDate = Date(string: article!.item.pubDate!)
             articlePubDateLabel.text = pubDate.longDate()
             if article?.read ?? false {
-                readImageView.alpha = 1
+//                readImageView.alpha = 1
+                readImageView.tintColor = .systemBlue
             } else {
-                readImageView.alpha = 0
+//                readImageView.alpha = 0
+                readImageView.tintColor = .systemGray
             }
             
             if article?.isStar ?? false {
-                starImageView.alpha = 1
+//                starImageView.alpha = 1
+                starImageView.tintColor = .systemYellow
             } else {
-                starImageView.alpha = 0
+//                starImageView.alpha = 0
+                starImageView.tintColor = .systemGray
             }
             
         }
