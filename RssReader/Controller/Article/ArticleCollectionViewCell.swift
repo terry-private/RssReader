@@ -23,12 +23,12 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             if let faviconUrl = URL(string: article?.rssFeedFaviconUrl ?? "") {
                 Nuke.loadImage(with: faviconUrl, into: faviconImageView)
             }
-            let thumbnailUrlString = "https://s.wordpress.com/mshots/v1/\(article!.item.link.addingPercentEncoding(withAllowedCharacters: .urlPasswordAllowed) ?? "")?w=1000"
+            let thumbnailUrlString = "https://s.wordpress.com/mshots/v1/\(article!.item.link.addingPercentEncoding(withAllowedCharacters: .urlPasswordAllowed) ?? "")?w=800"
             print(thumbnailUrlString)
             if let thumbnailUrl = URL(string: thumbnailUrlString) {
                 let request = ImageRequest(
                     url: thumbnailUrl,
-                    processors: [ImageProcessors.Resize(size: CGSize(width: 800, height: 384), crop: true)]
+                    processors: [ImageProcessors.Resize(size: CGSize(width: 800, height: 680), crop: true)]
                 )
                 Nuke.loadImage(with: request, into: thumbnailImageView)
             }
