@@ -28,6 +28,19 @@ enum SortType: CaseIterable {
     }
 }
 
+enum DisplayMode: CaseIterable {
+    case tableMode
+    case collectionMode
+    var index: Int {
+        switch self {
+        case .tableMode:
+            return 0
+        case .collectionMode:
+            return 1
+        }
+    }
+}
+
 protocol FilterModelProtocol {
     var containRead: Bool { get set }
     var pubDateAfter: Int { get set }
@@ -106,4 +119,9 @@ class FilterModel: FilterModelProtocol {
     var orderByDesc: Bool = true
     /// 分
     var fetchTimeInterval: Int = 1
+    
+    /// 表示モード
+    var displayMode: DisplayMode = .tableMode
 }
+
+
