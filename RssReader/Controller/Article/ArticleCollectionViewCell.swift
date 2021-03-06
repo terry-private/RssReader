@@ -25,11 +25,11 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             }
             
             // wordpressのapiでサムネイル画像を作成
-            let thumbnailUrlString = "https://s.wordpress.com/mshots/v1/\(article!.item.link.addingPercentEncoding(withAllowedCharacters: .urlPasswordAllowed) ?? "")?w=800"
+            let thumbnailUrlString = "https://s.wordpress.com/mshots/v1/\(article!.item.link.addingPercentEncoding(withAllowedCharacters: .urlPasswordAllowed) ?? "")?w=1200"
             if let thumbnailUrl = URL(string: thumbnailUrlString) {
                 let request = ImageRequest(
                     url: thumbnailUrl,
-                    processors: [ImageProcessors.Resize(size: CGSize(width: 800, height: 680), crop: true)]
+                    processors: [ImageProcessors.Resize(size: CGSize(width: 1200, height: 1020), crop: true)]
                 )
                 Nuke.loadImage(with: request, into: thumbnailImageView)
             }

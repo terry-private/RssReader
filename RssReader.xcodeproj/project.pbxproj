@@ -39,6 +39,7 @@
 		09688C5A25F294D9007925B3 /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09688C5925F294D9007925B3 /* ArticleCollectionViewCell.swift */; };
 		09688C5F25F36C07007925B3 /* DisplayMode.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09688C5E25F36C07007925B3 /* DisplayMode.xib */; };
 		09688C7425F36EB4007925B3 /* DisplayModeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09688C7325F36EB4007925B3 /* DisplayModeTableViewCell.swift */; };
+		09688C7925F3788D007925B3 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09688C7825F3788D007925B3 /* PreviewViewController.swift */; };
 		096A1AA625D7CC8300EBC589 /* RssFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A1AA525D7CC8300EBC589 /* RssFeed.swift */; };
 		096A1AAD25D7CD9A00EBC589 /* QiitaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A1AAC25D7CD9A00EBC589 /* QiitaType.swift */; };
 		096A1AB625D7CE3E00EBC589 /* YahooTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A1AB525D7CE3E00EBC589 /* YahooTag.swift */; };
@@ -131,6 +132,7 @@
 		09688C5925F294D9007925B3 /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
 		09688C5E25F36C07007925B3 /* DisplayMode.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisplayMode.xib; sourceTree = "<group>"; };
 		09688C7325F36EB4007925B3 /* DisplayModeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayModeTableViewCell.swift; sourceTree = "<group>"; };
+		09688C7825F3788D007925B3 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		096A1AA525D7CC8300EBC589 /* RssFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeed.swift; sourceTree = "<group>"; };
 		096A1AAC25D7CD9A00EBC589 /* QiitaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaType.swift; sourceTree = "<group>"; };
 		096A1AB525D7CE3E00EBC589 /* YahooTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooTag.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				0912529825E8DD3D00F9CFCA /* StarListViewController.swift */,
 				09688C5925F294D9007925B3 /* ArticleCollectionViewCell.swift */,
 				091252A225E9195F00F9CFCA /* LaterReadListViewController.swift */,
+				09688C7825F3788D007925B3 /* PreviewViewController.swift */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -778,6 +781,7 @@
 				09B8031D2590CF9100CA2D19 /* AppDelegate.swift in Sources */,
 				09B8031F2590CF9100CA2D19 /* SceneDelegate.swift in Sources */,
 				0975614425B731CF007B0D3F /* RssClient.swift in Sources */,
+				09688C7925F3788D007925B3 /* PreviewViewController.swift in Sources */,
 				09174EAF25E405D700756E6D /* SelectYahooTagViewController.swift in Sources */,
 				099BB8A825DD1171003AF947 /* AccountPropertyTableViewCell.swift in Sources */,
 				096A1AB625D7CE3E00EBC589 /* YahooTag.swift in Sources */,

@@ -175,6 +175,44 @@ extension ArticleListViewController: UICollectionViewDelegate, UICollectionViewD
         CommonData.rssFeedListModel.changeRead(articleKey: sortedArticleKeyList[indexPath.row], read: true)
         CommonRouter.toArticleDetailView(view: self, article: CommonData.rssFeedListModel.articleList[sortedArticleKeyList[indexPath.row]]!)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt
+        indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+
+        // ①プレビューの定義
+        let previewProvider: () -> PreviewViewController? = { [unowned self] in
+            return PreviewViewController(image: (articleCollectionView.cellForItem(at: indexPath) as! ArticleCollectionViewCell).thumbnailImageView.image!)
+        }
+        let article = CommonData.rssFeedListModel.articleList[sortedArticleKeyList[indexPath.row]]!
+        // ②メニューの定義
+        let actionProvider: ([UIMenuElement]) -> UIMenu? = { _ in
+            // 既読⇄未読
+            let read = article.read
+            let readAction = UIAction(title: read ? "未読にする" : "既読にする", image: UIImage(systemName: read ? "checkmark.circle.fill" : "checkmark.circle")) { _ in
+                CommonData.rssFeedListModel.changeRead(articleKey: article.item.link, read: !read)
+                self.keysSort()
+            }
+            // お気に入り
+            let newIsStar = article.isStar
+            let starAction = UIAction(title: newIsStar ? "お気に入り解除" : "お気に入り", image: UIImage(systemName: newIsStar ? "star.fill" : "star")) { _ in
+                CommonData.rssFeedListModel.changeStar(articleKey: article.item.link, isStar: !newIsStar)
+                self.keysSort()
+            }
+            
+            // 後で読む
+            let laterRead = article.laterRead
+            let laterReadAction = UIAction(title: "後で読む", image: UIImage(systemName: "tray")) { _ in
+                CommonData.rssFeedListModel.changeLaterRead(articleKey: article.item.link, laterRead: !laterRead)
+                self.keysSort()
+            }
+
+            return UIMenu(title: "Edit..", image: nil, identifier: nil, children: [readAction, starAction, laterReadAction])
+        }
+
+        return UIContextMenuConfiguration(identifier: nil,
+                                          previewProvider: previewProvider,
+                                          actionProvider: actionProvider)
+    }
 }
 //MARK:- AutoLoginDelegate
 
