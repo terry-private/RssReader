@@ -67,7 +67,6 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         } else {
             dissMissSplashView()
         }
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -136,7 +135,6 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         activityIndicator.startAnimating()
         CommonData.rssFeedListModel.fetchItems(rssFeedListModelDelegate: self)
     }
-
 }
 
 //MARK:- TableView
@@ -206,7 +204,7 @@ extension ArticleListViewController: UICollectionViewDelegate, UICollectionViewD
                 self.keysSort()
             }
 
-            return UIMenu(title: "Edit..", image: nil, identifier: nil, children: [readAction, starAction, laterReadAction])
+            return UIMenu(title: "編集", image: nil, identifier: nil, children: [readAction, starAction, laterReadAction])
         }
 
         return UIContextMenuConfiguration(identifier: nil,
@@ -248,7 +246,6 @@ extension ArticleListViewController: FUIAuthDelegate{
             CommonData.loginModel.setUserConfig(userID: newUser.uid, photoURL: newUser.photoURL, displayName: newUser.displayName ?? "")
             articleListRouter?.toSelectRssFeedView(view: self)
             return
-            
         }
         
         //失敗した場合
