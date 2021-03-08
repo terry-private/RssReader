@@ -34,6 +34,12 @@ class LaterReadListViewController: UIViewController, Transitioner {
         // FilterModel.displayModeでテーブルとコレクションのどちらを表示するかの切り替え
         laterReadListTableView.isHidden = CommonData.filterModel.displayMode == .collectionMode
         laterReadCollectionView.isHidden = CommonData.filterModel.displayMode == .tableMode
+        if CommonData.filterModel.displayMode == .tableMode {
+            view.sendSubviewToBack(laterReadListTableView)
+            
+        } else {
+            view.sendSubviewToBack(laterReadCollectionView)
+        }
         keysSort()
     }
     

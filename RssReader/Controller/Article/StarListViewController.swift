@@ -35,6 +35,12 @@ class StarListViewController: UIViewController, Transitioner {
         // FilterModel.displayModeでテーブルとコレクションのどちらを表示するかの切り替え
         starListTableView.isHidden = CommonData.filterModel.displayMode == .collectionMode
         starListCollectionView.isHidden = CommonData.filterModel.displayMode == .tableMode
+        if CommonData.filterModel.displayMode == .tableMode {
+            view.sendSubviewToBack(starListTableView)
+            
+        } else {
+            view.sendSubviewToBack(starListCollectionView)
+        }
         keysSort()
     }
     

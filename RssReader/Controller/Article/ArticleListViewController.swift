@@ -50,6 +50,12 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         // FilterModel.displayModeでテーブルとコレクションのどちらを表示するかの切り替え
         articleTableView.isHidden = CommonData.filterModel.displayMode == .collectionMode
         articleCollectionView.isHidden = CommonData.filterModel.displayMode == .tableMode
+        if CommonData.filterModel.displayMode == .tableMode {
+            view.sendSubviewToBack(articleTableView)
+            
+        } else {
+            view.sendSubviewToBack(articleCollectionView)
+        }
 
         timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(CommonData.filterModel.fetchTimeInterval * 60), repeats: true, block: { (timer) in
             self.fetchItems()
