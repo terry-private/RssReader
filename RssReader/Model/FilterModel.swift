@@ -67,7 +67,7 @@ extension FilterModelProtocol {
     func sortMainList(articleList: [String: Article]) -> [String] {
         var mainList: [String: Article] = [:]
         for article in articleList.values {
-            if !article.laterRead { continue }
+            if article.laterRead { continue }
             if let pubDateString = article.item.pubDate {
                 let pubDate = Date(string: pubDateString)
                 if pubDate < Date().addingTimeInterval(TimeInterval(-60 * 60 * 24 * pubDateAfter)) {
