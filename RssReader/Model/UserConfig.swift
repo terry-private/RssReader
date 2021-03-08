@@ -54,5 +54,4 @@ class UserConfig: UserConfigProtocol {
         UserDefaults.standard.removeObject(forKey: "displayName")
         UserDefaults.standard.removeObject(forKey: "latestLoginDate")
     }
-
 }
