@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qKp-tS-ZQO">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tNJ-P6-Ttr">
                                     <size key="itemSize" width="128" height="128"/>
@@ -28,7 +28,7 @@
                                 <cells/>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8gO-2C-Nc7">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" id="x2A-Xn-hGy">
@@ -63,10 +63,10 @@
                             <constraint firstItem="4EE-D7-qrk" firstAttribute="trailing" secondItem="puh-Se-rmC" secondAttribute="trailing" id="NJe-hO-YWf"/>
                             <constraint firstItem="8gO-2C-Nc7" firstAttribute="leading" secondItem="4EE-D7-qrk" secondAttribute="leading" id="YQf-qp-GwD"/>
                             <constraint firstItem="puh-Se-rmC" firstAttribute="leading" secondItem="4EE-D7-qrk" secondAttribute="leading" id="cuV-Ne-CgH"/>
-                            <constraint firstItem="8gO-2C-Nc7" firstAttribute="top" secondItem="4EE-D7-qrk" secondAttribute="top" id="gLV-Bh-HYY"/>
+                            <constraint firstItem="8gO-2C-Nc7" firstAttribute="top" secondItem="xBQ-uI-FJn" secondAttribute="top" id="gLV-Bh-HYY"/>
                             <constraint firstItem="4EE-D7-qrk" firstAttribute="bottom" secondItem="8gO-2C-Nc7" secondAttribute="bottom" id="oBh-wg-e2U"/>
                             <constraint firstAttribute="bottom" secondItem="puh-Se-rmC" secondAttribute="bottom" id="pNS-Jn-RYQ"/>
-                            <constraint firstItem="qKp-tS-ZQO" firstAttribute="top" secondItem="4EE-D7-qrk" secondAttribute="top" id="vv4-km-ZiN"/>
+                            <constraint firstItem="qKp-tS-ZQO" firstAttribute="top" secondItem="xBQ-uI-FJn" secondAttribute="top" id="vv4-km-ZiN"/>
                         </constraints>
                     </view>
                     <connections>
