@@ -79,4 +79,5 @@ class DummyFilterModel: FilterModelProtocol {
     var orderByDesc: Bool = true
     var rssFeedListKeys: [String] = []
     var fetchTimeInterval = 1
+    var displayMode: DisplayMode = .tableMode
 }

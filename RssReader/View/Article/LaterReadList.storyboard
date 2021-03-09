@@ -16,21 +16,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="30T-fP-lWt">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Om0-JG-k2j">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dH9-83-Ma3">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9JE-Su-amw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dH9-83-Ma3" firstAttribute="top" secondItem="9JE-Su-amw" secondAttribute="top" id="Mhl-CW-BD7"/>
+                            <constraint firstItem="30T-fP-lWt" firstAttribute="trailing" secondItem="9JE-Su-amw" secondAttribute="trailing" id="0lr-Mp-rBN"/>
+                            <constraint firstItem="dH9-83-Ma3" firstAttribute="top" secondItem="4zR-og-h3I" secondAttribute="top" id="Mhl-CW-BD7"/>
                             <constraint firstItem="9JE-Su-amw" firstAttribute="trailing" secondItem="dH9-83-Ma3" secondAttribute="trailing" id="SMl-gy-G5s"/>
+                            <constraint firstItem="30T-fP-lWt" firstAttribute="leading" secondItem="9JE-Su-amw" secondAttribute="leading" id="Wam-5q-U5w"/>
+                            <constraint firstItem="30T-fP-lWt" firstAttribute="top" secondItem="4zR-og-h3I" secondAttribute="top" id="hQS-53-Mv2"/>
                             <constraint firstItem="9JE-Su-amw" firstAttribute="bottom" secondItem="dH9-83-Ma3" secondAttribute="bottom" id="oEv-fd-JBY"/>
                             <constraint firstItem="dH9-83-Ma3" firstAttribute="leading" secondItem="9JE-Su-amw" secondAttribute="leading" id="tLY-Gl-Q5X"/>
+                            <constraint firstItem="9JE-Su-amw" firstAttribute="bottom" secondItem="30T-fP-lWt" secondAttribute="bottom" id="xuA-bg-tni"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="laterReadCollectionView" destination="30T-fP-lWt" id="qlq-wl-hO6"/>
                         <outlet property="laterReadListTableView" destination="dH9-83-Ma3" id="YaL-BK-omy"/>
                     </connections>
                 </viewController>
