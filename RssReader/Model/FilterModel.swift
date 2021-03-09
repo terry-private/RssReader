@@ -123,5 +123,3 @@ class FilterModel: FilterModelProtocol {
     /// 表示モード
     var displayMode: DisplayMode = .collectionMode
 }
-
-

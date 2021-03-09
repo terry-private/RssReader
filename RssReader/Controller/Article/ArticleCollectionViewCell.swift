@@ -38,19 +38,16 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             articleTitleLabel.text = article?.item.title
             let pubDate = Date(string: article!.item.pubDate!)
             articlePubDateLabel.text = pubDate.longDate()
+            
             if article?.read ?? false {
-//                readImageView.alpha = 1
                 readImageView.tintColor = .systemBlue
             } else {
-//                readImageView.alpha = 0
                 readImageView.tintColor = .systemGray
             }
             
             if article?.isStar ?? false {
-//                starImageView.alpha = 1
                 starImageView.tintColor = .systemYellow
             } else {
-//                starImageView.alpha = 0
                 starImageView.tintColor = .systemGray
             }
             
