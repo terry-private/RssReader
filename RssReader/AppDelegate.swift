@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         FirebaseApp.configure()
-        LoginManager.shared.setup(channelID: "YOUR_CHANNEL_ID", universalLinkURL: nil)
+        LoginManager.shared.setup(channelID: "1655768312", universalLinkURL: nil)
         
         // 本番環境
 //        CommonData.loginModel = LoginModel(userConfig: UserConfig())
