@@ -34,14 +34,13 @@ class LoginViewController: UIViewController {
     
     }
     private func setIndicator() {
+        view.addSubview(indicator)
         indicator.hidesWhenStopped = true
         // superViewとみったり張り合わせます。
-//        indicator.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-//        indicator.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-//        indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//        indicator.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        
-        view.addSubview(indicator)
+        indicator.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        indicator.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        indicator.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     func showIndicator() {
         indicator.startAnimating()
@@ -71,6 +70,10 @@ extension LoginViewController: LoginButtonDelegate {
             print("User ID: \(profile.userID)")
             print("User Display Name: \(profile.displayName)")
             print("User Icon: \(String(describing: profile.pictureURL))")
+            CommonData.loginModel.userConfig.userID = profile.userID
+            CommonData.loginModel.userConfig.displayName = profile.displayName
+            CommonData.loginModel.userConfig.photoURL = profile.pictureURL
+            CommonData.loginModel.userConfig.latestLoginDate = Date()
         }
         dismiss(animated: true, completion: nil)
     }
