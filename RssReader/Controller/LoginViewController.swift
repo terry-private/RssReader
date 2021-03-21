@@ -15,6 +15,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setLoginButton()
         setIndicator()
+        view.backgroundColor = .systemBackground
+        
     }
     
     private func setLoginButton() {
