@@ -19,6 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         LoginManager.shared.setup(channelID: "1655768312", universalLinkURL: nil)
         
+        #if DebugSecure
+            print("DebugSecure")
+        #elseif DebugNonSecure
+            print("DebugNonSecure")
+        #elseif DebugDummy
+            print("DebugDummy")
+        #else
+            print("Release")
+        #endif
         // 本番環境
         CommonData.loginModel = LoginModel(userConfig: UserConfig())
         CommonData.rssFeedListModel = RssFeedListModel()
