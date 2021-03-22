@@ -134,7 +134,7 @@ class RssFeedListModel: RssFeedListModelProtocol {
     
     // RssFeedを削除したときにArticleListからタグ付けされていない記事を削除します。
     // 今後保管済みの記事を扱うなどする場合はここで条件分岐すればいいかと
-    func refreshArticleList() {
+    private func refreshArticleList() {
         let articleListValues = articleList.values
         let rssFeedListKeys = rssFeedList.keys
         for article in articleListValues {

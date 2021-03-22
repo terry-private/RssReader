@@ -77,6 +77,7 @@
 		09B803292590CF9200CA2D19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09B803272590CF9200CA2D19 /* LaunchScreen.storyboard */; };
 		09B803342590CF9300CA2D19 /* RssReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B803332590CF9300CA2D19 /* RssReaderTests.swift */; };
 		09B8033F2590CF9300CA2D19 /* RssReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8033E2590CF9300CA2D19 /* RssReaderUITests.swift */; };
+		09EDB06D2608DCC900E2F78A /* Extension_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EDB06C2608DCC900E2F78A /* Extension_String.swift */; };
 		51240C2B79579CC049B995C8 /* Pods_RssReader_RssReaderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 209C3B4876A542EF5E736DCC /* Pods_RssReader_RssReaderUITests.framework */; };
 		EAD3863C6FD605C99A8FB40E /* Pods_RssReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0136653DDE8FA9F7D8BB3E7F /* Pods_RssReader.framework */; };
 		EEF2E4A97B01F99FE0489F93 /* Pods_RssReaderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61D136A0224AF4D52DE5BE21 /* Pods_RssReaderTests.framework */; };
@@ -178,6 +179,7 @@
 		09B8033A2590CF9300CA2D19 /* RssReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RssReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B8033E2590CF9300CA2D19 /* RssReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssReaderUITests.swift; sourceTree = "<group>"; };
 		09B803402590CF9300CA2D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09EDB06C2608DCC900E2F78A /* Extension_String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_String.swift; sourceTree = "<group>"; };
 		11AAF6607EA8DF7D9A3800D0 /* Pods-RssReader.debugnonsecure.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReader.debugnonsecure.xcconfig"; path = "Target Support Files/Pods-RssReader/Pods-RssReader.debugnonsecure.xcconfig"; sourceTree = "<group>"; };
 		1D0CF2E0EDF6F4926DE472CB /* Pods-RssReader-RssReaderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReader-RssReaderUITests.debug.xcconfig"; path = "Target Support Files/Pods-RssReader-RssReaderUITests/Pods-RssReader-RssReaderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		209C3B4876A542EF5E736DCC /* Pods_RssReader_RssReaderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RssReader_RssReaderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -397,6 +399,7 @@
 				09ACE22E2597275800FDB597 /* Extension_Date.swift */,
 				096A1B2325DA554600EBC589 /* Extension_Dictionary.swift */,
 				099BB8B225DD5B47003AF947 /* Extension_UINavigationController.swift */,
+				09EDB06C2608DCC900E2F78A /* Extension_String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -816,6 +819,7 @@
 				0975615725B85F50007B0D3F /* MainTabBarController.swift in Sources */,
 				0912527325E80F3500F9CFCA /* PubDateAfterTableViewCell.swift in Sources */,
 				09688C7425F36EB4007925B3 /* DisplayModeTableViewCell.swift in Sources */,
+				09EDB06D2608DCC900E2F78A /* Extension_String.swift in Sources */,
 				0975613F25B73155007B0D3F /* ArticleList.swift in Sources */,
 				09688C5A25F294D9007925B3 /* ArticleCollectionViewCell.swift in Sources */,
 				0912529925E8DD3D00F9CFCA /* StarListViewController.swift in Sources */,

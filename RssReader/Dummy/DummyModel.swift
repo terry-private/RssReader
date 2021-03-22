@@ -10,10 +10,10 @@ import Foundation
 
 
 class DummyUserConfig: UserConfigProtocol {
-    var userID: String? = "dummyId"
+    var userID: String? = nil
     var photoURL: URL? = nil
-    var displayName: String? = "dummyName"
-    var latestLoginDate: Date? = Date()
+    var displayName: String? = nil
+    var latestLoginDate: Date? = nil
     func removeUser() {
         userID = nil
         photoURL = nil
@@ -26,18 +26,13 @@ class DummyUserConfig: UserConfigProtocol {
 
 /// 必ずオートログインに失敗するやつです。
 class DummyLoginModel: LoginProtocol {
-    func toLogoutAlert<T>(view: T) where T : LogoutDelegate, T : Transitioner {
-        // ダミーでログアウトの動きを確認するようのコードです。
-        // コメントアウトを外すとタッチでログアウトするのでその後の動きが確認できます。
-//        view.didLogout()
-    }
     
     var userConfig: UserConfigProtocol
     init() {
         userConfig = DummyUserConfig()
     }
     func autoLogin(autoLoginDelegate: AutoLoginDelegate) {
-        autoLoginDelegate.didAutoLogin(isSuccess: true)
+        autoLoginDelegate.didAutoLogin(isSuccess: false)
     }
     
     func setUserConfig(userID: String, photoURL: URL?, displayName: String) {
@@ -50,9 +45,48 @@ class DummyLoginModel: LoginProtocol {
 
 
 // MARK:- 重複する処理が多いので本番用のサブクラスにします。
-class DummyRssFeedListModel: RssFeedListModel {
-    override init() {
-        super.init()
+class DummyRssFeedListModel: RssFeedListModelProtocol {
+    var loadCounter: Int = 0 {
+        didSet {
+            if loadCounter == 0 {
+                rssFeedListModelDelegate?.loaded()
+            }
+        }
+    }
+    
+    internal weak var rssFeedListModelDelegate: RssFeedListModelDelegate?
+    
+    /// rssFeedを一つずつ読み込んでいく
+    /// すべてfetchしたかどうかはloadCounterで管理します。
+    /// 待ち合わせの仕方がわからないので一旦この方法で進めます。
+    func fetchItems(rssFeedListModelDelegate: RssFeedListModelDelegate) {
+        refreshArticleList()// いらない記事を先に消しておきます。
+        self.rssFeedListModelDelegate = rssFeedListModelDelegate
+        loadCounter = rssFeedList.count
+        let rssFeeds = rssFeedList
+        for key in rssFeeds.keys {
+            rssFeeds[key]!.fetchArticle { (articles) in
+                if let articleList = articles {
+                    self.articleList += articleList // extensionで辞書の足し算をできるようにしてます。
+                }
+                self.loadCounter -= 1
+            }
+        }
+    }
+    
+    // RssFeedを削除したときにArticleListからタグ付けされていない記事を削除します。
+    // 今後保管済みの記事を扱うなどする場合はここで条件分岐すればいいかと
+    private func refreshArticleList() {
+        let articleListValues = articleList.values
+        let rssFeedListKeys = rssFeedList.keys
+        for article in articleListValues {
+            if  !rssFeedListKeys.contains(article.rssFeedUrl) && !article.isStar && !article.laterRead{
+                articleList.removeValue(forKey: article.item.link)
+            }
+        }
+    }
+    
+    init() {
         typeList = [QiitaType(), YahooType()]
         if let qiita = QiitaType().makeRssFeed(tag: "swift") {
             rssFeedList[qiita.url] = qiita
@@ -61,13 +95,16 @@ class DummyRssFeedListModel: RssFeedListModel {
             rssFeedList[yahoo.url] = yahoo
         }
     }
-    override func changeStar(articleKey: String, isStar: Bool) {
+    var typeList: [RssFeedTypeProtocol] = [QiitaType(), YahooType()]
+    var rssFeedList = [String: RssFeedProtocol]()
+    var articleList = [String: Article]()
+    func changeStar(articleKey: String, isStar: Bool) {
         articleList[articleKey]?.isStar = isStar
     }
-    override func changeLaterRead(articleKey: String, laterRead: Bool) {
+    func changeLaterRead(articleKey: String, laterRead: Bool) {
         articleList[articleKey]?.laterRead = laterRead
     }
-    override func changeRead(articleKey: String, read: Bool) {
+    func changeRead(articleKey: String, read: Bool) {
         articleList[articleKey]?.read = read
     }
 }

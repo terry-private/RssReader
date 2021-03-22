@@ -9,11 +9,17 @@ import LineSDK
 import UIKit
 
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, Transitioner {
     let indicator = UIActivityIndicatorView()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        #if DebugDummy
+        setDummyLoginButton()
+        #else
         setLoginButton()
+        #endif
+        
         setIndicator()
         view.backgroundColor = .systemBackground
         
@@ -35,10 +41,82 @@ class LoginViewController: UIViewController {
         loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     
     }
+    
+    private func setDummyLoginButton() {
+        let loginButton = UIButton()
+        loginButton.setTitle("ログインIDの入力", for: .normal)
+        loginButton.setTitleColor(.systemBlue, for: .normal)
+        loginButton.addTarget(self, action: #selector(tappedLoginButton), for: .touchUpInside)
+        view.addSubview(loginButton)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    @objc func tappedLoginButton() {
+        // アラート画面でTagを入力させます。
+        var alertTextField: UITextField?
+        let alert = UIAlertController(title: "ログイン", message: "ログインIDを入力してください。", preferredStyle: UIAlertController.Style.alert)
+        
+        // テキストフィールド追加
+        alert.addTextField(configurationHandler: {(textField: UITextField!) in
+            alertTextField = textField
+            textField.text = ""
+            textField.placeholder = "半角英数字 8~12文字"
+        })
+        
+        // キャンセルボタン追加
+        alert.addAction(
+            UIAlertAction(
+                title: "キャンセル",
+                style: UIAlertAction.Style.cancel,
+                handler: nil))
+        
+        // 確定ボタン追加
+        alert.addAction(
+            UIAlertAction(
+                title: "ログイン",
+                style: UIAlertAction.Style.default) { _ in
+                if let text = alertTextField?.text {
+                    if text == "" { return }
+                    if let error = self.validId(uid: text) {
+                        self.validError(error: error)
+                        return
+                    }
+                    CommonData.loginModel.userConfig.userID = text
+                    CommonData.loginModel.userConfig.displayName = text
+                    CommonData.loginModel.userConfig.latestLoginDate = Date()
+                    self.dismiss(animated: true)
+                    
+                }
+            }
+        )
+        self.present(alert, animated: true, completion: nil)
+    }
+    private func validError(error: String) {
+        let errorAlert = UIAlertController(title: "入力エラー",
+                                              message: error,
+                                              preferredStyle: .alert)
+        errorAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        self.present(errorAlert,animated: true,completion: nil)
+    }
+    
+    /// エラーの場合にエラーメッセージをString型で返し、成功の場合はnilを返します。
+    /// - Parameter uid: ログインIDの入力内容
+    /// - Returns: エラーメッセージ or nil (成功時)
+    private func validId(uid: String) -> String? {
+        if uid.count < 8 || uid.count > 12 {
+            return "ログインIDは8〜12文字です。"
+        }
+        if !uid.isAlphanumeric() {
+            return "ログインIDは英数字のみです。"
+        }
+        return nil
+    }
+    
     private func setIndicator() {
         view.addSubview(indicator)
         indicator.hidesWhenStopped = true
-        // superViewとみったり張り合わせます。
+        // superViewとぴったり張り合わせます。
         indicator.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         indicator.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         indicator.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -51,31 +129,15 @@ class LoginViewController: UIViewController {
         indicator.stopAnimating()
     }
     
-    func login() {
-        LoginManager.shared.login(permissions: [.profile], in: self) {
-            result in
-            switch result {
-            case .success(let loginResult):
-                print(loginResult.accessToken.value)
-                // Do other things you need with the login result
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
 }
 
 extension LoginViewController: LoginButtonDelegate {
     func loginButton(_ button: LoginButton, didSucceedLogin loginResult: LoginResult) {
         hideIndicator()
         if let profile = loginResult.userProfile {
-            print("User ID: \(profile.userID)")
-            print("User Display Name: \(profile.displayName)")
-            print("User Icon: \(String(describing: profile.pictureURL))")
             CommonData.loginModel.userConfig.userID = profile.userID
             CommonData.loginModel.userConfig.displayName = profile.displayName
             CommonData.loginModel.userConfig.photoURL = profile.pictureURL
-            CommonData.loginModel.userConfig.latestLoginDate = Date()
         }
         dismiss(animated: true, completion: nil)
     }
