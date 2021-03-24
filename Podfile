@@ -9,6 +9,7 @@ target 'RssReader' do
   pod 'Nuke'
   pod 'SideMenu'
   pod 'RealmSwift'
+  pod 'LineSDKSwift'
   # Pods for RssReader
 
   target 'RssReaderTests' do

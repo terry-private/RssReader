@@ -32,6 +32,7 @@
 		09174EAF25E405D700756E6D /* SelectYahooTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */; };
 		09174ED925E53ADC00756E6D /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174ED825E53ADC00756E6D /* CommonData.swift */; };
 		09174EE425E573E100756E6D /* AddNewRssFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09174EE325E573E100756E6D /* AddNewRssFeedTableViewCell.xib */; };
+		091C89DD2606E0F2003AE7B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C89DC2606E0F2003AE7B6 /* LoginViewController.swift */; };
 		095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */; };
 		095F95F725985F88007DC2D5 /* SelectRssFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */; };
 		095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FDBEB25A754E2007C8922 /* CommonRouter.swift */; };
@@ -125,6 +126,7 @@
 		09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYahooTagViewController.swift; sourceTree = "<group>"; };
 		09174ED825E53ADC00756E6D /* CommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
 		09174EE325E573E100756E6D /* AddNewRssFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewRssFeedTableViewCell.xib; sourceTree = "<group>"; };
+		091C89DC2606E0F2003AE7B6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewController.swift; sourceTree = "<group>"; };
 		095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectRssFeed.storyboard; sourceTree = "<group>"; };
 		095FDBEB25A754E2007C8922 /* CommonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRouter.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				0975615625B85F50007B0D3F /* MainTabBarController.swift */,
 				095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */,
 				0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */,
+				091C89DC2606E0F2003AE7B6 /* LoginViewController.swift */,
 				09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */,
 				099BB89E25DD0672003AF947 /* RssFeedTableViewCell.swift */,
 				0912528B25E8C9DE00F9CFCA /* Article */,
@@ -483,7 +486,7 @@
 				09B803162590CF9100CA2D19 /* Frameworks */,
 				09B803172590CF9100CA2D19 /* Resources */,
 				4C5AB912763E2243466CF11F /* [CP] Embed Pods Frameworks */,
-				DB465DA5EAC04B1F583D8AFC /* [CP] Copy Pods Resources */,
+				6A7F19C977C68F513D05D902 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -522,7 +525,7 @@
 				09B803372590CF9300CA2D19 /* Frameworks */,
 				09B803382590CF9300CA2D19 /* Resources */,
 				03B3CC6FC6F5860A06106B69 /* [CP] Embed Pods Frameworks */,
-				F6883D40BD7BFCC9DD81531B /* [CP] Copy Pods Resources */,
+				5DF0A45B0627722F876141E0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -659,6 +662,40 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RssReader/Pods-RssReader-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5DF0A45B0627722F876141E0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RssReader-RssReaderUITests/Pods-RssReader-RssReaderUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RssReader-RssReaderUITests/Pods-RssReader-RssReaderUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RssReader-RssReaderUITests/Pods-RssReader-RssReaderUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A7F19C977C68F513D05D902 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RssReader/Pods-RssReader-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RssReader/Pods-RssReader-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RssReader/Pods-RssReader-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		85356882EE4067FB5C5D8E08 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -703,23 +740,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DB465DA5EAC04B1F583D8AFC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RssReader/Pods-RssReader-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RssReader/Pods-RssReader-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RssReader/Pods-RssReader-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DCA945A0D610E2D2E6A5F755 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -740,23 +760,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6883D40BD7BFCC9DD81531B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RssReader-RssReaderUITests/Pods-RssReader-RssReaderUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RssReader-RssReaderUITests/Pods-RssReader-RssReaderUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RssReader-RssReaderUITests/Pods-RssReader-RssReaderUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -798,6 +801,7 @@
 				0975613F25B73155007B0D3F /* ArticleList.swift in Sources */,
 				09688C5A25F294D9007925B3 /* ArticleCollectionViewCell.swift in Sources */,
 				0912529925E8DD3D00F9CFCA /* StarListViewController.swift in Sources */,
+				091C89DD2606E0F2003AE7B6 /* LoginViewController.swift in Sources */,
 				096A1ABE25D7CECD00EBC589 /* YahooType.swift in Sources */,
 				096A1ACB25D8E13700EBC589 /* RssFeedListModel.swift in Sources */,
 				095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */,

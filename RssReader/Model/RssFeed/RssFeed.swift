@@ -65,7 +65,7 @@ extension RssFeed: RssFeedProtocol {
     }
     var display: Bool {
         get {
-            _display
+            return _display
         }
         set {
             let realm = try! Realm()

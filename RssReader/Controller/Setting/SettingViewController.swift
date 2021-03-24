@@ -32,6 +32,7 @@ class SettingViewController: UIViewController, Transitioner {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         rssFeedKeySort()
+        settingTableView.reloadData()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
