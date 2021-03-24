@@ -101,6 +101,7 @@
 
 /* Begin PBXFileReference section */
 		0136653DDE8FA9F7D8BB3E7F /* Pods_RssReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RssReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04A153AA19B2DAECA5EE0BE1 /* Pods-RssReader.debugsecure.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReader.debugsecure.xcconfig"; path = "Target Support Files/Pods-RssReader/Pods-RssReader.debugsecure.xcconfig"; sourceTree = "<group>"; };
 		091251D625E5F92F00F9CFCA /* ArticleDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArticleDetail.storyboard; sourceTree = "<group>"; };
 		091251DB25E629E800F9CFCA /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
 		0912520B25E687BD00F9CFCA /* FilterMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FilterMenu.storyboard; sourceTree = "<group>"; };
@@ -177,14 +178,22 @@
 		09B8033A2590CF9300CA2D19 /* RssReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RssReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B8033E2590CF9300CA2D19 /* RssReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssReaderUITests.swift; sourceTree = "<group>"; };
 		09B803402590CF9300CA2D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11AAF6607EA8DF7D9A3800D0 /* Pods-RssReader.debugnonsecure.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReader.debugnonsecure.xcconfig"; path = "Target Support Files/Pods-RssReader/Pods-RssReader.debugnonsecure.xcconfig"; sourceTree = "<group>"; };
 		1D0CF2E0EDF6F4926DE472CB /* Pods-RssReader-RssReaderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReader-RssReaderUITests.debug.xcconfig"; path = "Target Support Files/Pods-RssReader-RssReaderUITests/Pods-RssReader-RssReaderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		209C3B4876A542EF5E736DCC /* Pods_RssReader_RssReaderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RssReader_RssReaderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42E9B0DF32022F1F9BA82BCE /* Pods-RssReaderTests.debugnonsecure.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReaderTests.debugnonsecure.xcconfig"; path = "Target Support Files/Pods-RssReaderTests/Pods-RssReaderTests.debugnonsecure.xcconfig"; sourceTree = "<group>"; };
+		546D94B66CFDE3A05927FE34 /* Pods-RssReaderTests.debugdummy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReaderTests.debugdummy.xcconfig"; path = "Target Support Files/Pods-RssReaderTests/Pods-RssReaderTests.debugdummy.xcconfig"; sourceTree = "<group>"; };
 		588E98AEF5AB396D6A35DEB0 /* Pods-RssReaderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReaderTests.release.xcconfig"; path = "Target Support Files/Pods-RssReaderTests/Pods-RssReaderTests.release.xcconfig"; sourceTree = "<group>"; };
 		61D136A0224AF4D52DE5BE21 /* Pods_RssReaderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RssReaderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		624D9C6C68A233A134D2D40F /* Pods-RssReaderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReaderTests.debug.xcconfig"; path = "Target Support Files/Pods-RssReaderTests/Pods-RssReaderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		627ECEDDCEC2828DCB110303 /* Pods-RssReader-RssReaderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReader-RssReaderUITests.release.xcconfig"; path = "Target Support Files/Pods-RssReader-RssReaderUITests/Pods-RssReader-RssReaderUITests.release.xcconfig"; sourceTree = "<group>"; };
+		62AD573977169E22CF27EFE1 /* Pods-RssReaderTests.debugsecure.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReaderTests.debugsecure.xcconfig"; path = "Target Support Files/Pods-RssReaderTests/Pods-RssReaderTests.debugsecure.xcconfig"; sourceTree = "<group>"; };
+		889D98E6DEE3BBCEBFBFBEED /* Pods-RssReader-RssReaderUITests.debugnonsecure.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReader-RssReaderUITests.debugnonsecure.xcconfig"; path = "Target Support Files/Pods-RssReader-RssReaderUITests/Pods-RssReader-RssReaderUITests.debugnonsecure.xcconfig"; sourceTree = "<group>"; };
 		B1BDE01F924FC02DDD7620A8 /* Pods-RssReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReader.debug.xcconfig"; path = "Target Support Files/Pods-RssReader/Pods-RssReader.debug.xcconfig"; sourceTree = "<group>"; };
+		D241992E5847620B40FE4C8E /* Pods-RssReader.debugdummy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReader.debugdummy.xcconfig"; path = "Target Support Files/Pods-RssReader/Pods-RssReader.debugdummy.xcconfig"; sourceTree = "<group>"; };
 		D941371A83DA53ACD4FFE683 /* Pods-RssReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReader.release.xcconfig"; path = "Target Support Files/Pods-RssReader/Pods-RssReader.release.xcconfig"; sourceTree = "<group>"; };
+		ECF1DD85EC541D4BA97C50F4 /* Pods-RssReader-RssReaderUITests.debugsecure.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReader-RssReaderUITests.debugsecure.xcconfig"; path = "Target Support Files/Pods-RssReader-RssReaderUITests/Pods-RssReader-RssReaderUITests.debugsecure.xcconfig"; sourceTree = "<group>"; };
+		FFDE8A6B87CC5607AC03B685 /* Pods-RssReader-RssReaderUITests.debugdummy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RssReader-RssReaderUITests.debugdummy.xcconfig"; path = "Target Support Files/Pods-RssReader-RssReaderUITests/Pods-RssReader-RssReaderUITests.debugdummy.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -470,6 +479,15 @@
 				627ECEDDCEC2828DCB110303 /* Pods-RssReader-RssReaderUITests.release.xcconfig */,
 				624D9C6C68A233A134D2D40F /* Pods-RssReaderTests.debug.xcconfig */,
 				588E98AEF5AB396D6A35DEB0 /* Pods-RssReaderTests.release.xcconfig */,
+				04A153AA19B2DAECA5EE0BE1 /* Pods-RssReader.debugsecure.xcconfig */,
+				11AAF6607EA8DF7D9A3800D0 /* Pods-RssReader.debugnonsecure.xcconfig */,
+				D241992E5847620B40FE4C8E /* Pods-RssReader.debugdummy.xcconfig */,
+				ECF1DD85EC541D4BA97C50F4 /* Pods-RssReader-RssReaderUITests.debugsecure.xcconfig */,
+				889D98E6DEE3BBCEBFBFBEED /* Pods-RssReader-RssReaderUITests.debugnonsecure.xcconfig */,
+				FFDE8A6B87CC5607AC03B685 /* Pods-RssReader-RssReaderUITests.debugdummy.xcconfig */,
+				62AD573977169E22CF27EFE1 /* Pods-RssReaderTests.debugsecure.xcconfig */,
+				42E9B0DF32022F1F9BA82BCE /* Pods-RssReaderTests.debugnonsecure.xcconfig */,
+				546D94B66CFDE3A05927FE34 /* Pods-RssReaderTests.debugdummy.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -859,7 +877,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		09B803412590CF9300CA2D19 /* Debug */ = {
+		091C8B0C26078D48003AE7B6 /* DebugNonSecure */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -900,10 +918,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "DebugNonSecure=1";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -914,11 +929,258 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-D DebugNonSecure";
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DebugNonSecure;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = DebugNonSecure;
+		};
+		091C8B0D26078D48003AE7B6 /* DebugNonSecure */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11AAF6607EA8DF7D9A3800D0 /* Pods-RssReader.debugnonsecure.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 58F4SK879Y;
+				INFOPLIST_FILE = RssReader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = terry.RssReader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = DebugNonSecure;
+		};
+		091C8B0E26078D48003AE7B6 /* DebugNonSecure */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42E9B0DF32022F1F9BA82BCE /* Pods-RssReaderTests.debugnonsecure.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 58F4SK879Y;
+				INFOPLIST_FILE = RssReaderTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = terry.RssReaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RssReader.app/RssReader";
+			};
+			name = DebugNonSecure;
+		};
+		091C8B0F26078D48003AE7B6 /* DebugNonSecure */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 889D98E6DEE3BBCEBFBFBEED /* Pods-RssReader-RssReaderUITests.debugnonsecure.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 58F4SK879Y;
+				INFOPLIST_FILE = RssReaderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = terry.RssReaderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RssReader;
+			};
+			name = DebugNonSecure;
+		};
+		091C8B1326078D58003AE7B6 /* DebugDummy */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "DebugDummy=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-D DubugDummy";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DebugDummy;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = DebugDummy;
+		};
+		091C8B1426078D58003AE7B6 /* DebugDummy */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D241992E5847620B40FE4C8E /* Pods-RssReader.debugdummy.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 58F4SK879Y;
+				INFOPLIST_FILE = RssReader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = terry.RssReader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = DebugDummy;
+		};
+		091C8B1526078D58003AE7B6 /* DebugDummy */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 546D94B66CFDE3A05927FE34 /* Pods-RssReaderTests.debugdummy.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 58F4SK879Y;
+				INFOPLIST_FILE = RssReaderTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = terry.RssReaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RssReader.app/RssReader";
+			};
+			name = DebugDummy;
+		};
+		091C8B1626078D58003AE7B6 /* DebugDummy */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFDE8A6B87CC5607AC03B685 /* Pods-RssReader-RssReaderUITests.debugdummy.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 58F4SK879Y;
+				INFOPLIST_FILE = RssReaderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = terry.RssReaderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RssReader;
+			};
+			name = DebugDummy;
+		};
+		09B803412590CF9300CA2D19 /* DebugSecure */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "DebugSecure=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-D DubugSecure";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DebugSecure;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = DebugSecure;
 		};
 		09B803422590CF9300CA2D19 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -968,6 +1230,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -975,9 +1238,9 @@
 			};
 			name = Release;
 		};
-		09B803442590CF9300CA2D19 /* Debug */ = {
+		09B803442590CF9300CA2D19 /* DebugSecure */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1BDE01F924FC02DDD7620A8 /* Pods-RssReader.debug.xcconfig */;
+			baseConfigurationReference = 04A153AA19B2DAECA5EE0BE1 /* Pods-RssReader.debugsecure.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -993,7 +1256,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Debug;
+			name = DebugSecure;
 		};
 		09B803452590CF9300CA2D19 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1015,9 +1278,9 @@
 			};
 			name = Release;
 		};
-		09B803472590CF9300CA2D19 /* Debug */ = {
+		09B803472590CF9300CA2D19 /* DebugSecure */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 624D9C6C68A233A134D2D40F /* Pods-RssReaderTests.debug.xcconfig */;
+			baseConfigurationReference = 62AD573977169E22CF27EFE1 /* Pods-RssReaderTests.debugsecure.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1036,7 +1299,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RssReader.app/RssReader";
 			};
-			name = Debug;
+			name = DebugSecure;
 		};
 		09B803482590CF9300CA2D19 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1061,9 +1324,9 @@
 			};
 			name = Release;
 		};
-		09B8034A2590CF9300CA2D19 /* Debug */ = {
+		09B8034A2590CF9300CA2D19 /* DebugSecure */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D0CF2E0EDF6F4926DE472CB /* Pods-RssReader-RssReaderUITests.debug.xcconfig */;
+			baseConfigurationReference = ECF1DD85EC541D4BA97C50F4 /* Pods-RssReader-RssReaderUITests.debugsecure.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1080,7 +1343,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = RssReader;
 			};
-			name = Debug;
+			name = DebugSecure;
 		};
 		09B8034B2590CF9300CA2D19 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1109,7 +1372,9 @@
 		09B803142590CF9100CA2D19 /* Build configuration list for PBXProject "RssReader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				09B803412590CF9300CA2D19 /* Debug */,
+				09B803412590CF9300CA2D19 /* DebugSecure */,
+				091C8B0C26078D48003AE7B6 /* DebugNonSecure */,
+				091C8B1326078D58003AE7B6 /* DebugDummy */,
 				09B803422590CF9300CA2D19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1118,7 +1383,9 @@
 		09B803432590CF9300CA2D19 /* Build configuration list for PBXNativeTarget "RssReader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				09B803442590CF9300CA2D19 /* Debug */,
+				09B803442590CF9300CA2D19 /* DebugSecure */,
+				091C8B0D26078D48003AE7B6 /* DebugNonSecure */,
+				091C8B1426078D58003AE7B6 /* DebugDummy */,
 				09B803452590CF9300CA2D19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1127,7 +1394,9 @@
 		09B803462590CF9300CA2D19 /* Build configuration list for PBXNativeTarget "RssReaderTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				09B803472590CF9300CA2D19 /* Debug */,
+				09B803472590CF9300CA2D19 /* DebugSecure */,
+				091C8B0E26078D48003AE7B6 /* DebugNonSecure */,
+				091C8B1526078D58003AE7B6 /* DebugDummy */,
 				09B803482590CF9300CA2D19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1136,7 +1405,9 @@
 		09B803492590CF9300CA2D19 /* Build configuration list for PBXNativeTarget "RssReaderUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				09B8034A2590CF9300CA2D19 /* Debug */,
+				09B8034A2590CF9300CA2D19 /* DebugSecure */,
+				091C8B0F26078D48003AE7B6 /* DebugNonSecure */,
+				091C8B1626078D58003AE7B6 /* DebugDummy */,
 				09B8034B2590CF9300CA2D19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
