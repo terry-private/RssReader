@@ -11,9 +11,17 @@ import UIKit
 
 class LoginViewController: UIViewController, Transitioner {
     let indicator = UIActivityIndicatorView()
+    let stackView = UIStackView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.addSubview(stackView)
+        stackView.spacing = 10
+        stackView.axis = .vertical
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
         #if DebugDummy
         setDummyLoginButton()
         #else
@@ -35,10 +43,7 @@ class LoginViewController: UIViewController, Transitioner {
         loginButton.presentingViewController = self
         
         // Add button to view and layout it.
-        view.addSubview(loginButton)
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        stackView.addArrangedSubview(loginButton)
     
     }
     
@@ -47,10 +52,7 @@ class LoginViewController: UIViewController, Transitioner {
         loginButton.setTitle("ログインIDの入力", for: .normal)
         loginButton.setTitleColor(.systemBlue, for: .normal)
         loginButton.addTarget(self, action: #selector(tappedLoginButton), for: .touchUpInside)
-        view.addSubview(loginButton)
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        stackView.addArrangedSubview(loginButton)
     }
     @objc func tappedLoginButton() {
         // アラート画面でTagを入力させます。
