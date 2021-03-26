@@ -12,7 +12,6 @@ import LineSDK
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -20,21 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LoginManager.shared.setup(channelID: "1655768312", universalLinkURL: nil)
         
         #if DebugDummy
-            print("DebugDummy")
+            print("Dummy")
             CommonData.loginModel = DummyLoginModel()
             CommonData.rssFeedListModel = DummyRssFeedListModel()
             CommonData.filterModel = DummyFilterModel()
         #else
-            print("Release")
+            print("Not Dummy")
             CommonData.loginModel = LoginModel(userConfig: UserConfig())
             CommonData.rssFeedListModel = RssFeedListModel()
             CommonData.filterModel = FilterModel()
         #endif
         
-        let mainTab = MainTabBarController()
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = mainTab
-        window?.makeKeyAndVisible()
         
         return true
     }
