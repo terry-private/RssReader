@@ -65,6 +65,11 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if splashView.isHidden {
+
+            if CommonData.rssFeedListModel.rssFeedList.count == 0 {
+                CommonRouter.toSelectRssFeedView(view: self)
+                return
+            }
             if isFirst {
                 setUpBarItem()
                 isFirst = false

@@ -88,12 +88,6 @@ class DummyRssFeedListModel: RssFeedListModelProtocol {
     
     init() {
         typeList = [QiitaType(), YahooType()]
-        if let qiita = QiitaType().makeRssFeed(tag: "swift") {
-            rssFeedList[qiita.url] = qiita
-        }
-        if let yahoo = YahooType().makeRssFeed(tag: YahooTag.informationTechnology) {
-            rssFeedList[yahoo.url] = yahoo
-        }
     }
     var typeList: [RssFeedTypeProtocol] = [QiitaType(), YahooType()]
     var rssFeedList = [String: RssFeedProtocol]()
