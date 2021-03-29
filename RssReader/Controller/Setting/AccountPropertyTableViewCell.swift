@@ -14,7 +14,11 @@ class AccountPropertyTableviewCell: UITableViewCell {
     var userConfig: UserConfigProtocol? {
         didSet {
             if let url = userConfig?.photoURL {
-                Nuke.loadImage(with: url, into: myImageView)
+                if userConfig?.loginType == "mail" {
+                    myImageView.image = UIImage(contentsOfFile: CommonData.loginModel.userConfig.photoURL?.path ?? "")
+                } else {
+                    Nuke.loadImage(with: url, into: myImageView)
+                }
             } else {
                 myImageView.image = UIImage(systemName: "person")
             }
