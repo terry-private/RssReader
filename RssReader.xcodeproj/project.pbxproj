@@ -58,6 +58,10 @@
 		0983205125DFF0A700AA8662 /* SelectRssFeedType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0983205025DFF0A700AA8662 /* SelectRssFeedType.storyboard */; };
 		0983205625DFF92000AA8662 /* SelectRssFeedTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */; };
 		098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C0259375BC00EAD41F /* Transitioner.swift */; };
+		09902EF42611056A00B2B9A0 /* MailLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09902EF32611056A00B2B9A0 /* MailLogin.storyboard */; };
+		09902EFA2611084300B2B9A0 /* MailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902EF92611084300B2B9A0 /* MailLoginViewController.swift */; };
+		09902F032611B25100B2B9A0 /* AccountProperty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09902F022611B25100B2B9A0 /* AccountProperty.storyboard */; };
+		09902F082611B48200B2B9A0 /* AccountPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902F072611B48200B2B9A0 /* AccountPropertyViewController.swift */; };
 		099BB88A25DCA816003AF947 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 099BB88925DCA816003AF947 /* Setting.storyboard */; };
 		099BB88F25DCDAA8003AF947 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BB88E25DCDAA8003AF947 /* SettingViewController.swift */; };
 		099BB89525DD035A003AF947 /* AccountProperty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 099BB89425DD035A003AF947 /* AccountProperty.xib */; };
@@ -154,6 +158,10 @@
 		0983205025DFF0A700AA8662 /* SelectRssFeedType.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectRssFeedType.storyboard; sourceTree = "<group>"; };
 		0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedTypeViewController.swift; sourceTree = "<group>"; };
 		098D56C0259375BC00EAD41F /* Transitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitioner.swift; sourceTree = "<group>"; };
+		09902EF32611056A00B2B9A0 /* MailLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MailLogin.storyboard; sourceTree = "<group>"; };
+		09902EF92611084300B2B9A0 /* MailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailLoginViewController.swift; sourceTree = "<group>"; };
+		09902F022611B25100B2B9A0 /* AccountProperty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountProperty.storyboard; sourceTree = "<group>"; };
+		09902F072611B48200B2B9A0 /* AccountPropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPropertyViewController.swift; sourceTree = "<group>"; };
 		099BB88925DCA816003AF947 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		099BB88E25DCDAA8003AF947 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		099BB89425DD035A003AF947 /* AccountProperty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountProperty.xib; sourceTree = "<group>"; };
@@ -324,6 +332,7 @@
 				0983205025DFF0A700AA8662 /* SelectRssFeedType.storyboard */,
 				099BB89925DD05DB003AF947 /* RssFeedTableViewCell.xib */,
 				09174EA925E403A600756E6D /* SelectYahooTag.storyboard */,
+				09902F012611B1F800B2B9A0 /* Login */,
 				0912528F25E8CA2C00F9CFCA /* Article */,
 				0912521525E6925400F9CFCA /* FilterMenu */,
 				099BB89325DD02F4003AF947 /* Setting */,
@@ -338,7 +347,7 @@
 				0975615625B85F50007B0D3F /* MainTabBarController.swift */,
 				095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */,
 				0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */,
-				091C89DC2606E0F2003AE7B6 /* LoginViewController.swift */,
+				09902EF82611081A00B2B9A0 /* Login */,
 				09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */,
 				099BB89E25DD0672003AF947 /* RssFeedTableViewCell.swift */,
 				0912528B25E8C9DE00F9CFCA /* Article */,
@@ -369,6 +378,25 @@
 				097AFF9E25C07735007AC6FA /* ArticleListRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		09902EF82611081A00B2B9A0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				091C89DC2606E0F2003AE7B6 /* LoginViewController.swift */,
+				09902EF92611084300B2B9A0 /* MailLoginViewController.swift */,
+				09902F072611B48200B2B9A0 /* AccountPropertyViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		09902F012611B1F800B2B9A0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				09902EF32611056A00B2B9A0 /* MailLogin.storyboard */,
+				09902F022611B25100B2B9A0 /* AccountProperty.storyboard */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		099BB89325DD02F4003AF947 /* Setting */ = {
@@ -606,6 +634,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0912529425E8D30A00F9CFCA /* StarList.storyboard in Resources */,
+				09902F032611B25100B2B9A0 /* AccountProperty.storyboard in Resources */,
 				099BB89A25DD05DB003AF947 /* RssFeedTableViewCell.xib in Resources */,
 				0912527825E87AA100F9CFCA /* RssFeedDisplayTableViewCell.xib in Resources */,
 				09174EE425E573E100756E6D /* AddNewRssFeedTableViewCell.xib in Resources */,
@@ -616,6 +645,7 @@
 				09ACE24A25977DED00FDB597 /* ArticleList.storyboard in Resources */,
 				0912528225E8C43200F9CFCA /* ArticleTableViewCell.xib in Resources */,
 				09ACE146259621AC00FDB597 /* GoogleService-Info.plist in Resources */,
+				09902EF42611056A00B2B9A0 /* MailLogin.storyboard in Resources */,
 				0983205125DFF0A700AA8662 /* SelectRssFeedType.storyboard in Resources */,
 				097DC1E125EF752E00DAE7BD /* FetchTimeInterval.xib in Resources */,
 				0912525525E7F43100F9CFCA /* SortTypeTableViewCell.xib in Resources */,
@@ -795,6 +825,7 @@
 				095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */,
 				0912527D25E87E8700F9CFCA /* RssFeedDisplayTableViewCell.swift in Sources */,
 				096A1AA625D7CC8300EBC589 /* RssFeed.swift in Sources */,
+				09902EFA2611084300B2B9A0 /* MailLoginViewController.swift in Sources */,
 				0912525A25E7F68000F9CFCA /* ContainReadTableViewCell.swift in Sources */,
 				0975611725B2985A007B0D3F /* DummyRouter.swift in Sources */,
 				099BB89F25DD0672003AF947 /* RssFeedTableViewCell.swift in Sources */,
@@ -810,6 +841,7 @@
 				099BB8A825DD1171003AF947 /* AccountPropertyTableViewCell.swift in Sources */,
 				096A1AB625D7CE3E00EBC589 /* YahooTag.swift in Sources */,
 				0975611625B2985A007B0D3F /* DummyModel.swift in Sources */,
+				09902F082611B48200B2B9A0 /* AccountPropertyViewController.swift in Sources */,
 				09174ED925E53ADC00756E6D /* CommonData.swift in Sources */,
 				091252A325E9195F00F9CFCA /* LaterReadListViewController.swift in Sources */,
 				0912521125E68D1300F9CFCA /* FilterModel.swift in Sources */,

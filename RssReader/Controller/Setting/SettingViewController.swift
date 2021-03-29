@@ -136,6 +136,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section{
         case 0:
+            
             CommonData.loginModel.toLogoutAlert(view: self)
         case 3:
             if indexPath.row == CommonData.rssFeedListModel.rssFeedList.count {

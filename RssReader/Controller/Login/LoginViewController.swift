@@ -15,8 +15,9 @@ class LoginViewController: UIViewController, Transitioner {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(stackView)
-        stackView.spacing = 10
+        stackView.spacing = 20
         stackView.axis = .vertical
+        stackView.distribution = .equalSpacing
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -25,7 +26,8 @@ class LoginViewController: UIViewController, Transitioner {
         #if DebugDummy
         setDummyLoginButton()
         #else
-        setLoginButton()
+        setLineLoginButton()
+        setMailLoginButton()
         #endif
         
         setIndicator()
@@ -33,7 +35,8 @@ class LoginViewController: UIViewController, Transitioner {
         
     }
     
-    private func setLoginButton() {
+    // MARK:- Line Login Button
+    private func setLineLoginButton() {
         // Create Login Button.
         let loginButton = LoginButton()
         loginButton.delegate = self
@@ -41,20 +44,39 @@ class LoginViewController: UIViewController, Transitioner {
         // Configuration for permissions and presenting.
         loginButton.permissions = [.profile]
         loginButton.presentingViewController = self
-        
         // Add button to view and layout it.
         stackView.addArrangedSubview(loginButton)
     
     }
     
+    // MARK:- Mail Login Button
+    private func setMailLoginButton() {
+        let loginButton = UIButton()
+        loginButton.addTarget(self, action: #selector(tappedMailLoginButton), for: .touchUpInside)
+        loginButton.layer.cornerRadius = 8
+        loginButton.layer.backgroundColor = UIColor.systemIndigo.cgColor
+        loginButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        loginButton.tintColor = .white
+        loginButton.setImage(UIImage(systemName: "mail"), for: .normal)
+        loginButton.setTitle("　　メールログイン", for: .normal)
+        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        loginButton.setTitleColor(.white, for: .normal)
+        loginButton.setTitleColor(.lightGray, for: .highlighted)
+        stackView.addArrangedSubview(loginButton)
+    }
+    @objc func tappedMailLoginButton() {
+        CommonRouter.toMailLoginView(view: self)
+    }
+    
+    // MARK:- Dummy Login Button
     private func setDummyLoginButton() {
         let loginButton = UIButton()
         loginButton.setTitle("ログインIDの入力", for: .normal)
         loginButton.setTitleColor(.systemBlue, for: .normal)
-        loginButton.addTarget(self, action: #selector(tappedLoginButton), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(tappedDummyLoginButton), for: .touchUpInside)
         stackView.addArrangedSubview(loginButton)
     }
-    @objc func tappedLoginButton() {
+    @objc func tappedDummyLoginButton() {
         // アラート画面でTagを入力させます。
         var alertTextField: UITextField?
         let alert = UIAlertController(title: "ログイン", message: "ログインIDを入力してください。", preferredStyle: UIAlertController.Style.alert)
@@ -115,6 +137,7 @@ class LoginViewController: UIViewController, Transitioner {
         return nil
     }
     
+    // MARK:- Indicator
     private func setIndicator() {
         view.addSubview(indicator)
         indicator.hidesWhenStopped = true
@@ -133,6 +156,8 @@ class LoginViewController: UIViewController, Transitioner {
     
 }
 
+
+// MARK:- Lineのログイン完了後のメソッド　LoginButtonDelegate
 extension LoginViewController: LoginButtonDelegate {
     func loginButton(_ button: LoginButton, didSucceedLogin loginResult: LoginResult) {
         hideIndicator()

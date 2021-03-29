@@ -8,6 +8,7 @@
 import Foundation
 
 protocol UserConfigProtocol {
+    var loginType: String { get set }
     var userID: String? {get set}
     var photoURL: URL? {get set}
     var displayName: String? {get set}
@@ -16,6 +17,7 @@ protocol UserConfigProtocol {
 }
 
 class UserConfig: UserConfigProtocol {
+    var loginType: String = "mail"
     var userID: String? {
         get {
             return UserDefaults.standard.string(forKey: "userID")

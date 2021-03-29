@@ -24,7 +24,6 @@ protocol LoginProtocol {
 }
 extension LoginProtocol {
     func toLogoutAlert<T>(view: T) where T: Transitioner, T: LogoutDelegate {
-        
         let alert = UIAlertController(title: "ログアウト", message: "ログアウトしますか？", preferredStyle: UIAlertController.Style.alert)
         
         // キャンセルボタン追加
@@ -98,4 +97,132 @@ final class LoginModel: LoginProtocol {
         userConfig.displayName = displayName
         userConfig.latestLoginDate = Date()
     }
+}
+
+
+protocol AuthTypeProtocol {
+    func autoLogin<T>(authView: T) where T: Transitioner, T: AutoLoginDelegate
+    func login<T>(authView: T) where T: Transitioner, T: LoginDelegate
+    func logout<T>(authView: T) where T: Transitioner, T: LogoutDelegate
+    func signOut<T>(authView: T) where T: Transitioner, T: LogoutDelegate
+    var isLogin: Bool { get }
+}
+
+protocol LoginDelegate: AnyObject {
+    func didLogin(isSuccess: Bool)
+}
+
+
+protocol AuthProtocol: AuthTypeProtocol {
+    var authType: AuthTypeProtocol? { get set }
+    var userConfig: UserConfigProtocol? { get set }
+
+    var isLogin: Bool { get }
+    func autoLogin<T>(authView: T) where T: Transitioner, T: AutoLoginDelegate
+    func login<T>(authView: T) where T: Transitioner, T: LoginDelegate
+    func logout<T>(authView: T) where T: Transitioner, T: LogoutDelegate
+    func signOut<T>(authView: T) where T: Transitioner, T: LogoutDelegate
+}
+
+class AuthModel: AuthProtocol {
+    var authType: AuthTypeProtocol? {
+        get {
+            if let type = UserDefaults.standard.string(forKey: "loginType") {
+                switch type {
+                case "mail":
+                    return MailAuthType()
+                case "line":
+                    return LineAuthType()
+                default:
+                    return nil
+                }
+            }
+            return nil
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "loginType")
+        }
+    }
+    
+    var isLogin: Bool {
+        get {
+            return authType?.isLogin ?? false
+        }
+    }
+    
+    var userConfig: UserConfigProtocol?
+    
+    func autoLogin<T>(authView: T) where T : AutoLoginDelegate, T : Transitioner {
+        authType?.autoLogin(authView: authView)
+    }
+    
+    func login<T>(authView: T) where T : LoginDelegate, T : Transitioner {
+        authType?.login(authView: authView)
+    }
+    
+    func logout<T>(authView: T) where T : LogoutDelegate, T : Transitioner {
+        authType?.logout(authView: authView)
+    }
+    
+    func signOut<T>(authView: T) where T : LogoutDelegate, T : Transitioner {
+        authType?.signOut(authView: authView)
+    }
+    
+}
+
+
+class MailAuthType: AuthTypeProtocol {
+    
+    // https://develop.hateblo.jp/entry/iosapp-uiimage-save
+    
+    var isLogin: Bool = true
+    
+    func autoLogin<T>(authView: T) where T : AutoLoginDelegate, T : Transitioner {
+        authView.didAutoLogin(isSuccess: true)
+    }
+    
+    func login<T>(authView: T) where T : LoginDelegate, T : Transitioner {
+        authView.didLogin(isSuccess: true)
+    }
+    
+    func logout<T>(authView: T) where T : LogoutDelegate, T : Transitioner {
+        authView.didLogout()
+    }
+    
+    func signOut<T>(authView: T) where T : LogoutDelegate, T : Transitioner {
+        authView.didLogout()
+    }
+    
+}
+
+class LineAuthType: AuthTypeProtocol {
+    func logout<T>(authView: T) where T : LogoutDelegate, T : Transitioner {
+        authView.didLogout()
+    }
+    
+    func signOut<T>(authView: T) where T : LogoutDelegate, T : Transitioner {
+        authView.didLogout()
+    }
+    
+    func autoLogin<T>(authView: T) where T : AutoLoginDelegate, T : Transitioner {
+        API.getProfile { result in
+            switch result {
+            case .success(let profile):
+                CommonData.loginModel.userConfig.userID = profile.userID
+                CommonData.loginModel.userConfig.photoURL = profile.pictureURL
+                CommonData.loginModel.userConfig.displayName = profile.displayName
+                authView.didAutoLogin(isSuccess: true)
+            case .failure(let error):
+                print(error)
+                CommonData.loginModel.userConfig.removeUser()
+                authView.didAutoLogin(isSuccess: false)
+            }
+        }
+    }
+    
+    func login<T>(authView: T) where T : LoginDelegate, T : Transitioner {
+        authView.didLogin(isSuccess: true)
+    }
+    
+    var isLogin: Bool = false
 }
