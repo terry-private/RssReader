@@ -77,7 +77,7 @@ class LoginViewController: UIViewController, Transitioner {
         stackView.addArrangedSubview(loginButton)
     }
     @objc func tappedDummyLoginButton() {
-        // アラート画面でTagを入力させます。
+        // アラート画面でloginIDを入力させます。
         var alertTextField: UITextField?
         let alert = UIAlertController(title: "ログイン", message: "ログインIDを入力してください。", preferredStyle: UIAlertController.Style.alert)
         
@@ -162,9 +162,11 @@ extension LoginViewController: LoginButtonDelegate {
     func loginButton(_ button: LoginButton, didSucceedLogin loginResult: LoginResult) {
         hideIndicator()
         if let profile = loginResult.userProfile {
+            CommonData.loginModel.userConfig.loginType = "line"
             CommonData.loginModel.userConfig.userID = profile.userID
             CommonData.loginModel.userConfig.displayName = profile.displayName
             CommonData.loginModel.userConfig.photoURL = profile.pictureURL
+            CommonData.loginModel.userConfig.latestLoginDate = Date()
         }
         dismiss(animated: true, completion: nil)
     }

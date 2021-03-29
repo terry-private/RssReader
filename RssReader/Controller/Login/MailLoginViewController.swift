@@ -52,8 +52,38 @@ class MailLoginViewController: UIViewController, Transitioner {
         }
     }
     
-    @IBAction func tappedLoginButton(_ sender: Any) {
+    private func loginToSignUp() {
+        let alert = UIAlertController(title: "新規アカウント", message: "この情報で新規アカウントをお作りしてもよろしいでしょうか？", preferredStyle: UIAlertController.Style.alert)
+        // キャンセルボタン追加
+        alert.addAction(
+            UIAlertAction(
+                title: "キャンセル",
+                style: UIAlertAction.Style.cancel,
+                handler: nil))
         
+        // 確定ボタン追加
+        alert.addAction(
+            UIAlertAction(
+                title: "新規アカウント作成",
+                style: UIAlertAction.Style.default) { _ in
+                CommonRouter.toNewAccountPropertyView(view: self, defaultData: ["mail": self.mailTextField.text ?? "", "password": self.passwordTextField.text ?? ""])
+            }
+        )
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func tappedLoginButton(_ sender: Any) {
+        let isMailType = CommonData.loginModel.userConfig.loginType == "mail"
+        let isSameMail = CommonData.loginModel.userConfig.userID == mailTextField.text
+        let isSamePassword = CommonData.loginModel.userConfig.password == passwordTextField.text
+        
+        // 既存のアカウントの場合だけログイン成功
+        if isMailType && isSameMail && isSamePassword {
+            CommonData.loginModel.userConfig.latestLoginDate = Date()
+            navigationController?.dismiss(animated: true, completion: nil)
+            return
+        }
+        loginToSignUp()
     }
     @IBAction func tappedSignInButton(_ sender: Any) {
         CommonRouter.toNewAccountPropertyView(view: self, defaultData: ["mail": mailTextField.text ?? "", "password": passwordTextField.text ?? ""])

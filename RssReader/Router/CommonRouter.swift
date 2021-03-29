@@ -50,7 +50,9 @@ class CommonRouter {
         let accountPropertyVC = storyboard.instantiateViewController(identifier: "AccountPropertyViewController") as! AccountPropertyViewController
         accountPropertyVC.useCase = .EditAccount
         accountPropertyVC.navigationItem.title = "アカウント情報"
-        view.pushViewController(accountPropertyVC, animated: true)
+        let nav = UINavigationController(accountPropertyVC)
+        nav.modalPresentationStyle = .fullScreen
+        view.present(nav,animated: true, completion: nil)
     }
     
     class func toMailLoginView<T>(view: T) where T: Transitioner {

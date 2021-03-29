@@ -10,8 +10,9 @@ import Foundation
 
 
 class DummyUserConfig: UserConfigProtocol {
-    var loginType = "dummy"
+    var loginType: String? = "dummy"
     var userID: String? = nil
+    var password: String? = nil
     var photoURL: URL? = nil
     var displayName: String? = nil
     var latestLoginDate: Date? = nil

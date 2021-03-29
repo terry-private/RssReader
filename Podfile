@@ -10,6 +10,7 @@ target 'RssReader' do
   pod 'SideMenu'
   pod 'RealmSwift'
   pod 'LineSDKSwift'
+  pod 'KeychainAccess'
   # Pods for RssReader
 
   target 'RssReaderTests' do

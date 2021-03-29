@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import KeychainAccess
 
 protocol UserConfigProtocol {
-    var loginType: String { get set }
+    var loginType: String? { get set }
     var userID: String? {get set}
+    var password: String? {get set}
     var photoURL: URL? {get set}
     var displayName: String? {get set}
     var latestLoginDate: Date? {get set}
@@ -17,43 +19,69 @@ protocol UserConfigProtocol {
 }
 
 class UserConfig: UserConfigProtocol {
-    var loginType: String = "mail"
-    var userID: String? {
+    let keyChain = Keychain()
+    var loginType: String? {
         get {
-            return UserDefaults.standard.string(forKey: "userID")
+            return keyChain["loginType"]
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "userID")
+            keyChain["loginType"] = newValue
+        }
+    }
+    var password: String? {
+        get {
+            return keyChain["password"]
+        }
+        set {
+            keyChain["password"] = newValue
+        }
+    }
+    var userID: String? {
+        get {
+            return keyChain["userID"]
+        }
+        set {
+            keyChain["userID"] = newValue
         }
     }
     var photoURL: URL? {
         get {
-            return UserDefaults.standard.url(forKey: "photoURL")
+            if loginType == "mail" {
+                return URL(fileURLWithPath: keyChain["photoURL"] ?? "")
+            }
+            return URL(string: keyChain["photoURL"] ?? "")
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "photoURL")
+            if loginType == "mail" {
+                keyChain["photoURL"] = newValue?.path
+            } else {
+                keyChain["photoURL"] = newValue?.description
+            }
+            
         }
     }
     var displayName: String? {
         get {
-            return UserDefaults.standard.string(forKey: "displayName")
+            return keyChain["displayName"]
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "displayName")
+            keyChain["displayName"] = newValue
         }
     }
     var latestLoginDate: Date? {
         get {
-            return UserDefaults.standard.object(forKey: "latestLoginDate") as? Date
+            return Date(japan: keyChain["latestLoginDate"] ?? "")
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "latestLoginDate")
+            keyChain["latestLoginDate"] = newValue?.longDate()
         }
     }
     func removeUser() {
-        UserDefaults.standard.removeObject(forKey: "userID")
-        UserDefaults.standard.removeObject(forKey: "photoURL")
-        UserDefaults.standard.removeObject(forKey: "displayName")
-        UserDefaults.standard.removeObject(forKey: "latestLoginDate")
+        keyChain["loginType"] = nil
+        keyChain["userID"] = nil
+        keyChain["password"] = nil
+        keyChain["photoURL"] = nil
+        keyChain["displayName"] = nil
+        keyChain["latestLoginDate"] = nil
     }
 }

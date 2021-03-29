@@ -103,12 +103,18 @@
                                             <constraint firstAttribute="width" constant="150" id="T6R-6g-ctW"/>
                                         </constraints>
                                         <state key="normal" title="確定"/>
+                                        <connections>
+                                            <action selector="tappedConfirmButton:" destination="LXO-Ef-2su" eventType="touchUpInside" id="yXa-lg-tew"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ho-Yw-VzM">
                                         <rect key="frame" x="111.5" y="513.5" width="77" height="30"/>
                                         <state key="normal" title="ログアウト">
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tappedLogoutButton:" destination="LXO-Ef-2su" eventType="touchUpInside" id="S3q-0g-qVf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -121,11 +127,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="confirmButton" destination="fdr-kk-Gce" id="D1J-1H-SmO"/>
                         <outlet property="logoutButton" destination="4Ho-Yw-VzM" id="Z7f-60-ZgO"/>
                         <outlet property="mailTextField" destination="lcB-yU-zwe" id="Leb-qa-r89"/>
                         <outlet property="passwordTextField" destination="6aC-rm-myL" id="39q-eL-ccH"/>
                         <outlet property="profileImageButton" destination="XeI-on-Fjs" id="iOc-BY-46a"/>
-                        <outlet property="registerButton" destination="fdr-kk-Gce" id="D1J-1H-SmO"/>
                         <outlet property="usernameTextField" destination="u4i-Cc-qRu" id="1u3-XN-2eK"/>
                     </connections>
                 </viewController>

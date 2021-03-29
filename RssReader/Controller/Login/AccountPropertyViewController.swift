@@ -13,7 +13,7 @@ class AccountPropertyViewController: UIViewController, Transitioner {
     @IBOutlet weak var mailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
     
     enum UseCase {
@@ -44,14 +44,14 @@ class AccountPropertyViewController: UIViewController, Transitioner {
         usernameTextField.layer.borderColor = UIColor.opaqueSeparator.cgColor
         usernameTextField.layer.cornerRadius = 8
         
-        registerButton.setTitleColor(.white, for: .normal)
-        registerButton.setTitleColor(.secondaryLabel, for: .highlighted)
-        registerButton.layer.cornerRadius = 8
+        confirmButton.setTitleColor(.white, for: .normal)
+        confirmButton.setTitleColor(.secondaryLabel, for: .highlighted)
+        confirmButton.layer.cornerRadius = 8
         
-        registerButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        registerButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        registerButton.setTitleColor(.white, for: .normal)
-        registerButton.setTitleColor(.lightGray, for: .highlighted)
+        confirmButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        confirmButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        confirmButton.setTitleColor(.white, for: .normal)
+        confirmButton.setTitleColor(.lightGray, for: .highlighted)
         
         switch useCase {
         case .NewAccount:
@@ -59,10 +59,27 @@ class AccountPropertyViewController: UIViewController, Transitioner {
             passwordTextField.text = defaultData["password"]
             logoutButton.isHidden = true
         case .EditAccount:
-            break
+            if let image = UIImage(contentsOfFile: CommonData.loginModel.userConfig.photoURL?.path ?? "") {
+                profileImageButton.setImage(image.withRenderingMode(.alwaysOriginal), for: .normal)
+                profileImageButton.imageView?.contentMode = .scaleAspectFill
+                profileImageButton.contentHorizontalAlignment = .fill
+                profileImageButton.contentVerticalAlignment = .fill
+                profileImageButton.clipsToBounds = true
+            }
+            
+            mailTextField.text = CommonData.loginModel.userConfig.userID
+            passwordTextField.text = CommonData.loginModel.userConfig.password
+            usernameTextField.text = CommonData.loginModel.userConfig.displayName
+            
+            let closeButton = UIBarButtonItem(title: "閉じる", style: .plain, target: self, action: #selector(close))
+            navigationItem.leftBarButtonItem = closeButton
         }
         
         validation()
+    }
+    
+    @objc func close() {
+        dismiss(animated: true)
     }
     
     /// 入力値が正しい場合のみ確定ボタンを有効にします。
@@ -77,14 +94,14 @@ class AccountPropertyViewController: UIViewController, Transitioner {
         let passwordValidation = isPasswordCount6To12 && isPasswordAlphaNumeric
         
         if emailValidation && passwordValidation && usernameTextField.text!.count > 0{
-            registerButton.isEnabled = true
-            registerButton.layer.backgroundColor = UIColor.systemIndigo.cgColor
+            confirmButton.isEnabled = true
+            confirmButton.layer.backgroundColor = UIColor.systemIndigo.cgColor
         } else {
-            registerButton.isEnabled = false
-            registerButton.layer.backgroundColor = UIColor.lightGray.cgColor
+            confirmButton.isEnabled = false
+            confirmButton.layer.backgroundColor = UIColor.lightGray.cgColor
         }
     }
-    //画像保存
+    // MARK:- 画像保存
     // DocumentディレクトリのfileURLを取得
     func getDocumentsURL() -> NSURL {
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as NSURL
@@ -122,6 +139,24 @@ class AccountPropertyViewController: UIViewController, Transitioner {
     }
     @IBAction func usernameTextFieldTappedDone(_ sender: Any) {
         validation()
+    }
+    @IBAction func tappedConfirmButton(_ sender: Any) {
+        CommonData.loginModel.userConfig.loginType = "mail"
+        if let image = profileImageButton.imageView?.image {
+            let photoUrl = fileInDocumentsDirectory(filename: "photoURL")
+            if saveImage(image: image, path: photoUrl) {
+                CommonData.loginModel.userConfig.photoURL = URL(fileURLWithPath: photoUrl)
+            }
+        }
+        CommonData.loginModel.userConfig.userID = mailTextField.text
+        CommonData.loginModel.userConfig.password = passwordTextField.text
+        CommonData.loginModel.userConfig.displayName = usernameTextField.text
+        CommonData.loginModel.userConfig.latestLoginDate = Date()
+        dismiss(animated: true, completion: nil)
+    }
+    @IBAction func tappedLogoutButton(_ sender: Any) {
+        CommonData.loginModel.userConfig.removeUser()
+        dismiss(animated: true)
     }
 }
 
