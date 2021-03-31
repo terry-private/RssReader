@@ -18,16 +18,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         LoginManager.shared.setup(channelID: "1655768312", universalLinkURL: nil)
         
-        #if DebugDummy
-            print("Dummy")
-            CommonData.loginModel = DummyLoginModel()
-            CommonData.rssFeedListModel = DummyRssFeedListModel()
-            CommonData.filterModel = DummyFilterModel()
-        #else
-            print("Not Dummy")
+        #if Release
+            print("Release")
             CommonData.loginModel = LoginModel(userConfig: UserConfig())
             CommonData.rssFeedListModel = RssFeedListModel()
             CommonData.filterModel = FilterModel()
+        #elseif DebugSecure
+            print("DebugSecure")
+            CommonData.loginModel = LoginModel(userConfig: UserConfig())
+            CommonData.rssFeedListModel = RssFeedListModel()
+            CommonData.filterModel = FilterModel()
+        #elseif DebugNonSecure
+            print("DebugNonSecure")
+            CommonData.loginModel = DummyLoginModel()
+            CommonData.rssFeedListModel = RssFeedListModel()
+            CommonData.filterModel = FilterModel()
+        #elseif DebugDummy
+            print("DebugDummy")
+            CommonData.loginModel = DummyLoginModel()
+            CommonData.rssFeedListModel = DummyRssFeedListModel()
+            CommonData.filterModel = DummyFilterModel()
         #endif
         
         
