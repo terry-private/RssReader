@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import FirebaseUI
 
 
 class DummyArticleListRouter: ArticleListRouterProtocol {
-    func toAuthView<T>(view: T) where T: Transitioner, T: FUIAuthDelegate {
+    func toAuthView<T>(view: T) where T: Transitioner{
         CommonRouter.toSelectRssFeedView(view: view)
     }
     func toSelectRssFeedView(view: Transitioner) {
