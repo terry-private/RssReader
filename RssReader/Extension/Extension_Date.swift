@@ -49,6 +49,9 @@ extension Date {
     init(string: String) {
         self = pubDateFormatter.date(from: string)!
     }
+    init(japan: String) {
+        self = longDateFormatter.date(from: japan)!
+    }
     
     func longDate() -> String{
         return longDateFormatter.string(from: self)

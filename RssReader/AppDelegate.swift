@@ -12,35 +12,34 @@ import LineSDK
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         FirebaseApp.configure()
         LoginManager.shared.setup(channelID: "1655768312", universalLinkURL: nil)
         
-        #if DebugSecure
+        #if Release
+            print("Release")
+            CommonData.loginModel = LoginModel(userConfig: UserConfig())
+            CommonData.rssFeedListModel = RssFeedListModel()
+            CommonData.filterModel = FilterModel()
+        #elseif DebugSecure
             print("DebugSecure")
+            CommonData.loginModel = LoginModel(userConfig: UserConfig())
+            CommonData.rssFeedListModel = RssFeedListModel()
+            CommonData.filterModel = FilterModel()
         #elseif DebugNonSecure
             print("DebugNonSecure")
+            CommonData.loginModel = DummyLoginModel()
+            CommonData.rssFeedListModel = RssFeedListModel()
+            CommonData.filterModel = FilterModel()
         #elseif DebugDummy
             print("DebugDummy")
-        #else
-            print("Release")
+            CommonData.loginModel = DummyLoginModel()
+            CommonData.rssFeedListModel = DummyRssFeedListModel()
+            CommonData.filterModel = DummyFilterModel()
         #endif
-        // 本番環境
-        CommonData.loginModel = LoginModel(userConfig: UserConfig())
-        CommonData.rssFeedListModel = RssFeedListModel()
-        CommonData.filterModel = FilterModel()
-        // ダミー環境
-//        CommonData.loginModel = DummyLoginModel()
-//        CommonData.rssFeedListModel = DummyRssFeedListModel()
-//        CommonData.filterModel = DummyFilterModel()
         
-        let mainTab = MainTabBarController()
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = mainTab
-        window?.makeKeyAndVisible()
         
         return true
     }

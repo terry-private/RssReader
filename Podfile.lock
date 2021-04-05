@@ -398,6 +398,7 @@ PODS:
   - GTMSessionFetcher/Core (1.5.0)
   - GTMSessionFetcher/Full (1.5.0):
     - GTMSessionFetcher/Core (= 1.5.0)
+  - KeychainAccess (4.2.2)
   - leveldb-library (1.22.1)
   - LineSDKSwift (5.7.0):
     - LineSDKSwift/Core (= 5.7.0)
@@ -422,6 +423,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Analytics
   - FirebaseUI
+  - KeychainAccess
   - LineSDKSwift
   - Nuke
   - RealmSwift
@@ -452,6 +454,7 @@ SPEC REPOS:
     - gRPC-Core
     - GTMAppAuth
     - GTMSessionFetcher
+    - KeychainAccess
     - leveldb-library
     - LineSDKSwift
     - nanopb
@@ -486,6 +489,7 @@ SPEC CHECKSUMS:
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
+  KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   LineSDKSwift: f9c232f89185b887b5725aa278325f3a23e33bbc
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
@@ -496,6 +500,6 @@ SPEC CHECKSUMS:
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: adc4473a9573693ca693d6c5ce43087a1c4ed390
+PODFILE CHECKSUM: 3c34a203ff203ced9c361a3d56a4017902cabc99
 
 COCOAPODS: 1.10.1

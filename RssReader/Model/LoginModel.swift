@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import RealmSwift
+import LineSDK
 
 /// 認証結果をVCに渡します。
 protocol AutoLoginDelegate: AnyObject {
@@ -20,7 +21,60 @@ protocol LoginProtocol {
     var userConfig: UserConfigProtocol {get set}
     func autoLogin(autoLoginDelegate: AutoLoginDelegate)
     func setUserConfig(userID: String, photoURL: URL?, displayName: String)
-    func toLogoutAlert<T>(view: T) where T: Transitioner, T: LogoutDelegate
+}
+extension LoginProtocol {
+    func toLogoutAlert<T>(view: T) where T: Transitioner, T: LogoutDelegate {
+        switch userConfig.loginType{
+        case "line":
+            let alert = UIAlertController(title: "ログアウト", message: "ログアウトしますか？", preferredStyle: UIAlertController.Style.alert)
+            
+            // キャンセルボタン追加
+            alert.addAction(
+                UIAlertAction(
+                    title: "キャンセル",
+                    style: UIAlertAction.Style.cancel,
+                    handler: nil))
+            
+            // 確定ボタン追加
+            alert.addAction(
+                UIAlertAction(
+                    title: "ログアウト",
+                    style: UIAlertAction.Style.destructive) { _ in
+                    LoginManager.shared.logout { result in
+                        switch result {
+                        case .success:
+                            print("Logout Succeeded")
+                        case .failure(let error):
+                            print("Logout Failed: \(error)")
+                        }
+                    }
+                    self.userConfig.removeUser()
+                    view.didLogout()
+                }
+            )
+            
+            #if DebugSecure || DebugNonSecure
+            alert.addAction(UIAlertAction(
+                title: "トークンの更新",
+                style: UIAlertAction.Style.default) { _ in
+                
+                    // トークンの更新
+                    if let token = AccessTokenStore.shared.current {
+                        print("Token expires at:\(token.expiresAt)")
+                    }
+                }
+            )
+            #endif
+            view.present(alert, animated: true, completion: nil)
+            
+        case "mail":
+            CommonRouter.toEditAccountPropertyView(view: view)
+        default:
+            userConfig.removeUser()
+            view.didLogout()
+        }
+        
+    }
 }
 
 final class LoginModel: LoginProtocol {
@@ -31,14 +85,35 @@ final class LoginModel: LoginProtocol {
     }
     
     func autoLogin(autoLoginDelegate: AutoLoginDelegate) {
-        // 前回の認証が一週間以内の場合のみオートログイン成功と判定します。
-        if let latestDate = userConfig.latestLoginDate {
-            if latestDate > Date().addingTimeInterval(-60 * 60 * 24 * 7) {
-                autoLoginDelegate.didAutoLogin(isSuccess: true)
-                return
+        switch userConfig.loginType {
+        case "line":
+            API.getProfile { result in
+                switch result {
+                case .success(let profile):
+                    self.userConfig.loginType = "line"
+                    self.userConfig.userID = profile.userID
+                    self.userConfig.photoURL = profile.pictureURL
+                    self.userConfig.displayName = profile.displayName
+                    autoLoginDelegate.didAutoLogin(isSuccess: true)
+                case .failure(let error):
+                    print(error)
+                    self.userConfig.removeUser()
+                    autoLoginDelegate.didAutoLogin(isSuccess: false)
+                }
             }
+        case "mail":
+            if let latestLoginDate = userConfig.latestLoginDate {
+                if latestLoginDate > Date().addingTimeInterval(-60 * 60 * 24 * 7) {
+                    userConfig.latestLoginDate = Date()
+                    autoLoginDelegate.didAutoLogin(isSuccess: true)
+                    return
+                }
+            }
+            autoLoginDelegate.didAutoLogin(isSuccess: false)
+        default:
+            autoLoginDelegate.didAutoLogin(isSuccess: false)
         }
-        autoLoginDelegate.didAutoLogin(isSuccess: false)
+        
     }
 
     func setUserConfig(userID: String, photoURL: URL?, displayName: String) {
@@ -47,27 +122,5 @@ final class LoginModel: LoginProtocol {
         userConfig.displayName = displayName
         userConfig.latestLoginDate = Date()
     }
-    func toLogoutAlert<T>(view: T) where T: Transitioner, T: LogoutDelegate {
-        
-        let alert = UIAlertController(title: "ログアウト", message: "ログアウトしますか？", preferredStyle: UIAlertController.Style.alert)
-        
-        // キャンセルボタン追加
-        alert.addAction(
-            UIAlertAction(
-                title: "キャンセル",
-                style: UIAlertAction.Style.cancel,
-                handler: nil))
-        
-        // 確定ボタン追加
-        alert.addAction(
-            UIAlertAction(
-                title: "ログアウト",
-                style: UIAlertAction.Style.destructive) { _ in
-                self.userConfig.removeUser()
-                view.didLogout()
-            }
-        )
-        
-        view.present(alert, animated: true, completion: nil)
-    }
 }
+

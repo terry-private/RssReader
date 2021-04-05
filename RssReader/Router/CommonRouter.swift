@@ -31,8 +31,35 @@ class CommonRouter {
     }
     class func toLoginView<T>(view: T) where T: Transitioner {
         let loginViewController = LoginViewController()
-        loginViewController.modalPresentationStyle = .fullScreen
-        view.present(loginViewController, animated: true, completion: nil)
+        loginViewController.navigationItem.title = "ログイン"
+        let nav = UINavigationController(loginViewController)
+        nav.modalPresentationStyle = .fullScreen
+        view.present(nav, animated: true, completion: nil)
+    }
+    
+    class func toNewAccountPropertyView(view: Transitioner, defaultData: [String: String]) {
+        let storyboard = UIStoryboard(name: "AccountProperty", bundle: nil)
+        let accountPropertyVC = storyboard.instantiateViewController(identifier: "AccountPropertyViewController") as! AccountPropertyViewController
+        accountPropertyVC.navigationItem.title = "新規アカウント作成"
+        accountPropertyVC.defaultData = defaultData
+        view.pushViewController(accountPropertyVC, animated: true)
+    }
+    
+    class func toEditAccountPropertyView(view: Transitioner) {
+        let storyboard = UIStoryboard(name: "AccountProperty", bundle: nil)
+        let accountPropertyVC = storyboard.instantiateViewController(identifier: "AccountPropertyViewController") as! AccountPropertyViewController
+        accountPropertyVC.useCase = .EditAccount
+        accountPropertyVC.navigationItem.title = "アカウント情報"
+        let nav = UINavigationController(accountPropertyVC)
+        nav.modalPresentationStyle = .fullScreen
+        view.present(nav,animated: true, completion: nil)
+    }
+    
+    class func toMailLoginView<T>(view: T) where T: Transitioner {
+        let storyboard = UIStoryboard(name: "MailLogin", bundle: nil)
+        let mailLoginVC = storyboard.instantiateViewController(identifier: "MailLoginViewController") as! MailLoginViewController
+        mailLoginVC.navigationItem.title = "メールログイン"
+        view.pushViewController(mailLoginVC, animated: true)
     }
     
     class func toSelectRssFeedView(view: Transitioner) {
