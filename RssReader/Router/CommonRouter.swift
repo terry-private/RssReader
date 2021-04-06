@@ -6,30 +6,13 @@
 //
 
 import Foundation
-import FirebaseUI
 import SideMenu
 
 class CommonRouter {
     /// 認証画面へ
     /// - Parameter view: FUIAuthDelegateが必要
     /// SplashView = Transitioner + FUIAuthDelegate
-    class func toAuth<T>(view: T) where T: Transitioner, T: FUIAuthDelegate  {
-        
-        // LoginViewを使う場合
-        toLoginView(view: view)
-        // FUIAuth　を使う場合
-//        let authUI = FUIAuth.defaultAuthUI()!
-//        authUI.delegate = view
-//        authUI.providers = [
-//            FUIGoogleAuth(authUI: authUI),
-//            FUIOAuth.twitterAuthProvider(),
-//            FUIEmailAuth()
-//        ]
-//        let authViewController = authUI.authViewController()
-//        authViewController.modalPresentationStyle = .fullScreen
-//        view.present(authViewController, animated: true, completion: nil)
-    }
-    class func toLoginView<T>(view: T) where T: Transitioner {
+    class func toAuth<T>(view: T) where T: Transitioner {
         let loginViewController = LoginViewController()
         loginViewController.navigationItem.title = "ログイン"
         let nav = UINavigationController(loginViewController)

@@ -6,10 +6,9 @@
 //
 
 import UIKit
-import FirebaseUI
 import Nuke
 
-protocol ArticleListViewControllerProtocol: Transitioner, FUIAuthDelegate {
+protocol ArticleListViewControllerProtocol: Transitioner{
     
 }
 
@@ -287,33 +286,6 @@ extension ArticleListViewController: AutoLoginDelegate {
     }
 }
 
-//MARK:- FUIAuthDelegate
-
-extension ArticleListViewController: FUIAuthDelegate{
-    //　認証画面から離れたときに呼ばれる（キャンセルボタン押下含む）
-    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?){
-        if let newUser = user {
-            
-            // 登録済みのユーザーの場合
-            if newUser.uid == CommonData.loginModel.userConfig.userID {
-                print("Log in!!")
-                CommonData.loginModel.userConfig.latestLoginDate = Date()
-                fetchItems()
-                return
-            }
-            
-            // 新規ユーザーの場合
-            print("Sign up!!")
-            CommonData.loginModel.setUserConfig(userID: newUser.uid, photoURL: newUser.photoURL, displayName: newUser.displayName ?? "")
-            articleListRouter?.toSelectRssFeedView(view: self)
-            return
-        }
-        
-        //失敗した場合
-        print("can't auth")
-        CommonData.loginModel.autoLogin(autoLoginDelegate: self)
-    }
-}
 
 //MARK:- RssFeedListModelDelegate
 extension ArticleListViewController: RssFeedListModelDelegate {
