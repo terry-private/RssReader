@@ -15,6 +15,7 @@ class AccountPropertyViewController: UIViewController, Transitioner {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var stackViewCenterY: NSLayoutConstraint!
     
     enum UseCase {
         case NewAccount
@@ -25,9 +26,13 @@ class AccountPropertyViewController: UIViewController, Transitioner {
     var useCase: UseCase = .NewAccount
     var defaultData: [String: String] = [:]
     
+    // キーボードでテキストフィールドが隠れないようにするための必要な高さ
+    private var currentTextFieldHeightFromViewBottom: CGFloat = 0
+    private var isChangedCurrentTestField = false
     // MAEK:- ライフサイクル系
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNotification()
         profileImageButton.layer.cornerRadius = profileImageButton.bounds.width / 2
         profileImageButton.layer.borderWidth = 1
         profileImageButton.layer.borderColor = UIColor.opaqueSeparator.cgColor
@@ -35,14 +40,17 @@ class AccountPropertyViewController: UIViewController, Transitioner {
         mailTextField.layer.borderWidth = 1
         mailTextField.layer.borderColor = UIColor.opaqueSeparator.cgColor
         mailTextField.layer.cornerRadius = 8
+        mailTextField.delegate = self
         
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor.opaqueSeparator.cgColor
         passwordTextField.layer.cornerRadius = 8
+        passwordTextField.delegate = self
         
         usernameTextField.layer.borderWidth = 1
         usernameTextField.layer.borderColor = UIColor.opaqueSeparator.cgColor
         usernameTextField.layer.cornerRadius = 8
+        usernameTextField.delegate = self
         
         confirmButton.setTitleColor(.white, for: .normal)
         confirmButton.setTitleColor(.secondaryLabel, for: .highlighted)
@@ -78,9 +86,38 @@ class AccountPropertyViewController: UIViewController, Transitioner {
         validation()
     }
     
+    // MARK:- キーボード関連
+    
+    // 任意の箇所をタッチするとキーボードが閉じる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         validation()
         view.endEditing(true)
+    }
+    
+    // キーボード開閉で呼び出すメソッドをNotificationCenterに追加する
+    private func setupNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    // キーボードが開いたときに呼ばれるメソッド
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        if !isChangedCurrentTestField { return }
+        if let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue {
+            let keyboardHeightFromViewBottom = keyboardFrame.height + view.safeAreaInsets.bottom
+            let upRange = keyboardHeightFromViewBottom - currentTextFieldHeightFromViewBottom
+            if upRange > 0 {
+                print("up: \(upRange)")
+                stackViewCenterY.constant = -upRange
+            }
+        }
+        
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        print("hide")
+        stackViewCenterY.constant = 0
     }
     
     @objc func close() {
@@ -179,5 +216,17 @@ extension AccountPropertyViewController: UIImagePickerControllerDelegate, UINavi
         profileImageButton.contentVerticalAlignment = .fill
         profileImageButton.clipsToBounds = true
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension AccountPropertyViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // テキストフィールドのviewから見たyを算出
+        let y = textField.superview!.frame.minY + textField.superview!.superview!.frame.minY + textField.superview!.superview!.superview!.frame.minY + textField.frame.height
+        let h = view.frame.height
+        // viewの高さからテキストフィールドのviewから見たyを引くと下からの高さが出る。
+        // これがキーボードの高さより低い場合は位置を上げます。
+        currentTextFieldHeightFromViewBottom = h - y
+        isChangedCurrentTestField = true
     }
 }

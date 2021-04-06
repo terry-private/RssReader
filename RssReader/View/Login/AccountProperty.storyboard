@@ -132,6 +132,7 @@
                         <outlet property="mailTextField" destination="lcB-yU-zwe" id="Leb-qa-r89"/>
                         <outlet property="passwordTextField" destination="6aC-rm-myL" id="39q-eL-ccH"/>
                         <outlet property="profileImageButton" destination="XeI-on-Fjs" id="iOc-BY-46a"/>
+                        <outlet property="stackViewCenterY" destination="Ego-fB-dMl" id="vtg-6N-vSh"/>
                         <outlet property="usernameTextField" destination="u4i-Cc-qRu" id="1u3-XN-2eK"/>
                     </connections>
                 </viewController>
