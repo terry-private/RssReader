@@ -78,6 +78,11 @@ class AccountPropertyViewController: UIViewController, Transitioner {
         validation()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        validation()
+        view.endEditing(true)
+    }
+    
     @objc func close() {
         dismiss(animated: true)
     }
