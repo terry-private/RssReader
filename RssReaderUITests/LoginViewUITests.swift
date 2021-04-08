@@ -26,33 +26,20 @@ class LoginViewUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func test003_009_LINEログインボタンの表示() throws {
+    func test003_004_005_009_010_011_ボタンの表示() throws {
         let lineLoginButton = app.buttons["line_login_button"]
-        #if DebugDummy
-            XCTAssertFalse(lineLoginButton.exists)
-        #else
-            XCTAssertTrue(lineLoginButton.exists)
-        #endif
-    }
-    
-    func test004_010_メールログインボタンの表示() throws {
         let mailLoginButton = app.buttons["mail_login_button"]
-        #if DebugDummy
-            XCTAssertFalse(mailLoginButton.exists)
-        #else
-            XCTAssertTrue(mailLoginButton.exists)
-        #endif
-    }
-    
-    func test005_011_ログインIDを入力ボタンの表示() throws {
         let dummyLoginButton = app.buttons["dummy_login_button"]
+        
         #if DebugDummy
-            XCTAssertTrue(dummyLoginButton.exists)
+            XCTAssertFalse(lineLoginButton.exists)  // test009
+            XCTAssertFalse(mailLoginButton.exists)  // test010
+            XCTAssertTrue(dummyLoginButton.exists)  // test011
         #else
-            XCTAssertFalse(dummyLoginButton.exists)
+            XCTAssertTrue(lineLoginButton.exists)   // test003
+            XCTAssertTrue(mailLoginButton.exists)   // test004
+            XCTAssertFalse(dummyLoginButton.exists) // test005
         #endif
     }
-    
-    
 
 }
