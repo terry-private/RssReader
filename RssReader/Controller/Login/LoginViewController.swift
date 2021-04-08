@@ -39,6 +39,7 @@ class LoginViewController: UIViewController, Transitioner {
     private func setLineLoginButton() {
         // Create Login Button.
         let loginButton = LoginButton()
+        loginButton.accessibilityIdentifier = "line_login_button"
         loginButton.delegate = self
         
         // Configuration for permissions and presenting.
@@ -52,6 +53,7 @@ class LoginViewController: UIViewController, Transitioner {
     // MARK:- Mail Login Button
     private func setMailLoginButton() {
         let loginButton = UIButton()
+        loginButton.accessibilityIdentifier = "mail_login_button"
         loginButton.addTarget(self, action: #selector(tappedMailLoginButton), for: .touchUpInside)
         loginButton.layer.cornerRadius = 8
         loginButton.layer.backgroundColor = UIColor.systemIndigo.cgColor
@@ -71,6 +73,7 @@ class LoginViewController: UIViewController, Transitioner {
     // MARK:- Dummy Login Button
     private func setDummyLoginButton() {
         let loginButton = UIButton()
+        loginButton.accessibilityIdentifier = "dummy_login_button"
         loginButton.setTitle("ログインIDの入力", for: .normal)
         loginButton.setTitleColor(.systemBlue, for: .normal)
         loginButton.addTarget(self, action: #selector(tappedDummyLoginButton), for: .touchUpInside)

@@ -63,6 +63,7 @@
 		09902F032611B25100B2B9A0 /* AccountProperty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09902F022611B25100B2B9A0 /* AccountProperty.storyboard */; };
 		09902F082611B48200B2B9A0 /* AccountPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902F072611B48200B2B9A0 /* AccountPropertyViewController.swift */; };
 		09902F77261AFCF800B2B9A0 /* LoginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902F76261AFCF800B2B9A0 /* LoginViewTests.swift */; };
+		09902F9C261EB41700B2B9A0 /* LoginViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902F9B261EB41600B2B9A0 /* LoginViewUITests.swift */; };
 		099BB88A25DCA816003AF947 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 099BB88925DCA816003AF947 /* Setting.storyboard */; };
 		099BB88F25DCDAA8003AF947 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BB88E25DCDAA8003AF947 /* SettingViewController.swift */; };
 		099BB89525DD035A003AF947 /* AccountProperty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 099BB89425DD035A003AF947 /* AccountProperty.xib */; };
@@ -164,6 +165,7 @@
 		09902F022611B25100B2B9A0 /* AccountProperty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountProperty.storyboard; sourceTree = "<group>"; };
 		09902F072611B48200B2B9A0 /* AccountPropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPropertyViewController.swift; sourceTree = "<group>"; };
 		09902F76261AFCF800B2B9A0 /* LoginViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTests.swift; sourceTree = "<group>"; };
+		09902F9B261EB41600B2B9A0 /* LoginViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewUITests.swift; sourceTree = "<group>"; };
 		099BB88925DCA816003AF947 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		099BB88E25DCDAA8003AF947 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		099BB89425DD035A003AF947 /* AccountProperty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountProperty.xib; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 			isa = PBXGroup;
 			children = (
 				09B8033E2590CF9300CA2D19 /* RssReaderUITests.swift */,
+				09902F9B261EB41600B2B9A0 /* LoginViewUITests.swift */,
 				09B803402590CF9300CA2D19 /* Info.plist */,
 			);
 			path = RssReaderUITests;
@@ -850,6 +853,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09902F9C261EB41700B2B9A0 /* LoginViewUITests.swift in Sources */,
 				09B8033F2590CF9300CA2D19 /* RssReaderUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
