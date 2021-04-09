@@ -127,6 +127,7 @@ class LoginViewController: UIViewController, Transitioner {
                                               message: error,
                                               preferredStyle: .alert)
         errorAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        errorAlert.view.accessibilityIdentifier = "dummy_login_error_alert"
         self.present(errorAlert,animated: true,completion: nil)
     }
     

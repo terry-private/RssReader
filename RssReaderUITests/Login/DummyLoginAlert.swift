@@ -14,6 +14,7 @@ class DummyLoginAlert {
         static let loginIdTextField = "dummy_login_id_textField"
         static let cancelButton = "キャンセル"
         static let loginButton = "ログイン"
+        static let errorAlert = "dummy_login_error_alert"
     }
     var app: XCUIApplication {
         return XCUIApplication()
@@ -26,12 +27,21 @@ class DummyLoginAlert {
     }
     
     var loginIdTextField: XCUIElement {
-        return app.textFields[A11y.loginIdTextField]
+        return alert.textFields[A11y.loginIdTextField]
     }
     var cancelButton: XCUIElement {
-        return alert.scrollViews.otherElements.buttons[A11y.cancelButton]
+        return alert.buttons[A11y.cancelButton]
     }
     var loginButton: XCUIElement {
-        return alert.scrollViews.otherElements.buttons[A11y.loginButton]
+        return alert.buttons[A11y.loginButton]
     }
+    
+    // errorAlert関連
+    var errorAlert: XCUIElement {
+        return app.alerts[A11y.errorAlert]
+    }
+    func tappedErrorAlertOKButton() {
+        errorAlert.scrollViews.otherElements.buttons["OK"].tap()
+    }
+    
 }
