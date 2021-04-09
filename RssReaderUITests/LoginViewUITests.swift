@@ -25,20 +25,18 @@ class LoginViewUITests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func test003_004_005_009_010_011_ボタンの表示() throws {
-        let lineLoginButton = app.buttons["line_login_button"]
-        let mailLoginButton = app.buttons["mail_login_button"]
-        let dummyLoginButton = app.buttons["dummy_login_button"]
-        
+    
+    func testオートログイン失敗_002_003_004_005_009_010_011() throws {
+        let loginViewPage = LoginViewPage()
+        XCTAssert(loginViewPage.exists) // test002
         #if DebugDummy
-            XCTAssertFalse(lineLoginButton.exists)  // test009
-            XCTAssertFalse(mailLoginButton.exists)  // test010
-            XCTAssertTrue(dummyLoginButton.exists)  // test011
+            XCTAssertFalse(loginViewPage.lineLoginButton.exists)  // test009
+            XCTAssertFalse(loginViewPage.mailLoginButton.exists)  // test010
+            XCTAssertTrue(loginViewPage.dummyLoginButton.exists)  // test011
         #else
-            XCTAssertTrue(lineLoginButton.exists)   // test003
-            XCTAssertTrue(mailLoginButton.exists)   // test004
-            XCTAssertFalse(dummyLoginButton.exists) // test005
+            XCTAssertTrue(loginViewPage.lineLoginButton.exists)   // test003
+            XCTAssertTrue(loginViewPage.mailLoginButton.exists)   // test004
+            XCTAssertFalse(loginViewPage.dummyLoginButton.exists) // test005
         #endif
     }
 
