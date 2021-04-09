@@ -80,43 +80,46 @@ class LoginViewController: UIViewController, Transitioner {
         stackView.addArrangedSubview(loginButton)
     }
     @objc func tappedDummyLoginButton() {
-        // アラート画面でloginIDを入力させます。
-        var alertTextField: UITextField?
         let alert = UIAlertController(title: "ログイン", message: "ログインIDを入力してください。", preferredStyle: UIAlertController.Style.alert)
+        alert.view.accessibilityIdentifier = "dummy_login_alert"
         
         // テキストフィールド追加
+        // アラート画面でloginIDを入力させます。
+        var alertTextField: UITextField?
         alert.addTextField(configurationHandler: {(textField: UITextField!) in
             alertTextField = textField
             textField.text = ""
             textField.placeholder = "半角英数字 8~12文字"
         })
-        
+        alertTextField?.accessibilityIdentifier = "dummy_login_id_textField"
+
         // キャンセルボタン追加
-        alert.addAction(
-            UIAlertAction(
+        let cancelButton = UIAlertAction(
                 title: "キャンセル",
                 style: UIAlertAction.Style.cancel,
-                handler: nil))
+                handler: nil
+        )
+        alert.addAction(cancelButton)
         
         // 確定ボタン追加
-        alert.addAction(
-            UIAlertAction(
-                title: "ログイン",
-                style: UIAlertAction.Style.default) { _ in
-                if let text = alertTextField?.text {
-                    if text == "" { return }
-                    if let error = self.validId(uid: text) {
-                        self.validError(error: error)
-                        return
-                    }
-                    CommonData.loginModel.userConfig.userID = text
-                    CommonData.loginModel.userConfig.displayName = text
-                    CommonData.loginModel.userConfig.latestLoginDate = Date()
-                    self.dismiss(animated: true)
-                    
+        let loginButton = UIAlertAction(
+            title: "ログイン",
+            style: UIAlertAction.Style.default) { _ in
+            if let text = alertTextField?.text {
+                if text == "" { return }
+                if let error = self.validId(uid: text) {
+                    self.validError(error: error)
+                    return
                 }
+                CommonData.loginModel.userConfig.userID = text
+                CommonData.loginModel.userConfig.displayName = text
+                CommonData.loginModel.userConfig.latestLoginDate = Date()
+                self.dismiss(animated: true)
+                
             }
-        )
+        }
+        alert.addAction(loginButton)
+        
         self.present(alert, animated: true, completion: nil)
     }
     private func validError(error: String) {

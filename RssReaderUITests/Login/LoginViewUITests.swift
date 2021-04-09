@@ -33,6 +33,19 @@ class LoginViewUITests: XCTestCase {
             XCTAssertFalse(loginViewPage.lineLoginButton.exists)  // test009
             XCTAssertFalse(loginViewPage.mailLoginButton.exists)  // test010
             XCTAssertTrue(loginViewPage.dummyLoginButton.exists)  // test011
+        
+        loginViewPage.dummyLoginButton.tap()
+        let alert = DummyLoginAlert()
+        XCTAssertTrue(alert.exists)
+        XCTAssert(alert.cancelButton.exists)
+        XCTAssert(alert.loginButton.exists)
+        alert.cancelButton.tap()
+        XCTAssertFalse(alert.exists)
+        
+        loginViewPage.dummyLoginButton.tap()
+        alert.loginButton.tap()
+        XCTAssertFalse(alert.exists)
+        
         #else
             XCTAssertTrue(loginViewPage.lineLoginButton.exists)   // test003
             XCTAssertTrue(loginViewPage.mailLoginButton.exists)   // test004
