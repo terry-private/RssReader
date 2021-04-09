@@ -76,7 +76,7 @@ class LoginViewUITests: XCTestCase {
         alert.loginButton.tap()
         XCTAssertTrue(alert.errorAlert.staticTexts["ログインIDは英数字のみです。"].exists)
         
-        // test 018
+        // test 015
         // 「8文字以上12文字以下」かつ「英数字のみ」の文字列を入力後
         // ログインボタンを押すとアラート閉じる
         loginViewPage.dummyLoginButton.tap()
