@@ -62,6 +62,7 @@
 		09902EFA2611084300B2B9A0 /* MailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902EF92611084300B2B9A0 /* MailLoginViewController.swift */; };
 		09902F032611B25100B2B9A0 /* AccountProperty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09902F022611B25100B2B9A0 /* AccountProperty.storyboard */; };
 		09902F082611B48200B2B9A0 /* AccountPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902F072611B48200B2B9A0 /* AccountPropertyViewController.swift */; };
+		09902F77261AFCF800B2B9A0 /* LoginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902F76261AFCF800B2B9A0 /* LoginViewTests.swift */; };
 		099BB88A25DCA816003AF947 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 099BB88925DCA816003AF947 /* Setting.storyboard */; };
 		099BB88F25DCDAA8003AF947 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BB88E25DCDAA8003AF947 /* SettingViewController.swift */; };
 		099BB89525DD035A003AF947 /* AccountProperty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 099BB89425DD035A003AF947 /* AccountProperty.xib */; };
@@ -162,6 +163,7 @@
 		09902EF92611084300B2B9A0 /* MailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailLoginViewController.swift; sourceTree = "<group>"; };
 		09902F022611B25100B2B9A0 /* AccountProperty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountProperty.storyboard; sourceTree = "<group>"; };
 		09902F072611B48200B2B9A0 /* AccountPropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPropertyViewController.swift; sourceTree = "<group>"; };
+		09902F76261AFCF800B2B9A0 /* LoginViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTests.swift; sourceTree = "<group>"; };
 		099BB88925DCA816003AF947 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		099BB88E25DCDAA8003AF947 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		099BB89425DD035A003AF947 /* AccountProperty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountProperty.xib; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 			isa = PBXGroup;
 			children = (
 				09B803332590CF9300CA2D19 /* RssReaderTests.swift */,
+				09902F76261AFCF800B2B9A0 /* LoginViewTests.swift */,
 				09B803352590CF9300CA2D19 /* Info.plist */,
 			);
 			path = RssReaderTests;
@@ -838,6 +841,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09902F77261AFCF800B2B9A0 /* LoginViewTests.swift in Sources */,
 				09B803342590CF9300CA2D19 /* RssReaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1219,6 +1223,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

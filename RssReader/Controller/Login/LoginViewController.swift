@@ -127,7 +127,7 @@ class LoginViewController: UIViewController, Transitioner {
     /// エラーの場合にエラーメッセージをString型で返し、成功の場合はnilを返します。
     /// - Parameter uid: ログインIDの入力内容
     /// - Returns: エラーメッセージ or nil (成功時)
-    private func validId(uid: String) -> String? {
+    func validId(uid: String) -> String? {
         if uid.count < 8 || uid.count > 12 {
             return "ログインIDは8〜12文字です。"
         }

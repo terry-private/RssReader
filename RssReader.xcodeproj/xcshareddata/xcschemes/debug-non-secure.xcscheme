@@ -28,6 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "09B8032E2590CF9300CA2D19"
+               BuildableName = "RssReaderTests.xctest"
+               BlueprintName = "RssReaderTests"
+               ReferencedContainer = "container:RssReader.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "09B803392590CF9300CA2D19"
+               BuildableName = "RssReaderUITests.xctest"
+               BlueprintName = "RssReaderUITests"
+               ReferencedContainer = "container:RssReader.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
