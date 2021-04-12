@@ -17,9 +17,13 @@ class MailLoginViewController: UIViewController, Transitioner {
         mailTextField.layer.borderWidth = 1
         mailTextField.layer.borderColor = UIColor.opaqueSeparator.cgColor
         mailTextField.layer.cornerRadius = 8
+        mailTextField.accessibilityIdentifier = "mailLogin_mail_textField"
+        
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor.opaqueSeparator.cgColor
         passwordTextField.layer.cornerRadius = 8
+        passwordTextField.accessibilityIdentifier = "mailLogin_password_textField"
+        
         loginButton.setTitleColor(.white, for: .normal)
         loginButton.setTitleColor(.secondaryLabel, for: .highlighted)
         loginButton.layer.cornerRadius = 8
@@ -28,6 +32,7 @@ class MailLoginViewController: UIViewController, Transitioner {
         loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         loginButton.setTitleColor(.white, for: .normal)
         loginButton.setTitleColor(.lightGray, for: .highlighted)
+        loginButton.accessibilityIdentifier = "mailLogin_login_button"
         
         validation()
     }

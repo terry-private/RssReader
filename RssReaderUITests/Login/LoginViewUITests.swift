@@ -90,7 +90,17 @@ class LoginViewUITests: XCTestCase {
             XCTAssertTrue(loginViewPage.lineLoginButton.exists)   // test003
             XCTAssertTrue(loginViewPage.mailLoginButton.exists)   // test004
             XCTAssertFalse(loginViewPage.dummyLoginButton.exists) // test005
+        loginViewPage.mailLoginButton.tap()
+        mailLoginUITest()
         #endif
+    }
+    
+    
+    private func mailLoginUITest() {
+        let mailLoginViewPage = MailLoginViewPage()
+        XCTAssertTrue(mailLoginViewPage.exists)
+        XCTAssertFalse(mailLoginViewPage.mailLoginButton.isEnabled)
+        
     }
 
 }
