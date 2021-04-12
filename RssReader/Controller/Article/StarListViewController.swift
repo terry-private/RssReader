@@ -185,7 +185,7 @@ extension StarListViewController: UICollectionViewDelegate, UICollectionViewData
             
             // 後で読む
             let laterRead = article.laterRead
-            let laterReadAction = UIAction(title: "後で読む", image: UIImage(systemName: "tray")) { _ in
+            let laterReadAction = UIAction(title: laterRead ? "後で読むを解除" : "後で読む", image: UIImage(systemName: "tray")) { _ in
                 CommonData.rssFeedListModel.changeLaterRead(articleKey: article.item.link, laterRead: !laterRead)
                 self.keysSort()
             }
