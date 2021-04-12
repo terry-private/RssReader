@@ -97,10 +97,113 @@ class LoginViewUITests: XCTestCase {
     
     
     private func mailLoginUITest() {
+        let loginViewPage = LoginViewPage()
         let mailLoginViewPage = MailLoginViewPage()
-        XCTAssertTrue(mailLoginViewPage.exists)
+        XCTAssertTrue(mailLoginViewPage.exists)                         // test008
+        XCTAssertFalse(mailLoginViewPage.mailLoginButton.isEnabled)     // test019
+        XCTAssertEqual(mailLoginViewPage.mailTextField.label, "")       // test020
+        XCTAssertEqual(mailLoginViewPage.passwordTextField.label, "")   // test021
+        XCTAssertTrue(mailLoginViewPage.backButton.exists)
+        mailLoginViewPage.backButton.tap()
+        
+        XCTAssertTrue(loginViewPage.exists) // test024
+        
+        loginViewPage.mailLoginButton.tap()
+        
+        
+        mailLoginViewPage.mailTextField.tap()
+        XCTAssertTrue(returnKey.exists)     // test025 キーボードのリターンキーがあるかどうかでキーボードが開いたかどうかの確認をしています。
+        app.staticTexts["メールアドレス"].tap()    // メールアドレスラベルをタップで任意の箇所タップを表現します。
+        XCTAssertFalse(returnKey.exists) // test026
+        
+        mailLoginViewPage.mailTextField.tap()
+        returnKey.tap()
+        XCTAssertFalse(returnKey.exists) // test027
+        
+        mailLoginViewPage.mailTextField.tap()
+        mailLoginViewPage.passwordTextField.tap()
+        
+        // test028
+        // ・リターンキーが「Done」であること
+        // ・空文字状態だとリターンキーが押せない状態
+        // ↑でパスワード用のキーボードに変わったかどうかの判定
+        XCTAssertEqual(returnKey.label, "done")
+        XCTAssertFalse(returnKey.isEnabled)
+        
+        app.staticTexts["メールアドレス"].tap()    // メールアドレスラベルをタップで任意の箇所タップを表現します。
+        XCTAssertFalse(returnKey.exists) // test030
+        
+        mailLoginViewPage.passwordTextField.tap()
+        XCTAssertTrue(returnKey.exists)        // test029
+        
+        mailLoginViewPage.passwordTextField.typeText("1")// 空文字だとリターンキーが押せないので１を入力してテストします。
+        returnKey.tap()
+        XCTAssertFalse(returnKey.exists) // test031
+        
+        mailLoginViewPage.passwordTextField.tap()
+        mailLoginViewPage.mailTextField.tap()
+        
+        // test032
+        // ・リターンキーが「完了」であることで標準キーボードに変わったかどうかの判定
+        XCTAssertEqual(returnKey.label, "完了")
+        
+        // test033
+        mailLoginViewPage.mailTextField.tap()
+        mailLoginViewPage.mailTextField.typeText("test@test.com")
+        mailLoginViewPage.passwordTextField.tap()
+        mailLoginViewPage.passwordTextField.typeText("123456")
+        returnKey.tap()
+        XCTAssertTrue(mailLoginViewPage.mailLoginButton.isEnabled)
+        
+        // test034
+        // メールアドレスの形式がおかしい場合
+
+        mailLoginViewPage.mailTextField.clearAndEnterText(text: "test@test")
+        mailLoginViewPage.passwordTextField.tap()
+        mailLoginViewPage.passwordTextField.typeText("123456")
+        returnKey.tap()
         XCTAssertFalse(mailLoginViewPage.mailLoginButton.isEnabled)
         
+        // パスワードがおかしい場合
+        mailLoginViewPage.mailTextField.clearAndEnterText(text: "test@test.com")
+        mailLoginViewPage.passwordTextField.tap()
+        mailLoginViewPage.passwordTextField.typeText("12345")
+        returnKey.tap()
+        XCTAssertFalse(mailLoginViewPage.mailLoginButton.isEnabled)
+        
+        
+        // test035
+        mailLoginViewPage.passwordTextField.tap()
+        mailLoginViewPage.passwordTextField.typeText("123456")
+        returnKey.tap()
+        mailLoginViewPage.mailLoginButton.tap()
+    }
+    
+    // 日本語のキーボードのみ対応することにします。
+    private var returnKey: XCUIElement {
+        if app.buttons["完了"].exists {
+            return app.buttons["完了"]
+        } else {
+            return app.buttons["done"]
+        }
     }
 
+}
+
+
+extension XCUIElement {
+    /**
+     Removes any current text in the field before typing in the new value
+     - Parameter text: the text to enter into the field
+     */
+    func clearAndEnterText(text: String) {
+        guard let stringValue = self.value as? String else {
+            XCTFail("Tried to clear and enter text into a non string value")
+            return
+        }
+        self.tap()
+        let deleteString = String(repeating: XCUIKeyboardKey.delete.rawValue, count: stringValue.count)
+        self.typeText(deleteString)
+        self.typeText(text)
+    }
 }

@@ -13,6 +13,7 @@ final class MailLoginViewPage: PageObjectable {
         static let mailTextField = "mailLogin_mail_textField"
         static let passwordTextField = "mailLogin_password_textField"
         static let mailLoginButton = "mailLogin_login_button"
+        static let backButton = "ログイン"
     }
     var pageTitle: XCUIElement {
         return app.navigationBars[A11y.pageTitle].firstMatch
@@ -25,6 +26,9 @@ final class MailLoginViewPage: PageObjectable {
     }
     var mailLoginButton: XCUIElement {
         return app.buttons[A11y.mailLoginButton]
+    }
+    var backButton: XCUIElement {
+        return app.buttons[A11y.backButton].firstMatch
     }
 }
 
