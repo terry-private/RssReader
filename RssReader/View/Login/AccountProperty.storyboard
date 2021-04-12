@@ -66,7 +66,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6aC-rm-myL">
                                                         <rect key="frame" x="0.0" y="20.5" width="300" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                         <connections>
                                                             <action selector="passwordTextFieldTappedDone:" destination="LXO-Ef-2su" eventType="editingDidEndOnExit" id="yFj-Fb-Ni1"/>
                                                         </connections>
@@ -132,6 +132,7 @@
                         <outlet property="mailTextField" destination="lcB-yU-zwe" id="Leb-qa-r89"/>
                         <outlet property="passwordTextField" destination="6aC-rm-myL" id="39q-eL-ccH"/>
                         <outlet property="profileImageButton" destination="XeI-on-Fjs" id="iOc-BY-46a"/>
+                        <outlet property="stackViewCenterY" destination="Ego-fB-dMl" id="vtg-6N-vSh"/>
                         <outlet property="usernameTextField" destination="u4i-Cc-qRu" id="1u3-XN-2eK"/>
                     </connections>
                 </viewController>

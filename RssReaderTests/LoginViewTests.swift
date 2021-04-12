@@ -33,7 +33,7 @@ class LoginViewTests: XCTestCase {
         }
     }
     
-    // 8文字で英数字を含むケース
+    // 8文字で英数字以外を含むケース
     func testValidId_returnAlphaNumericError() throws {
         let testLoginView = LoginViewController()
         let sevenString = "1234567"
