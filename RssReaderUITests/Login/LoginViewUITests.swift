@@ -238,7 +238,8 @@ class LoginViewUITests: XCTestCase {
     }
     // 日本語のキーボードのみ対応することにします。
     private var returnKey: XCUIElement {
-        if app.keyboards.buttons["完了"].exists {
+        // キーボードの表示アニメーションのラグを考慮して0.5秒探します。
+        if app.keyboards.buttons["完了"].waitForExistence(timeout: 0.5) {
             return app.keyboards.buttons["完了"]
         } else {
             return app.keyboards.buttons["done"]
