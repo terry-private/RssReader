@@ -14,6 +14,9 @@ final class MailLoginViewPage: PageObjectable {
         static let passwordTextField = "mailLogin_password_textField"
         static let mailLoginButton = "mailLogin_login_button"
         static let backButton = "ログイン"
+        static let newAccountAlert = "mailLogin_newAccount_alert"
+        static let alertCancelButton = "キャンセル"
+        static let alertNewAccountButton = "新規アカウント作成"
     }
     var pageTitle: XCUIElement {
         return app.navigationBars[A11y.pageTitle].firstMatch
@@ -29,6 +32,17 @@ final class MailLoginViewPage: PageObjectable {
     }
     var backButton: XCUIElement {
         return app.buttons[A11y.backButton].firstMatch
+    }
+    
+    // MARK:- 新規アカウント作成アラート
+    var newAccountAlert: XCUIElement {
+        return app.alerts[A11y.newAccountAlert]
+    }
+    var alertCancelButton: XCUIElement {
+        return newAccountAlert.buttons[A11y.alertCancelButton]
+    }
+    var alertNewAccountButton: XCUIElement {
+        return newAccountAlert.buttons[A11y.alertNewAccountButton]
     }
 }
 

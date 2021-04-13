@@ -417,16 +417,9 @@
 				09902F9B261EB41600B2B9A0 /* LoginViewUITests.swift */,
 				09902FAC261FFF4E00B2B9A0 /* LoginViewPage.swift */,
 				09902FB5262036DF00B2B9A0 /* DummyLoginAlert.swift */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		09902FC32623E94800B2B9A0 /* MailLogin */ = {
-			isa = PBXGroup;
-			children = (
 				09902FC42623E99A00B2B9A0 /* MailLoginViewPage.swift */,
 			);
-			path = MailLogin;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		099BB89325DD02F4003AF947 /* Setting */ = {
@@ -519,7 +512,6 @@
 				09B8033E2590CF9300CA2D19 /* RssReaderUITests.swift */,
 				09902FA6261FF7D300B2B9A0 /* PageObjectable.swift */,
 				09902FB4262036A000B2B9A0 /* Login */,
-				09902FC32623E94800B2B9A0 /* MailLogin */,
 				09B803402590CF9300CA2D19 /* Info.plist */,
 			);
 			path = RssReaderUITests;

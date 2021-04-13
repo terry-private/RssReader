@@ -59,6 +59,7 @@ class MailLoginViewController: UIViewController, Transitioner {
     
     private func loginToSignUp() {
         let alert = UIAlertController(title: "新規アカウント", message: "この情報で新規アカウントをお作りしてもよろしいでしょうか？", preferredStyle: UIAlertController.Style.alert)
+        alert.view.accessibilityIdentifier = "mailLogin_newAccount_alert"
         // キャンセルボタン追加
         alert.addAction(
             UIAlertAction(

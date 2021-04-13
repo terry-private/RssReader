@@ -95,7 +95,10 @@ class LoginViewUITests: XCTestCase {
         #endif
     }
     
-    
+    // MARK:- mailLoginUITest
+    // ○: 008 019~021 024~032
+    // △: 019 034 035
+    // ✖︎: 022 023 036
     private func mailLoginUITest() {
         let loginViewPage = LoginViewPage()
         let mailLoginViewPage = MailLoginViewPage()
@@ -130,21 +133,25 @@ class LoginViewUITests: XCTestCase {
         XCTAssertEqual(returnKey.label, "done")
         XCTAssertFalse(returnKey.isEnabled)
         
-        app.staticTexts["メールアドレス"].tap()    // メールアドレスラベルをタップで任意の箇所タップを表現します。
-        XCTAssertFalse(returnKey.exists) // test030
+        // test030
+        // メールアドレスラベルをタップで任意の箇所タップを表現します。
+        app.staticTexts["メールアドレス"].tap()
+        XCTAssertFalse(returnKey.exists)
         
+        // test029
         mailLoginViewPage.passwordTextField.tap()
-        XCTAssertTrue(returnKey.exists)        // test029
+        XCTAssertTrue(returnKey.exists)
         
-        mailLoginViewPage.passwordTextField.typeText("1")// 空文字だとリターンキーが押せないので１を入力してテストします。
+        // test031
+        // 空文字だとリターンキーが押せないので１を入力してテストします。
+        mailLoginViewPage.passwordTextField.typeText("1")
         returnKey.tap()
-        XCTAssertFalse(returnKey.exists) // test031
-        
-        mailLoginViewPage.passwordTextField.tap()
-        mailLoginViewPage.mailTextField.tap()
+        XCTAssertFalse(returnKey.exists)
         
         // test032
-        // ・リターンキーが「完了」であることで標準キーボードに変わったかどうかの判定
+        // リターンキーが「完了」であることで標準キーボードに変わったかどうかの判定
+        mailLoginViewPage.passwordTextField.tap()
+        mailLoginViewPage.mailTextField.tap()
         XCTAssertEqual(returnKey.label, "完了")
         
         // test033
@@ -155,28 +162,34 @@ class LoginViewUITests: XCTestCase {
         returnKey.tap()
         XCTAssertTrue(mailLoginViewPage.mailLoginButton.isEnabled)
         
-        // test034
-        // メールアドレスの形式がおかしい場合
-
+        // test034　２種類試します。
+            // メールアドレスの形式だけおかしい場合
         mailLoginViewPage.mailTextField.clearAndEnterText(text: "test@test")
         mailLoginViewPage.passwordTextField.tap()
         mailLoginViewPage.passwordTextField.typeText("123456")
         returnKey.tap()
         XCTAssertFalse(mailLoginViewPage.mailLoginButton.isEnabled)
         
-        // パスワードがおかしい場合
+            // パスワードだけおかしい場合
         mailLoginViewPage.mailTextField.clearAndEnterText(text: "test@test.com")
         mailLoginViewPage.passwordTextField.tap()
         mailLoginViewPage.passwordTextField.typeText("12345")
         returnKey.tap()
         XCTAssertFalse(mailLoginViewPage.mailLoginButton.isEnabled)
         
-        
-        // test035
+        // test 036　メールログインボタンで新規アカウント作成アラートへの遷移
+        // 一旦正しいメールアドレスとパスワードにします。
         mailLoginViewPage.passwordTextField.tap()
         mailLoginViewPage.passwordTextField.typeText("123456")
         returnKey.tap()
+        // ここからが手順
         mailLoginViewPage.mailLoginButton.tap()
+        XCTAssertTrue(mailLoginViewPage.newAccountAlert.exists)
+        
+        // test 039 新規アカウント作成アラートのキャンセルボタンでアラートが閉じる
+        mailLoginViewPage.alertCancelButton.tap()
+        XCTAssertFalse(mailLoginViewPage.newAccountAlert.exists)
+        
     }
     
     // 日本語のキーボードのみ対応することにします。
