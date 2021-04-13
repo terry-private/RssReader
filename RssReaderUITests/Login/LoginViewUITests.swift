@@ -96,9 +96,9 @@ class LoginViewUITests: XCTestCase {
     }
     
     // MARK:- mailLoginUITest
-    // ○: 008 019~021 024~032
-    // △: 019 034 035
-    // ✖︎: 022 023 036
+    // ○: 008 019~021 024~032 036
+    // △: 019 033 034
+    // ✖︎: 022 023 035
     private func mailLoginUITest() {
         let loginViewPage = LoginViewPage()
         let mailLoginViewPage = MailLoginViewPage()
