@@ -9,6 +9,10 @@ import XCTest
 
 class LoginViewUITests: XCTestCase {
     let app = XCUIApplication()
+    let loginViewPage = LoginViewPage()
+    let dummyLoginAlert = DummyLoginAlert()
+    let mailLoginViewPage = MailLoginViewPage()
+    let accountPropertyViewPage = AccountPropertyViewPage()
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -27,8 +31,6 @@ class LoginViewUITests: XCTestCase {
     }
     
     func testオートログイン失敗_002_003_004_005_009_010_011() throws {
-        let loginViewPage = LoginViewPage()
-        let alert = DummyLoginAlert()
         XCTAssert(loginViewPage.exists) // test002
         #if DebugDummy
             XCTAssertFalse(loginViewPage.lineLoginButton.exists)  // test009
@@ -39,50 +41,50 @@ class LoginViewUITests: XCTestCase {
             loginViewPage.dummyLoginButton.tap()
         
             // test012　アラート表示成功
-            XCTAssertTrue(alert.exists)
+            XCTAssertTrue(dummyLoginAlert.exists)
         
             // test013　キャンセルボタンでアラートを閉じるのが成功
-            XCTAssert(alert.cancelButton.exists)
-            XCTAssert(alert.loginButton.exists)
-            alert.cancelButton.tap()
-            XCTAssertFalse(alert.exists)
+            XCTAssert(dummyLoginAlert.cancelButton.exists)
+            XCTAssert(dummyLoginAlert.loginButton.exists)
+            dummyLoginAlert.cancelButton.tap()
+            XCTAssertFalse(dummyLoginAlert.exists)
         
             // test 014
             // 空文字でログインボタンを押すとアラート閉じるのが成功
             loginViewPage.dummyLoginButton.tap()
-            alert.loginButton.tap()
-            XCTAssertFalse(alert.exists)
+            dummyLoginAlert.loginButton.tap()
+            XCTAssertFalse(dummyLoginAlert.exists)
             
             // test 016
             // 「8文字以上12文字以下ではない」の文字列を入力後
             // エラーアラートが表示（ログインIDは8〜12文字です。）
             loginViewPage.dummyLoginButton.tap()
-            alert.loginIdTextField.tap()
-            alert.loginIdTextField.typeText("1234567")
-            alert.loginButton.tap()
-            XCTAssertTrue(alert.errorAlert.staticTexts["ログインIDは8〜12文字です。"].exists)
+            dummyLoginAlert.loginIdTextField.tap()
+            dummyLoginAlert.loginIdTextField.typeText("1234567")
+            dummyLoginAlert.loginButton.tap()
+            XCTAssertTrue(dummyLoginAlert.errorAlert.staticTexts["ログインIDは8〜12文字です。"].exists)
         
             // test 018　エラーアラートのOKボタンでエラーアラートが閉じる
-            alert.tappedErrorAlertOKButton()
-            XCTAssertFalse(alert.errorAlert.exists)
+            dummyLoginAlert.tappedErrorAlertOKButton()
+            XCTAssertFalse(dummyLoginAlert.errorAlert.exists)
             
         // test 017
         // 「8文字以上12文字以下」かつ「英数字以外を含む」の文字列を入力後
         // ログインボタンを押すとアラート閉じて
         // エラーアラートが表示（ログインIDは英数字のみです。）
         loginViewPage.dummyLoginButton.tap()
-        alert.loginIdTextField.tap()
-        alert.loginIdTextField.typeText("1234567!")
-        alert.loginButton.tap()
-        XCTAssertTrue(alert.errorAlert.staticTexts["ログインIDは英数字のみです。"].exists)
+        dummyLoginAlert.loginIdTextField.tap()
+        dummyLoginAlert.loginIdTextField.typeText("1234567!")
+        dummyLoginAlert.loginButton.tap()
+        XCTAssertTrue(dummyLoginAlert.errorAlert.staticTexts["ログインIDは英数字のみです。"].exists)
         
         // test 015
         // 「8文字以上12文字以下」かつ「英数字のみ」の文字列を入力後
         // ログインボタンを押すとアラート閉じる
         loginViewPage.dummyLoginButton.tap()
-        alert.loginIdTextField.tap()
-        alert.loginIdTextField.typeText("12345678")
-        alert.loginButton.tap()
+        dummyLoginAlert.loginIdTextField.tap()
+        dummyLoginAlert.loginIdTextField.typeText("12345678")
+        dummyLoginAlert.loginButton.tap()
         XCTAssertFalse(loginViewPage.exists)
 
 
@@ -96,12 +98,10 @@ class LoginViewUITests: XCTestCase {
     }
     
     // MARK:- mailLoginUITest
-    // ○: 008 019~021 024~032 036
+    // ○: 008 019~021 024~032 036 039
     // △: 019 033 034
     // ✖︎: 022 023 035
     private func mailLoginUITest() {
-        let loginViewPage = LoginViewPage()
-        let mailLoginViewPage = MailLoginViewPage()
         XCTAssertTrue(mailLoginViewPage.exists)                         // test008
         XCTAssertFalse(mailLoginViewPage.mailLoginButton.isEnabled)     // test019
         XCTAssertEqual(mailLoginViewPage.mailTextField.label, "")       // test020
@@ -192,8 +192,50 @@ class LoginViewUITests: XCTestCase {
         mailLoginViewPage.alertCancelButton.tap()
         XCTAssertFalse(mailLoginViewPage.newAccountAlert.exists)
         
+        newAccountViewUITest()
     }
     
+    // MARK:- newAccountViewUITest
+    // ○: 022~023 037~038 040~044
+    // △:
+    // ✖︎
+    private func newAccountViewUITest() {
+        // メールログイン画面での入力値を取得
+        let mailAddress = mailLoginViewPage.mailTextField.value as! String
+        let password = mailLoginViewPage.passwordTextField.value as! String
+        
+        // test 037
+        mailLoginViewPage.newAccountButton.tap()
+        XCTAssertTrue(accountPropertyViewPage.exists)
+        
+        // test 040
+        XCTAssertFalse(accountPropertyViewPage.confirmButton.isEnabled)
+        
+        // test 041
+        XCTAssertEqual(accountPropertyViewPage.mailTextField.value as! String, mailAddress)
+        
+        // test 042
+        XCTAssertEqual(accountPropertyViewPage.passwordTextField.value as! String, password)
+        
+        // test 043
+        XCTAssertFalse(accountPropertyViewPage.logoutButton.isHittable)
+        
+        // test 044
+        accountPropertyViewPage.backButton.tap()
+        XCTAssertFalse(accountPropertyViewPage.exists)
+        
+        // test 022
+        XCTAssertEqual(mailLoginViewPage.mailTextField.value as! String, mailAddress)
+        
+        // test 023
+        XCTAssertEqual(mailLoginViewPage.passwordTextField.value as! String, password)
+        
+        //test 038
+        mailLoginViewPage.mailLoginButton.tap()
+        mailLoginViewPage.alertNewAccountButton.tap()
+        XCTAssertTrue(accountPropertyViewPage.exists)
+        
+    }
     // 日本語のキーボードのみ対応することにします。
     private var returnKey: XCUIElement {
         if app.keyboards.buttons["完了"].exists {

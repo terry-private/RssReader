@@ -16,7 +16,7 @@ final class AccountPropertyViewPage: PageObjectable {
         static let usernameTextField = "accountProperty_username_textField"
         static let confirmButton = "accountProperty_confirm_button"
         static let logoutButton = "accountProperty_logout_button"
-        static let backButton = "back"
+        static let backButton = "メールログイン"
         static let closeButton = "閉じる"
     }
     var view: XCUIElement {

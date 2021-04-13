@@ -13,6 +13,7 @@ final class MailLoginViewPage: PageObjectable {
         static let mailTextField = "mailLogin_mail_textField"
         static let passwordTextField = "mailLogin_password_textField"
         static let mailLoginButton = "mailLogin_login_button"
+        static let newAccountButton = "mailLogin_newAccount_button"
         static let backButton = "ログイン"
         static let newAccountAlert = "mailLogin_newAccount_alert"
         static let alertCancelButton = "キャンセル"
@@ -29,6 +30,9 @@ final class MailLoginViewPage: PageObjectable {
     }
     var mailLoginButton: XCUIElement {
         return app.buttons[A11y.mailLoginButton]
+    }
+    var newAccountButton: XCUIElement {
+        return app.buttons[A11y.newAccountButton]
     }
     var backButton: XCUIElement {
         return app.buttons[A11y.backButton].firstMatch
