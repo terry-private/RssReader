@@ -13,7 +13,7 @@ class MailLoginViewController: UIViewController, Transitioner {
     @IBOutlet weak var loginButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.accessibilityIdentifier = "mailLogin_view"
         mailTextField.layer.borderWidth = 1
         mailTextField.layer.borderColor = UIColor.opaqueSeparator.cgColor
         mailTextField.layer.cornerRadius = 8

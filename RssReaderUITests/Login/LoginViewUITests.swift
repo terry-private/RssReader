@@ -149,10 +149,12 @@ class LoginViewUITests: XCTestCase {
         XCTAssertFalse(returnKey.exists)
         
         // test032
-        // リターンキーが「完了」であることで標準キーボードに変わったかどうかの判定
+        // リターンキーがタッチできる状態なら標準キーボード
         mailLoginViewPage.passwordTextField.tap()
+        mailLoginViewPage.passwordTextField.clearAndEnterText(text: "")
+        XCTAssertFalse(returnKey.isEnabled)
         mailLoginViewPage.mailTextField.tap()
-        XCTAssertEqual(returnKey.label, "完了")
+        XCTAssertTrue(returnKey.isEnabled)
         
         // test033
         mailLoginViewPage.mailTextField.tap()
@@ -194,10 +196,10 @@ class LoginViewUITests: XCTestCase {
     
     // 日本語のキーボードのみ対応することにします。
     private var returnKey: XCUIElement {
-        if app.buttons["完了"].exists {
-            return app.buttons["完了"]
+        if app.keyboards.buttons["完了"].exists {
+            return app.keyboards.buttons["完了"]
         } else {
-            return app.buttons["done"]
+            return app.keyboards.buttons["done"]
         }
     }
 
