@@ -9,7 +9,7 @@ import XCTest
 
 final class MailLoginViewPage: PageObjectable {
     enum A11y {
-        static let pageTitle = "mailLogin_view"
+        static let view = "mailLogin_view"
         static let mailTextField = "mailLogin_mail_textField"
         static let passwordTextField = "mailLogin_password_textField"
         static let mailLoginButton = "mailLogin_login_button"
@@ -19,7 +19,7 @@ final class MailLoginViewPage: PageObjectable {
         static let alertNewAccountButton = "新規アカウント作成"
     }
     var view: XCUIElement {
-        return app.otherElements[A11y.pageTitle].firstMatch
+        return app.otherElements[A11y.view].firstMatch
     }
     var mailTextField: XCUIElement {
         return app.textFields[A11y.mailTextField]
