@@ -230,16 +230,24 @@ class LoginViewUITests: XCTestCase {
         // test 023
         XCTAssertEqual(mailLoginViewPage.passwordTextField.value as! String, password)
         
-        //test 038
+        // test 038
         mailLoginViewPage.mailLoginButton.tap()
         mailLoginViewPage.alertNewAccountButton.tap()
         XCTAssertTrue(accountPropertyViewPage.exists)
         
+        //  test 045
+        accountPropertyViewPage.mailTextField.tap()
+        XCTAssertTrue(app.keyboards.firstMatch.exists)
+        
+        // test 046
+        returnKey.tap()
+        XCTAssertFalse(app.keyboards.firstMatch.exists)
+        
     }
     // 日本語のキーボードのみ対応することにします。
     private var returnKey: XCUIElement {
-        // キーボードの表示アニメーションのラグを考慮して0.5秒探します。
-        if app.keyboards.buttons["完了"].waitForExistence(timeout: 0.5) {
+        // キーボードの表示アニメーションのラグを考慮して1秒探します。
+        if app.keyboards.buttons["完了"].waitForExistence(timeout: 1) {
             return app.keyboards.buttons["完了"]
         } else {
             return app.keyboards.buttons["done"]

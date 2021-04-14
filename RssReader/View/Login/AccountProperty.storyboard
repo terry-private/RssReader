@@ -47,7 +47,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lcB-yU-zwe">
                                                         <rect key="frame" x="0.0" y="20.5" width="300" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                         <connections>
                                                             <action selector="mailTextFieldTappedDone:" destination="LXO-Ef-2su" eventType="editingDidEndOnExit" id="NdG-Ad-qmI"/>
                                                         </connections>
@@ -66,7 +66,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6aC-rm-myL">
                                                         <rect key="frame" x="0.0" y="20.5" width="300" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                                         <connections>
                                                             <action selector="passwordTextFieldTappedDone:" destination="LXO-Ef-2su" eventType="editingDidEndOnExit" id="yFj-Fb-Ni1"/>
                                                         </connections>
@@ -85,7 +85,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u4i-Cc-qRu">
                                                         <rect key="frame" x="0.0" y="20.5" width="300" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                         <connections>
                                                             <action selector="usernameTextFieldTappedDone:" destination="LXO-Ef-2su" eventType="editingDidEndOnExit" id="F6h-BB-FrH"/>
                                                         </connections>
