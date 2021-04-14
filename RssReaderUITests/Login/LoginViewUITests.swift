@@ -196,9 +196,9 @@ class LoginViewUITests: XCTestCase {
     }
     
     // MARK:- newAccountViewUITest
-    // ○: 022~023 037~038 040~044
+    // ○: 022~023 037~038 040~051 053~055
     // △:
-    // ✖︎
+    // ✖︎: 052 イメージピッカー内の操作ができませんでした。
     private func newAccountViewUITest() {
         // メールログイン画面での入力値を取得
         let mailAddress = mailLoginViewPage.mailTextField.value as! String
