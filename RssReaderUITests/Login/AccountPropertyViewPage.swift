@@ -18,15 +18,22 @@ final class AccountPropertyViewPage: PageObjectable {
         static let logoutButton = "accountProperty_logout_button"
         static let backButton = "メールログイン"
         static let closeButton = "閉じる"
+        static let imagePickerView = "imagePicker_view"
     }
     var view: XCUIElement {
         return app.otherElements[A11y.view]
+    }
+    var profileImageButton: XCUIElement {
+        return app.buttons[A11y.profileImageButton]
     }
     var mailTextField: XCUIElement {
         return app.textFields[A11y.mailTextField]
     }
     var passwordTextField: XCUIElement {
         return app.secureTextFields[A11y.passwordTextField]
+    }
+    var usernameTextField: XCUIElement {
+        return app.textFields[A11y.usernameTextField]
     }
     var confirmButton: XCUIElement {
         return app.buttons[A11y.confirmButton]
@@ -39,5 +46,8 @@ final class AccountPropertyViewPage: PageObjectable {
     }
     var closeButton: XCUIElement {
         return app.buttons[A11y.closeButton].firstMatch
+    }
+    var imagePickerView: XCUIElement {
+        return app.otherElements[A11y.imagePickerView]
     }
 }

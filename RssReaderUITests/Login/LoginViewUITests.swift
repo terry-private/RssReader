@@ -243,6 +243,42 @@ class LoginViewUITests: XCTestCase {
         returnKey.tap()
         XCTAssertFalse(app.keyboards.firstMatch.exists)
         
+        // test 047
+        accountPropertyViewPage.passwordTextField.tap()
+        XCTAssertTrue(accountPropertyViewPage.exists)
+        
+        // test 048
+        returnKey.tap()
+        XCTAssertFalse(app.keyboards.firstMatch.exists)
+        
+        // test 049
+        accountPropertyViewPage.usernameTextField.tap()
+        XCTAssertTrue(accountPropertyViewPage.exists)
+        
+        // test 050
+        returnKey.tap()
+        XCTAssertFalse(app.keyboards.firstMatch.exists)
+        
+        // test 051
+        accountPropertyViewPage.profileImageButton.tap()
+        XCTAssertTrue(accountPropertyViewPage.imagePickerView.waitForExistence(timeout: 3))
+        
+        // test 052 画像の選択動作が表現できないため断念してキャンセルボタンで戻ります。
+        accountPropertyViewPage.imagePickerView.buttons.firstMatch.tap()
+        
+        // test 053 名前が空白状態
+        XCTAssertFalse(accountPropertyViewPage.confirmButton.isEnabled)
+        
+        // test 054 バリデーションOK
+        accountPropertyViewPage.usernameTextField.tap()
+        accountPropertyViewPage.usernameTextField.typeText("テスト")
+        returnKey.tap()
+        XCTAssertTrue(accountPropertyViewPage.confirmButton.isEnabled)
+        
+        // test055
+        accountPropertyViewPage.confirmButton.tap()
+        XCTAssertFalse(accountPropertyViewPage.view.exists)
+        
     }
     // 日本語のキーボードのみ対応することにします。
     private var returnKey: XCUIElement {

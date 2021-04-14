@@ -180,6 +180,7 @@ class AccountPropertyViewController: UIViewController, Transitioner {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
+        imagePickerController.view.accessibilityIdentifier = "imagePicker_view"
         self.present(imagePickerController, animated: true, completion: nil)
     }
     @IBAction func mailTextFieldTappedDone(_ sender: Any) {
