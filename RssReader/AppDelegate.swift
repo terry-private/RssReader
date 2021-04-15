@@ -38,6 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             CommonData.filterModel = FilterModel()
         #endif
         
+        // Testの時にアニメーションをオフにする
+        if ProcessInfo.processInfo.arguments.contains("-isUITest") {
+            UIView.setAnimationsEnabled(false)
+        }
+        
         
         return true
     }

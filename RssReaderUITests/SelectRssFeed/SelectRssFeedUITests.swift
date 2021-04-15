@@ -15,6 +15,7 @@ class SelectRssFeedUITests: XCTestCase {
     let selectYahooTagPage = SelectYahooTagViewPage()
     override func setUpWithError() throws {
         continueAfterFailure = false
+        app.launchArguments.append("-isUITest")
         app.launch()
     }
     

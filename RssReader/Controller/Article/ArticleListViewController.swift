@@ -42,6 +42,10 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         super.viewDidLoad()
         setUpTable()
         setUpCollection()
+        view.accessibilityIdentifier = "articleList_view"
+        articleTableView.accessibilityIdentifier = "articleList_table"
+        articleCollectionView.accessibilityIdentifier = "articleList_collectionView"
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,6 +114,7 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
     }
     func setUpBarItem() {
         let hamburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentFilterMenu))
+        hamburgerMenuButton.accessibilityIdentifier = "articleList_filterMenu_Button"
         hamburgerMenuButton.tintColor = .systemBlue
         navigationItem.leftBarButtonItem = hamburgerMenuButton
         navigationItem.title = "最新記事"
