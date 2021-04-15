@@ -12,6 +12,7 @@ class SelectRssFeedUITests: XCTestCase {
     let mainTabBar = MainTabBar()
     let selectedRssFeedPage = SelectRssFeedViewPage()
     let selectRssFeedTypePage = SelectRssFeedTypeViewPage()
+    let selectYahooTagPage = SelectYahooTagViewPage()
     override func setUpWithError() throws {
         continueAfterFailure = false
         app.launch()
@@ -19,11 +20,11 @@ class SelectRssFeedUITests: XCTestCase {
     
    
     // MARK:- mailLoginUITest
-    // ○: 056~063 065~067 070~071 073~076 078~080
-    // △: 019 033 034
+    // ○: 056~063 065~067 069~084
+    // △:
     // ✖︎: 064 068
     // RssFeedの登録がない状態でテストしてください。
-    func testNoneOfSelectedRssFeed() throws {
+    func testNoSelectedRssFeed() throws {
         if !selectedRssFeedPage.exists {
             mainTabBar.settingBar.tap()
             mainTabBar.articleListBar.tap()
@@ -125,6 +126,35 @@ class SelectRssFeedUITests: XCTestCase {
         // test 071
         XCTAssertFalse(selectedRssFeedPage.confirmButton.isEnabled)
         
+        // test 077
+        selectedRssFeedPage.addTypeCell.tap()
+        selectRssFeedTypePage.yahooCell.tap()
+        XCTAssertTrue(selectYahooTagPage.exists)
+        
+        // test 081
+        XCTAssertTrue(selectYahooTagPage.table.cells.count == 9)
+        
+        // test 082
+        selectYahooTagPage.backButton.tap()
+        XCTAssertFalse(selectYahooTagPage.exists)
+        
+        // test 083
+        selectRssFeedTypePage.yahooCell.tap()
+        selectYahooTagPage.view.swipeDown()
+        selectYahooTagPage.view.swipeDown()
+        XCTAssertFalse(selectYahooTagPage.exists)
+        XCTAssertFalse(selectRssFeedTypePage.exists)
+        
+        // test 084
+        selectedRssFeedPage.addTypeCell.tap()
+        selectRssFeedTypePage.yahooCell.tap()
+        selectYahooTagPage.cells[0].tap()
+        XCTAssertFalse(selectYahooTagPage.exists)
+        XCTAssertEqual(selectedRssFeedPage.selectRssFeedTable.cells.count, 2)
+        
+        // test 072
+        selectedRssFeedPage.confirmButton.tap()
+        XCTAssertFalse(selectedRssFeedPage.exists)
     }
     
 }
