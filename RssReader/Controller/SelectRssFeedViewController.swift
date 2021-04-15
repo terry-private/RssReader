@@ -29,12 +29,22 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTable()
+        setAccessibilityIdentifier()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         rssFeedKeySort()
     }
+    
+    // UITestにおいてXCUIElementを特定するために使います。
+    func setAccessibilityIdentifier() {
+        view.accessibilityIdentifier = "selectRssFeed_view"
+        selectRssFeedTableView.accessibilityIdentifier = "selectRssFeed_table"
+        selectedCountLabel.accessibilityIdentifier = "selectRssFeed_selectedCount_label"
+        confirmButton.accessibilityIdentifier = "selectRssFeed_confirm_button"
+    }
+    
     func setUpTable() {
         selectRssFeedTableView.delegate = self
         selectRssFeedTableView.dataSource = self

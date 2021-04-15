@@ -24,6 +24,7 @@ class SelectRssFeedTypeViewController: UIViewController, SelectRssFeedTypeViewCo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setAccessibilityIdentifier()
         rssFeedTypeListTableView.delegate = self
         rssFeedTypeListTableView.dataSource = self
         let closeButton = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: #selector(close))
@@ -31,6 +32,12 @@ class SelectRssFeedTypeViewController: UIViewController, SelectRssFeedTypeViewCo
     }
     @objc func close(){
         dismiss(animated: true)
+    }
+    
+    // UITestにおいてXCUIElementを特定するために使います。
+    func setAccessibilityIdentifier() {
+        view.accessibilityIdentifier = "selectRssFeedType_view"
+        rssFeedTypeListTableView.accessibilityIdentifier = "selectRssFeedType_table"
     }
 }
 
@@ -43,6 +50,14 @@ extension SelectRssFeedTypeViewController: UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = rssFeedTypeListTableView.dequeueReusableCell(withIdentifier: cellId) as! RssFeedTypeListTableViewCell
         cell.rssFeedType = CommonData.rssFeedListModel.typeList[indexPath.row]
+        switch indexPath.row {
+        case 0:
+            cell.accessibilityIdentifier = "selectRssFeedType_qiita_cell"
+        case 1:
+            cell.accessibilityIdentifier = "selectRssFeedType_yahoo_cell"
+        default:
+            print("indexPath.row is over")
+        }
         return cell
     }
     
