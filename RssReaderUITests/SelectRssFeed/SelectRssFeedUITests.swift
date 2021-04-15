@@ -124,6 +124,7 @@ class SelectRssFeedUITests: XCTestCase {
         
         // test 071
         XCTAssertFalse(selectedRssFeedPage.confirmButton.isEnabled)
+        
     }
     
 }
