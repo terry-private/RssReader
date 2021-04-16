@@ -39,6 +39,7 @@ class LoginViewController: UIViewController, Transitioner {
     private func setLineLoginButton() {
         // Create Login Button.
         let loginButton = LoginButton()
+        loginButton.accessibilityIdentifier = "line_login_button"
         loginButton.delegate = self
         
         // Configuration for permissions and presenting.
@@ -52,6 +53,7 @@ class LoginViewController: UIViewController, Transitioner {
     // MARK:- Mail Login Button
     private func setMailLoginButton() {
         let loginButton = UIButton()
+        loginButton.accessibilityIdentifier = "mail_login_button"
         loginButton.addTarget(self, action: #selector(tappedMailLoginButton), for: .touchUpInside)
         loginButton.layer.cornerRadius = 8
         loginButton.layer.backgroundColor = UIColor.systemIndigo.cgColor
@@ -71,49 +73,53 @@ class LoginViewController: UIViewController, Transitioner {
     // MARK:- Dummy Login Button
     private func setDummyLoginButton() {
         let loginButton = UIButton()
+        loginButton.accessibilityIdentifier = "dummy_login_button"
         loginButton.setTitle("ログインIDの入力", for: .normal)
         loginButton.setTitleColor(.systemBlue, for: .normal)
         loginButton.addTarget(self, action: #selector(tappedDummyLoginButton), for: .touchUpInside)
         stackView.addArrangedSubview(loginButton)
     }
     @objc func tappedDummyLoginButton() {
-        // アラート画面でloginIDを入力させます。
-        var alertTextField: UITextField?
         let alert = UIAlertController(title: "ログイン", message: "ログインIDを入力してください。", preferredStyle: UIAlertController.Style.alert)
+        alert.view.accessibilityIdentifier = "dummy_login_alert"
         
         // テキストフィールド追加
+        // アラート画面でloginIDを入力させます。
+        var alertTextField: UITextField?
         alert.addTextField(configurationHandler: {(textField: UITextField!) in
             alertTextField = textField
             textField.text = ""
             textField.placeholder = "半角英数字 8~12文字"
         })
-        
+        alertTextField?.accessibilityIdentifier = "dummy_login_id_textField"
+
         // キャンセルボタン追加
-        alert.addAction(
-            UIAlertAction(
+        let cancelButton = UIAlertAction(
                 title: "キャンセル",
                 style: UIAlertAction.Style.cancel,
-                handler: nil))
+                handler: nil
+        )
+        alert.addAction(cancelButton)
         
         // 確定ボタン追加
-        alert.addAction(
-            UIAlertAction(
-                title: "ログイン",
-                style: UIAlertAction.Style.default) { _ in
-                if let text = alertTextField?.text {
-                    if text == "" { return }
-                    if let error = self.validId(uid: text) {
-                        self.validError(error: error)
-                        return
-                    }
-                    CommonData.loginModel.userConfig.userID = text
-                    CommonData.loginModel.userConfig.displayName = text
-                    CommonData.loginModel.userConfig.latestLoginDate = Date()
-                    self.dismiss(animated: true)
-                    
+        let loginButton = UIAlertAction(
+            title: "ログイン",
+            style: UIAlertAction.Style.default) { _ in
+            if let text = alertTextField?.text {
+                if text == "" { return }
+                if let error = self.validId(uid: text) {
+                    self.validError(error: error)
+                    return
                 }
+                CommonData.loginModel.userConfig.userID = text
+                CommonData.loginModel.userConfig.displayName = text
+                CommonData.loginModel.userConfig.latestLoginDate = Date()
+                self.dismiss(animated: true)
+                
             }
-        )
+        }
+        alert.addAction(loginButton)
+        
         self.present(alert, animated: true, completion: nil)
     }
     private func validError(error: String) {
@@ -121,6 +127,7 @@ class LoginViewController: UIViewController, Transitioner {
                                               message: error,
                                               preferredStyle: .alert)
         errorAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        errorAlert.view.accessibilityIdentifier = "dummy_login_error_alert"
         self.present(errorAlert,animated: true,completion: nil)
     }
     
