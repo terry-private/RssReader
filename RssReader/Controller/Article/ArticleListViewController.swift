@@ -215,6 +215,9 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
             completionHandler(true)
         }
         let readImage = UIImage(systemName: "checkmark.circle.fill")
+        
+        // UITestでXCUIElementの特定のため
+        readAction.accessibilityLabel = "read_image"
         if !isRead { readAction.image = readImage }
         readAction.backgroundColor = isRead ? .systemGray3 : .systemBlue
         return UISwipeActionsConfiguration(actions: [readAction])
