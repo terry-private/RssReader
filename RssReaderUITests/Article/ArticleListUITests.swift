@@ -65,7 +65,7 @@ class ArticleListUITests: XCTestCase {
         }
         
         // test 106 107 113 114
-        // 未読のセルを左スワイプするとチェックボタンが存在する
+        // 最初が未読かどうかで処理の順番変えてます。
         XCTContext.runActivity(named: "test 106 107 113 114") { _ in
             if !articleListPage.tableFirstCell.isRead {
                 t106_113()

@@ -28,6 +28,7 @@ final class ArticleListViewPage: PageObjectable {
     var tableFirstCell: ArticleTableViewFirstCell {
         return ArticleTableViewFirstCell(table: table)
     }
+    var collectionViewFirstCell: ArticleCollectionViewFirstCell {
+        return ArticleCollectionViewFirstCell(collectionView: collectionView)
+    }
 }
-
-
