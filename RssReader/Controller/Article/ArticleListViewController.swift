@@ -274,6 +274,11 @@ extension ArticleListViewController: UICollectionViewDelegate, UICollectionViewD
                 CommonData.rssFeedListModel.changeLaterRead(articleKey: article.item.link, laterRead: !laterRead)
                 self.keysSort()
             }
+            
+            // テストのための設定
+            readAction.accessibilityIdentifier = read ? "collectionView_unRead_button" : "collectionView_read_button"
+            starAction.accessibilityIdentifier = newIsStar ? "collectionView_unStar_button": "collectionView_star_button"
+            laterReadAction.accessibilityIdentifier = laterRead ? "collectionView_unLaterRead_button": "collectionView_laterRead_button"
 
             return UIMenu(title: "編集", image: nil, identifier: nil, children: [readAction, starAction, laterReadAction])
         }
