@@ -38,6 +38,14 @@ class ArticleTableViewCell: UITableViewCell {
                 starImageView.alpha = 0
             }
             
+            // テスト用の設定
+            articleTitleLabel.accessibilityIdentifier = "articleTableViewCell_articleTitle_label"
+            
+            readCheckImageView.isAccessibilityElement = true
+            readCheckImageView.accessibilityIdentifier = "articleTableViewCell_read_image"
+            
+            starImageView.isAccessibilityElement = true
+            starImageView.accessibilityIdentifier = "articleTableViewCell_star_image"
         }
     }
     

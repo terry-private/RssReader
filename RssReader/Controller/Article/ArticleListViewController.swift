@@ -184,7 +184,8 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
         let starImage = UIImage(systemName: "star.fill")?.withTintColor(.white, renderingMode: .alwaysTemplate)
         starAction.image = starImage
         starAction.backgroundColor = .systemYellow
-        
+        // UITestでXCUIElementの特定のため
+        starAction.accessibilityLabel = "tableCell_star_button"
        
         let laterReadAction = UIContextualAction(style: .destructive, title:"laterRead") {
             (contextAction, view, completionHandler) in
@@ -193,6 +194,8 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
             self.keysSort()
             completionHandler(true)
         }
+        // UITestでXCUIElementの特定のため
+        laterReadAction.accessibilityLabel = "tableCell_laterRead_button"
         let laterReadImage = UIImage(systemName: "tray.fill")?.withTintColor(.white , renderingMode: .alwaysTemplate)
         laterReadAction.image = laterReadImage
         laterReadAction.backgroundColor = .systemGreen
@@ -214,10 +217,10 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
             self.keysSort()
             completionHandler(true)
         }
-        let readImage = UIImage(systemName: "checkmark.circle.fill")
-        
         // UITestでXCUIElementの特定のため
-        readAction.accessibilityLabel = "read_image"
+        readAction.accessibilityLabel = "tableCell_read_button"
+        
+        let readImage = UIImage(systemName: "checkmark.circle.fill")
         if !isRead { readAction.image = readImage }
         readAction.backgroundColor = isRead ? .systemGray3 : .systemBlue
         return UISwipeActionsConfiguration(actions: [readAction])

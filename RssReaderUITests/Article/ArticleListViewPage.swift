@@ -25,4 +25,9 @@ final class ArticleListViewPage: PageObjectable {
     var collectionView: XCUIElement {
         return app.collectionViews[A11y.articleListCollectionView]
     }
+    var tableFirstCell: ArticleTableViewFirstCell {
+        return ArticleTableViewFirstCell(table: table)
+    }
 }
+
+

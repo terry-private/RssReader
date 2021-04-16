@@ -18,6 +18,9 @@ class ArticleListUITests: XCTestCase {
 
 
     func testAfterLogin() throws {
+        MainTabBar().settingBar.tap()
+        app.tables.cells.element(boundBy: 2).segmentedControls.buttons.firstMatch.tap()
+        MainTabBar().articleListBar.tap()
         // test 0``
         if articleListPage.table.waitForExistence(timeout: 5) {
             tableCellTest()
@@ -26,14 +29,28 @@ class ArticleListUITests: XCTestCase {
         }
     }
     private func tableCellTest() {
-        let cell = articleListPage.table.cells.firstMatch
-        cell.swipeLeft()
-        cell.buttons["read_image"].tap()
+        // 最初のセルの記事のタイトルを取得しておきます。
+        let firstCellArticleTitle = articleListPage.tableFirstCell.articleTitleLabel.label
         
+        //test 105
+        //一旦
+        if articleListPage.tableFirstCell.isRead {
+            articleListPage.tableFirstCell.view.swipeLeft()
+            articleListPage.tableFirstCell.readButton.tap()
+        }
+        XCTAssertTrue(articleListPage.tableFirstCell.isRead)
+        
+        if articleListPage.tableFirstCell.isRead {
+            articleListPage.tableFirstCell.view.swipeLeft()
+            articleListPage.tableFirstCell.readButton.tap()
+        }
+        XCTAssertFalse(articleListPage.tableFirstCell.isRead)
+        
+        if articleListPage.tableFirstCell.isStar {
+            articleListPage.tableFirstCell.view.swipeRight()
+        }
     }
-
 }
-
 
 class ArticleListAnimationUITests: XCTestCase {
     let app = XCUIApplication()
