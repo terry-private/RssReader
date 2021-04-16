@@ -66,26 +66,24 @@ class LoginViewUITests: XCTestCase {
             alert.tappedErrorAlertOKButton()
             XCTAssertFalse(alert.errorAlert.exists)
             
-        // test 017
-        // 「8文字以上12文字以下」かつ「英数字以外を含む」の文字列を入力後
-        // ログインボタンを押すとアラート閉じて
-        // エラーアラートが表示（ログインIDは英数字のみです。）
-        loginViewPage.dummyLoginButton.tap()
-        alert.loginIdTextField.tap()
-        alert.loginIdTextField.typeText("1234567!")
-        alert.loginButton.tap()
-        XCTAssertTrue(alert.errorAlert.staticTexts["ログインIDは英数字のみです。"].exists)
-        
-        // test 015
-        // 「8文字以上12文字以下」かつ「英数字のみ」の文字列を入力後
-        // ログインボタンを押すとアラート閉じる
-        loginViewPage.dummyLoginButton.tap()
-        alert.loginIdTextField.tap()
-        alert.loginIdTextField.typeText("12345678")
-        alert.loginButton.tap()
-        XCTAssertFalse(loginViewPage.exists)
-
-
+            // test 017
+            // 「8文字以上12文字以下」かつ「英数字以外を含む」の文字列を入力後
+            // ログインボタンを押すとアラート閉じて
+            // エラーアラートが表示（ログインIDは英数字のみです。）
+            loginViewPage.dummyLoginButton.tap()
+            alert.loginIdTextField.tap()
+            alert.loginIdTextField.typeText("1234567!")
+            alert.loginButton.tap()
+            XCTAssertTrue(alert.errorAlert.staticTexts["ログインIDは英数字のみです。"].exists)
+            
+            // test 015
+            // 「8文字以上12文字以下」かつ「英数字のみ」の文字列を入力後
+            // ログインボタンを押すとアラート閉じる
+            loginViewPage.dummyLoginButton.tap()
+            alert.loginIdTextField.tap()
+            alert.loginIdTextField.typeText("12345678")
+            alert.loginButton.tap()
+            XCTAssertFalse(loginViewPage.exists)
         #else
             XCTAssertTrue(loginViewPage.lineLoginButton.exists)   // test003
             XCTAssertTrue(loginViewPage.mailLoginButton.exists)   // test004
