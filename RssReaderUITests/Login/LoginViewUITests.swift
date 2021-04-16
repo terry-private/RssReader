@@ -68,32 +68,30 @@ class LoginViewUITests: XCTestCase {
             dummyLoginAlert.tappedErrorAlertOKButton()
             XCTAssertFalse(dummyLoginAlert.errorAlert.exists)
             
-        // test 017
-        // 「8文字以上12文字以下」かつ「英数字以外を含む」の文字列を入力後
-        // ログインボタンを押すとアラート閉じて
-        // エラーアラートが表示（ログインIDは英数字のみです。）
-        loginViewPage.dummyLoginButton.tap()
-        dummyLoginAlert.loginIdTextField.tap()
-        dummyLoginAlert.loginIdTextField.typeText("1234567!")
-        dummyLoginAlert.loginButton.tap()
-        XCTAssertTrue(dummyLoginAlert.errorAlert.staticTexts["ログインIDは英数字のみです。"].exists)
-        
-        // test 015
-        // 「8文字以上12文字以下」かつ「英数字のみ」の文字列を入力後
-        // ログインボタンを押すとアラート閉じる
-        loginViewPage.dummyLoginButton.tap()
-        dummyLoginAlert.loginIdTextField.tap()
-        dummyLoginAlert.loginIdTextField.typeText("12345678")
-        dummyLoginAlert.loginButton.tap()
-        XCTAssertFalse(loginViewPage.exists)
-
-
+            // test 017
+            // 「8文字以上12文字以下」かつ「英数字以外を含む」の文字列を入力後
+            // ログインボタンを押すとアラート閉じて
+            // エラーアラートが表示（ログインIDは英数字のみです。）
+            loginViewPage.dummyLoginButton.tap()
+            dummyLoginAlert.loginIdTextField.tap()
+            dummyLoginAlert.loginIdTextField.typeText("1234567!")
+            dummyLoginAlert.loginButton.tap()
+            XCTAssertTrue(dummyLoginAlert.errorAlert.staticTexts["ログインIDは英数字のみです。"].exists)
+            
+            // test 015
+            // 「8文字以上12文字以下」かつ「英数字のみ」の文字列を入力後
+            // ログインボタンを押すとアラート閉じる
+            loginViewPage.dummyLoginButton.tap()
+            dummyLoginAlert.loginIdTextField.tap()
+            dummyLoginAlert.loginIdTextField.typeText("12345678")
+            dummyLoginAlert.loginButton.tap()
+            XCTAssertFalse(loginViewPage.exists)
         #else
             XCTAssertTrue(loginViewPage.lineLoginButton.exists)   // test003
             XCTAssertTrue(loginViewPage.mailLoginButton.exists)   // test004
             XCTAssertFalse(loginViewPage.dummyLoginButton.exists) // test005
-        loginViewPage.mailLoginButton.tap()
-        mailLoginUITest()
+            loginViewPage.mailLoginButton.tap()
+            mailLoginUITest()
         #endif
     }
     
