@@ -218,7 +218,7 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
             completionHandler(true)
         }
         // UITestでXCUIElementの特定のため
-        readAction.accessibilityLabel = "tableCell_read_button"
+        readAction.accessibilityLabel = isRead ? "tableCell_unRead_button": "tableCell_read_button"
         
         let readImage = UIImage(systemName: "checkmark.circle.fill")
         if !isRead { readAction.image = readImage }

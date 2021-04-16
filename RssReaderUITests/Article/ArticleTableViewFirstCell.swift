@@ -13,6 +13,7 @@ final class ArticleTableViewFirstCell: PageObjectable {
         static let starButton = "tableCell_star_button"
         static let laterReadButton = "tableCell_laterRead_button"
         static let readButton = "tableCell_read_button"
+        static let unReadButton = "tableCell_unRead_button"
         // セルの中身
         static let articleTitleLabel = "articleTableViewCell_articleTitle_label"
         static let readCheckImageView = "articleTableViewCell_read_image"
@@ -35,6 +36,9 @@ final class ArticleTableViewFirstCell: PageObjectable {
     var readButton: XCUIElement {
         return view.buttons[A11y.readButton]
     }
+    var unReadButton: XCUIElement {
+        return view.buttons[A11y.unReadButton]
+    }
     
     // セルの中身
     var articleTitleLabel: XCUIElement {
@@ -50,9 +54,9 @@ final class ArticleTableViewFirstCell: PageObjectable {
     
     // 状態フラグ
     var isRead: Bool {
-        return readImage.waitForExistence(timeout: 2)
+        return readImage.exists
     }
     var isStar: Bool {
-        return starImage.waitForExistence(timeout: 2)
+        return starImage.exists
     }
 }
