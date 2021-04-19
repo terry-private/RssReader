@@ -18,17 +18,19 @@ class ArticleListUITests: XCTestCase {
 
 
     func testAfterLogin() throws {
+        // コレクションビューのテスト
+        collectionViewCellTest()
+        
+        // tableViewへ切り替える動作
         MainTabBar().settingBar.tap()
         app.tables.cells.element(boundBy: 2).segmentedControls.buttons.firstMatch.tap()
         MainTabBar().articleListBar.tap()
-        // test 0``
-        if articleListPage.table.waitForExistence(timeout: 5) {
-            tableCellTest()
-        } else {
-            
-        }
+        
+        // テーブルのテスト
+        tableCellTest()
     }
     
+    // MARK:- テーブルのテスト
     private func tableCellTest() {
         // test 105
         // 右スワイプでスターボタンと後で読むボタンが表示
@@ -111,6 +113,87 @@ class ArticleListUITests: XCTestCase {
             XCTAssertFalse(articleListPage.tableFirstCell.isRead)
         }
     }
+    
+    // MARK:- コレクションビューのテスト
+    private func collectionViewCellTest() {
+        articleListPage.collectionViewFirstCell.view.press(forDuration: 1)
+        
+        // test 125
+        XCTContext.runActivity(named: "test 125") { _ in
+            XCTAssertTrue(articleListPage.collectionViewFirstCell.isOpenContextMenu)
+        }
+        
+        
+        // test 132
+        XCTContext.runActivity(named: "test 132") { _ in
+            app.tap()
+            XCTAssertFalse(articleListPage.collectionViewFirstCell.isOpenContextMenu)
+        }
+        
+        // test 133 134
+        // 条件によってtestの順番が入れ替わるので関数を定義しておきます。
+        func test133() {
+            // お気に入り解除ができるかどうか
+            XCTContext.runActivity(named: "test 133") { _ in
+                articleListPage.collectionViewFirstCell.view.press(forDuration: 1)
+                articleListPage.collectionViewFirstCell.unStarButton.tap()
+                XCTAssertFalse(articleListPage.collectionViewFirstCell.isStar)
+            }
+        }
+        func test134() {
+            // お気に入りにできるかどうか
+            XCTContext.runActivity(named: "test 134") { _ in
+                articleListPage.collectionViewFirstCell.view.press(forDuration: 1)
+            articleListPage.collectionViewFirstCell.starButton.tap()
+            XCTAssertTrue(articleListPage.collectionViewFirstCell.isStar)
+            }
+        }
+        if articleListPage.collectionViewFirstCell.isStar {
+            // 今「お気に入り」なら解除してから「お気に入り」に戻す流れでテストします。
+            test133()
+            test134()
+        } else {
+            // 今「お気に入り」じゃないなら「お気に入り」にしてから解除する流れでテストします。
+            test134()
+            test133()
+        }
+        
+        // test 135 136
+        func test135() {
+            // 未読にできるかどうか
+            XCTContext.runActivity(named: "test 135") { _ in
+                articleListPage.collectionViewFirstCell.view.press(forDuration: 1)
+                articleListPage.collectionViewFirstCell.unReadButton.tap()
+                XCTAssertFalse(articleListPage.collectionViewFirstCell.isRead)
+            }
+        }
+        func test136() {
+            // 既読にできるかどうか
+            XCTContext.runActivity(named: "test 136") { _ in
+                articleListPage.collectionViewFirstCell.view.press(forDuration: 1)
+                articleListPage.collectionViewFirstCell.readButton.tap()
+                XCTAssertTrue(articleListPage.collectionViewFirstCell.isRead)
+            }
+        }
+        if articleListPage.collectionViewFirstCell.isRead {
+            // 今が既読なら未読にしてから既読に戻す流れでテストします。
+            test135()
+            test136()
+        } else {
+            // 今が未読なら既読にしてから未読に戻す流れでテストします。
+            test136()
+            test135()
+        }
+        
+        // test 137
+        XCTContext.runActivity(named: "test 137") { _ in
+            let firstCellArticleTitle = articleListPage.collectionViewFirstCell.articleTitleLabel.label
+            articleListPage.collectionViewFirstCell.view.press(forDuration: 1)
+            articleListPage.collectionViewFirstCell.laterReadButton.tap()
+            XCTAssertNotEqual(articleListPage.collectionViewFirstCell.articleTitleLabel.label, firstCellArticleTitle)
+        }
+    }
+    
 }
 
 class ArticleListAnimationUITests: XCTestCase {

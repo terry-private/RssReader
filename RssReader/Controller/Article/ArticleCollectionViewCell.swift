@@ -59,8 +59,6 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             
             starImageView.isAccessibilityElement = true
             starImageView.accessibilityIdentifier = article!.isStar ? "collectionViewCell_star_image": "collectionViewCell_unStar_image"
-            
         }
     }
-    
 }

@@ -52,21 +52,44 @@ final class ArticleCollectionViewFirstCell: PageObjectable {
     
     // コンテテクストメニュー
     var readButton: XCUIElement {
-        return view.buttons[A11y.readButton]
+        return app.buttons[A11y.readButton]
     }
     var unReadButton: XCUIElement {
-        return view.buttons[A11y.unReadButton]
+        return app.buttons[A11y.unReadButton]
     }
     var starButton: XCUIElement {
-        return view.buttons[A11y.starButton]
+        return app.buttons[A11y.starButton]
     }
     var unStarButton: XCUIElement {
-        return view.buttons[A11y.unStarButton]
+        return app.buttons[A11y.unStarButton]
     }
     var laterReadButton: XCUIElement {
-        return view.buttons[A11y.laterReadButton]
+        return app.buttons[A11y.laterReadButton]
     }
     var unLaterReadButton: XCUIElement {
-        return view.buttons[A11y.unLaterReadButton]
+        return app.buttons[A11y.unLaterReadButton]
+    }
+    
+    // 状態
+    var isOpenContextMenu: Bool {
+        return readButton.exists || unReadButton.exists
+    }
+    var isStar: Bool {
+        if isOpenContextMenu {
+            return starButton.exists
+        } else {
+            return starImage.exists
+        }
+    }
+    var isRead: Bool {
+        if isOpenContextMenu {
+            return readButton.exists
+        } else {
+            return readImage.exists
+        }
+    }
+    var isLaterRead: Bool {
+        if !isOpenContextMenu { fatalError() }
+        return laterReadButton.exists
     }
 }
