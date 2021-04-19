@@ -9,7 +9,7 @@ import XCTest
 
 class SettingUITests: XCTestCase {
     let app = XCUIApplication()
-    let articleListPage = ArticleListViewPage()
+    let settingPage = SettingViewPage()
     override func setUpWithError() throws {
         continueAfterFailure = false
         app.launchArguments.append("-isUITest")
@@ -17,7 +17,22 @@ class SettingUITests: XCTestCase {
     }
 
     func testAfterLogin() throws {
-        
+        MainTabBar().settingBar.tap()
+        settingPage.elementsExist([
+            settingPage.view,
+            settingPage.table,
+            settingPage.accountCell,
+            settingPage.accountImage,
+            settingPage.accountNameLabel,
+            settingPage.timeIntervalSegmentedControl,
+            settingPage.displayModeSegmentedControl,
+            settingPage.rssFeedFirstCell,
+            settingPage.firstFaviconImage,
+            settingPage.firstRssFeedTitle,
+            settingPage.firstTagName,
+            settingPage.addRssFeedCell
+        ], timeout: 1)
+    
     }
 
 }

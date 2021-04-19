@@ -14,9 +14,15 @@ final class SettingViewPage: PageObjectable {
         static let accountCell = "setting_account_cell"
         static let accountImage = "setting_account_image"
         static let accountNameLabel = "setting_accountName_label"
-        static let timeIntervalSegmentControl = "setting_timeInterval_segmentControl"
-        static let displayModeSegmentControl = "setting_displayMode_segmentControl"
+        static let timeIntervalSegmentedControl = "setting_timeInterval_segmentedControl"
+        static let displayModeSegmentedControl = "setting_displayMode_segmentedControl"
+        
+        // RssFeedCell
         static let rssFeedFirstCell = "setting_rssFeed_cell"
+        static let faviconImage = "rssFeedTableViewCell_favicon_image"
+        static let titleLabel = "rssFeedTableViewCell_title_label"
+        static let tagNameLabel = "rssFeedTableViewCell_tagName_label"
+        static let addRssFeedCell = "setting_addRssFees_cell"
     }
     var view: XCUIElement {
         return app.otherElements[A11y.view].firstMatch
@@ -25,7 +31,7 @@ final class SettingViewPage: PageObjectable {
         return view.tables[A11y.table]
     }
     var accountCell: XCUIElement {
-        return table.cells.element(boundBy: 0)
+        return table.cells[A11y.accountCell]
     }
     var accountImage: XCUIElement {
         return accountCell.images[A11y.accountImage]
@@ -33,13 +39,29 @@ final class SettingViewPage: PageObjectable {
     var accountNameLabel: XCUIElement {
         return accountCell.staticTexts[A11y.accountNameLabel]
     }
-    var timeIntervalSegmentControl: XCUIElement {
-        return app.segmentedControls[A11y.timeIntervalSegmentControl]
+    var timeIntervalSegmentedControl: XCUIElement {
+        return app.segmentedControls[A11y.timeIntervalSegmentedControl]
     }
-    var displayModeSegmentControl: XCUIElement {
-        return app.segmentedControls[A11y.displayModeSegmentControl]
+    var displayModeSegmentedControl: XCUIElement {
+        return app.segmentedControls[A11y.displayModeSegmentedControl]
     }
+    
+    // RssFeedCell
     var rssFeedFirstCell: XCUIElement {
-        return table.cells.element(boundBy: 3)
+        return table.cells[A11y.rssFeedFirstCell].firstMatch
+    }
+    var firstFaviconImage: XCUIElement {
+        return rssFeedFirstCell.images[A11y.faviconImage]
+    }
+    var firstRssFeedTitle: XCUIElement {
+        return rssFeedFirstCell.staticTexts[A11y.titleLabel]
+    }
+    var firstTagName: XCUIElement {
+        return rssFeedFirstCell.staticTexts[A11y.tagNameLabel]
+    }
+    
+    // AddRssFeedCell
+    var addRssFeedCell: XCUIElement {
+        return table.cells[A11y.addRssFeedCell]
     }
 }
