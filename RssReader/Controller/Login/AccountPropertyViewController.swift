@@ -32,34 +32,43 @@ class AccountPropertyViewController: UIViewController, Transitioner {
     // MAEK:- ライフサイクル系
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.accessibilityIdentifier = "accountProperty_view"
         setupNotification()
+        
         profileImageButton.layer.cornerRadius = profileImageButton.bounds.width / 2
         profileImageButton.layer.borderWidth = 1
         profileImageButton.layer.borderColor = UIColor.opaqueSeparator.cgColor
+        profileImageButton.accessibilityIdentifier = "accountProperty_profileImage_button"
         
         mailTextField.layer.borderWidth = 1
         mailTextField.layer.borderColor = UIColor.opaqueSeparator.cgColor
         mailTextField.layer.cornerRadius = 8
         mailTextField.delegate = self
+        mailTextField.accessibilityIdentifier = "accountProperty_mail_textField"
         
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor.opaqueSeparator.cgColor
         passwordTextField.layer.cornerRadius = 8
         passwordTextField.delegate = self
+        passwordTextField.accessibilityIdentifier = "accountProperty_password_textField"
         
         usernameTextField.layer.borderWidth = 1
         usernameTextField.layer.borderColor = UIColor.opaqueSeparator.cgColor
         usernameTextField.layer.cornerRadius = 8
         usernameTextField.delegate = self
+        usernameTextField.accessibilityIdentifier = "accountProperty_username_textField"
         
         confirmButton.setTitleColor(.white, for: .normal)
         confirmButton.setTitleColor(.secondaryLabel, for: .highlighted)
         confirmButton.layer.cornerRadius = 8
+        confirmButton.accessibilityIdentifier = "accountProperty_confirm_button"
         
         confirmButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         confirmButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         confirmButton.setTitleColor(.white, for: .normal)
         confirmButton.setTitleColor(.lightGray, for: .highlighted)
+        
+        logoutButton.accessibilityIdentifier = "accountProperty_logout_button"
         
         switch useCase {
         case .NewAccount:
@@ -171,6 +180,7 @@ class AccountPropertyViewController: UIViewController, Transitioner {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
+        imagePickerController.view.accessibilityIdentifier = "imagePicker_view"
         self.present(imagePickerController, animated: true, completion: nil)
     }
     @IBAction func mailTextFieldTappedDone(_ sender: Any) {

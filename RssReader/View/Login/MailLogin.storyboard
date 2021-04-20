@@ -102,6 +102,7 @@
                     <connections>
                         <outlet property="loginButton" destination="LoN-r3-hnQ" id="ai7-7B-lfJ"/>
                         <outlet property="mailTextField" destination="cYj-sb-1Bd" id="3d8-WF-UXm"/>
+                        <outlet property="newAccountButton" destination="5GZ-Mt-7Qw" id="bRK-TD-f9g"/>
                         <outlet property="passwordTextField" destination="f77-oM-zCq" id="HMh-Xc-wjq"/>
                     </connections>
                 </viewController>

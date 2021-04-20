@@ -11,6 +11,7 @@ class MailLoginViewController: UIViewController, Transitioner {
     @IBOutlet weak var mailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var newAccountButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.accessibilityIdentifier = "mailLogin_view"
@@ -34,6 +35,7 @@ class MailLoginViewController: UIViewController, Transitioner {
         loginButton.setTitleColor(.lightGray, for: .highlighted)
         loginButton.accessibilityIdentifier = "mailLogin_login_button"
         
+        newAccountButton.accessibilityIdentifier = "mailLogin_newAccount_button"
         validation()
     }
     
