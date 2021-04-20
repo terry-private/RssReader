@@ -50,4 +50,15 @@ final class AccountPropertyViewPage: PageObjectable {
     var imagePickerView: XCUIElement {
         return app.otherElements[A11y.imagePickerView]
     }
+    
+    @discardableResult
+    func inputTestAccount() -> Self{
+        mailTextField.clearAndEnterText(text: "test@test.com")
+        view.tap()
+        passwordTextField.clearAndEnterText(text: "123456")
+        view.tap()
+        usernameTextField.clearAndEnterText(text: "テスト")
+        view.tap()
+        return self
+    }
 }

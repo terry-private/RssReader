@@ -22,7 +22,7 @@ final class SettingViewPage: PageObjectable {
         static let faviconImage = "rssFeedTableViewCell_favicon_image"
         static let titleLabel = "rssFeedTableViewCell_title_label"
         static let tagNameLabel = "rssFeedTableViewCell_tagName_label"
-        static let addRssFeedCell = "setting_addRssFees_cell"
+        static let addRssFeedCell = "setting_addRssFeed_cell"
     }
     var view: XCUIElement {
         return app.otherElements[A11y.view].firstMatch
@@ -63,5 +63,11 @@ final class SettingViewPage: PageObjectable {
     // AddRssFeedCell
     var addRssFeedCell: XCUIElement {
         return table.cells[A11y.addRssFeedCell]
+    }
+    
+    @discardableResult
+    func toAccountProperty() -> AccountPropertyViewPage {
+        accountCell.tap()
+        return AccountPropertyViewPage()
     }
 }

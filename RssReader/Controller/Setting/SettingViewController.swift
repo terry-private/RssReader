@@ -100,6 +100,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             cell.accessibilityIdentifier = "setting_account_cell"
             cell.myImageView.isAccessibilityElement = true
             cell.myImageView.accessibilityIdentifier = "setting_account_image"
+            cell.myDisplayNameLabel.accessibilityIdentifier = "setting_accountName_label"
             return cell
             
         case 1:
@@ -123,7 +124,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = settingTableView.dequeueReusableCell(withIdentifier: addNewCellId, for: indexPath) as! AddNewRssFeedTableViewCell
                 
                 // テストのための設定
-                cell.accessibilityIdentifier = "setting_addRssFees_cell"
+                cell.accessibilityIdentifier = "setting_addRssFeed_cell"
                 return cell
             }
             
