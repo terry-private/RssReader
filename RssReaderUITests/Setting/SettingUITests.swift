@@ -17,11 +17,79 @@ class SettingUITests: XCTestCase {
         app.launch()
     }
     
-    // LINEログインしている状態でのテストです。
+    // MARK:- DebugDummyビルド時のテストです。
+    func testDummyBuild() throws {
+        #if !DebugDummy
+            return
+        #endif
+        
+        LoginViewPage().dummySetUp()
+        MainTabBar().settingBar.tap()
+        
+        // test 237
+        XCTContext.runActivity(named: "test 236") { _ in
+            settingPage.accountCell.tap()
+            XCTAssertTrue(LoginViewPage().exists)
+        }
+    }
+    
+    // MARK:- LINEログインしている状態でのテストです。
     func testAfterLineLogin() throws {
+        #if DebugDummy || DebugNonSecure
+            return
+        #endif
+        
+        MainTabBar().settingBar.tap()
+        
+        // test 236
+        // LINEログアウトのアラート表示
+        XCTContext.runActivity(named: "test 236") { _ in
+            settingPage.accountCell.tap()
+            XCTAssertTrue(settingPage.alert.exists)
+        }
+        
+        
+        // test 249
+        // LINEログアウトアラートのキャンセルボタンの動作確認
+        XCTContext.runActivity(named: "test 249") { _ in
+            settingPage.alertCancelButton.tap()
+            XCTAssertFalse(settingPage.alert.exists)
+        }
+        
+        #if DebugSecure || DebugNonSecure
+            // test 252
+            // Releaseビルド以外で「トークンの更新」ボタンが表示
+            XCTContext.runActivity(named: "test 252") { _ in
+                settingPage.accountCell.tap()
+                XCTAssertTrue(settingPage.alertRefreshButton.exists)
+            }
+            
+            // test 253
+            // Releaseビルド以外で「トークンの更新」ボタンの動作確認
+            XCTContext.runActivity(named: "test 253") { _ in
+                settingPage.alertRefreshButton.tap()
+                XCTAssertFalse(settingPage.alert.exists)
+            }
+            // alertを開き直しておきます。
+            settingPage.accountCell.tap()
+        #else
+            // test 251
+            // Releaseビルドで「トークンの更新」ボタンが非表示
+            XCTContext.runActivity(named: "test 251") { _ in
+                XCTAssertFalse(settingPage.alertRefreshButton.exists)
+            }
+        #endif
+        
+        // test 250
+        // LINEログアウトボタンの動作確認
+        XCTContext.runActivity(named: "test 250") { _ in
+            settingPage.alertLogoutButton.tap()
+            XCTAssertTrue(LoginViewPage().exists)
+        }
         
     }
 
+    // MARK:- メールアカウントでのログイン状態でのテスト
     func testAfterMailLogin() throws {
         MainTabBar().settingBar.tap()
         accountPageTest()
@@ -114,12 +182,14 @@ class SettingUITests: XCTestCase {
         }
         
         // test 248
+        // AddRssFeedButtonの動作確認
         XCTContext.runActivity(named: "test 248") { _ in
             settingPage.addRssFeedCell.tap()
             XCTAssertTrue(SelectRssFeedTypeViewPage().exists)
         }
         
         //　後処理
+        // RssFeed追加画面を一旦閉じて、Qiitaの「iOS」タグの記事を追加して終了
         SelectRssFeedTypeViewPage().cancelButton.tap()
         settingPage.addNewQiita("iOS")
     }

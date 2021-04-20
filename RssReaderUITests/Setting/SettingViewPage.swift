@@ -24,6 +24,9 @@ final class SettingViewPage: PageObjectable {
         static let tagNameLabel = "rssFeedTableViewCell_tagName_label"
         static let addRssFeedCell = "setting_addRssFeed_cell"
         static let swipeDeleteButton = "Delete"
+        
+        // LINE logout alert
+        static let alert = "setting_lineLogout_alert"
     }
     var view: XCUIElement {
         return app.otherElements[A11y.view].firstMatch
@@ -72,7 +75,24 @@ final class SettingViewPage: PageObjectable {
         return table.cells[A11y.addRssFeedCell]
     }
     
+    // LINE logout alert
+    var alert: XCUIElement {
+        return app.alerts[A11y.alert]
+    }
     
+    var alertCancelButton: XCUIElement {
+        return alert.buttons["キャンセル"].firstMatch
+    }
+    
+    var alertLogoutButton: XCUIElement {
+        return alert.buttons["ログアウト"].firstMatch
+    }
+    
+    var alertRefreshButton: XCUIElement {
+        return alert.buttons["トークンの更新"]
+    }
+    
+    // MARK:- メソッド
     @discardableResult
     func toAccountProperty() -> AccountPropertyViewPage {
         accountCell.tap()
@@ -81,8 +101,6 @@ final class SettingViewPage: PageObjectable {
     
     func addNewQiita(_ tag: String) {
         addRssFeedCell.tap()
-        SelectRssFeedTypeViewPage().qiitaCell.tap()
-        SelectRssFeedTypeViewPage().alertTextField.clearAndEnterText(text: tag)
-        SelectRssFeedTypeViewPage().alertConfirmButton.tap()
+        SelectRssFeedTypeViewPage().addNewQiita(tag)
     }
 }
