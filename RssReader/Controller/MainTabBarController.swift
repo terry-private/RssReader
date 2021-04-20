@@ -23,29 +23,35 @@ class MainTabBarController: UITabBarController, Transitioner {
             articleListViewController.inject(
                 articleListRouter: articleListRouter
             )
-            articleListViewController.tabBarItem = UITabBarItem(title: "最新記事", image: UIImage(systemName: "list.bullet.rectangle"), tag: 0)
+            let bar = UITabBarItem(title: "最新記事", image: UIImage(systemName: "list.bullet.rectangle"), tag: 0)
+            bar.accessibilityIdentifier = "articleList_bar"
+            articleListViewController.tabBarItem = bar
             return UINavigationController(articleListViewController)
         }
     }
     
     private var laterReadNav: UINavigationController {
         let laterReadListViewController = UIStoryboard(name: "LaterReadList", bundle: nil).instantiateViewController(identifier: "LaterReadListViewController") as! LaterReadListViewController
-        
-        laterReadListViewController.tabBarItem = UITabBarItem(title: "後で読む", image: UIImage(systemName: "tray"), tag: 0)
+        let bar = UITabBarItem(title: "後で読む", image: UIImage(systemName: "tray"), tag: 0)
+        bar.accessibilityIdentifier = "laterRead_bar"
+        laterReadListViewController.tabBarItem = bar
         return UINavigationController(laterReadListViewController)
     }
     
     private var starListNav: UINavigationController {
         let starListViewController = UIStoryboard(name: "StarList", bundle: nil).instantiateViewController(identifier: "StarListViewController") as! StarListViewController
-        
-        starListViewController.tabBarItem = UITabBarItem(title: "お気に入り", image: UIImage(systemName: "star"), tag: 0)
+        let bar = UITabBarItem(title: "お気に入り", image: UIImage(systemName: "star"), tag: 0)
+        bar.accessibilityIdentifier = "starList_bar"
+        starListViewController.tabBarItem = bar
         return UINavigationController(starListViewController)
     }
     
     private var settingNav: UINavigationController {
         get {
             let settingViewController = UIStoryboard(name: "Setting", bundle: nil).instantiateViewController(identifier: "SettingViewController") as! SettingViewController
-            settingViewController.tabBarItem = UITabBarItem(title: "設定", image: UIImage(systemName: "gear"), tag: 0)
+            let bar = UITabBarItem(title: "設定", image: UIImage(systemName: "gear"), tag: 0)
+            bar.accessibilityIdentifier = "setting_bar"
+            settingViewController.tabBarItem = bar
             
             return UINavigationController(settingViewController)
         }
@@ -56,7 +62,7 @@ class MainTabBarController: UITabBarController, Transitioner {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTab()
-        
+        tabBar.accessibilityIdentifier = "main_tabBar"
     }
 
     func setupTab() {
