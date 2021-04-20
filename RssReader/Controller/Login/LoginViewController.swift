@@ -14,6 +14,7 @@ class LoginViewController: UIViewController, Transitioner {
     let stackView = UIStackView()
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.accessibilityIdentifier = "login_view"
         view.addSubview(stackView)
         stackView.spacing = 20
         stackView.axis = .vertical

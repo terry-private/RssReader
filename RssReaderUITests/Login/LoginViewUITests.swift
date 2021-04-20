@@ -88,7 +88,135 @@ class LoginViewUITests: XCTestCase {
             XCTAssertTrue(loginViewPage.lineLoginButton.exists)   // test003
             XCTAssertTrue(loginViewPage.mailLoginButton.exists)   // test004
             XCTAssertFalse(loginViewPage.dummyLoginButton.exists) // test005
+        loginViewPage.mailLoginButton.tap()
+        mailLoginUITest()
         #endif
     }
+    
+    // MARK:- mailLoginUITest
+    // ○: 008 019~021 024~032 036
+    // △: 019 033 034
+    // ✖︎: 022 023 035
+    private func mailLoginUITest() {
+        let loginViewPage = LoginViewPage()
+        let mailLoginViewPage = MailLoginViewPage()
+        XCTAssertTrue(mailLoginViewPage.exists)                         // test008
+        XCTAssertFalse(mailLoginViewPage.mailLoginButton.isEnabled)     // test019
+        XCTAssertEqual(mailLoginViewPage.mailTextField.label, "")       // test020
+        XCTAssertEqual(mailLoginViewPage.passwordTextField.label, "")   // test021
+        XCTAssertTrue(mailLoginViewPage.backButton.exists)
+        mailLoginViewPage.backButton.tap()
+        
+        XCTAssertTrue(loginViewPage.exists) // test024
+        
+        loginViewPage.mailLoginButton.tap()
+        
+        
+        mailLoginViewPage.mailTextField.tap()
+        XCTAssertTrue(returnKey.exists)     // test025 キーボードのリターンキーがあるかどうかでキーボードが開いたかどうかの確認をしています。
+        app.staticTexts["メールアドレス"].tap()    // メールアドレスラベルをタップで任意の箇所タップを表現します。
+        XCTAssertFalse(returnKey.exists) // test026
+        
+        mailLoginViewPage.mailTextField.tap()
+        returnKey.tap()
+        XCTAssertFalse(returnKey.exists) // test027
+        
+        mailLoginViewPage.mailTextField.tap()
+        mailLoginViewPage.passwordTextField.tap()
+        
+        // test028
+        // ・リターンキーが「Done」であること
+        // ・空文字状態だとリターンキーが押せない状態
+        // ↑でパスワード用のキーボードに変わったかどうかの判定
+        XCTAssertEqual(returnKey.label, "done")
+        XCTAssertFalse(returnKey.isEnabled)
+        
+        // test030
+        // メールアドレスラベルをタップで任意の箇所タップを表現します。
+        app.staticTexts["メールアドレス"].tap()
+        XCTAssertFalse(returnKey.exists)
+        
+        // test029
+        mailLoginViewPage.passwordTextField.tap()
+        XCTAssertTrue(returnKey.exists)
+        
+        // test031
+        // 空文字だとリターンキーが押せないので１を入力してテストします。
+        mailLoginViewPage.passwordTextField.typeText("1")
+        returnKey.tap()
+        XCTAssertFalse(returnKey.exists)
+        
+        // test032
+        // リターンキーがタッチできる状態なら標準キーボード
+        mailLoginViewPage.passwordTextField.tap()
+        mailLoginViewPage.passwordTextField.clearAndEnterText(text: "")
+        XCTAssertFalse(returnKey.isEnabled)
+        mailLoginViewPage.mailTextField.tap()
+        XCTAssertTrue(returnKey.isEnabled)
+        
+        // test033
+        mailLoginViewPage.mailTextField.tap()
+        mailLoginViewPage.mailTextField.typeText("test@test.com")
+        mailLoginViewPage.passwordTextField.tap()
+        mailLoginViewPage.passwordTextField.typeText("123456")
+        returnKey.tap()
+        XCTAssertTrue(mailLoginViewPage.mailLoginButton.isEnabled)
+        
+        // test034　２種類試します。
+            // メールアドレスの形式だけおかしい場合
+        mailLoginViewPage.mailTextField.clearAndEnterText(text: "test@test")
+        mailLoginViewPage.passwordTextField.tap()
+        mailLoginViewPage.passwordTextField.typeText("123456")
+        returnKey.tap()
+        XCTAssertFalse(mailLoginViewPage.mailLoginButton.isEnabled)
+        
+            // パスワードだけおかしい場合
+        mailLoginViewPage.mailTextField.clearAndEnterText(text: "test@test.com")
+        mailLoginViewPage.passwordTextField.tap()
+        mailLoginViewPage.passwordTextField.typeText("12345")
+        returnKey.tap()
+        XCTAssertFalse(mailLoginViewPage.mailLoginButton.isEnabled)
+        
+        // test 036　メールログインボタンで新規アカウント作成アラートへの遷移
+        // 一旦正しいメールアドレスとパスワードにします。
+        mailLoginViewPage.passwordTextField.tap()
+        mailLoginViewPage.passwordTextField.typeText("123456")
+        returnKey.tap()
+        // ここからが手順
+        mailLoginViewPage.mailLoginButton.tap()
+        XCTAssertTrue(mailLoginViewPage.newAccountAlert.exists)
+        
+        // test 039 新規アカウント作成アラートのキャンセルボタンでアラートが閉じる
+        mailLoginViewPage.alertCancelButton.tap()
+        XCTAssertFalse(mailLoginViewPage.newAccountAlert.exists)
+        
+    }
+    
+    // 日本語のキーボードのみ対応することにします。
+    private var returnKey: XCUIElement {
+        if app.keyboards.buttons["完了"].exists {
+            return app.keyboards.buttons["完了"]
+        } else {
+            return app.keyboards.buttons["done"]
+        }
+    }
 
+}
+
+
+extension XCUIElement {
+    /**
+     Removes any current text in the field before typing in the new value
+     - Parameter text: the text to enter into the field
+     */
+    func clearAndEnterText(text: String) {
+        guard let stringValue = self.value as? String else {
+            XCTFail("Tried to clear and enter text into a non string value")
+            return
+        }
+        self.tap()
+        let deleteString = String(repeating: XCUIKeyboardKey.delete.rawValue, count: stringValue.count)
+        self.typeText(deleteString)
+        self.typeText(text)
+    }
 }

@@ -67,6 +67,7 @@
 		09902FA7261FF7D300B2B9A0 /* PageObjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902FA6261FF7D300B2B9A0 /* PageObjectable.swift */; };
 		09902FAD261FFF4E00B2B9A0 /* LoginViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902FAC261FFF4E00B2B9A0 /* LoginViewPage.swift */; };
 		09902FB6262036DF00B2B9A0 /* DummyLoginAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902FB5262036DF00B2B9A0 /* DummyLoginAlert.swift */; };
+		09902FC52623E99A00B2B9A0 /* MailLoginViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902FC42623E99A00B2B9A0 /* MailLoginViewPage.swift */; };
 		099BB88A25DCA816003AF947 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 099BB88925DCA816003AF947 /* Setting.storyboard */; };
 		099BB88F25DCDAA8003AF947 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BB88E25DCDAA8003AF947 /* SettingViewController.swift */; };
 		099BB89525DD035A003AF947 /* AccountProperty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 099BB89425DD035A003AF947 /* AccountProperty.xib */; };
@@ -172,6 +173,7 @@
 		09902FA6261FF7D300B2B9A0 /* PageObjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageObjectable.swift; sourceTree = "<group>"; };
 		09902FAC261FFF4E00B2B9A0 /* LoginViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewPage.swift; sourceTree = "<group>"; };
 		09902FB5262036DF00B2B9A0 /* DummyLoginAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyLoginAlert.swift; sourceTree = "<group>"; };
+		09902FC42623E99A00B2B9A0 /* MailLoginViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailLoginViewPage.swift; sourceTree = "<group>"; };
 		099BB88925DCA816003AF947 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		099BB88E25DCDAA8003AF947 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		099BB89425DD035A003AF947 /* AccountProperty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountProperty.xib; sourceTree = "<group>"; };
@@ -415,6 +417,7 @@
 				09902F9B261EB41600B2B9A0 /* LoginViewUITests.swift */,
 				09902FAC261FFF4E00B2B9A0 /* LoginViewPage.swift */,
 				09902FB5262036DF00B2B9A0 /* DummyLoginAlert.swift */,
+				09902FC42623E99A00B2B9A0 /* MailLoginViewPage.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -872,6 +875,7 @@
 			files = (
 				09902FA7261FF7D300B2B9A0 /* PageObjectable.swift in Sources */,
 				09902F9C261EB41700B2B9A0 /* LoginViewUITests.swift in Sources */,
+				09902FC52623E99A00B2B9A0 /* MailLoginViewPage.swift in Sources */,
 				09B8033F2590CF9300CA2D19 /* RssReaderUITests.swift in Sources */,
 				09902FB6262036DF00B2B9A0 /* DummyLoginAlert.swift in Sources */,
 				09902FAD261FFF4E00B2B9A0 /* LoginViewPage.swift in Sources */,
