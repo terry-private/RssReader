@@ -70,6 +70,7 @@
 		098FCCA1262D55930060F40A /* SettingViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCCA0262D55930060F40A /* SettingViewPage.swift */; };
 		098FCCA9262D55B20060F40A /* SettingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCCA8262D55B20060F40A /* SettingUITests.swift */; };
 		098FCCB2262D8A640060F40A /* extension_XCUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCCB1262D8A640060F40A /* extension_XCUIElement.swift */; };
+		098FCCC6262EA0C70060F40A /* extension_XCUIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCCC5262EA0C70060F40A /* extension_XCUIApplication.swift */; };
 		09902EF42611056A00B2B9A0 /* MailLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09902EF32611056A00B2B9A0 /* MailLogin.storyboard */; };
 		09902EFA2611084300B2B9A0 /* MailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902EF92611084300B2B9A0 /* MailLoginViewController.swift */; };
 		09902F032611B25100B2B9A0 /* AccountProperty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09902F022611B25100B2B9A0 /* AccountProperty.storyboard */; };
@@ -189,6 +190,7 @@
 		098FCCA0262D55930060F40A /* SettingViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewPage.swift; sourceTree = "<group>"; };
 		098FCCA8262D55B20060F40A /* SettingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUITests.swift; sourceTree = "<group>"; };
 		098FCCB1262D8A640060F40A /* extension_XCUIElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_XCUIElement.swift; sourceTree = "<group>"; };
+		098FCCC5262EA0C70060F40A /* extension_XCUIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_XCUIApplication.swift; sourceTree = "<group>"; };
 		09902EF32611056A00B2B9A0 /* MailLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MailLogin.storyboard; sourceTree = "<group>"; };
 		09902EF92611084300B2B9A0 /* MailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailLoginViewController.swift; sourceTree = "<group>"; };
 		09902F022611B25100B2B9A0 /* AccountProperty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountProperty.storyboard; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 			isa = PBXGroup;
 			children = (
 				098FCCB1262D8A640060F40A /* extension_XCUIElement.swift */,
+				098FCCC5262EA0C70060F40A /* extension_XCUIApplication.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -951,6 +954,7 @@
 				098FCC9B26299C4D0060F40A /* ArticleCollectionViewFirstCell.swift in Sources */,
 				098FCCB2262D8A640060F40A /* extension_XCUIElement.swift in Sources */,
 				09902FDF26257C8400B2B9A0 /* AccountPropertyViewPage.swift in Sources */,
+				098FCCC6262EA0C70060F40A /* extension_XCUIApplication.swift in Sources */,
 				098FCC6826281C020060F40A /* ArticleListUITests.swift in Sources */,
 				098FCC62262805310060F40A /* SelectYahooTagViewPage.swift in Sources */,
 				09902FA7261FF7D300B2B9A0 /* PageObjectable.swift in Sources */,

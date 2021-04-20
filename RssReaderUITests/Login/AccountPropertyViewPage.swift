@@ -53,12 +53,12 @@ final class AccountPropertyViewPage: PageObjectable {
     
     @discardableResult
     func inputTestAccount() -> Self{
-        mailTextField.clearAndEnterText(text: "test@test.com")
-        view.tap()
-        passwordTextField.clearAndEnterText(text: "123456")
-        view.tap()
         usernameTextField.clearAndEnterText(text: "テスト")
-        view.tap()
+        app.returnKey.tap()
+        mailTextField.clearAndEnterText(text: "test@test.com")
+        app.returnKey.tap()
+        passwordTextField.clearAndEnterText(text: "123456")
+        app.returnKey.tap()
         return self
     }
 }

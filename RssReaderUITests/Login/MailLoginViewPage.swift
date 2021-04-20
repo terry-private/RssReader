@@ -48,5 +48,10 @@ final class MailLoginViewPage: PageObjectable {
     var alertNewAccountButton: XCUIElement {
         return newAccountAlert.buttons[A11y.alertNewAccountButton]
     }
+    
+    func loginDummyMailAccount() {
+        newAccountButton.tap()
+        AccountPropertyViewPage().inputTestAccount().confirmButton.tap()
+    }
 }
 
