@@ -16,10 +16,16 @@ class SettingUITests: XCTestCase {
         app.launchArguments.append("-isUITest")
         app.launch()
     }
+    
+    // LINEログインしている状態でのテストです。
+    func testAfterLineLogin() throws {
+        
+    }
 
-    func testAfterLogin() throws {
+    func testAfterMailLogin() throws {
         MainTabBar().settingBar.tap()
         accountPageTest()
+        rssFeedCellTest()
     }
     
     private func accountPageTest() {
@@ -92,5 +98,29 @@ class SettingUITests: XCTestCase {
     
     private func rssFeedCellTest() {
         
+        // test 245
+        // 左スワイプでDeleteボタンが出現
+        XCTContext.runActivity(named: "test 245") { _ in
+            settingPage.rssFeedFirstCell.swipeLeft()
+            XCTAssertTrue(settingPage.firstCellSwipeDeleteButton.exists)
+        }
+        
+        // test 247
+        // Deleteボタン動作確認
+        XCTContext.runActivity(named: "test 247") { _ in
+            let rssFeedCount = settingPage.rssFeedCount
+            settingPage.firstCellSwipeDeleteButton.tap()
+            XCTAssertEqual(settingPage.rssFeedCount, rssFeedCount - 1)
+        }
+        
+        // test 248
+        XCTContext.runActivity(named: "test 248") { _ in
+            settingPage.addRssFeedCell.tap()
+            XCTAssertTrue(SelectRssFeedTypeViewPage().exists)
+        }
+        
+        //　後処理
+        SelectRssFeedTypeViewPage().cancelButton.tap()
+        settingPage.addNewQiita("iOS")
     }
 }

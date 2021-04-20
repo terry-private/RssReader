@@ -23,6 +23,7 @@ final class SettingViewPage: PageObjectable {
         static let titleLabel = "rssFeedTableViewCell_title_label"
         static let tagNameLabel = "rssFeedTableViewCell_tagName_label"
         static let addRssFeedCell = "setting_addRssFeed_cell"
+        static let swipeDeleteButton = "Delete"
     }
     var view: XCUIElement {
         return app.otherElements[A11y.view].firstMatch
@@ -59,15 +60,29 @@ final class SettingViewPage: PageObjectable {
     var firstTagName: XCUIElement {
         return rssFeedFirstCell.staticTexts[A11y.tagNameLabel]
     }
-    
+    var firstCellSwipeDeleteButton: XCUIElement {
+        return rssFeedFirstCell.buttons[A11y.swipeDeleteButton]
+    }
+    var rssFeedCount: Int {
+        return table.cells.count - 1
+    }
+
     // AddRssFeedCell
     var addRssFeedCell: XCUIElement {
         return table.cells[A11y.addRssFeedCell]
     }
     
+    
     @discardableResult
     func toAccountProperty() -> AccountPropertyViewPage {
         accountCell.tap()
         return AccountPropertyViewPage()
+    }
+    
+    func addNewQiita(_ tag: String) {
+        addRssFeedCell.tap()
+        SelectRssFeedTypeViewPage().qiitaCell.tap()
+        SelectRssFeedTypeViewPage().alertTextField.clearAndEnterText(text: tag)
+        SelectRssFeedTypeViewPage().alertConfirmButton.tap()
     }
 }
