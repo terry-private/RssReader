@@ -16,6 +16,7 @@ class LaterReadListUITests: XCTestCase {
         app.launch()
     }
 
+    // 後で読む記事が一件以上ある状態でテストしてください。
     func testAfterLogin() throws {
         MainTabBar().laterReadBar.tap()
         // コレクションビューのテスト
@@ -116,41 +117,93 @@ class LaterReadListUITests: XCTestCase {
         // test 151
         // 記事セル右スワイプの動作確認
         XCTContext.runActivity(named: "test 151") { _ in
+            laterReadPage.tableFirstCell.view.swipeRight()
+            XCTAssertTrue(laterReadPage.tableFirstCell.starButton.exists)
+            XCTAssertTrue(laterReadPage.tableFirstCell.laterReadButton.exists)
+            laterReadPage.tableFirstCell.view.tap()
         }
         
-        // test 152
-        // 記事セル左スワイプ（未読時）の動作確認
-        XCTContext.runActivity(named: "test 152") { _ in
+        // test 152 153 159 160
+        // 条件によってtestの順番が入れ替わるので関数を定義しておきます。
+        func test152() {
+            // 記事セル左スワイプ（未読時）の動作確認
+            XCTContext.runActivity(named: "test 152") { _ in
+                laterReadPage.tableFirstCell.view.swipeLeft()
+                XCTAssertTrue(laterReadPage.tableFirstCell.readButton.exists)
+            }
+        }
+        func test153() {
+            // 記事セル左スワイプ（既読時）の動作確認
+            XCTContext.runActivity(named: "test 153") { _ in
+                laterReadPage.tableFirstCell.view.swipeLeft()
+                XCTAssertTrue(laterReadPage.tableFirstCell.unReadButton.exists)
+            }
+        }
+        func test159() {
+            // チェックボタンの動作確認
+            XCTContext.runActivity(named: "test 159") { _ in
+                laterReadPage.tableFirstCell.readButton.tap()
+                XCTAssertTrue(laterReadPage.tableFirstCell.isRead)
+            }
+        }
+        func test160() {
+            // 未読にするボタンの動作確認
+            XCTContext.runActivity(named: "test 160") { _ in
+                laterReadPage.tableFirstCell.unReadButton.tap()
+                XCTAssertFalse(laterReadPage.tableFirstCell.isRead)
+            }
+        }
+        if laterReadPage.tableFirstCell.isRead {
+            // 既読の場合
+            test153()   // 未読にするボタンが出てくる
+            test160()   // 押すと未読になる
+            test152()   // チェックボタンが出てくる
+            test159()   // 押すと既読になる
+        } else {
+            // 未読の場合
+            test152()   // チェックボタンが出てくる
+            test159()   // 押すと既読になる
+            test153()   // 未読にするボタンが出てくる
+            test160()   // 押すと未読になる
         }
         
-        // test 153
-        // 記事セル左スワイプ（既読時）の動作確認
-        XCTContext.runActivity(named: "test 153") { _ in
+        
+        // test 156 157
+        // 条件によってtestの順番が入れ替わるので関数を定義しておきます。
+        func test156() {
+            // スターボタン（お気に入り時）の動作確認
+            XCTContext.runActivity(named: "test 156") { _ in
+                laterReadPage.tableFirstCell.view.swipeRight()
+                laterReadPage.tableFirstCell.starButton.tap()
+                XCTAssertFalse(laterReadPage.tableFirstCell.isStar)
+            }
+        }
+        func test157() {
+            // スターボタン（お気に入りでなはい時）の動作確認
+            XCTContext.runActivity(named: "test 157") { _ in
+                laterReadPage.tableFirstCell.view.swipeRight()
+                laterReadPage.tableFirstCell.starButton.tap()
+                XCTAssertTrue(laterReadPage.tableFirstCell.isStar)
+            }
+        }
+        if laterReadPage.tableFirstCell.isStar {
+            // お気に入りの場合
+            test156()
+            test157()
+        } else {
+            // お気に入りでは無い場合
+            test157()
+            test156()
         }
         
-        // test 156
-        // スターボタン（お気に入り時）の動作確認
-        XCTContext.runActivity(named: "test 156") { _ in
-        }
-        
-        // test 157
-        // スターボタン（お気に入りでなはい時）の動作確認
-        XCTContext.runActivity(named: "test 157") { _ in
-        }
         
         // test 158
         // 後で読むボタンの動作確認
         XCTContext.runActivity(named: "test 158") { _ in
-        }
-        
-        // test 159
-        // チェックボタンの動作確認
-        XCTContext.runActivity(named: "test 159") { _ in
-        }
-        
-        // test 160
-        // 未読にするボタンの動作確認
-        XCTContext.runActivity(named: "test 160") { _ in
+            let firstCellArticleTitle = laterReadPage.tableFirstCell.articleTitleLabel.label
+            laterReadPage.tableFirstCell.view.swipeRight()
+            laterReadPage.tableFirstCell.laterReadButton.tap()
+            XCTAssertNotEqual(laterReadPage.tableFirstCell.articleTitleLabel.label, firstCellArticleTitle)
         }
     }
 }
