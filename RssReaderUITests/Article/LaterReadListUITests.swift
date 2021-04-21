@@ -36,17 +36,33 @@ class LaterReadListUITests: XCTestCase {
             XCTAssertFalse(laterReadPage.collectionViewFirstCell.isOpenContextMenu)
         }
         
-        // test 179
-        // お気に入り解除ボタンの動作確認
-        XCTContext.runActivity(named: "test 179") { _ in
-            
+        // test 179 180
+        // 条件によってtestの順番が入れ替わるので関数を定義しておきます。
+        func test179() {
+            // お気に入り解除ボタンの動作確認
+            XCTContext.runActivity(named: "test 179") { _ in
+                laterReadPage.collectionViewFirstCell.view.press(forDuration: 1)
+                laterReadPage.collectionViewFirstCell.unStarButton.tap()
+                XCTAssertFalse(laterReadPage.collectionViewFirstCell.isStar)
+            }
+        }
+        func test180() {
+            // お気に入りボタンの動作確認
+            XCTContext.runActivity(named: "test 180") { _ in
+                laterReadPage.collectionViewFirstCell.view.press(forDuration: 1)
+                laterReadPage.collectionViewFirstCell.starButton.tap()
+                XCTAssertTrue(laterReadPage.collectionViewFirstCell.isStar)
+            }
+        }
+        if laterReadPage.collectionViewFirstCell.isStar {
+            // 今「お気に入り」なら解除してから「お気に入り」に戻す流れでテストします。
+            test179()
+            test180()
+        } else {
+            test180()
+            test179()
         }
         
-        // test 180
-        // お気に入りボタンの動作確認
-        XCTContext.runActivity(named: "test 180") { _ in
-            
-        }
         
         // test 181
         // 未読にするボタンの動作確認
