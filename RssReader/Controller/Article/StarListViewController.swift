@@ -28,6 +28,11 @@ class StarListViewController: UIViewController, Transitioner {
         setUpTable()
         setUpCollection()
         setUpBarItem()
+        
+        // テストのための設定
+        view.accessibilityIdentifier = "starList_view"
+        starListTableView.accessibilityIdentifier = "starList_table"
+        starListCollectionView.accessibilityIdentifier = "starList_collectionView"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +73,9 @@ class StarListViewController: UIViewController, Transitioner {
         hamburgerMenuButton.tintColor = .systemBlue
         navigationItem.leftBarButtonItem = hamburgerMenuButton
         navigationItem.title = "お気に入り"
+        
+        // テストのための設定
+        hamburgerMenuButton.accessibilityIdentifier = "starList_filterMenu_Button"
     }
     
     @objc func presentFilterMenu(){
@@ -118,6 +126,10 @@ extension StarListViewController: UITableViewDelegate, UITableViewDataSource {
         laterReadAction.image = laterReadImage
         laterReadAction.backgroundColor = .systemGreen
         
+        // UITestでXCUIElementの特定のため
+        starAction.accessibilityLabel = "tableCell_star_button"
+        laterReadAction.accessibilityLabel = "tableCell_laterRead_button"
+        
         let swipeAction = UISwipeActionsConfiguration(actions:[laterReadAction, starAction])
         swipeAction.performsFirstActionWithFullSwipe = false
         
@@ -135,6 +147,10 @@ extension StarListViewController: UITableViewDelegate, UITableViewDataSource {
             self.keysSort()
             completionHandler(true)
         }
+        
+        // UITestでXCUIElementの特定のため
+        readAction.accessibilityLabel = isRead ? "tableCell_unRead_button": "tableCell_read_button"
+        
         let readImage = UIImage(systemName: "checkmark.circle.fill")
         if !isRead { readAction.image = readImage }
         readAction.backgroundColor = isRead ? .systemGray3 : .systemBlue
@@ -189,6 +205,11 @@ extension StarListViewController: UICollectionViewDelegate, UICollectionViewData
                 CommonData.rssFeedListModel.changeLaterRead(articleKey: article.item.link, laterRead: !laterRead)
                 self.keysSort()
             }
+            
+            // テストのための設定
+            readAction.accessibilityIdentifier = read ? "collectionView_unRead_button" : "collectionView_read_button"
+            starAction.accessibilityIdentifier = newIsStar ? "collectionView_unStar_button": "collectionView_star_button"
+            laterReadAction.accessibilityIdentifier = laterRead ? "collectionView_unLaterRead_button": "collectionView_laterRead_button"
 
             return UIMenu(title: "編集", image: nil, identifier: nil, children: [readAction, starAction, laterReadAction])
         }
