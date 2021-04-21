@@ -64,22 +64,41 @@ class LaterReadListUITests: XCTestCase {
         }
         
         
-        // test 181
-        // 未読にするボタンの動作確認
-        XCTContext.runActivity(named: "test 181") { _ in
-            
+        // test 181 182
+        // 条件によってtestの順番が入れ替わるので関数を定義しておきます。
+        func test181() {
+            // 未読にするボタンの動作確認
+            XCTContext.runActivity(named: "test 181") { _ in
+                laterReadPage.collectionViewFirstCell.view.press(forDuration: 1)
+                laterReadPage.collectionViewFirstCell.unReadButton.tap()
+                XCTAssertFalse(laterReadPage.collectionViewFirstCell.isRead)
+            }
+        }
+        func test182() {
+            // 既読にするボタンの動作確認
+            XCTContext.runActivity(named: "test 182") { _ in
+                laterReadPage.collectionViewFirstCell.view.press(forDuration: 1)
+                laterReadPage.collectionViewFirstCell.readButton.tap()
+                XCTAssertTrue(laterReadPage.collectionViewFirstCell.isRead)
+            }
+        }
+        if laterReadPage.collectionViewFirstCell.isRead {
+            // 今が既読なら未読にしてから既読に戻す流れでテストします。
+            test181()
+            test182()
+        } else {
+            test182()
+            test181()
         }
         
-        // test 182
-        // 既読にするボタンの動作確認
-        XCTContext.runActivity(named: "test 182") { _ in
-            
-        }
         
         // test 183
         // 後で読むを解除するボタンの動作確認
         XCTContext.runActivity(named: "test 183") { _ in
-            
+            let firstCellArticleTitle = laterReadPage.collectionViewFirstCell.articleTitleLabel.label
+            laterReadPage.collectionViewFirstCell.view.press(forDuration: 1)
+            laterReadPage.collectionViewFirstCell.unLaterReadButton.tap()
+            XCTAssertNotEqual(laterReadPage.collectionViewFirstCell.articleTitleLabel.label, firstCellArticleTitle)
         }
     }
 }
