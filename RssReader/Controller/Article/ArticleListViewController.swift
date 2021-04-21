@@ -42,6 +42,8 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         super.viewDidLoad()
         setUpTable()
         setUpCollection()
+        
+        // テストのための設定
         view.accessibilityIdentifier = "articleList_view"
         articleTableView.accessibilityIdentifier = "articleList_table"
         articleCollectionView.accessibilityIdentifier = "articleList_collectionView"

@@ -28,6 +28,11 @@ class LaterReadListViewController: UIViewController, Transitioner {
         setUpTable()
         setUpCollection()
         setUpBarItem()
+        
+        // テストのための設定
+        view.accessibilityIdentifier = "laterReadList_view"
+        laterReadListTableView.accessibilityIdentifier = "laterReadList_table"
+        laterReadCollectionView.accessibilityIdentifier = "laterReadList_collectionView"
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -67,6 +72,9 @@ class LaterReadListViewController: UIViewController, Transitioner {
         hamburgerMenuButton.tintColor = .systemBlue
         navigationItem.leftBarButtonItem = hamburgerMenuButton
         navigationItem.title = "後で読む"
+        
+        // テストのための設定
+        hamburgerMenuButton.accessibilityIdentifier = "laterReadList_filterMenu_Button"
     }
     
     @objc func presentFilterMenu(){
@@ -105,7 +113,6 @@ extension LaterReadListViewController: UITableViewDelegate, UITableViewDataSourc
         starAction.image = starImage
         starAction.backgroundColor = .systemYellow
         
-       
         let laterReadAction = UIContextualAction(style: .destructive, title:"laterRead") {
             (contextAction, view, completionHandler) in
             let newLaterRead = !CommonData.rssFeedListModel.articleList[self.laterReadListKeys[indexPath.row]]!.laterRead
@@ -116,6 +123,10 @@ extension LaterReadListViewController: UITableViewDelegate, UITableViewDataSourc
         let laterReadImage = UIImage(systemName: "tray.fill")?.withTintColor(.white , renderingMode: .alwaysTemplate)
         laterReadAction.image = laterReadImage
         laterReadAction.backgroundColor = .systemGreen
+        
+        // UITestでXCUIElementの特定のため
+        starAction.accessibilityLabel = "tableCell_star_button"
+        laterReadAction.accessibilityLabel = "tableCell_laterRead_button"
         
         let swipeAction = UISwipeActionsConfiguration(actions:[laterReadAction, starAction])
         swipeAction.performsFirstActionWithFullSwipe = false
@@ -134,6 +145,10 @@ extension LaterReadListViewController: UITableViewDelegate, UITableViewDataSourc
             self.keysSort()
             completionHandler(true)
         }
+        
+        // UITestでXCUIElementの特定のため
+        readAction.accessibilityLabel = isRead ? "tableCell_unRead_button": "tableCell_read_button"
+        
         let readImage = UIImage(systemName: "checkmark.circle.fill")
         if !isRead { readAction.image = readImage }
         readAction.backgroundColor = isRead ? .systemGray3 : .systemBlue
@@ -186,7 +201,12 @@ extension LaterReadListViewController: UICollectionViewDelegate, UICollectionVie
                 CommonData.rssFeedListModel.changeLaterRead(articleKey: article.item.link, laterRead: !laterRead)
                 self.keysSort()
             }
-
+            
+            // テストのための設定
+            readAction.accessibilityIdentifier = read ? "collectionView_unRead_button" : "collectionView_read_button"
+            starAction.accessibilityIdentifier = newIsStar ? "collectionView_unStar_button": "collectionView_star_button"
+            laterReadAction.accessibilityIdentifier = laterRead ? "collectionView_unLaterRead_button": "collectionView_laterRead_button"
+            
             return UIMenu(title: "編集", image: nil, identifier: nil, children: [readAction, starAction, laterReadAction])
         }
 
