@@ -25,13 +25,15 @@ class LaterReadListUITests: XCTestCase {
         // test 171
         // 記事セルロングタップの動作確認
         XCTContext.runActivity(named: "test 171") { _ in
-            
+            laterReadPage.collectionViewFirstCell.view.press(forDuration: 1)
+            XCTAssertTrue(laterReadPage.collectionViewFirstCell.isOpenContextMenu)
         }
         
         // test 178
         // 任意の箇所をタップでコンテクストメニューが閉じるかどうか
         XCTContext.runActivity(named: "test 178") { _ in
-            
+            app.tap()
+            XCTAssertFalse(laterReadPage.collectionViewFirstCell.isOpenContextMenu)
         }
         
         // test 179
