@@ -18,7 +18,16 @@ class LaterReadListUITests: XCTestCase {
 
     func testAfterLogin() throws {
         MainTabBar().laterReadBar.tap()
+        // コレクションビューのテスト
         collectionViewCellTest()
+        
+        // tableViewへの切り替え動作
+        MainTabBar().settingBar.tap()
+        SettingViewPage().displayModeSegmentedControl.buttons.firstMatch.tap()
+        MainTabBar().laterReadBar.tap()
+        
+        // テーブルのテスト
+        tableCellTest()
     }
     // MARK:- コレクションビューのテスト
     private func collectionViewCellTest() {
@@ -99,6 +108,49 @@ class LaterReadListUITests: XCTestCase {
             laterReadPage.collectionViewFirstCell.view.press(forDuration: 1)
             laterReadPage.collectionViewFirstCell.unLaterReadButton.tap()
             XCTAssertNotEqual(laterReadPage.collectionViewFirstCell.articleTitleLabel.label, firstCellArticleTitle)
+        }
+    }
+    // MARK:- テーブルのテスト
+    private func tableCellTest() {
+        
+        // test 151
+        // 記事セル右スワイプの動作確認
+        XCTContext.runActivity(named: "test 151") { _ in
+        }
+        
+        // test 152
+        // 記事セル左スワイプ（未読時）の動作確認
+        XCTContext.runActivity(named: "test 152") { _ in
+        }
+        
+        // test 153
+        // 記事セル左スワイプ（既読時）の動作確認
+        XCTContext.runActivity(named: "test 153") { _ in
+        }
+        
+        // test 156
+        // スターボタン（お気に入り時）の動作確認
+        XCTContext.runActivity(named: "test 156") { _ in
+        }
+        
+        // test 157
+        // スターボタン（お気に入りでなはい時）の動作確認
+        XCTContext.runActivity(named: "test 157") { _ in
+        }
+        
+        // test 158
+        // 後で読むボタンの動作確認
+        XCTContext.runActivity(named: "test 158") { _ in
+        }
+        
+        // test 159
+        // チェックボタンの動作確認
+        XCTContext.runActivity(named: "test 159") { _ in
+        }
+        
+        // test 160
+        // 未読にするボタンの動作確認
+        XCTContext.runActivity(named: "test 160") { _ in
         }
     }
 }
