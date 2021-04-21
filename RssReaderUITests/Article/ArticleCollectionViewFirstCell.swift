@@ -90,6 +90,6 @@ final class ArticleCollectionViewFirstCell: PageObjectable {
     }
     var isLaterRead: Bool {
         if !isOpenContextMenu { fatalError() }
-        return laterReadButton.exists
+        return unLaterReadButton.exists
     }
 }
