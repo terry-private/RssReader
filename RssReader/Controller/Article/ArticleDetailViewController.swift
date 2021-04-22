@@ -20,7 +20,10 @@ class ArticleDetailViewController: UIViewController, Transitioner {
         super.viewDidLoad()
         let closeButton = UIBarButtonItem(title: "閉じる", style: .plain, target: self, action: #selector(close))
         navigationItem.leftBarButtonItem = closeButton
-        
+        // テスト用の設定
+        view.accessibilityIdentifier = "articleDetail_view"
+        closeButton.accessibilityIdentifier = "articleDetail_close_button"
+        webView.accessibilityIdentifier = "articleDetail_webView"
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -70,6 +73,8 @@ class ArticleDetailViewController: UIViewController, Transitioner {
             let starButton = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(tappedStar))
             starButton.tintColor = .systemYellow
             navigationItem.rightBarButtonItem = starButton
+            //テスト用の設定
+            starButton.accessibilityIdentifier = ""
         } else {
             let starButton = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(tappedStar))
             starButton.tintColor = .systemGray
@@ -81,9 +86,15 @@ class ArticleDetailViewController: UIViewController, Transitioner {
         if CommonData.rssFeedListModel.articleList[(article?.item.link)!]?.laterRead ?? false {
             laterTrayButton.image = UIImage(systemName: "tray.fill")
             laterTrayButton.tintColor = .systemGreen
+            
+            // テストのための設定
+            laterTrayButton.accessibilityIdentifier = "articleDetail_laterRead_button"
         } else {
             laterTrayButton.image = UIImage(systemName: "tray")
             laterTrayButton.tintColor = .systemBlue
+            
+            // テストのための設定
+            laterTrayButton.accessibilityIdentifier = "articleDetail_notLaterRead_button"
         }
     }
 }
