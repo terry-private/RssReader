@@ -74,11 +74,13 @@ class ArticleDetailViewController: UIViewController, Transitioner {
             starButton.tintColor = .systemYellow
             navigationItem.rightBarButtonItem = starButton
             //テスト用の設定
-            starButton.accessibilityIdentifier = ""
+            starButton.accessibilityIdentifier = "articleDetail_notStar_button"
         } else {
             let starButton = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(tappedStar))
             starButton.tintColor = .systemGray
             navigationItem.rightBarButtonItem = starButton
+            //テスト用の設定
+            starButton.accessibilityIdentifier = "articleDetail_star_button"
         }
     }
     
