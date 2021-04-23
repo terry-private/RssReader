@@ -34,6 +34,7 @@
 		09174EE425E573E100756E6D /* AddNewRssFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09174EE325E573E100756E6D /* AddNewRssFeedTableViewCell.xib */; };
 		091C89DD2606E0F2003AE7B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C89DC2606E0F2003AE7B6 /* LoginViewController.swift */; };
 		092B65BB26316655002799AD /* FilterMenuViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B65BA26316655002799AD /* FilterMenuViewPage.swift */; };
+		092B65C326316E46002799AD /* FilterMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B65C226316E46002799AD /* FilterMenuUITests.swift */; };
 		095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */; };
 		095F95F725985F88007DC2D5 /* SelectRssFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */; };
 		095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FDBEB25A754E2007C8922 /* CommonRouter.swift */; };
@@ -161,6 +162,7 @@
 		09174EE325E573E100756E6D /* AddNewRssFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewRssFeedTableViewCell.xib; sourceTree = "<group>"; };
 		091C89DC2606E0F2003AE7B6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		092B65BA26316655002799AD /* FilterMenuViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuViewPage.swift; sourceTree = "<group>"; };
+		092B65C226316E46002799AD /* FilterMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuUITests.swift; sourceTree = "<group>"; };
 		095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewController.swift; sourceTree = "<group>"; };
 		095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectRssFeed.storyboard; sourceTree = "<group>"; };
 		095FDBEB25A754E2007C8922 /* CommonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRouter.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 		092B65B926316628002799AD /* FilterMenu */ = {
 			isa = PBXGroup;
 			children = (
+				092B65C226316E46002799AD /* FilterMenuUITests.swift */,
 				092B65BA26316655002799AD /* FilterMenuViewPage.swift */,
 			);
 			path = FilterMenu;
@@ -982,6 +985,7 @@
 				098FCCD7262FC46B0060F40A /* LaterReadListViewPage.swift in Sources */,
 				098FCCA9262D55B20060F40A /* SettingUITests.swift in Sources */,
 				098FCCA1262D55930060F40A /* SettingViewPage.swift in Sources */,
+				092B65C326316E46002799AD /* FilterMenuUITests.swift in Sources */,
 				098FCC9B26299C4D0060F40A /* ArticleCollectionViewFirstCell.swift in Sources */,
 				098FCCB2262D8A640060F40A /* extension_XCUIElement.swift in Sources */,
 				09902FDF26257C8400B2B9A0 /* AccountPropertyViewPage.swift in Sources */,
