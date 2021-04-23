@@ -21,19 +21,6 @@ class FilterMenuUITests: XCTestCase {
     func testAfterLogin() throws {
         // test 93 139 185
         openFilterMenuTest()
-        
-        filterMenuPage.view.swipeLeft()
-        
-        articleListPage.filterMenuButton.tap()
-        
-        articleListPage.view.tap()
-        
-        articleListPage.filterMenuButton.tap()
-        filterMenuPage.to発行日順().to降順()
-        filterMenuPage.to昇順()
-        filterMenuPage.to記事タイプ順().to降順()
-        filterMenuPage.to昇順()
-        filterMenuPage.to表示日数(1)
     }
     
     /// 全ての記事セルをタップして詳細画面へ遷移できるかどうかのテストまとめ
