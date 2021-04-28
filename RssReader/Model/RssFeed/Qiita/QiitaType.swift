@@ -23,9 +23,11 @@ class QiitaType: RssFeedTypeProtocol {
         return "https://api.rss2json.com/v1/api.json?rss_url=" + qiitaRssUrl
     }
     func toSelectTag<T>(view: T) where T: Transitioner, T: SelectRssFeedDelegate {
+        
         // アラート画面でTagを入力させます。
         var alertTextField: UITextField?
         let alert = UIAlertController(title: "Qiitaの購読記事", message: "タグを入力", preferredStyle: UIAlertController.Style.alert)
+        alert.view.accessibilityIdentifier = "qiita_alert"
         
         // テキストフィールド追加
         alert.addTextField(configurationHandler: {(textField: UITextField!) in
@@ -33,13 +35,16 @@ class QiitaType: RssFeedTypeProtocol {
             textField.text = ""
             textField.placeholder = "タグ"
         })
+        alertTextField?.accessibilityIdentifier = "alert_textField"
         
         // キャンセルボタン追加
         alert.addAction(
             UIAlertAction(
                 title: "キャンセル",
                 style: UIAlertAction.Style.cancel,
-                handler: nil))
+                handler: nil
+            )
+        )
         
         // 確定ボタン追加
         alert.addAction(
@@ -59,6 +64,7 @@ class QiitaType: RssFeedTypeProtocol {
         
         view.present(alert, animated: true, completion: nil)
     }
+    
     func urlValidation(_ urlString: String) -> Bool{
         guard URL(string: urlString) != nil else {
             return false

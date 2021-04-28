@@ -17,6 +17,8 @@ class SelectYahooTagViewController: UIViewController, Transitioner {
     weak var delegate: SelectRssFeedDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.accessibilityIdentifier = "selectYahooTag_view"
+        yahooTagTableView.accessibilityIdentifier = "selectYahooTag_table"
         yahooTagTableView.delegate = self
         yahooTagTableView.dataSource = self
     }
