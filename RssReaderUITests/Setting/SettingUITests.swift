@@ -27,7 +27,7 @@ class SettingUITests: XCTestCase {
         MainTabBar().settingBar.tap()
         
         // test 237
-        XCTContext.runActivity(named: "test 236") { _ in
+        XCTContext.runActivity(named: "test 237") { _ in
             settingPage.accountCell.tap()
             XCTAssertTrue(LoginViewPage().exists)
         }
