@@ -168,7 +168,6 @@ class LaterReadListUITests: XCTestCase {
             test160()   // 押すと未読になる
         }
         
-        
         // test 156 157
         // 条件によってtestの順番が入れ替わるので関数を定義しておきます。
         func test156() {
