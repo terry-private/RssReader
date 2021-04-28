@@ -42,6 +42,10 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         super.viewDidLoad()
         setUpTable()
         setUpCollection()
+        view.accessibilityIdentifier = "articleList_view"
+        articleTableView.accessibilityIdentifier = "articleList_table"
+        articleCollectionView.accessibilityIdentifier = "articleList_collectionView"
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,6 +114,7 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
     }
     func setUpBarItem() {
         let hamburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentFilterMenu))
+        hamburgerMenuButton.accessibilityIdentifier = "articleList_filterMenu_Button"
         hamburgerMenuButton.tintColor = .systemBlue
         navigationItem.leftBarButtonItem = hamburgerMenuButton
         navigationItem.title = "最新記事"
@@ -179,7 +184,8 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
         let starImage = UIImage(systemName: "star.fill")?.withTintColor(.white, renderingMode: .alwaysTemplate)
         starAction.image = starImage
         starAction.backgroundColor = .systemYellow
-        
+        // UITestでXCUIElementの特定のため
+        starAction.accessibilityLabel = "tableCell_star_button"
        
         let laterReadAction = UIContextualAction(style: .destructive, title:"laterRead") {
             (contextAction, view, completionHandler) in
@@ -188,6 +194,8 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
             self.keysSort()
             completionHandler(true)
         }
+        // UITestでXCUIElementの特定のため
+        laterReadAction.accessibilityLabel = "tableCell_laterRead_button"
         let laterReadImage = UIImage(systemName: "tray.fill")?.withTintColor(.white , renderingMode: .alwaysTemplate)
         laterReadAction.image = laterReadImage
         laterReadAction.backgroundColor = .systemGreen
@@ -209,6 +217,9 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
             self.keysSort()
             completionHandler(true)
         }
+        // UITestでXCUIElementの特定のため
+        readAction.accessibilityLabel = isRead ? "tableCell_unRead_button": "tableCell_read_button"
+        
         let readImage = UIImage(systemName: "checkmark.circle.fill")
         if !isRead { readAction.image = readImage }
         readAction.backgroundColor = isRead ? .systemGray3 : .systemBlue
@@ -263,6 +274,11 @@ extension ArticleListViewController: UICollectionViewDelegate, UICollectionViewD
                 CommonData.rssFeedListModel.changeLaterRead(articleKey: article.item.link, laterRead: !laterRead)
                 self.keysSort()
             }
+            
+            // テストのための設定
+            readAction.accessibilityIdentifier = read ? "collectionView_unRead_button" : "collectionView_read_button"
+            starAction.accessibilityIdentifier = newIsStar ? "collectionView_unStar_button": "collectionView_star_button"
+            laterReadAction.accessibilityIdentifier = laterRead ? "collectionView_unLaterRead_button": "collectionView_laterRead_button"
 
             return UIMenu(title: "編集", image: nil, identifier: nil, children: [readAction, starAction, laterReadAction])
         }

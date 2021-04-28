@@ -51,7 +51,14 @@ class ArticleCollectionViewCell: UICollectionViewCell {
                 starImageView.tintColor = .systemGray
             }
             
+            // テストのための設定
+            articleTitleLabel.accessibilityIdentifier = "collectionViewCell_articleTitle_label"
+            
+            readImageView.isAccessibilityElement = true
+            readImageView.accessibilityIdentifier = article!.read ? "collectionViewCell_read_image": "collectionViewCell_unRead_image"
+            
+            starImageView.isAccessibilityElement = true
+            starImageView.accessibilityIdentifier = article!.isStar ? "collectionViewCell_star_image": "collectionViewCell_unStar_image"
         }
     }
-    
 }
