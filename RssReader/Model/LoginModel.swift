@@ -26,6 +26,7 @@ extension LoginProtocol {
         switch userConfig.loginType{
         case "line":
             let alert = UIAlertController(title: "ログアウト", message: "ログアウトしますか？", preferredStyle: UIAlertController.Style.alert)
+            alert.view.accessibilityIdentifier = "setting_lineLogout_alert"
             
             // キャンセルボタン追加
             alert.addAction(

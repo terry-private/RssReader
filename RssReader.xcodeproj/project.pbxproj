@@ -67,6 +67,10 @@
 		098FCC7026281CD40060F40A /* ArticleListViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCC6F26281CD40060F40A /* ArticleListViewPage.swift */; };
 		098FCC9626295B420060F40A /* ArticleTableViewFirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCC9526295B420060F40A /* ArticleTableViewFirstCell.swift */; };
 		098FCC9B26299C4D0060F40A /* ArticleCollectionViewFirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCC9A26299C4D0060F40A /* ArticleCollectionViewFirstCell.swift */; };
+		098FCCA1262D55930060F40A /* SettingViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCCA0262D55930060F40A /* SettingViewPage.swift */; };
+		098FCCA9262D55B20060F40A /* SettingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCCA8262D55B20060F40A /* SettingUITests.swift */; };
+		098FCCB2262D8A640060F40A /* extension_XCUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCCB1262D8A640060F40A /* extension_XCUIElement.swift */; };
+		098FCCC6262EA0C70060F40A /* extension_XCUIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCCC5262EA0C70060F40A /* extension_XCUIApplication.swift */; };
 		09902EF42611056A00B2B9A0 /* MailLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09902EF32611056A00B2B9A0 /* MailLogin.storyboard */; };
 		09902EFA2611084300B2B9A0 /* MailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902EF92611084300B2B9A0 /* MailLoginViewController.swift */; };
 		09902F032611B25100B2B9A0 /* AccountProperty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09902F022611B25100B2B9A0 /* AccountProperty.storyboard */; };
@@ -183,6 +187,10 @@
 		098FCC6F26281CD40060F40A /* ArticleListViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewPage.swift; sourceTree = "<group>"; };
 		098FCC9526295B420060F40A /* ArticleTableViewFirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewFirstCell.swift; sourceTree = "<group>"; };
 		098FCC9A26299C4D0060F40A /* ArticleCollectionViewFirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewFirstCell.swift; sourceTree = "<group>"; };
+		098FCCA0262D55930060F40A /* SettingViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewPage.swift; sourceTree = "<group>"; };
+		098FCCA8262D55B20060F40A /* SettingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUITests.swift; sourceTree = "<group>"; };
+		098FCCB1262D8A640060F40A /* extension_XCUIElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_XCUIElement.swift; sourceTree = "<group>"; };
+		098FCCC5262EA0C70060F40A /* extension_XCUIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_XCUIApplication.swift; sourceTree = "<group>"; };
 		09902EF32611056A00B2B9A0 /* MailLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MailLogin.storyboard; sourceTree = "<group>"; };
 		09902EF92611084300B2B9A0 /* MailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailLoginViewController.swift; sourceTree = "<group>"; };
 		09902F022611B25100B2B9A0 /* AccountProperty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountProperty.storyboard; sourceTree = "<group>"; };
@@ -434,6 +442,24 @@
 			path = Article;
 			sourceTree = "<group>";
 		};
+		098FCC9F262D55750060F40A /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				098FCCA8262D55B20060F40A /* SettingUITests.swift */,
+				098FCCA0262D55930060F40A /* SettingViewPage.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		098FCCB0262D8A490060F40A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				098FCCB1262D8A640060F40A /* extension_XCUIElement.swift */,
+				098FCCC5262EA0C70060F40A /* extension_XCUIApplication.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		09902EF82611081A00B2B9A0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -555,6 +581,8 @@
 				09B8033E2590CF9300CA2D19 /* RssReaderUITests.swift */,
 				09902FA6261FF7D300B2B9A0 /* PageObjectable.swift */,
 				098FCC3B2626D3BD0060F40A /* MainTabBar.swift */,
+				098FCCB0262D8A490060F40A /* Extension */,
+				098FCC9F262D55750060F40A /* Setting */,
 				098FCC6626281AD90060F40A /* Article */,
 				098FCC402626E42D0060F40A /* SelectRssFeed */,
 				09902FB4262036A000B2B9A0 /* Login */,
@@ -921,8 +949,12 @@
 			files = (
 				098FCC522626F4FA0060F40A /* SelectRssFeedUITests.swift in Sources */,
 				098FCC572627D20F0060F40A /* SelectRssFeedTypeViewPage.swift in Sources */,
+				098FCCA9262D55B20060F40A /* SettingUITests.swift in Sources */,
+				098FCCA1262D55930060F40A /* SettingViewPage.swift in Sources */,
 				098FCC9B26299C4D0060F40A /* ArticleCollectionViewFirstCell.swift in Sources */,
+				098FCCB2262D8A640060F40A /* extension_XCUIElement.swift in Sources */,
 				09902FDF26257C8400B2B9A0 /* AccountPropertyViewPage.swift in Sources */,
+				098FCCC6262EA0C70060F40A /* extension_XCUIApplication.swift in Sources */,
 				098FCC6826281C020060F40A /* ArticleListUITests.swift in Sources */,
 				098FCC62262805310060F40A /* SelectYahooTagViewPage.swift in Sources */,
 				09902FA7261FF7D300B2B9A0 /* PageObjectable.swift in Sources */,

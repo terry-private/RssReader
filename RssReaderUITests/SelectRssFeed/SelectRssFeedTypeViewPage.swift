@@ -46,4 +46,9 @@ class SelectRssFeedTypeViewPage: PageObjectable {
     var alertConfirmButton: XCUIElement {
         return qiitaAlert.buttons[A11y.alertConfirmButton]
     }
+    func addNewQiita(_ tag: String) {
+        qiitaCell.tap()
+        alertTextField.clearAndEnterText(text: tag)
+        alertConfirmButton.tap()
+    }
 }

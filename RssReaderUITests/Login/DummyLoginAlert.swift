@@ -40,8 +40,14 @@ class DummyLoginAlert {
     var errorAlert: XCUIElement {
         return app.alerts[A11y.errorAlert]
     }
+    
+    // MARK:- メソッド
     func tappedErrorAlertOKButton() {
         errorAlert.scrollViews.otherElements.buttons["OK"].tap()
+    }
+    func dummyLogin() {
+        loginIdTextField.clearAndEnterText(text: "DummyAccount")
+        loginButton.tap()
     }
     
 }

@@ -27,6 +27,9 @@ class SettingViewController: UIViewController, Transitioner {
         super.viewDidLoad()
         self.navigationItem.title = "設定"
         setUpTable()
+        // テストのための設定
+        view.accessibilityIdentifier = "setting_view"
+        settingTableView.accessibilityIdentifier = "setting_table"
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -92,22 +95,44 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = settingTableView.dequeueReusableCell(withIdentifier: accountPropertyTableViewCellId, for: indexPath) as! AccountPropertyTableviewCell
             cell.userConfig = CommonData.loginModel.userConfig
+            
+            // テストのための設定
+            cell.accessibilityIdentifier = "setting_account_cell"
+            cell.myImageView.isAccessibilityElement = true
+            cell.myImageView.accessibilityIdentifier = "setting_account_image"
+            cell.myDisplayNameLabel.accessibilityIdentifier = "setting_accountName_label"
             return cell
+            
         case 1:
             let cell = settingTableView.dequeueReusableCell(withIdentifier: fetchTimeIntervalTableViewCellId, for: indexPath) as! FetchTimeIntervalTableViewCell
             cell.fetchTimeIntervalSegmentedControl.selectedSegmentIndex = CommonData.filterModel.fetchTimeInterval
+            
+            // テストのための設定
+            cell.fetchTimeIntervalSegmentedControl.accessibilityIdentifier = "setting_timeInterval_segmentedControl"
             return cell
+            
         case 2:
             let cell = settingTableView.dequeueReusableCell(withIdentifier: displayModeTableViewCellId, for: indexPath) as! DisplayModeTableViewCell
             cell.displayModeSegmentedControl.selectedSegmentIndex = CommonData.filterModel.displayMode.index
+            
+            // テストのための設定
+            cell.displayModeSegmentedControl.accessibilityIdentifier = "setting_displayMode_segmentedControl"
             return cell
+            
         case 3:
             if CommonData.rssFeedListModel.rssFeedList.count == indexPath.row {
                 let cell = settingTableView.dequeueReusableCell(withIdentifier: addNewCellId, for: indexPath) as! AddNewRssFeedTableViewCell
+                
+                // テストのための設定
+                cell.accessibilityIdentifier = "setting_addRssFeed_cell"
                 return cell
             }
+            
             let cell = settingTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! RssFeedTableViewCell
             cell.rssFeed = CommonData.rssFeedListModel.rssFeedList[rssFeedKeyList[indexPath.row]]
+            
+            // テストのための設定
+            cell.accessibilityIdentifier = "setting_rssFeed_cell"
             return cell
         default:
             return UITableViewCell()

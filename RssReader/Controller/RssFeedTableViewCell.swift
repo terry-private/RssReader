@@ -19,6 +19,12 @@ class RssFeedTableViewCell: UITableViewCell {
             }
             titleLabel.text = rssFeed?.title
             tagNameLabel.text = rssFeed?.tag
+            
+            // テストのための設定
+            faviconImageView.isAccessibilityElement = true
+            faviconImageView.accessibilityIdentifier = "rssFeedTableViewCell_favicon_image"
+            titleLabel.accessibilityIdentifier = "rssFeedTableViewCell_title_label"
+            tagNameLabel.accessibilityIdentifier = "rssFeedTableViewCell_tagName_label"
         }
     }
     override class func awakeFromNib() {
