@@ -43,7 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIView.setAnimationsEnabled(false)
         }
         
-        
         return true
     }
     
