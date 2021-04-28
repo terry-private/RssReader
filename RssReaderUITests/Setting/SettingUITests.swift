@@ -129,7 +129,7 @@ class SettingUITests: XCTestCase {
         // バリデーションNGの確認
         XCTContext.runActivity(named: "test 268") { _ in
             accountPage.usernameTextField.clearAndEnterText(text: "")
-            accountPage.view.tap()
+            app.returnKey.tap()
             XCTAssertFalse(accountPage.confirmButton.isEnabled)
         }
         
@@ -137,7 +137,7 @@ class SettingUITests: XCTestCase {
         // バリデーションOKの確認
         XCTContext.runActivity(named: "test 267") { _ in
             accountPage.usernameTextField.clearAndEnterText(text: "テスト2")
-            accountPage.view.tap()
+            app.returnKey.tap()
             XCTAssertTrue(accountPage.confirmButton.isEnabled)
         }
         
