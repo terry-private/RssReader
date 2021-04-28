@@ -48,7 +48,6 @@ class SettingUITests: XCTestCase {
             XCTAssertTrue(settingPage.alert.exists)
         }
         
-        
         // test 249
         // LINEログアウトアラートのキャンセルボタンの動作確認
         XCTContext.runActivity(named: "test 249") { _ in
@@ -86,7 +85,6 @@ class SettingUITests: XCTestCase {
             settingPage.alertLogoutButton.tap()
             XCTAssertTrue(LoginViewPage().exists)
         }
-        
     }
 
     // MARK:- メールアカウントでのログイン状態でのテスト
