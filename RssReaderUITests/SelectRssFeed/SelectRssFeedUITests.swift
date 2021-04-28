@@ -101,11 +101,8 @@ class SelectRssFeedUITests: XCTestCase {
         selectRssFeedTypePage.alertConfirmButton.tap()
         XCTAssertEqual(selectedRssFeedPage.selectRssFeedTable.cells.count, cellsCount)
         
-        
         // ここから一つのセルの中身にあるオブジェクトの存在確認をします。
         let cell = selectedRssFeedPage.selectRssFeedTable.cells.firstMatch
-        
-        
         
         // test 065
         XCTAssertTrue(cell.staticTexts["Qiita"].exists)
