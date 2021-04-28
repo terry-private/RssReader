@@ -64,6 +64,7 @@ class LaterReadListUITests: XCTestCase {
                 XCTAssertTrue(laterReadPage.collectionViewFirstCell.isStar)
             }
         }
+        
         if laterReadPage.collectionViewFirstCell.isStar {
             // 今「お気に入り」なら解除してから「お気に入り」に戻す流れでテストします。
             test179()
@@ -72,7 +73,6 @@ class LaterReadListUITests: XCTestCase {
             test180()
             test179()
         }
-        
         
         // test 181 182
         // 条件によってtestの順番が入れ替わるので関数を定義しておきます。
@@ -92,6 +92,7 @@ class LaterReadListUITests: XCTestCase {
                 XCTAssertTrue(laterReadPage.collectionViewFirstCell.isRead)
             }
         }
+        
         if laterReadPage.collectionViewFirstCell.isRead {
             // 今が既読なら未読にしてから既読に戻す流れでテストします。
             test181()
@@ -100,7 +101,6 @@ class LaterReadListUITests: XCTestCase {
             test182()
             test181()
         }
-        
         
         // test 183
         // 後で読むを解除するボタンの動作確認
@@ -153,6 +153,7 @@ class LaterReadListUITests: XCTestCase {
                 XCTAssertFalse(laterReadPage.tableFirstCell.isRead)
             }
         }
+        
         if laterReadPage.tableFirstCell.isRead {
             // 既読の場合
             test153()   // 未読にするボタンが出てくる
@@ -186,6 +187,7 @@ class LaterReadListUITests: XCTestCase {
                 XCTAssertTrue(laterReadPage.tableFirstCell.isStar)
             }
         }
+        
         if laterReadPage.tableFirstCell.isStar {
             // お気に入りの場合
             test156()
@@ -195,7 +197,6 @@ class LaterReadListUITests: XCTestCase {
             test157()
             test156()
         }
-        
         
         // test 158
         // 後で読むボタンの動作確認
