@@ -27,7 +27,7 @@ class SettingUITests: XCTestCase {
         MainTabBar().settingBar.tap()
         
         // test 237
-        XCTContext.runActivity(named: "test 236") { _ in
+        XCTContext.runActivity(named: "test 237") { _ in
             settingPage.accountCell.tap()
             XCTAssertTrue(LoginViewPage().exists)
         }
@@ -47,7 +47,6 @@ class SettingUITests: XCTestCase {
             settingPage.accountCell.tap()
             XCTAssertTrue(settingPage.alert.exists)
         }
-        
         
         // test 249
         // LINEログアウトアラートのキャンセルボタンの動作確認
@@ -86,7 +85,6 @@ class SettingUITests: XCTestCase {
             settingPage.alertLogoutButton.tap()
             XCTAssertTrue(LoginViewPage().exists)
         }
-        
     }
 
     // MARK:- メールアカウントでのログイン状態でのテスト
@@ -131,7 +129,7 @@ class SettingUITests: XCTestCase {
         // バリデーションNGの確認
         XCTContext.runActivity(named: "test 268") { _ in
             accountPage.usernameTextField.clearAndEnterText(text: "")
-            accountPage.view.tap()
+            app.returnKey.tap()
             XCTAssertFalse(accountPage.confirmButton.isEnabled)
         }
         
@@ -139,7 +137,7 @@ class SettingUITests: XCTestCase {
         // バリデーションOKの確認
         XCTContext.runActivity(named: "test 267") { _ in
             accountPage.usernameTextField.clearAndEnterText(text: "テスト2")
-            accountPage.view.tap()
+            app.returnKey.tap()
             XCTAssertTrue(accountPage.confirmButton.isEnabled)
         }
         
