@@ -16,7 +16,6 @@ class ArticleListUITests: XCTestCase {
         app.launch()
     }
 
-
     func testAfterLogin() throws {
         // コレクションビューのテスト
         collectionViewCellTest()
@@ -123,7 +122,6 @@ class ArticleListUITests: XCTestCase {
             XCTAssertTrue(articleListPage.collectionViewFirstCell.isOpenContextMenu)
         }
         
-        
         // test 132
         XCTContext.runActivity(named: "test 132") { _ in
             app.tap()
@@ -207,7 +205,6 @@ class ArticleListAnimationUITests: XCTestCase {
     func testAfterLogin() throws {
         // test 091
         XCTAssertTrue(app.activityIndicators.firstMatch.exists)
-        
         
         var listView: XCUIElement!
         if articleListPage.table.exists {
