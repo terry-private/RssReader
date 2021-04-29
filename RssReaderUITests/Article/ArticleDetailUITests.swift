@@ -29,7 +29,6 @@ class ArticleDetailUITests: XCTestCase {
         
         mainTabBar.toArticleListPage().tableFirstCell.view.tap()
         
-        
         // test 285 286
         // 条件によって順番が前後するので関数で定義しておきます。
         func test285() {
@@ -46,6 +45,7 @@ class ArticleDetailUITests: XCTestCase {
                 XCTAssertTrue(articleDetailPage.starButton.exists)
             }
         }
+        
         if articleDetailPage.starButton.exists {
             test285()
             test286()
@@ -53,7 +53,6 @@ class ArticleDetailUITests: XCTestCase {
             test286()
             test285()
         }
-        
         
         // test 287 288
         // 条件によって順番が前後するので関数で定義しておきます。
@@ -71,6 +70,7 @@ class ArticleDetailUITests: XCTestCase {
                 XCTAssertTrue(articleDetailPage.starButton.exists)
             }
         }
+        
         if articleDetailPage.starButton.exists {
             test287()
             test288()
@@ -78,7 +78,6 @@ class ArticleDetailUITests: XCTestCase {
             test288()
             test287()
         }
-        
         
         // test 289
         // コンパス「ボタン」の動作確認
@@ -98,8 +97,7 @@ class ArticleDetailUITests: XCTestCase {
             // コレクションセルタップ動作確認
             ArticleListViewPage().collectionViewFirstCell.view.tap()
             XCTAssertTrue(articleDetailPage.exists)
-            
-            // 閉じて
+            // 閉じる
             articleDetailPage.closeButton.tap()
             // テーブルセルタップ動作確認
             mainTabBar
@@ -109,7 +107,7 @@ class ArticleDetailUITests: XCTestCase {
             XCTAssertTrue(articleDetailPage.exists)
         }
         
-        // 閉じておき
+        // 閉じる
         articleDetailPage.closeButton.tap()
         
         // test 141
@@ -118,8 +116,7 @@ class ArticleDetailUITests: XCTestCase {
             // テーブルセルタップ動作確認
             mainTabBar.toLaterReadPage().tableFirstCell.view.tap()
             XCTAssertTrue(articleDetailPage.exists)
-            
-            // 閉じて
+            // 閉じる
             articleDetailPage.closeButton.tap()
             // コレクションセルタップ動作確認
             mainTabBar
@@ -138,8 +135,7 @@ class ArticleDetailUITests: XCTestCase {
             // コレクションセルタップ動作確認
             mainTabBar.toStarListPage().collectionViewFirstCell.view.tap()
             XCTAssertTrue(articleDetailPage.exists)
-            
-            // 閉じて
+            // 閉じる
             articleDetailPage.closeButton.tap()
             // テーブルセルタップ動作確認
             mainTabBar
