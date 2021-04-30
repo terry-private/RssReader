@@ -33,12 +33,18 @@ class FilterMenuUITests: XCTestCase {
             XCTAssertTrue(filterMenuPage.exists)
         }
         
+        // 閉じる
+        filterMenuPage.view.swipeLeft()
+        
         // test 139
         // 最新記事画面のセル（テーブル、コレクション両方）タップの動作確認
         XCTContext.runActivity(named: "test 139"){ _ in
             mainTabBar.toLaterReadPage().filterMenuButton.tap()
             XCTAssertTrue(filterMenuPage.exists)
         }
+        
+        // 閉じる
+        filterMenuPage.view.swipeLeft()
         
         // test 185
         // 最新記事画面のセル（テーブル、コレクション両方）タップの動作確認
