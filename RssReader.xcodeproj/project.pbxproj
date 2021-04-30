@@ -71,6 +71,8 @@
 		098FCCA9262D55B20060F40A /* SettingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCCA8262D55B20060F40A /* SettingUITests.swift */; };
 		098FCCB2262D8A640060F40A /* extension_XCUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCCB1262D8A640060F40A /* extension_XCUIElement.swift */; };
 		098FCCC6262EA0C70060F40A /* extension_XCUIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCCC5262EA0C70060F40A /* extension_XCUIApplication.swift */; };
+		098FCCD7262FC46B0060F40A /* LaterReadListViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCCD6262FC46B0060F40A /* LaterReadListViewPage.swift */; };
+		098FCCDC262FC8500060F40A /* LaterReadListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCCDB262FC8500060F40A /* LaterReadListUITests.swift */; };
 		09902EF42611056A00B2B9A0 /* MailLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09902EF32611056A00B2B9A0 /* MailLogin.storyboard */; };
 		09902EFA2611084300B2B9A0 /* MailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902EF92611084300B2B9A0 /* MailLoginViewController.swift */; };
 		09902F032611B25100B2B9A0 /* AccountProperty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09902F022611B25100B2B9A0 /* AccountProperty.storyboard */; };
@@ -191,6 +193,8 @@
 		098FCCA8262D55B20060F40A /* SettingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUITests.swift; sourceTree = "<group>"; };
 		098FCCB1262D8A640060F40A /* extension_XCUIElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_XCUIElement.swift; sourceTree = "<group>"; };
 		098FCCC5262EA0C70060F40A /* extension_XCUIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension_XCUIApplication.swift; sourceTree = "<group>"; };
+		098FCCD6262FC46B0060F40A /* LaterReadListViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterReadListViewPage.swift; sourceTree = "<group>"; };
+		098FCCDB262FC8500060F40A /* LaterReadListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterReadListUITests.swift; sourceTree = "<group>"; };
 		09902EF32611056A00B2B9A0 /* MailLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MailLogin.storyboard; sourceTree = "<group>"; };
 		09902EF92611084300B2B9A0 /* MailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailLoginViewController.swift; sourceTree = "<group>"; };
 		09902F022611B25100B2B9A0 /* AccountProperty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountProperty.storyboard; sourceTree = "<group>"; };
@@ -436,6 +440,8 @@
 			children = (
 				098FCC6726281C020060F40A /* ArticleListUITests.swift */,
 				098FCC6F26281CD40060F40A /* ArticleListViewPage.swift */,
+				098FCCDB262FC8500060F40A /* LaterReadListUITests.swift */,
+				098FCCD6262FC46B0060F40A /* LaterReadListViewPage.swift */,
 				098FCC9526295B420060F40A /* ArticleTableViewFirstCell.swift */,
 				098FCC9A26299C4D0060F40A /* ArticleCollectionViewFirstCell.swift */,
 			);
@@ -949,6 +955,7 @@
 			files = (
 				098FCC522626F4FA0060F40A /* SelectRssFeedUITests.swift in Sources */,
 				098FCC572627D20F0060F40A /* SelectRssFeedTypeViewPage.swift in Sources */,
+				098FCCD7262FC46B0060F40A /* LaterReadListViewPage.swift in Sources */,
 				098FCCA9262D55B20060F40A /* SettingUITests.swift in Sources */,
 				098FCCA1262D55930060F40A /* SettingViewPage.swift in Sources */,
 				098FCC9B26299C4D0060F40A /* ArticleCollectionViewFirstCell.swift in Sources */,
@@ -964,6 +971,7 @@
 				098FCC3C2626D3BD0060F40A /* MainTabBar.swift in Sources */,
 				09B8033F2590CF9300CA2D19 /* RssReaderUITests.swift in Sources */,
 				09902FB6262036DF00B2B9A0 /* DummyLoginAlert.swift in Sources */,
+				098FCCDC262FC8500060F40A /* LaterReadListUITests.swift in Sources */,
 				098FCC422626E45B0060F40A /* SelectRssFeedViewPage.swift in Sources */,
 				098FCC7026281CD40060F40A /* ArticleListViewPage.swift in Sources */,
 				09902FAD261FFF4E00B2B9A0 /* LoginViewPage.swift in Sources */,
