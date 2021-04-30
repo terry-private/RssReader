@@ -75,6 +75,8 @@
 		098FCCDC262FC8500060F40A /* LaterReadListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCCDB262FC8500060F40A /* LaterReadListUITests.swift */; };
 		098FCCE4262FFEE90060F40A /* StarListViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCCE3262FFEE90060F40A /* StarListViewPage.swift */; };
 		098FCCE92630018C0060F40A /* StarListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCCE82630018C0060F40A /* StarListUITests.swift */; };
+		098FCCF426302BE10060F40A /* ArticleDetailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCCF326302BE10060F40A /* ArticleDetailUITests.swift */; };
+		098FCCF926302D4F0060F40A /* ArticleDetailViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCCF826302D4F0060F40A /* ArticleDetailViewPage.swift */; };
 		09902EF42611056A00B2B9A0 /* MailLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09902EF32611056A00B2B9A0 /* MailLogin.storyboard */; };
 		09902EFA2611084300B2B9A0 /* MailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09902EF92611084300B2B9A0 /* MailLoginViewController.swift */; };
 		09902F032611B25100B2B9A0 /* AccountProperty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09902F022611B25100B2B9A0 /* AccountProperty.storyboard */; };
@@ -199,6 +201,8 @@
 		098FCCDB262FC8500060F40A /* LaterReadListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaterReadListUITests.swift; sourceTree = "<group>"; };
 		098FCCE3262FFEE90060F40A /* StarListViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarListViewPage.swift; sourceTree = "<group>"; };
 		098FCCE82630018C0060F40A /* StarListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarListUITests.swift; sourceTree = "<group>"; };
+		098FCCF326302BE10060F40A /* ArticleDetailUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailUITests.swift; sourceTree = "<group>"; };
+		098FCCF826302D4F0060F40A /* ArticleDetailViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewPage.swift; sourceTree = "<group>"; };
 		09902EF32611056A00B2B9A0 /* MailLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MailLogin.storyboard; sourceTree = "<group>"; };
 		09902EF92611084300B2B9A0 /* MailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailLoginViewController.swift; sourceTree = "<group>"; };
 		09902F022611B25100B2B9A0 /* AccountProperty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountProperty.storyboard; sourceTree = "<group>"; };
@@ -448,6 +452,8 @@
 				098FCCD6262FC46B0060F40A /* LaterReadListViewPage.swift */,
 				098FCCE82630018C0060F40A /* StarListUITests.swift */,
 				098FCCE3262FFEE90060F40A /* StarListViewPage.swift */,
+				098FCCF326302BE10060F40A /* ArticleDetailUITests.swift */,
+				098FCCF826302D4F0060F40A /* ArticleDetailViewPage.swift */,
 				098FCC9526295B420060F40A /* ArticleTableViewFirstCell.swift */,
 				098FCC9A26299C4D0060F40A /* ArticleCollectionViewFirstCell.swift */,
 			);
@@ -970,11 +976,13 @@
 				098FCCC6262EA0C70060F40A /* extension_XCUIApplication.swift in Sources */,
 				098FCC6826281C020060F40A /* ArticleListUITests.swift in Sources */,
 				098FCC62262805310060F40A /* SelectYahooTagViewPage.swift in Sources */,
+				098FCCF926302D4F0060F40A /* ArticleDetailViewPage.swift in Sources */,
 				09902FA7261FF7D300B2B9A0 /* PageObjectable.swift in Sources */,
 				09902F9C261EB41700B2B9A0 /* LoginViewUITests.swift in Sources */,
 				09902FC52623E99A00B2B9A0 /* MailLoginViewPage.swift in Sources */,
 				098FCC9626295B420060F40A /* ArticleTableViewFirstCell.swift in Sources */,
 				098FCCE92630018C0060F40A /* StarListUITests.swift in Sources */,
+				098FCCF426302BE10060F40A /* ArticleDetailUITests.swift in Sources */,
 				098FCC3C2626D3BD0060F40A /* MainTabBar.swift in Sources */,
 				098FCCE4262FFEE90060F40A /* StarListViewPage.swift in Sources */,
 				09B8033F2590CF9300CA2D19 /* RssReaderUITests.swift in Sources */,

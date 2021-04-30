@@ -24,4 +24,39 @@ class MainTabBar {
     var settingBar: XCUIElement {
         return bar.buttons["setting_bar"]
     }
+    
+    // tableViewへの切り替え動作
+    @discardableResult
+    func toTableView() -> Self {
+        MainTabBar().settingBar.tap()
+        SettingViewPage().displayModeSegmentedControl.buttons["line.horizontal.3.decrease"].tap()
+        return self
+    }
+    
+    // collectionViewへの切り替え動作
+    @discardableResult
+    func toCollectionView() -> Self {
+        MainTabBar().settingBar.tap()
+        SettingViewPage().displayModeSegmentedControl.buttons["grid 2x2"].tap()
+        return self
+    }
+    
+    // 各ページへの遷移をメソッドチェーン可能な関数を定義しておきます。
+    @discardableResult
+    func toArticleListPage() -> ArticleListViewPage {
+        articleListBar.tap()
+        return ArticleListViewPage()
+    }
+    
+    @discardableResult
+    func toLaterReadPage() -> LaterReadListViewPage {
+        laterReadBar.tap()
+        return LaterReadListViewPage()
+    }
+    
+    @discardableResult
+    func toStarListPage() -> StarListViewPage {
+        starListBar.tap()
+        return StarListViewPage()
+    }
 }
