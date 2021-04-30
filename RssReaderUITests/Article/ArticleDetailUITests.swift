@@ -38,6 +38,7 @@ class ArticleDetailUITests: XCTestCase {
                 XCTAssertTrue(articleDetailPage.notStarButton.exists)
             }
         }
+        
         func test286() {
             // 「スター」ボタン（グレー枠のみ：お気に入りではない）タップ動作確認
             XCTContext.runActivity(named: "test 286") { _ in
@@ -63,6 +64,7 @@ class ArticleDetailUITests: XCTestCase {
                 XCTAssertTrue(articleDetailPage.notStarButton.exists)
             }
         }
+        
         func test288() {
             // 「トレイ」ボタン（青枠のみ：後で読むではない）タップ動作確認
             XCTContext.runActivity(named: "test 286") { _ in

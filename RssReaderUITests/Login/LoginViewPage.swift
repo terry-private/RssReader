@@ -36,6 +36,7 @@ final class LoginViewPage: PageObjectable {
         SelectRssFeedTypeViewPage().addNewQiita("iOS")
         SelectRssFeedViewPage().confirmButton.tap()
     }
+    
     func loginDummyMailAccount() {
         mailLoginButton.tap()
         MailLoginViewPage().loginDummyMailAccount()
