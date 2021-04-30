@@ -22,6 +22,10 @@ class FilterMenuViewController: UIViewController, Transitioner {
         super.viewDidLoad()
         setUpTable()
         rssFeedKeyList = CommonData.rssFeedListModel.rssFeedList.keys.sorted()
+        
+        // テストのための設定
+        view.accessibilityIdentifier = "filterMenu_view"
+        
     }
     func setUpTable() {
         filterMenuListTableView.delegate = self
@@ -77,7 +81,12 @@ extension FilterMenuViewController: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row == 0 {
                 let cell = filterMenuListTableView.dequeueReusableCell(withIdentifier: sortTypeTableViewCellId) as! SortTypeTableViewCell
                 cell.sortTypeSegmentedControl.selectedSegmentIndex = CommonData.filterModel.sortType.index
+                
+                // テストのための設定
+                cell.sortTypeSegmentedControl.accessibilityIdentifier = "filterMenu_sortType_segmentedControl"
+                
                 return cell
+                
             } else {
                 let cell = filterMenuListTableView.dequeueReusableCell(withIdentifier: orderByTableViewCellId) as! OrderByTableViewCell
                 if CommonData.filterModel.orderByDesc {
@@ -85,20 +94,40 @@ extension FilterMenuViewController: UITableViewDelegate, UITableViewDataSource {
                 } else {
                     cell.orderBySegmentedControl.selectedSegmentIndex = 1
                 }
+                
+                // テストのための設定
+                cell.orderBySegmentedControl.accessibilityIdentifier = "filterMenu_orderBy_segmentedControl"
+                
                 return cell
+                
             }
         case 1:
             let cell = filterMenuListTableView.dequeueReusableCell(withIdentifier: containReadTableViewCellId) as! ContainReadTableViewCell
             cell.readSwitch.setOn(CommonData.filterModel.containRead, animated: false)
+            
+            // テストのための設定
+            cell.accessibilityIdentifier = "filterMenu_containRead_switch"
+            
             return cell
+            
         case 2:
             let cell = filterMenuListTableView.dequeueReusableCell(withIdentifier: pubDateAfterTableViewCellId) as! PubDateAfterTableViewCell
             cell.pubDateAfterSegmentedControl.selectedSegmentIndex = CommonData.filterModel.pubDateAfter - 1
+            
+            // テストのための設定
+            cell.pubDateAfterSegmentedControl.accessibilityIdentifier = "filterMenu_pubDateAfter_segmentedControl"
+            
             return cell
+            
         case 3:
             let cell = filterMenuListTableView.dequeueReusableCell(withIdentifier: rssFeedDisplayTableViewCellId) as! RssFeedDisplayTableViewCell
             cell.rssFeedKey = rssFeedKeyList[indexPath.row]
+            
+            // テストのための設定
+            cell.accessibilityIdentifier = "filterMenu_rssFeed_cell"
+            
             return cell
+            
         default:
             return UITableViewCell()
         }

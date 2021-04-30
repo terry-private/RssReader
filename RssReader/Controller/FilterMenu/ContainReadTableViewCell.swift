@@ -15,5 +15,8 @@ class ContainReadTableViewCell: UITableViewCell {
     }
     @IBAction func readChanged(_ sender: Any) {
         CommonData.filterModel.containRead = readSwitch.isOn
+        
+        // テストのための設定
+        readSwitch.accessibilityIdentifier = readSwitch.isOn ? "filterMenu_containRead_switch" : "filterMenu_notContainRead_switch"
     }
 }

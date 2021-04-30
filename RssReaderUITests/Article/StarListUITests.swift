@@ -62,6 +62,7 @@ class StarListUITests: XCTestCase {
                 XCTAssertFalse(starListPage.collectionViewFirstCell.isRead)
             }
         }
+        
         func test228() {
             // 既読にするボタンの動作確認
             XCTContext.runActivity(named: "test 228") { _ in
@@ -93,6 +94,7 @@ class StarListUITests: XCTestCase {
                 app.tap()
             }
         }
+        
         func test230() {
             // 後で読むボタンの動作確認
             XCTContext.runActivity(named: "test 230") { _ in
@@ -139,6 +141,7 @@ class StarListUITests: XCTestCase {
                 XCTAssertTrue(starListPage.tableFirstCell.readButton.exists)
             }
         }
+        
         func test198() {
             // 記事セル左スワイプ（既読時）の動作確認
             XCTContext.runActivity(named: "test 198") { _ in
@@ -146,6 +149,7 @@ class StarListUITests: XCTestCase {
                 XCTAssertTrue(starListPage.tableFirstCell.unReadButton.exists)
             }
         }
+        
         func test204() {
             // チェックボタンの動作確認
             XCTContext.runActivity(named: "test 204") { _ in
@@ -153,6 +157,7 @@ class StarListUITests: XCTestCase {
                 XCTAssertTrue(starListPage.tableFirstCell.isRead)
             }
         }
+        
         func test205() {
             // 未読にするボタンの動作確認
             XCTContext.runActivity(named: "test 205") { _ in
@@ -194,6 +199,7 @@ class StarListUITests: XCTestCase {
                 XCTAssertFalse(isFirstTableCellLaterRead())
             }
         }
+        
         func test203() {
             // 後で読むボタン（後で読む記事では無い場合）の動作確認
             XCTContext.runActivity(named: "test 203") { _ in

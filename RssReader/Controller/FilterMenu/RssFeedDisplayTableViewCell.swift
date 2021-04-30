@@ -22,6 +22,10 @@ class RssFeedDisplayTableViewCell: UITableViewCell {
             tagNameLabel.text = rssFeed.tag
             titleLabel.text = rssFeed.title
             isDisplay.setOn(rssFeed.display, animated: true)
+            
+            // テストのための設定
+            tagNameLabel.accessibilityIdentifier = "filterMenu_rssFeedTag_label"
+            isDisplay.accessibilityIdentifier = isDisplay.isOn ? "filterMenu_rssFeedDisplay_switch": "filterMenu_rssFeedNotDisplay_switch"
         }
     }
     override class func awakeFromNib() {
@@ -29,5 +33,8 @@ class RssFeedDisplayTableViewCell: UITableViewCell {
     }
     @IBAction func changedIsDisplay(_ sender: Any) {
         CommonData.rssFeedListModel.rssFeedList[rssFeedKey!]?.display = isDisplay.isOn
+        
+        // テストのための設定
+        isDisplay.accessibilityIdentifier = isDisplay.isOn ? "filterMenu_rssFeedDisplay_switch": "filterMenu_rssFeedNotDisplay_switch"
     }
 }

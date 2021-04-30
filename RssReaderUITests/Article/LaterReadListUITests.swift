@@ -56,6 +56,7 @@ class LaterReadListUITests: XCTestCase {
                 XCTAssertFalse(laterReadPage.collectionViewFirstCell.isStar)
             }
         }
+        
         func test180() {
             // お気に入りボタンの動作確認
             XCTContext.runActivity(named: "test 180") { _ in
@@ -84,6 +85,7 @@ class LaterReadListUITests: XCTestCase {
                 XCTAssertFalse(laterReadPage.collectionViewFirstCell.isRead)
             }
         }
+        
         func test182() {
             // 既読にするボタンの動作確認
             XCTContext.runActivity(named: "test 182") { _ in
@@ -132,6 +134,7 @@ class LaterReadListUITests: XCTestCase {
                 XCTAssertTrue(laterReadPage.tableFirstCell.readButton.exists)
             }
         }
+        
         func test153() {
             // 記事セル左スワイプ（既読時）の動作確認
             XCTContext.runActivity(named: "test 153") { _ in
@@ -139,6 +142,7 @@ class LaterReadListUITests: XCTestCase {
                 XCTAssertTrue(laterReadPage.tableFirstCell.unReadButton.exists)
             }
         }
+        
         func test159() {
             // チェックボタンの動作確認
             XCTContext.runActivity(named: "test 159") { _ in
@@ -146,6 +150,7 @@ class LaterReadListUITests: XCTestCase {
                 XCTAssertTrue(laterReadPage.tableFirstCell.isRead)
             }
         }
+        
         func test160() {
             // 未読にするボタンの動作確認
             XCTContext.runActivity(named: "test 160") { _ in
@@ -178,6 +183,7 @@ class LaterReadListUITests: XCTestCase {
                 XCTAssertFalse(laterReadPage.tableFirstCell.isStar)
             }
         }
+        
         func test157() {
             // スターボタン（お気に入りでなはい時）の動作確認
             XCTContext.runActivity(named: "test 157") { _ in

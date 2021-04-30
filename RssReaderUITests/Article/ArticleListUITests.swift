@@ -96,6 +96,7 @@ class ArticleListUITests: XCTestCase {
             articleListPage.tableFirstCell.view.swipeLeft()
             XCTAssertTrue(articleListPage.tableFirstCell.readButton.exists)
         }
+        
         XCTContext.runActivity(named: "test 113") { _ in
             articleListPage.tableFirstCell.readButton.tap()
             XCTAssertTrue(articleListPage.tableFirstCell.isRead)
@@ -107,6 +108,7 @@ class ArticleListUITests: XCTestCase {
             articleListPage.tableFirstCell.view.swipeLeft()
             XCTAssertTrue(articleListPage.tableFirstCell.unReadButton.exists)
         }
+        
         XCTContext.runActivity(named: "test 114") { _ in
             articleListPage.tableFirstCell.unReadButton.tap()
             XCTAssertFalse(articleListPage.tableFirstCell.isRead)
@@ -138,6 +140,7 @@ class ArticleListUITests: XCTestCase {
                 XCTAssertFalse(articleListPage.collectionViewFirstCell.isStar)
             }
         }
+        
         func test134() {
             // お気に入りにできるかどうか
             XCTContext.runActivity(named: "test 134") { _ in
@@ -146,6 +149,7 @@ class ArticleListUITests: XCTestCase {
             XCTAssertTrue(articleListPage.collectionViewFirstCell.isStar)
             }
         }
+        
         if articleListPage.collectionViewFirstCell.isStar {
             // 今「お気に入り」なら解除してから「お気に入り」に戻す流れでテストします。
             test133()
@@ -165,6 +169,7 @@ class ArticleListUITests: XCTestCase {
                 XCTAssertFalse(articleListPage.collectionViewFirstCell.isRead)
             }
         }
+        
         func test136() {
             // 既読にできるかどうか
             XCTContext.runActivity(named: "test 136") { _ in
@@ -173,6 +178,7 @@ class ArticleListUITests: XCTestCase {
                 XCTAssertTrue(articleListPage.collectionViewFirstCell.isRead)
             }
         }
+        
         if articleListPage.collectionViewFirstCell.isRead {
             // 今が既読なら未読にしてから既読に戻す流れでテストします。
             test135()
@@ -198,15 +204,18 @@ class ArticleListAnimationUITests: XCTestCase {
     let app = XCUIApplication()
     let articleListPage = ArticleListViewPage()
     let mainTabBar = MainTabBar()
+    
     override func setUpWithError() throws {
         continueAfterFailure = false
         app.launch()
     }
+    
     func testAfterLogin() throws {
         // test 091
         XCTAssertTrue(app.activityIndicators.firstMatch.exists)
         
         var listView: XCUIElement!
+        
         if articleListPage.table.exists {
             XCTAssertTrue(articleListPage.table.cells.element.waitForExistence(timeout: 3))
             listView = articleListPage.table
