@@ -52,7 +52,6 @@ class StarListUITests: XCTestCase {
             XCTAssertNotEqual(starListPage.collectionViewFirstCell.articleTitleLabel.label, firstCellArticleTitle)
         }
         
-        
         // test 227 228
         // 条件によってtestの順番が入れ替わるので関数を定義しておきます。
         func test227() {
@@ -71,6 +70,7 @@ class StarListUITests: XCTestCase {
                 XCTAssertTrue(starListPage.collectionViewFirstCell.isRead)
             }
         }
+        
         if starListPage.collectionViewFirstCell.isRead {
             // 今が既読なら未読にしてから既読に戻す流れでテストします。
             test227()
@@ -79,7 +79,6 @@ class StarListUITests: XCTestCase {
             test228()
             test227()
         }
-        
         
         // test 229 230
         // 条件によってtestの順番が入れ替わるので関数を定義しておきます。
@@ -161,6 +160,7 @@ class StarListUITests: XCTestCase {
                 XCTAssertFalse(starListPage.tableFirstCell.isRead)
             }
         }
+        
         if starListPage.tableFirstCell.isRead {
             // 既読の場合
             test198()   // 未読にするボタンが出てくる
@@ -175,7 +175,6 @@ class StarListUITests: XCTestCase {
             test205()   // 押すと未読になる
         }
         
-        
         // test 201
         // スターボタン（お気に入り時）の動作確認
         XCTContext.runActivity(named: "test 201") { _ in
@@ -184,7 +183,6 @@ class StarListUITests: XCTestCase {
             starListPage.tableFirstCell.starButton.tap()
             XCTAssertNotEqual(starListPage.tableFirstCell.articleTitleLabel.label, firstCellArticleTitle)
         }
-        
         
         // test 202 203
         // 条件によってtestの順番が入れ替わるので関数を定義しておきます。
@@ -204,6 +202,7 @@ class StarListUITests: XCTestCase {
                 XCTAssertTrue(isFirstTableCellLaterRead())
             }
         }
+        
         if isFirstTableCellLaterRead() {
             test202()
             test203()
