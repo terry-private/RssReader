@@ -33,7 +33,6 @@ final class FilterMenuViewPage: PageObjectable {
         return view.tables.firstMatch.segmentedControls[A11y.pubDateAfterSegmentedControl]
     }
     
-    
     // MARK:- メソッド
     @discardableResult
     func to発行日順() -> Self {
