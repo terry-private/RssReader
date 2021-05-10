@@ -38,6 +38,9 @@ struct Article {
     var read: Bool = false
     var laterRead: Bool = false
     var isStar: Bool = false
+    var sortKey: String {
+        return rssFeedTitle + tag + (item.pubDate?.description ?? "") + item.link
+    }
 }
 
 class RealmArticle: Object {
