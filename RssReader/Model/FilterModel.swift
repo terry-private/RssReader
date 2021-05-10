@@ -72,9 +72,9 @@ extension FilterModelProtocol {
             }
         case .rssFeedType:
             if orderByDesc {
-                return sortedList.keys.sorted { $0 > $1}
+                return sortedList.keys.sorted { sortedList[$0]!.rssFeedTitle + sortedList[$0]!.tag > sortedList[$1]!.rssFeedTitle + sortedList[$1]!.tag}
             } else {
-                return sortedList.keys.sorted { $0 < $1}
+                return sortedList.keys.sorted { sortedList[$0]!.rssFeedTitle + sortedList[$0]!.tag < sortedList[$1]!.rssFeedTitle + sortedList[$1]!.tag}
             }
         }
     }
