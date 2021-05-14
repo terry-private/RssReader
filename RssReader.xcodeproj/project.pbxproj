@@ -230,7 +230,6 @@
 		099BB89E25DD0672003AF947 /* RssFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssFeedTableViewCell.swift; sourceTree = "<group>"; };
 		099BB8A725DD1171003AF947 /* AccountPropertyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPropertyTableViewCell.swift; sourceTree = "<group>"; };
 		099BB8B225DD5B47003AF947 /* Extension_UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UINavigationController.swift; sourceTree = "<group>"; };
-		09ACE145259621AC00FDB597 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		09ACE21B25964E4500FDB597 /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
 		09ACE2202597245800FDB597 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		09ACE22E2597275800FDB597 /* Extension_Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_Date.swift; sourceTree = "<group>"; };
@@ -598,7 +597,6 @@
 				09ACE22D2597272E00FDB597 /* Extension */,
 				09B803252590CF9200CA2D19 /* Assets.xcassets */,
 				09B8032A2590CF9200CA2D19 /* Info.plist */,
-				09ACE145259621AC00FDB597 /* GoogleService-Info.plist */,
 			);
 			path = RssReader;
 			sourceTree = "<group>";

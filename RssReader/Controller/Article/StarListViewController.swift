@@ -72,7 +72,7 @@ class StarListViewController: UIViewController, Transitioner {
         let hamburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentFilterMenu))
         hamburgerMenuButton.tintColor = .systemBlue
         navigationItem.leftBarButtonItem = hamburgerMenuButton
-        navigationItem.title = "お気に入り"
+        navigationItem.title = LStrings.favorite
         
         // テストのための設定
         hamburgerMenuButton.accessibilityIdentifier = "starList_filterMenu_Button"

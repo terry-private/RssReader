@@ -71,7 +71,7 @@ class LaterReadListViewController: UIViewController, Transitioner {
         let hamburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentFilterMenu))
         hamburgerMenuButton.tintColor = .systemBlue
         navigationItem.leftBarButtonItem = hamburgerMenuButton
-        navigationItem.title = "後で読む"
+        navigationItem.title = LStrings.laterRead
         
         // テストのための設定
         hamburgerMenuButton.accessibilityIdentifier = "laterReadList_filterMenu_Button"

@@ -119,7 +119,7 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         hamburgerMenuButton.accessibilityIdentifier = "articleList_filterMenu_Button"
         hamburgerMenuButton.tintColor = .systemBlue
         navigationItem.leftBarButtonItem = hamburgerMenuButton
-        navigationItem.title = "最新記事"
+        navigationItem.title = LStrings.latestArticles
     }
     
     @objc func refreshTable() {
