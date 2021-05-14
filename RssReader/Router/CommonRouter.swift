@@ -14,7 +14,7 @@ class CommonRouter {
     /// SplashView = Transitioner + FUIAuthDelegate
     class func toAuth<T>(view: T) where T: Transitioner {
         let loginViewController = LoginViewController()
-        loginViewController.navigationItem.title = "ログイン"
+        loginViewController.navigationItem.title = LStrings.login
         let nav = UINavigationController(loginViewController)
         nav.modalPresentationStyle = .fullScreen
         view.present(nav, animated: true, completion: nil)

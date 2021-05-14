@@ -5,11 +5,24 @@
   Created by 若江照仁 on 2021/05/14.
   
 */
+
+// MainTabBar
 "latestArticles" = "Latest Articles";
 "laterRead" = "Later Read";
 "favorite" = "Favorite";
 "setting" = "Setting";
 
+// Login
+"login" = "Login";
+"mailLoginButtonTitle" = "　　Log in with Mail";
+"idLoginButtonTitle" = "Log in with ID";
+"loginAlertMessage" = "Please input ID.";
+"errorAlertTitle" = "Input Errors";
+"halfAlphanumeric8_12" = "Half-Width Alphanumeric & 8~12characters";
+"countErrorMessage" = "Please input using more than 8 characters but less than 12";
+"alphanumericErrorMessage" = "Please input using alphanumeric";
+
+// Common
 "done" = "Done";
 "cancel" = "Cancel";
 "back" = "Back";
