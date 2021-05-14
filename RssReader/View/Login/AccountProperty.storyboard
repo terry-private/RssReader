@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -130,10 +130,13 @@
                         <outlet property="confirmButton" destination="fdr-kk-Gce" id="D1J-1H-SmO"/>
                         <outlet property="logoutButton" destination="4Ho-Yw-VzM" id="Z7f-60-ZgO"/>
                         <outlet property="mailTextField" destination="lcB-yU-zwe" id="Leb-qa-r89"/>
+                        <outlet property="mailTitleLabel" destination="0ho-iZ-qES" id="ptu-1B-xeu"/>
                         <outlet property="passwordTextField" destination="6aC-rm-myL" id="39q-eL-ccH"/>
+                        <outlet property="passwordTitleLabel" destination="5KN-tE-w9q" id="8yS-JA-35O"/>
                         <outlet property="profileImageButton" destination="XeI-on-Fjs" id="iOc-BY-46a"/>
                         <outlet property="stackViewCenterY" destination="Ego-fB-dMl" id="vtg-6N-vSh"/>
                         <outlet property="usernameTextField" destination="u4i-Cc-qRu" id="1u3-XN-2eK"/>
+                        <outlet property="usernameTitleLabel" destination="Alh-BY-jJj" id="E8T-7W-HrG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdZ-QJ-qgG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

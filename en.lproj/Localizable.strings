@@ -23,14 +23,21 @@
 // MailLoginView
 "mailLogin" = "Login with Email";
 
+// AccountPropertyView
+"profileImage" = "Profile Image";
+
 // Common
 "login" = "Login";
+"logout" = "Logout";
 "done" = "Done";
+"enter" = "Enter";
 "cancel" = "Cancel";
+"close" = "Close";
 "back" = "Back";
 
 // AppWord
 "emailAddress" = "Email address";
 "password" = "Password";
+"username" = "User Name";
 "halfAlphanumeric6_12" = "Half-Width Alphanumeric & 6~12characters";
 "createANewAccount" = "Create a new account";

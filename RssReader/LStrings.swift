@@ -25,15 +25,22 @@ class LStrings {
     // MailLoginView
     static var mailLogin = NSLocalizedString("mailLogin", comment: "")
     
+    // AccountPropertyView
+    static var profileImage = NSLocalizedString("profileImage", comment: "")
+    
     // CommonWord
     static var login = NSLocalizedString("login", comment: "")
+    static var logout = NSLocalizedString("logout", comment: "")
     static var done = NSLocalizedString("done", comment: "")
+    static var enter = NSLocalizedString("enter", comment: "")
     static var cancel = NSLocalizedString("cancel", comment: "")
+    static var close = NSLocalizedString("close", comment: "")
     static var back = NSLocalizedString("back", comment: "")
     
     // AppWord
     static var emailAddress = NSLocalizedString("emailAddress", comment: "")
     static var password = NSLocalizedString("password", comment: "")
+    static var username = NSLocalizedString("username", comment: "")
     static var halfAlphanumeric6_12 = NSLocalizedString("halfAlphanumeric6_12", comment: "")
     static var createANewAccount = NSLocalizedString("createANewAccount", comment: "")
     

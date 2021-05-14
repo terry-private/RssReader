@@ -23,15 +23,22 @@
 // MailLoginView
 "mailLogin" = "メールログイン";
 
+// AccountPropertyView
+"profileImage" = "プロフィール画像";
+
 
 // CommonWord
 "login" = "ログイン";
-"done" = "確定";
+"logout" = "ログアウト";
+"done" = "完了";
+"enter" = "確定";
 "cancel" = "キャンセル";
+"close" = "閉じる";
 "back" = "戻る";
 
 // AppWord
 "emailAddress" = "メールアドレス";
 "password" = "パスワード";
+"username" = "名前";
 "halfAlphanumeric6_12" = "半角英数字 6~12文字";
 "createANewAccount" = "新規アカウント作成";

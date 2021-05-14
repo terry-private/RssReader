@@ -23,7 +23,7 @@ class CommonRouter {
     class func toNewAccountPropertyView(view: Transitioner, defaultData: [String: String]) {
         let storyboard = UIStoryboard(name: "AccountProperty", bundle: nil)
         let accountPropertyVC = storyboard.instantiateViewController(identifier: "AccountPropertyViewController") as! AccountPropertyViewController
-        accountPropertyVC.navigationItem.title = "新規アカウント作成"
+        accountPropertyVC.navigationItem.title = LStrings.createANewAccount
         accountPropertyVC.defaultData = defaultData
         view.pushViewController(accountPropertyVC, animated: true)
     }

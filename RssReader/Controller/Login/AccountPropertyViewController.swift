@@ -10,8 +10,11 @@ import UIKit
 class AccountPropertyViewController: UIViewController, Transitioner {
     // MARK:- IBOutlet
     @IBOutlet weak var profileImageButton: UIButton!
+    @IBOutlet weak var mailTitleLabel: UILabel!
     @IBOutlet weak var mailTextField: UITextField!
+    @IBOutlet weak var passwordTitleLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var usernameTitleLabel: UILabel!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
@@ -88,11 +91,12 @@ class AccountPropertyViewController: UIViewController, Transitioner {
             passwordTextField.text = CommonData.loginModel.userConfig.password
             usernameTextField.text = CommonData.loginModel.userConfig.displayName
             
-            let closeButton = UIBarButtonItem(title: "閉じる", style: .plain, target: self, action: #selector(close))
+            let closeButton = UIBarButtonItem(title: LStrings.close, style: .plain, target: self, action: #selector(close))
             navigationItem.leftBarButtonItem = closeButton
         }
         
         validation()
+        setLocalizableString()
     }
     
     // MARK:- キーボード関連
@@ -101,6 +105,15 @@ class AccountPropertyViewController: UIViewController, Transitioner {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         validation()
         view.endEditing(true)
+    }
+    
+    private func setLocalizableString() {
+        profileImageButton.setTitle(LStrings.profileImage, for: .normal)
+        mailTitleLabel.text = LStrings.emailAddress
+        passwordTitleLabel.text = LStrings.password
+        usernameTitleLabel.text = LStrings.username
+        confirmButton.setTitle(LStrings.enter, for: .normal)
+        logoutButton.setTitle(LStrings.logout, for: .normal)
     }
     
     // キーボード開閉で呼び出すメソッドをNotificationCenterに追加する
