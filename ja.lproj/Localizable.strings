@@ -12,9 +12,7 @@
 "favorite" = "お気に入り";
 "setting" = "設定";
 
-// Login
-"login" = "ログイン";
-"mailLoginButtonTitle" = "　　メールログイン";
+// LoginView
 "idLoginButtonTitle" = "ログインIDの入力";
 "loginAlertMessage" = "ログインIDを入力してください。";
 "errorAlertTitle" = "入力エラー";
@@ -22,7 +20,18 @@
 "countErrorMessage" = "ログインIDは8〜12文字です。";
 "alphanumericErrorMessage" = "ログインIDは英数字のみです。";
 
-// Common
+// MailLoginView
+"mailLogin" = "メールログイン";
+
+
+// CommonWord
+"login" = "ログイン";
 "done" = "確定";
 "cancel" = "キャンセル";
 "back" = "戻る";
+
+// AppWord
+"emailAddress" = "メールアドレス";
+"password" = "パスワード";
+"halfAlphanumeric6_12" = "半角英数字 6~12文字";
+"createANewAccount" = "新規アカウント作成";

@@ -61,7 +61,7 @@ class LoginViewController: UIViewController, Transitioner {
         loginButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         loginButton.tintColor = .white
         loginButton.setImage(UIImage(systemName: "mail"), for: .normal)
-        loginButton.setTitle(LStrings.mailLoginButtonTitle, for: .normal)
+        loginButton.setTitle("　　" + LStrings.mailLogin, for: .normal)
         loginButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .caption1)
         loginButton.setTitleColor(.white, for: .normal)
         loginButton.setTitleColor(.lightGray, for: .highlighted)

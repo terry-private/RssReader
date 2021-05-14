@@ -41,7 +41,7 @@ class CommonRouter {
     class func toMailLoginView<T>(view: T) where T: Transitioner {
         let storyboard = UIStoryboard(name: "MailLogin", bundle: nil)
         let mailLoginVC = storyboard.instantiateViewController(identifier: "MailLoginViewController") as! MailLoginViewController
-        mailLoginVC.navigationItem.title = "メールログイン"
+        mailLoginVC.navigationItem.title = LStrings.mailLogin
         view.pushViewController(mailLoginVC, animated: true)
     }
     

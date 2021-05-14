@@ -14,9 +14,7 @@ class LStrings {
     static var favorite = NSLocalizedString("favorite", comment: "")
     static var setting = NSLocalizedString("setting", comment: "")
     
-    // Login
-    static var login = NSLocalizedString("login", comment: "")
-    static var mailLoginButtonTitle = NSLocalizedString("mailLoginButtonTitle", comment: "")
+    // LoginView
     static var idLoginButtonTitle = NSLocalizedString("idLoginButtonTitle", comment: "")
     static var loginAlertMessage = NSLocalizedString("loginAlertMessage", comment: "")
     static var errorAlertTitle = NSLocalizedString("errorAlertTitle", comment: "")
@@ -24,8 +22,19 @@ class LStrings {
     static var countErrorMessage = NSLocalizedString("countErrorMessage", comment: "")
     static var alphanumericErrorMessage = NSLocalizedString("alphanumericErrorMessage", comment: "")
     
-    // Common
+    // MailLoginView
+    static var mailLogin = NSLocalizedString("mailLogin", comment: "")
+    
+    // CommonWord
+    static var login = NSLocalizedString("login", comment: "")
     static var done = NSLocalizedString("done", comment: "")
     static var cancel = NSLocalizedString("cancel", comment: "")
     static var back = NSLocalizedString("back", comment: "")
+    
+    // AppWord
+    static var emailAddress = NSLocalizedString("emailAddress", comment: "")
+    static var password = NSLocalizedString("password", comment: "")
+    static var halfAlphanumeric6_12 = NSLocalizedString("halfAlphanumeric6_12", comment: "")
+    static var createANewAccount = NSLocalizedString("createANewAccount", comment: "")
+    
 }

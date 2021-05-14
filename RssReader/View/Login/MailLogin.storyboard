@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -61,7 +61,7 @@
                                                             <action selector="passwordTextFieldTappedDone:" destination="Adz-37-NUP" eventType="editingDidEndOnExit" id="x3U-nM-vDg"/>
                                                         </connections>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="※半角英数字　6~12文字" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8u-Y9-hT4">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="※半角英数字　6~12文字" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8u-Y9-hT4" userLabel="※半角英数字 6~12文字">
                                                         <rect key="frame" x="0.0" y="54.5" width="250" height="16"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" systemColor="tertiaryLabelColor"/>
@@ -102,8 +102,11 @@
                     <connections>
                         <outlet property="loginButton" destination="LoN-r3-hnQ" id="ai7-7B-lfJ"/>
                         <outlet property="mailTextField" destination="cYj-sb-1Bd" id="3d8-WF-UXm"/>
+                        <outlet property="mailTitleLabel" destination="mke-Hi-a0q" id="PWy-wk-DSX"/>
                         <outlet property="newAccountButton" destination="5GZ-Mt-7Qw" id="bRK-TD-f9g"/>
                         <outlet property="passwordTextField" destination="f77-oM-zCq" id="HMh-Xc-wjq"/>
+                        <outlet property="passwordTitleLabel" destination="Tey-5g-Tfs" id="T8F-ON-dHx"/>
+                        <outlet property="passwordValidationRuleLabel" destination="g8u-Y9-hT4" id="zI8-mG-jFB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iqk-SD-hWI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
