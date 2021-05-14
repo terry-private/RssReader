@@ -36,6 +36,15 @@ class LStrings {
     static var toLaterRead = NSLocalizedString("toLaterRead", comment: "")
     static var toNotLaterRead = NSLocalizedString("toNotLaterRead", comment: "")
     
+    // RssFeed
+    static var selectRssFeed = NSLocalizedString("selectRssFeed", comment: "")
+    static var articleTaggedWith = NSLocalizedString("articleTaggedWith", comment: "")
+    static var subscribeTo = NSLocalizedString("subscribeTo", comment: "")
+    static var singularFormOfRssFeed = NSLocalizedString("singularFormOfRssFeed", comment: "")
+    static var pluralFormOfRssFeed = NSLocalizedString("pluralFormOfRssFeed", comment: "")
+    static var addNewRssFeed = NSLocalizedString("addNewRssFeed", comment: "")
+    
+    
     // CommonWord
     static var login = NSLocalizedString("login", comment: "")
     static var logout = NSLocalizedString("logout", comment: "")

@@ -34,6 +34,14 @@
 "toLaterRead" = "To later read";
 "toNotLaterRead" = "To not later read";
 
+// RssFeed
+"selectRssFeed" = "Select RSS Feed";
+"articleTaggedWith" = "Articles tagged with";
+"subscribeTo" = "Subscribe to ";
+"singularFormOfRssFeed" = " RssFeed";
+"pluralFormOfRssFeed" = " RssFeeds";
+"addNewRssFeed" = "Add New RssFeed";
+
 // Common
 "login" = "Login";
 "logout" = "Logout";

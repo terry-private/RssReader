@@ -34,7 +34,13 @@
 "toLaterRead" = "後で読む";
 "toNotLaterRead" = "後で読む解除";
 
-
+// RssFeed
+"selectRssFeed" = "RSS Feedの選択";
+"articleTaggedWith" = "タグのついた記事";
+"subscribeTo" = "購読する記事：";
+"singularFormOfRssFeed" = "件";
+"pluralFormOfRssFeed" = "件";
+"addNewRssFeed" = "購読するRssFeedを追加";
 
 // CommonWord
 "login" = "ログイン";

@@ -48,7 +48,7 @@ class CommonRouter {
     class func toSelectRssFeedView(view: Transitioner) {
         let storyboard = UIStoryboard(name: "SelectRssFeed", bundle: nil)
         let selectRssFeedViewController = storyboard.instantiateViewController(identifier: "SelectRssFeedViewController") as! SelectRssFeedViewController
-        selectRssFeedViewController.navigationItem.title = "RSS Feedの選択"
+        selectRssFeedViewController.navigationItem.title = LStrings.selectRssFeed
         let nav = UINavigationController(selectRssFeedViewController)
         nav.modalPresentationStyle = .fullScreen
         view.present(nav,animated: true, completion: nil)

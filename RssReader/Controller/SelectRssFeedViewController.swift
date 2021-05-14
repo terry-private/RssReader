@@ -15,8 +15,10 @@ protocol SelectRssFeedViewProtocol: Transitioner {
 class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
     //MARK:- @IBOutlet
     
+    @IBOutlet weak var subscribeToLabel: UILabel!
     @IBOutlet weak var selectRssFeedTableView: UITableView!
     @IBOutlet weak var selectedCountLabel: UILabel!
+    @IBOutlet weak var formOfRssFeed: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
     
     //MARK:- 変数宣言
@@ -30,6 +32,7 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
         super.viewDidLoad()
         setUpTable()
         setAccessibilityIdentifier()
+        setLocalizableStrings()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,11 +54,18 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
         selectRssFeedTableView.register(UINib(nibName: "RssFeedTableViewCell", bundle: nil), forCellReuseIdentifier: cellId)
         selectRssFeedTableView.register(UINib(nibName: "AddNewRssFeedTableViewCell", bundle: nil), forCellReuseIdentifier: addNewCellId)
     }
+    
+    private func setLocalizableStrings() {
+        subscribeToLabel.text = LStrings.subscribeTo
+        confirmButton.setTitle(LStrings.enter, for: .normal)
+    }
+    
     //MARK:- 状態変化系
     
     func changedSelectedCount() {
         setSelectedCountLabel()
         setConfirmButton()
+        formOfRssFeed.text = CommonData.rssFeedListModel.rssFeedList.count == 1 ? LStrings.singularFormOfRssFeed : LStrings.pluralFormOfRssFeed
     }
     func setSelectedCountLabel() {
         selectedCountLabel.text = String(CommonData.rssFeedListModel.rssFeedList.count)
@@ -88,9 +98,11 @@ extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSourc
         if indexPath.row < CommonData.rssFeedListModel.rssFeedList.count {
             let cell = selectRssFeedTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! RssFeedTableViewCell
             cell.rssFeed = CommonData.rssFeedListModel.rssFeedList[rssFeedKeyList[indexPath.row]]
+            cell.articleTaggedWithLabel.text = LStrings.articleTaggedWith
             return cell
         }
         let cell = selectRssFeedTableView.dequeueReusableCell(withIdentifier: addNewCellId, for: indexPath) as! AddNewRssFeedTableViewCell
+        cell.addNewRssFeedLabel.text = LStrings.addNewRssFeed
         return cell
     }
     
@@ -123,30 +135,11 @@ extension SelectRssFeedViewController: SelectRssFeedDelegate {
     }
 }
 
-// MARK:- SelectRssTableViewCell
-
-class SelectRssTableViewCell: UITableViewCell {
-    @IBOutlet weak var faviconImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var tagNameLabel: UILabel!
-    var rssFeed: RssFeedProtocol? {
-        didSet {
-            if let url = URL(string: rssFeed?.faviconUrl ?? "") {
-                Nuke.loadImage(with: url, into: faviconImageView)
-            }
-            titleLabel.text = rssFeed?.title
-            tagNameLabel.text = rssFeed?.tag
-        }
-    }
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-}
 
 // MARK:- AddNewRssFeedTableViewCell
 
 class AddNewRssFeedTableViewCell: UITableViewCell {
+    @IBOutlet weak var addNewRssFeedLabel: UILabel!
     
     override class func awakeFromNib() {
         super.awakeFromNib()
