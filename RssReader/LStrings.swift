@@ -28,6 +28,14 @@ class LStrings {
     // AccountPropertyView
     static var profileImage = NSLocalizedString("profileImage", comment: "")
     
+    // ArticleStatus
+    static var toRead = NSLocalizedString("toRead", comment: "")
+    static var toNotRead = NSLocalizedString("toNotRead", comment: "")
+    static var toFavorite = NSLocalizedString("toFavorite", comment: "")
+    static var toNotFavorite = NSLocalizedString("toNotFavorite", comment: "")
+    static var toLaterRead = NSLocalizedString("toLaterRead", comment: "")
+    static var toNotLaterRead = NSLocalizedString("toNotLaterRead", comment: "")
+    
     // CommonWord
     static var login = NSLocalizedString("login", comment: "")
     static var logout = NSLocalizedString("logout", comment: "")
@@ -36,6 +44,7 @@ class LStrings {
     static var cancel = NSLocalizedString("cancel", comment: "")
     static var close = NSLocalizedString("close", comment: "")
     static var back = NSLocalizedString("back", comment: "")
+    static var edit = NSLocalizedString("edit", comment: "")
     
     // AppWord
     static var emailAddress = NSLocalizedString("emailAddress", comment: "")

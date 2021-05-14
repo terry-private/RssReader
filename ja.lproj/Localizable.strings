@@ -26,6 +26,15 @@
 // AccountPropertyView
 "profileImage" = "プロフィール画像";
 
+// ArticleStatus
+"toRead" = "既読にする";
+"toNotRead" = "未読にする";
+"toFavorite" = "お気に入り";
+"toNotFavorite" = "お気に入り解除";
+"toLaterRead" = "後で読む";
+"toNotLaterRead" = "後で読む解除";
+
+
 
 // CommonWord
 "login" = "ログイン";
@@ -35,6 +44,7 @@
 "cancel" = "キャンセル";
 "close" = "閉じる";
 "back" = "戻る";
+"edit" = "編集";
 
 // AppWord
 "emailAddress" = "メールアドレス";

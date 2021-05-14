@@ -26,6 +26,14 @@
 // AccountPropertyView
 "profileImage" = "Profile Image";
 
+// ArticleStatus
+"toRead" = "To read";
+"toNotRead" = "To not read";
+"toFavorite" = "To favorite";
+"toNotFavorite" = "To not favorite";
+"toLaterRead" = "To later read";
+"toNotLaterRead" = "To not later read";
+
 // Common
 "login" = "Login";
 "logout" = "Logout";
@@ -34,6 +42,7 @@
 "cancel" = "Cancel";
 "close" = "Close";
 "back" = "Back";
+"edit" = "Edit";
 
 // AppWord
 "emailAddress" = "Email address";
