@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  RssReader
+
+  Created by 若江照仁 on 2021/05/14.
+  
+*/
+"done" = "確定";
+"cancel" = "キャンセル";
+"back" = "戻る";
+"latestArticles" = "最新記事";

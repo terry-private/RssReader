@@ -33,6 +33,7 @@
 		09174ED925E53ADC00756E6D /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174ED825E53ADC00756E6D /* CommonData.swift */; };
 		09174EE425E573E100756E6D /* AddNewRssFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09174EE325E573E100756E6D /* AddNewRssFeedTableViewCell.xib */; };
 		091C89DD2606E0F2003AE7B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C89DC2606E0F2003AE7B6 /* LoginViewController.swift */; };
+		0925C84B264E3A7F006401C1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0925C84D264E3A7F006401C1 /* Localizable.strings */; };
 		092B65BB26316655002799AD /* FilterMenuViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B65BA26316655002799AD /* FilterMenuViewPage.swift */; };
 		092B65C326316E46002799AD /* FilterMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B65C226316E46002799AD /* FilterMenuUITests.swift */; };
 		095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */; };
@@ -97,7 +98,6 @@
 		099BB89F25DD0672003AF947 /* RssFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BB89E25DD0672003AF947 /* RssFeedTableViewCell.swift */; };
 		099BB8A825DD1171003AF947 /* AccountPropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BB8A725DD1171003AF947 /* AccountPropertyTableViewCell.swift */; };
 		099BB8B325DD5B47003AF947 /* Extension_UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099BB8B225DD5B47003AF947 /* Extension_UINavigationController.swift */; };
-		09ACE146259621AC00FDB597 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09ACE145259621AC00FDB597 /* GoogleService-Info.plist */; };
 		09ACE21C25964E4500FDB597 /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACE21B25964E4500FDB597 /* UserConfig.swift */; };
 		09ACE2212597245800FDB597 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACE2202597245800FDB597 /* LoginModel.swift */; };
 		09ACE22F2597275800FDB597 /* Extension_Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACE22E2597275800FDB597 /* Extension_Date.swift */; };
@@ -161,6 +161,9 @@
 		09174ED825E53ADC00756E6D /* CommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
 		09174EE325E573E100756E6D /* AddNewRssFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewRssFeedTableViewCell.xib; sourceTree = "<group>"; };
 		091C89DC2606E0F2003AE7B6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0925C848264E38AC006401C1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		0925C84C264E3A7F006401C1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0925C84E264E3ABD006401C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		092B65BA26316655002799AD /* FilterMenuViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuViewPage.swift; sourceTree = "<group>"; };
 		092B65C226316E46002799AD /* FilterMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuUITests.swift; sourceTree = "<group>"; };
 		095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewController.swift; sourceTree = "<group>"; };
@@ -558,6 +561,7 @@
 		09B803102590CF9100CA2D19 = {
 			isa = PBXGroup;
 			children = (
+				0925C84D264E3A7F006401C1 /* Localizable.strings */,
 				09B8031B2590CF9100CA2D19 /* RssReader */,
 				09B803322590CF9300CA2D19 /* RssReaderTests */,
 				09B8033D2590CF9300CA2D19 /* RssReaderUITests */,
@@ -745,6 +749,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 09B803102590CF9100CA2D19;
 			productRefGroup = 09B8031A2590CF9100CA2D19 /* Products */;
@@ -767,6 +772,7 @@
 				09902F032611B25100B2B9A0 /* AccountProperty.storyboard in Resources */,
 				099BB89A25DD05DB003AF947 /* RssFeedTableViewCell.xib in Resources */,
 				0912527825E87AA100F9CFCA /* RssFeedDisplayTableViewCell.xib in Resources */,
+				0925C84B264E3A7F006401C1 /* Localizable.strings in Resources */,
 				09174EE425E573E100756E6D /* AddNewRssFeedTableViewCell.xib in Resources */,
 				0912529E25E9190700F9CFCA /* LaterReadList.storyboard in Resources */,
 				091251D725E5F92F00F9CFCA /* ArticleDetail.storyboard in Resources */,
@@ -774,7 +780,6 @@
 				09B803292590CF9200CA2D19 /* LaunchScreen.storyboard in Resources */,
 				09ACE24A25977DED00FDB597 /* ArticleList.storyboard in Resources */,
 				0912528225E8C43200F9CFCA /* ArticleTableViewCell.xib in Resources */,
-				09ACE146259621AC00FDB597 /* GoogleService-Info.plist in Resources */,
 				09902EF42611056A00B2B9A0 /* MailLogin.storyboard in Resources */,
 				0983205125DFF0A700AA8662 /* SelectRssFeedType.storyboard in Resources */,
 				097DC1E125EF752E00DAE7BD /* FetchTimeInterval.xib in Resources */,
@@ -1026,10 +1031,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0925C84D264E3A7F006401C1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0925C84C264E3A7F006401C1 /* ja */,
+				0925C84E264E3ABD006401C1 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		09B803272590CF9200CA2D19 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				09B803282590CF9200CA2D19 /* Base */,
+				0925C848264E38AC006401C1 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1041,6 +1056,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1164,6 +1180,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1287,6 +1304,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1346,6 +1364,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
