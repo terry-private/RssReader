@@ -23,7 +23,7 @@ class MainTabBarController: UITabBarController, Transitioner {
             articleListViewController.inject(
                 articleListRouter: articleListRouter
             )
-            let bar = UITabBarItem(title: NSLocalizedString("latestArticles", comment: ""), image: UIImage(systemName: "list.bullet.rectangle"), tag: 0)
+            let bar = UITabBarItem(title: LStrings.latestArticles, image: UIImage(systemName: "list.bullet.rectangle"), tag: 0)
             bar.accessibilityIdentifier = "articleList_bar"
             articleListViewController.tabBarItem = bar
             return UINavigationController(articleListViewController)

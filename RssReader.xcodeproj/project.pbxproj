@@ -34,6 +34,7 @@
 		09174EE425E573E100756E6D /* AddNewRssFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09174EE325E573E100756E6D /* AddNewRssFeedTableViewCell.xib */; };
 		091C89DD2606E0F2003AE7B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C89DC2606E0F2003AE7B6 /* LoginViewController.swift */; };
 		0925C84B264E3A7F006401C1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0925C84D264E3A7F006401C1 /* Localizable.strings */; };
+		0925C850264E4466006401C1 /* LStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C84F264E4466006401C1 /* LStrings.swift */; };
 		092B65BB26316655002799AD /* FilterMenuViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B65BA26316655002799AD /* FilterMenuViewPage.swift */; };
 		092B65C326316E46002799AD /* FilterMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B65C226316E46002799AD /* FilterMenuUITests.swift */; };
 		095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */; };
@@ -164,6 +165,7 @@
 		0925C848264E38AC006401C1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0925C84C264E3A7F006401C1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0925C84E264E3ABD006401C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0925C84F264E4466006401C1 /* LStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LStrings.swift; sourceTree = "<group>"; };
 		092B65BA26316655002799AD /* FilterMenuViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuViewPage.swift; sourceTree = "<group>"; };
 		092B65C226316E46002799AD /* FilterMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuUITests.swift; sourceTree = "<group>"; };
 		095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewController.swift; sourceTree = "<group>"; };
@@ -587,6 +589,7 @@
 				09B8031C2590CF9100CA2D19 /* AppDelegate.swift */,
 				09B8031E2590CF9100CA2D19 /* SceneDelegate.swift */,
 				09B803272590CF9200CA2D19 /* LaunchScreen.storyboard */,
+				0925C84F264E4466006401C1 /* LStrings.swift */,
 				092DCC6925A4AED00036A339 /* Dummy */,
 				098D56BE2593757300EAD41F /* Model */,
 				098D56BC2593750E00EAD41F /* View */,
@@ -952,6 +955,7 @@
 				0975615725B85F50007B0D3F /* MainTabBarController.swift in Sources */,
 				0912527325E80F3500F9CFCA /* PubDateAfterTableViewCell.swift in Sources */,
 				09688C7425F36EB4007925B3 /* DisplayModeTableViewCell.swift in Sources */,
+				0925C850264E4466006401C1 /* LStrings.swift in Sources */,
 				09EDB06D2608DCC900E2F78A /* Extension_String.swift in Sources */,
 				0975613F25B73155007B0D3F /* ArticleList.swift in Sources */,
 				09688C5A25F294D9007925B3 /* ArticleCollectionViewCell.swift in Sources */,
