@@ -5,7 +5,11 @@
   Created by 若江照仁 on 2021/05/14.
   
 */
+"latestArticles" = "Latest Articles";
+"laterRead" = "Later Read";
+"favorite" = "Favorite";
+"setting" = "Setting";
+
 "done" = "Done";
 "cancel" = "Cancel";
 "back" = "Back";
-"latestArticles" = "Latest Articles";

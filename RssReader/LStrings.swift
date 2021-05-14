@@ -9,4 +9,7 @@ import Foundation
 
 class LStrings {
     static var latestArticles = NSLocalizedString("latestArticles", comment: "")
+    static var laterRead = NSLocalizedString("laterRead", comment: "")
+    static var favorite = NSLocalizedString("favorite", comment: "")
+    static var setting = NSLocalizedString("setting", comment: "")
 }
