@@ -35,6 +35,7 @@
 		091C89DD2606E0F2003AE7B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C89DC2606E0F2003AE7B6 /* LoginViewController.swift */; };
 		0925C84B264E3A7F006401C1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0925C84D264E3A7F006401C1 /* Localizable.strings */; };
 		0925C850264E4466006401C1 /* LStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C84F264E4466006401C1 /* LStrings.swift */; };
+		0925C852265255E6006401C1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0925C851265255E6006401C1 /* Colors.xcassets */; };
 		092B65BB26316655002799AD /* FilterMenuViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B65BA26316655002799AD /* FilterMenuViewPage.swift */; };
 		092B65C326316E46002799AD /* FilterMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B65C226316E46002799AD /* FilterMenuUITests.swift */; };
 		095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */; };
@@ -166,6 +167,7 @@
 		0925C84C264E3A7F006401C1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0925C84E264E3ABD006401C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0925C84F264E4466006401C1 /* LStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LStrings.swift; sourceTree = "<group>"; };
+		0925C851265255E6006401C1 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		092B65BA26316655002799AD /* FilterMenuViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuViewPage.swift; sourceTree = "<group>"; };
 		092B65C226316E46002799AD /* FilterMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuUITests.swift; sourceTree = "<group>"; };
 		095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewController.swift; sourceTree = "<group>"; };
@@ -596,6 +598,7 @@
 				098D56BF2593759200EAD41F /* Router */,
 				09ACE22D2597272E00FDB597 /* Extension */,
 				09B803252590CF9200CA2D19 /* Assets.xcassets */,
+				0925C851265255E6006401C1 /* Colors.xcassets */,
 				09B8032A2590CF9200CA2D19 /* Info.plist */,
 			);
 			path = RssReader;
@@ -787,6 +790,7 @@
 				0912525525E7F43100F9CFCA /* SortTypeTableViewCell.xib in Resources */,
 				09174EAA25E403A600756E6D /* SelectYahooTag.storyboard in Resources */,
 				0912522825E7F1CC00F9CFCA /* ContainReadTableViewCell.xib in Resources */,
+				0925C852265255E6006401C1 /* Colors.xcassets in Resources */,
 				09688C5525F289A9007925B3 /* ArticleCollectionViewCell.xib in Resources */,
 				099BB89525DD035A003AF947 /* AccountProperty.xib in Resources */,
 				095F95F725985F88007DC2D5 /* SelectRssFeed.storyboard in Resources */,
