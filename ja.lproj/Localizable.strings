@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   RssReader
 
@@ -48,6 +48,7 @@
 
 // Yahoo
 "yahooNews" = "Yahoo!ニュース";
+"selectYahooNewsTag" = "Yahoo!Newsタグの選択";
 
 // CommonWord
 "login" = "ログイン";

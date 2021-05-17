@@ -66,7 +66,7 @@ class CommonRouter {
     class func toSelectYahooTagView<T>(view: T) where T: Transitioner, T: SelectRssFeedDelegate {
         let storyboard = UIStoryboard(name: "SelectYahooTag", bundle: nil)
         let selectYahooTagViewController = storyboard.instantiateViewController(identifier: "SelectYahooTagViewController") as! SelectYahooTagViewController
-        selectYahooTagViewController.navigationItem.title = "Yahoo!Newsタグの選択"
+        selectYahooTagViewController.navigationItem.title = LStrings.selectYahooNewsTag.value
         selectYahooTagViewController.delegate = view
         view.pushViewController(selectYahooTagViewController, animated: true)
     }

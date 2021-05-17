@@ -54,6 +54,7 @@ enum LStrings: String {
     
     // Yahoo
     case yahooNews
+    case selectYahooNewsTag
     
     // CommonWord
     case login

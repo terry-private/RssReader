@@ -30,7 +30,7 @@ extension SelectYahooTagViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = yahooTagTableView.dequeueReusableCell(withIdentifier: cellId) as! YahooTagTableViewCell
-        cell.textLabel?.text = "「\(YahooTag.allCases[indexPath.row].name)」タグのついた記事"
+        cell.textLabel?.text = "「\(YahooTag.allCases[indexPath.row].name)」\(LStrings.articleTaggedWith.value)"
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

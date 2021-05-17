@@ -48,6 +48,7 @@
 
 // Yahoo
 "yahooNews" = "Yahoo!News";
+"selectYahooNewsTag" = "Select Yahoo!News Tag";
 
 // Common
 "login" = "Login";
