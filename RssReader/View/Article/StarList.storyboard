@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,8 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yiO-5j-Jxc">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" name="MainBG"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JyH-iF-thM">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -29,8 +28,8 @@
                                 <cells/>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fZY-6q-sAM">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" name="MainBG"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Omh-1l-ZQh"/>
@@ -39,10 +38,10 @@
                             <constraint firstItem="yiO-5j-Jxc" firstAttribute="top" secondItem="LTl-qx-FeP" secondAttribute="top" id="35D-uu-PY0"/>
                             <constraint firstItem="fZY-6q-sAM" firstAttribute="top" secondItem="LTl-qx-FeP" secondAttribute="top" id="61p-KS-o1g"/>
                             <constraint firstItem="yiO-5j-Jxc" firstAttribute="trailing" secondItem="Omh-1l-ZQh" secondAttribute="trailing" id="G3b-bG-RZV"/>
-                            <constraint firstItem="Omh-1l-ZQh" firstAttribute="bottom" secondItem="fZY-6q-sAM" secondAttribute="bottom" id="GHr-P6-DKS"/>
+                            <constraint firstAttribute="bottom" secondItem="fZY-6q-sAM" secondAttribute="bottom" id="GHr-P6-DKS"/>
                             <constraint firstItem="Omh-1l-ZQh" firstAttribute="trailing" secondItem="fZY-6q-sAM" secondAttribute="trailing" id="Oaa-d3-VMT"/>
                             <constraint firstItem="yiO-5j-Jxc" firstAttribute="leading" secondItem="Omh-1l-ZQh" secondAttribute="leading" id="av1-7Y-h0s"/>
-                            <constraint firstItem="Omh-1l-ZQh" firstAttribute="bottom" secondItem="yiO-5j-Jxc" secondAttribute="bottom" id="bHy-Qy-kS8"/>
+                            <constraint firstAttribute="bottom" secondItem="yiO-5j-Jxc" secondAttribute="bottom" id="bHy-Qy-kS8"/>
                             <constraint firstItem="fZY-6q-sAM" firstAttribute="leading" secondItem="Omh-1l-ZQh" secondAttribute="leading" id="cs0-YN-DwF"/>
                         </constraints>
                     </view>
@@ -58,10 +57,7 @@
     </scenes>
     <resources>
         <namedColor name="MainBG">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.61157888174057007" blue="0.57950454950332642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

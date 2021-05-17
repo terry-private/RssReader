@@ -62,7 +62,6 @@ class MainTabBarController: UITabBarController, Transitioner {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTab()
-        tabBar.accessibilityIdentifier = "main_tabBar"
     }
 
     func setupTab() {

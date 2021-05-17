@@ -42,7 +42,7 @@
     </scenes>
     <resources>
         <namedColor name="MainBG">
-            <color red="1" green="0.22100633382797241" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.5996146678924561" blue="0.600000011920929" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

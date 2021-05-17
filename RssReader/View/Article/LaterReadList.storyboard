@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,8 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="30T-fP-lWt">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" name="MainBG"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Om0-JG-k2j">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -29,8 +28,8 @@
                                 <cells/>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dH9-83-Ma3">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" name="MainBG"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9JE-Su-amw"/>
@@ -41,9 +40,9 @@
                             <constraint firstItem="9JE-Su-amw" firstAttribute="trailing" secondItem="dH9-83-Ma3" secondAttribute="trailing" id="SMl-gy-G5s"/>
                             <constraint firstItem="30T-fP-lWt" firstAttribute="leading" secondItem="9JE-Su-amw" secondAttribute="leading" id="Wam-5q-U5w"/>
                             <constraint firstItem="30T-fP-lWt" firstAttribute="top" secondItem="4zR-og-h3I" secondAttribute="top" id="hQS-53-Mv2"/>
-                            <constraint firstItem="9JE-Su-amw" firstAttribute="bottom" secondItem="dH9-83-Ma3" secondAttribute="bottom" id="oEv-fd-JBY"/>
+                            <constraint firstAttribute="bottom" secondItem="dH9-83-Ma3" secondAttribute="bottom" id="oEv-fd-JBY"/>
                             <constraint firstItem="dH9-83-Ma3" firstAttribute="leading" secondItem="9JE-Su-amw" secondAttribute="leading" id="tLY-Gl-Q5X"/>
-                            <constraint firstItem="9JE-Su-amw" firstAttribute="bottom" secondItem="30T-fP-lWt" secondAttribute="bottom" id="xuA-bg-tni"/>
+                            <constraint firstAttribute="bottom" secondItem="30T-fP-lWt" secondAttribute="bottom" id="xuA-bg-tni"/>
                         </constraints>
                     </view>
                     <connections>
@@ -58,10 +57,7 @@
     </scenes>
     <resources>
         <namedColor name="MainBG">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.61157888174057007" blue="0.57950454950332642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

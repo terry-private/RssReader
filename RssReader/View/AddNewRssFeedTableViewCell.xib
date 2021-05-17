@@ -51,7 +51,7 @@
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="MainBG">
-            <color red="1" green="0.22100633382797241" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.61157888174057007" blue="0.57950454950332642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

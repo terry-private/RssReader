@@ -78,6 +78,7 @@ class CommonRouter {
         articleDetailViewController.article = article
         let nav = UINavigationController(rootViewController: articleDetailViewController)
         nav.modalPresentationStyle = .fullScreen
+        nav.navigationBar.barTintColor = .init(named: "MainBG")
         view.present(nav, animated: true, completion: nil)
     }
     

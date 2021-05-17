@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,15 +17,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FzQ-Qc-EHr">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <color key="backgroundColor" name="MainBG"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4AM-j7-gdW"/>
                         <color key="backgroundColor" name="MainBG"/>
                         <constraints>
                             <constraint firstItem="4AM-j7-gdW" firstAttribute="bottom" secondItem="FzQ-Qc-EHr" secondAttribute="bottom" id="FRp-Aq-Dv3"/>
-                            <constraint firstItem="FzQ-Qc-EHr" firstAttribute="top" secondItem="4AM-j7-gdW" secondAttribute="top" id="UxA-Kg-Vhh"/>
+                            <constraint firstItem="FzQ-Qc-EHr" firstAttribute="top" secondItem="OQK-XR-SAZ" secondAttribute="top" id="UxA-Kg-Vhh"/>
                             <constraint firstItem="FzQ-Qc-EHr" firstAttribute="leading" secondItem="4AM-j7-gdW" secondAttribute="leading" id="X9z-3E-i5t"/>
                             <constraint firstItem="4AM-j7-gdW" firstAttribute="trailing" secondItem="FzQ-Qc-EHr" secondAttribute="trailing" id="nTZ-dI-dHF"/>
                         </constraints>
@@ -42,10 +41,7 @@
     </scenes>
     <resources>
         <namedColor name="MainBG">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.61157888174057007" blue="0.57950454950332642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>
