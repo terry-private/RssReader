@@ -10,9 +10,11 @@ import Nuke
 
 class AccountPropertyTableviewCell: UITableViewCell {
     @IBOutlet weak var myImageView: UIImageView!
+    @IBOutlet weak var myDisplayNameTitleLabel: UILabel!
     @IBOutlet weak var myDisplayNameLabel: UILabel!
     var userConfig: UserConfigProtocol? {
         didSet {
+            myDisplayNameTitleLabel.text = LStrings.username.value
             if let url = userConfig?.photoURL {
                 print(url)
                 if userConfig?.loginType == "mail" {

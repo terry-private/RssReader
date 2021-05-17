@@ -32,7 +32,7 @@ class CommonRouter {
         let storyboard = UIStoryboard(name: "AccountProperty", bundle: nil)
         let accountPropertyVC = storyboard.instantiateViewController(identifier: "AccountPropertyViewController") as! AccountPropertyViewController
         accountPropertyVC.useCase = .EditAccount
-        accountPropertyVC.navigationItem.title = "アカウント情報"
+        accountPropertyVC.navigationItem.title = LStrings.accountProperty.value
         let nav = UINavigationController(accountPropertyVC)
         nav.modalPresentationStyle = .fullScreen
         view.present(nav,animated: true, completion: nil)

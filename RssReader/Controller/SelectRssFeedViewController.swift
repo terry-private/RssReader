@@ -98,11 +98,9 @@ extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSourc
         if indexPath.row < CommonData.rssFeedListModel.rssFeedList.count {
             let cell = selectRssFeedTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! RssFeedTableViewCell
             cell.rssFeed = CommonData.rssFeedListModel.rssFeedList[rssFeedKeyList[indexPath.row]]
-            cell.articleTaggedWithLabel.text = LStrings.articleTaggedWith.value
             return cell
         }
         let cell = selectRssFeedTableView.dequeueReusableCell(withIdentifier: addNewCellId, for: indexPath) as! AddNewRssFeedTableViewCell
-        cell.addNewRssFeedLabel.text = LStrings.addNewRssFeed.value
         return cell
     }
     
@@ -141,7 +139,8 @@ extension SelectRssFeedViewController: SelectRssFeedDelegate {
 class AddNewRssFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var addNewRssFeedLabel: UILabel!
     
-    override class func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
+        addNewRssFeedLabel.text = LStrings.addNewRssFeed.value
     }
 }

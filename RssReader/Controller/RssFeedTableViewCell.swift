@@ -28,8 +28,9 @@ class RssFeedTableViewCell: UITableViewCell {
             tagNameLabel.accessibilityIdentifier = "rssFeedTableViewCell_tagName_label"
         }
     }
-    override class func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
+        articleTaggedWithLabel.text = LStrings.articleTaggedWith.value
     }
 }
 

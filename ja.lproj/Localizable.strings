@@ -25,6 +25,7 @@
 
 // AccountPropertyView
 "profileImage" = "プロフィール画像";
+"accountProperty" = "アカウント情報";
 
 // ArticleStatus
 "toRead" = "既読にする";
@@ -49,6 +50,13 @@
 // Yahoo
 "yahooNews" = "Yahoo!ニュース";
 "selectYahooNewsTag" = "Yahoo!Newsタグの選択";
+
+// Setting
+"refreshInterval" = "RSS取得間隔";
+"displayMode" = "表示モード";
+"subscriptionArticles" = "購読記事一覧";
+"singularFormOfMinute" = "分";
+"pluralFormOfMinute" = "分";
 
 // CommonWord
 "login" = "ログイン";

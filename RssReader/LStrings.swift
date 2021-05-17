@@ -31,6 +31,7 @@ enum LStrings: String {
     
     // AccountPropertyView
     case profileImage
+    case accountProperty
     
     // ArticleStatus
     case toRead
@@ -55,6 +56,13 @@ enum LStrings: String {
     // Yahoo
     case yahooNews
     case selectYahooNewsTag
+    
+    // Setting
+    case refreshInterval
+    case displayMode
+    case subscriptionArticles
+    case singularFormOfMinute
+    case pluralFormOfMinute
     
     // CommonWord
     case login

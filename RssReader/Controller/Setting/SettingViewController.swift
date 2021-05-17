@@ -25,7 +25,7 @@ class SettingViewController: UIViewController, Transitioner {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "設定"
+        self.navigationItem.title = LStrings.setting.value
         setUpTable()
         // テストのための設定
         view.accessibilityIdentifier = "setting_view"
@@ -61,13 +61,13 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "アカウント情報"
+            return LStrings.accountProperty.value
         case 1:
-            return "RSS取得間隔"
+            return LStrings.refreshInterval.value
         case 2:
-            return "表示モード"
+            return LStrings.displayMode.value
         case 3:
-            return "購読記事一覧"
+            return LStrings.subscriptionArticles.value
         default:
             return ""
         }

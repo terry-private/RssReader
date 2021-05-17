@@ -1,7 +1,6 @@
 /* 
   Localizable.strings
   RssReader
-
   Created by 若江照仁 on 2021/05/14.
   
 */
@@ -25,6 +24,7 @@
 
 // AccountPropertyView
 "profileImage" = "Profile Image";
+"accountProperty" = "Account Property";
 
 // ArticleStatus
 "toRead" = "To read";
@@ -49,6 +49,13 @@
 // Yahoo
 "yahooNews" = "Yahoo!News";
 "selectYahooNewsTag" = "Select Yahoo!News Tag";
+
+// Setting
+"refreshInterval" = "Refresh interval";
+"displayMode" = "Display mode";
+"subscriptionArticles" = "Subscription articles";
+"singularFormOfMinute" = "min";
+"pluralFormOfMinute" = "mins";
 
 // Common
 "login" = "Login";
