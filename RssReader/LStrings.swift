@@ -42,11 +42,18 @@ enum LStrings: String {
     
     // RssFeed
     case selectRssFeed
+    case selectRssFeedType
     case articleTaggedWith
     case subscribeTo
     case singularFormOfRssFeed
     case pluralFormOfRssFeed
     case addNewRssFeed
+    
+    // Qiita
+    case rssTypeOfQiita
+    
+    // Yahoo
+    case yahooNews
     
     // CommonWord
     case login
@@ -62,6 +69,10 @@ enum LStrings: String {
     case emailAddress
     case password
     case username
+    case tag
+    case inputTag
     case halfAlphanumeric6_12
     case createANewAccount
+    
+    
 }

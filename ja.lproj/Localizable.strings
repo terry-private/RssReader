@@ -36,11 +36,18 @@
 
 // RssFeed
 "selectRssFeed" = "RSS Feedの選択";
+"selectRssFeedType" = "記事タイプを選択";
 "articleTaggedWith" = "タグのついた記事";
 "subscribeTo" = "購読する記事：";
 "singularFormOfRssFeed" = "件";
 "pluralFormOfRssFeed" = "件";
 "addNewRssFeed" = "購読するRssFeedを追加";
+
+// Qiita
+"rssTypeOfQiita" = "Qiitaの購読記事";
+
+// Yahoo
+"yahooNews" = "Yahoo!ニュース";
 
 // CommonWord
 "login" = "ログイン";
@@ -56,5 +63,7 @@
 "emailAddress" = "メールアドレス";
 "password" = "パスワード";
 "username" = "名前";
+"tag" = "タグ";
+"inputTag" = "タグを入力";
 "halfAlphanumeric6_12" = "半角英数字 6~12文字";
 "createANewAccount" = "新規アカウント作成";

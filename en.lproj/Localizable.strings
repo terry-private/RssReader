@@ -36,11 +36,18 @@
 
 // RssFeed
 "selectRssFeed" = "Select RSS Feed";
+"selectRssFeedType" = "Select RSS Feed Type";
 "articleTaggedWith" = "Articles tagged with";
 "subscribeTo" = "Subscribe to ";
 "singularFormOfRssFeed" = " RssFeed";
 "pluralFormOfRssFeed" = " RssFeeds";
 "addNewRssFeed" = "Add New RssFeed";
+
+// Qiita
+"rssTypeOfQiita" = "Qiita's article";
+
+// Yahoo
+"yahooNews" = "Yahoo!News";
 
 // Common
 "login" = "Login";
@@ -55,6 +62,8 @@
 // AppWord
 "emailAddress" = "Email address";
 "password" = "Password";
-"username" = "User Name";
+"username" = "User name";
+"tag" = "Tag name";
+"inputTag" = "Input tag name";
 "halfAlphanumeric6_12" = "Half-Width Alphanumeric & 6~12characters";
 "createANewAccount" = "Create a new account";

@@ -57,7 +57,7 @@ class CommonRouter {
     class func toSelectRssFeedTypeView<T>(view: T) where T: Transitioner, T: SelectRssFeedDelegate {
         let storyboard = UIStoryboard(name: "SelectRssFeedType", bundle: nil)
         let selectRssFeedTypeViewController = storyboard.instantiateViewController(identifier: "SelectRssFeedTypeViewController") as! SelectRssFeedTypeViewController
-        selectRssFeedTypeViewController.navigationItem.title = "購読記事の選択"
+        selectRssFeedTypeViewController.navigationItem.title = LStrings.selectRssFeedType.value
         selectRssFeedTypeViewController.delegate = view
         let nav = UINavigationController(selectRssFeedTypeViewController)
         view.present(nav, animated: true, completion: nil)
