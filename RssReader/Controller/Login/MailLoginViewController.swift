@@ -46,12 +46,12 @@ class MailLoginViewController: UIViewController, Transitioner {
     }
     
     func setLocalizableString() {
-        mailTitleLabel.text = LStrings.emailAddress
-        passwordTitleLabel.text = LStrings.password
-        passwordValidationRuleLabel.text = LStrings.halfAlphanumeric6_12
+        mailTitleLabel.text = LStrings.emailAddress.value
+        passwordTitleLabel.text = LStrings.password.value
+        passwordValidationRuleLabel.text = LStrings.halfAlphanumeric6_12.value
         passwordValidationRuleLabel.numberOfLines = 0
-        loginButton.setTitle(LStrings.login, for: .normal)
-        newAccountButton.setTitle(LStrings.createANewAccount, for: .normal)
+        loginButton.setTitle(LStrings.login.value, for: .normal)
+        newAccountButton.setTitle(LStrings.createANewAccount.value, for: .normal)
     }
     
     /// 入力値が正しい場合のみ確定ボタンを有効にします。

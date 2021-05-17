@@ -56,8 +56,8 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
     }
     
     private func setLocalizableStrings() {
-        subscribeToLabel.text = LStrings.subscribeTo
-        confirmButton.setTitle(LStrings.enter, for: .normal)
+        subscribeToLabel.text = LStrings.subscribeTo.value
+        confirmButton.setTitle(LStrings.enter.value, for: .normal)
     }
     
     //MARK:- 状態変化系
@@ -65,7 +65,7 @@ class SelectRssFeedViewController: UIViewController, SelectRssFeedViewProtocol {
     func changedSelectedCount() {
         setSelectedCountLabel()
         setConfirmButton()
-        formOfRssFeed.text = CommonData.rssFeedListModel.rssFeedList.count == 1 ? LStrings.singularFormOfRssFeed : LStrings.pluralFormOfRssFeed
+        formOfRssFeed.text = CommonData.rssFeedListModel.rssFeedList.count == 1 ? LStrings.singularFormOfRssFeed.value : LStrings.pluralFormOfRssFeed.value
     }
     func setSelectedCountLabel() {
         selectedCountLabel.text = String(CommonData.rssFeedListModel.rssFeedList.count)
@@ -98,11 +98,11 @@ extension SelectRssFeedViewController: UITableViewDelegate, UITableViewDataSourc
         if indexPath.row < CommonData.rssFeedListModel.rssFeedList.count {
             let cell = selectRssFeedTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! RssFeedTableViewCell
             cell.rssFeed = CommonData.rssFeedListModel.rssFeedList[rssFeedKeyList[indexPath.row]]
-            cell.articleTaggedWithLabel.text = LStrings.articleTaggedWith
+            cell.articleTaggedWithLabel.text = LStrings.articleTaggedWith.value
             return cell
         }
         let cell = selectRssFeedTableView.dequeueReusableCell(withIdentifier: addNewCellId, for: indexPath) as! AddNewRssFeedTableViewCell
-        cell.addNewRssFeedLabel.text = LStrings.addNewRssFeed
+        cell.addNewRssFeedLabel.text = LStrings.addNewRssFeed.value
         return cell
     }
     

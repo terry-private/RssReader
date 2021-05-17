@@ -7,59 +7,61 @@
 
 import Foundation
 
-class LStrings {
+enum LStrings: String {
+    var value: String {
+        NSLocalizedString(self.rawValue, comment: "")
+    }
+    
     // MainTabBar
-    static var latestArticles = NSLocalizedString("latestArticles", comment: "")
-    static var laterRead = NSLocalizedString("laterRead", comment: "")
-    static var favorite = NSLocalizedString("favorite", comment: "")
-    static var setting = NSLocalizedString("setting", comment: "")
+    case latestArticles
+    case laterRead
+    case favorite
+    case setting
     
     // LoginView
-    static var idLoginButtonTitle = NSLocalizedString("idLoginButtonTitle", comment: "")
-    static var loginAlertMessage = NSLocalizedString("loginAlertMessage", comment: "")
-    static var errorAlertTitle = NSLocalizedString("errorAlertTitle", comment: "")
-    static var halfAlphanumeric8_12 = NSLocalizedString("halfAlphanumeric8_12", comment: "")
-    static var countErrorMessage = NSLocalizedString("countErrorMessage", comment: "")
-    static var alphanumericErrorMessage = NSLocalizedString("alphanumericErrorMessage", comment: "")
+    case idLoginButtonTitle
+    case loginAlertMessage
+    case errorAlertTitle
+    case halfAlphanumeric8_12
+    case countErrorMessage
+    case alphanumericErrorMessage
     
     // MailLoginView
-    static var mailLogin = NSLocalizedString("mailLogin", comment: "")
+    case mailLogin
     
     // AccountPropertyView
-    static var profileImage = NSLocalizedString("profileImage", comment: "")
+    case profileImage
     
     // ArticleStatus
-    static var toRead = NSLocalizedString("toRead", comment: "")
-    static var toNotRead = NSLocalizedString("toNotRead", comment: "")
-    static var toFavorite = NSLocalizedString("toFavorite", comment: "")
-    static var toNotFavorite = NSLocalizedString("toNotFavorite", comment: "")
-    static var toLaterRead = NSLocalizedString("toLaterRead", comment: "")
-    static var toNotLaterRead = NSLocalizedString("toNotLaterRead", comment: "")
+    case toRead
+    case toNotRead
+    case toFavorite
+    case toNotFavorite
+    case toLaterRead
+    case toNotLaterRead
     
     // RssFeed
-    static var selectRssFeed = NSLocalizedString("selectRssFeed", comment: "")
-    static var articleTaggedWith = NSLocalizedString("articleTaggedWith", comment: "")
-    static var subscribeTo = NSLocalizedString("subscribeTo", comment: "")
-    static var singularFormOfRssFeed = NSLocalizedString("singularFormOfRssFeed", comment: "")
-    static var pluralFormOfRssFeed = NSLocalizedString("pluralFormOfRssFeed", comment: "")
-    static var addNewRssFeed = NSLocalizedString("addNewRssFeed", comment: "")
-    
+    case selectRssFeed
+    case articleTaggedWith
+    case subscribeTo
+    case singularFormOfRssFeed
+    case pluralFormOfRssFeed
+    case addNewRssFeed
     
     // CommonWord
-    static var login = NSLocalizedString("login", comment: "")
-    static var logout = NSLocalizedString("logout", comment: "")
-    static var done = NSLocalizedString("done", comment: "")
-    static var enter = NSLocalizedString("enter", comment: "")
-    static var cancel = NSLocalizedString("cancel", comment: "")
-    static var close = NSLocalizedString("close", comment: "")
-    static var back = NSLocalizedString("back", comment: "")
-    static var edit = NSLocalizedString("edit", comment: "")
+    case login
+    case logout
+    case done
+    case enter
+    case cancel
+    case close
+    case back
+    case edit
     
     // AppWord
-    static var emailAddress = NSLocalizedString("emailAddress", comment: "")
-    static var password = NSLocalizedString("password", comment: "")
-    static var username = NSLocalizedString("username", comment: "")
-    static var halfAlphanumeric6_12 = NSLocalizedString("halfAlphanumeric6_12", comment: "")
-    static var createANewAccount = NSLocalizedString("createANewAccount", comment: "")
-    
+    case emailAddress
+    case password
+    case username
+    case halfAlphanumeric6_12
+    case createANewAccount
 }

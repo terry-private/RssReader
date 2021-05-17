@@ -61,7 +61,7 @@ class LoginViewController: UIViewController, Transitioner {
         loginButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         loginButton.tintColor = .white
         loginButton.setImage(UIImage(systemName: "mail"), for: .normal)
-        loginButton.setTitle("　　" + LStrings.mailLogin, for: .normal)
+        loginButton.setTitle("　　" + LStrings.mailLogin.value, for: .normal)
         loginButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .caption1)
         loginButton.setTitleColor(.white, for: .normal)
         loginButton.setTitleColor(.lightGray, for: .highlighted)
@@ -75,13 +75,13 @@ class LoginViewController: UIViewController, Transitioner {
     private func setDummyLoginButton() {
         let loginButton = UIButton()
         loginButton.accessibilityIdentifier = "dummy_login_button"
-        loginButton.setTitle(LStrings.idLoginButtonTitle, for: .normal)
+        loginButton.setTitle(LStrings.idLoginButtonTitle.value, for: .normal)
         loginButton.setTitleColor(.systemBlue, for: .normal)
         loginButton.addTarget(self, action: #selector(tappedDummyLoginButton), for: .touchUpInside)
         stackView.addArrangedSubview(loginButton)
     }
     @objc func tappedDummyLoginButton() {
-        let alert = UIAlertController(title: LStrings.login, message: LStrings.loginAlertMessage, preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: LStrings.login.value, message: LStrings.loginAlertMessage.value, preferredStyle: UIAlertController.Style.alert)
         alert.view.accessibilityIdentifier = "dummy_login_alert"
         
         // テキストフィールド追加
@@ -90,13 +90,13 @@ class LoginViewController: UIViewController, Transitioner {
         alert.addTextField(configurationHandler: {(textField: UITextField!) in
             alertTextField = textField
             textField.text = ""
-            textField.placeholder = LStrings.halfAlphanumeric8_12
+            textField.placeholder = LStrings.halfAlphanumeric8_12.value
         })
         alertTextField?.accessibilityIdentifier = "dummy_login_id_textField"
 
         // キャンセルボタン追加
         let cancelButton = UIAlertAction(
-            title: LStrings.cancel,
+            title: LStrings.cancel.value,
                 style: UIAlertAction.Style.cancel,
                 handler: nil
         )
@@ -104,7 +104,7 @@ class LoginViewController: UIViewController, Transitioner {
         
         // 確定ボタン追加
         let loginButton = UIAlertAction(
-            title: LStrings.login,
+            title: LStrings.login.value,
             style: UIAlertAction.Style.default) { _ in
             if let text = alertTextField?.text {
                 if text == "" { return }
@@ -124,7 +124,7 @@ class LoginViewController: UIViewController, Transitioner {
         self.present(alert, animated: true, completion: nil)
     }
     private func validError(error: String) {
-        let errorAlert = UIAlertController(title: LStrings.errorAlertTitle,
+        let errorAlert = UIAlertController(title: LStrings.errorAlertTitle.value,
                                               message: error,
                                               preferredStyle: .alert)
         errorAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
@@ -137,10 +137,10 @@ class LoginViewController: UIViewController, Transitioner {
     /// - Returns: エラーメッセージ or nil (成功時)
     func validId(uid: String) -> String? {
         if uid.count < 8 || uid.count > 12 {
-            return LStrings.countErrorMessage
+            return LStrings.countErrorMessage.value
         }
         if !uid.isAlphanumeric() {
-            return LStrings.alphanumericErrorMessage
+            return LStrings.alphanumericErrorMessage.value
         }
         return nil
     }

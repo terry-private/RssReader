@@ -14,7 +14,7 @@ class CommonRouter {
     /// SplashView = Transitioner + FUIAuthDelegate
     class func toAuth<T>(view: T) where T: Transitioner {
         let loginViewController = LoginViewController()
-        loginViewController.navigationItem.title = LStrings.login
+        loginViewController.navigationItem.title = LStrings.login.value
         let nav = UINavigationController(loginViewController)
         nav.modalPresentationStyle = .fullScreen
         view.present(nav, animated: true, completion: nil)
@@ -23,7 +23,7 @@ class CommonRouter {
     class func toNewAccountPropertyView(view: Transitioner, defaultData: [String: String]) {
         let storyboard = UIStoryboard(name: "AccountProperty", bundle: nil)
         let accountPropertyVC = storyboard.instantiateViewController(identifier: "AccountPropertyViewController") as! AccountPropertyViewController
-        accountPropertyVC.navigationItem.title = LStrings.createANewAccount
+        accountPropertyVC.navigationItem.title = LStrings.createANewAccount.value
         accountPropertyVC.defaultData = defaultData
         view.pushViewController(accountPropertyVC, animated: true)
     }
@@ -41,14 +41,14 @@ class CommonRouter {
     class func toMailLoginView<T>(view: T) where T: Transitioner {
         let storyboard = UIStoryboard(name: "MailLogin", bundle: nil)
         let mailLoginVC = storyboard.instantiateViewController(identifier: "MailLoginViewController") as! MailLoginViewController
-        mailLoginVC.navigationItem.title = LStrings.mailLogin
+        mailLoginVC.navigationItem.title = LStrings.mailLogin.value
         view.pushViewController(mailLoginVC, animated: true)
     }
     
     class func toSelectRssFeedView(view: Transitioner) {
         let storyboard = UIStoryboard(name: "SelectRssFeed", bundle: nil)
         let selectRssFeedViewController = storyboard.instantiateViewController(identifier: "SelectRssFeedViewController") as! SelectRssFeedViewController
-        selectRssFeedViewController.navigationItem.title = LStrings.selectRssFeed
+        selectRssFeedViewController.navigationItem.title = LStrings.selectRssFeed.value
         let nav = UINavigationController(selectRssFeedViewController)
         nav.modalPresentationStyle = .fullScreen
         view.present(nav,animated: true, completion: nil)

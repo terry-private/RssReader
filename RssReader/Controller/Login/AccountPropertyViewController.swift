@@ -91,7 +91,7 @@ class AccountPropertyViewController: UIViewController, Transitioner {
             passwordTextField.text = CommonData.loginModel.userConfig.password
             usernameTextField.text = CommonData.loginModel.userConfig.displayName
             
-            let closeButton = UIBarButtonItem(title: LStrings.close, style: .plain, target: self, action: #selector(close))
+            let closeButton = UIBarButtonItem(title: LStrings.close.value, style: .plain, target: self, action: #selector(close))
             navigationItem.leftBarButtonItem = closeButton
         }
         
@@ -108,12 +108,12 @@ class AccountPropertyViewController: UIViewController, Transitioner {
     }
     
     private func setLocalizableString() {
-        profileImageButton.setTitle(LStrings.profileImage, for: .normal)
-        mailTitleLabel.text = LStrings.emailAddress
-        passwordTitleLabel.text = LStrings.password
-        usernameTitleLabel.text = LStrings.username
-        confirmButton.setTitle(LStrings.enter, for: .normal)
-        logoutButton.setTitle(LStrings.logout, for: .normal)
+        profileImageButton.setTitle(LStrings.profileImage.value, for: .normal)
+        mailTitleLabel.text = LStrings.emailAddress.value
+        passwordTitleLabel.text = LStrings.password.value
+        usernameTitleLabel.text = LStrings.username.value
+        confirmButton.setTitle(LStrings.enter.value, for: .normal)
+        logoutButton.setTitle(LStrings.logout.value, for: .normal)
     }
     
     // キーボード開閉で呼び出すメソッドをNotificationCenterに追加する
