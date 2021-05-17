@@ -64,6 +64,20 @@ enum LStrings: String {
     case singularFormOfMinute
     case pluralFormOfMinute
     
+    // Filter
+    case filter
+    case sort
+    case orderByIssueDate
+    case orderByTypeOfRssFeed
+    case descending
+    case ascending
+    case displayOfRead
+    case displayRead
+    case daysOfDisplay
+    case singularFormOfDay
+    case pluralFormOfDay
+    case displayArticle
+    
     // CommonWord
     case login
     case logout

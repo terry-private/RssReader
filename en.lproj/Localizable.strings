@@ -57,6 +57,20 @@
 "singularFormOfMinute" = "min";
 "pluralFormOfMinute" = "mins";
 
+// Filter
+"filter" = "Filter";
+"sort" = "Sort";
+"orderByIssueDate" = "Issue date";
+"orderByTypeOfRssFeed" = "Type of RSS Feed";
+"descending" = "Descending";
+"ascending" = "Ascending";
+"displayOfRead" = "Display of read";
+"displayRead" = "Display read article";
+"daysOfDisplay" = "Days of display";
+"singularFormOfDay" = "day";
+"pluralFormOfDay" = "days";
+"displayArticle" = "Display article";
+
 // Common
 "login" = "Login";
 "logout" = "Logout";

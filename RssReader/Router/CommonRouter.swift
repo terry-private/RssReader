@@ -85,7 +85,7 @@ class CommonRouter {
         let storyboard = UIStoryboard(name: "FilterMenu", bundle: nil)
         let filterMenuViewController = storyboard.instantiateViewController(withIdentifier: "FilterMenuViewController") as! FilterMenuViewController
         filterMenuViewController.articleKeySortable = view
-        filterMenuViewController.navigationItem.title = "フィルター"
+        filterMenuViewController.navigationItem.title = LStrings.filter.value
         let nav = SideMenuNavigationController(rootViewController: filterMenuViewController)
         nav.menuWidth = view.view.bounds.width - 40
         nav.presentationStyle = .menuSlideIn

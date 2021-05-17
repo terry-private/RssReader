@@ -58,6 +58,20 @@
 "singularFormOfMinute" = "分";
 "pluralFormOfMinute" = "分";
 
+// Filter
+"filter" = "フィルター";
+"sort" = "ソート";
+"orderByIssueDate" = "発効日順";
+"orderByTypeOfRssFeed" = "記事タイプ順";
+"descending" = "降順";
+"ascending" = "昇順";
+"displayOfRead" = "既読の表示";
+"displayRead" = "既読を表示する";
+"daysOfDisplay" = "表示日数";
+"singularFormOfDay" = "日";
+"pluralFormOfDay" = "日";
+"displayArticle" = "購読記事の表示";
+
 // CommonWord
 "login" = "ログイン";
 "logout" = "ログアウト";

@@ -13,6 +13,7 @@ class RssFeedDisplayTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tagNameLabel: UILabel!
     @IBOutlet weak var isDisplay: UISwitch!
+    @IBOutlet weak var articleTaggedWithLabel: UILabel!
     var rssFeedKey: String? {
         didSet {
             guard let rssFeed = CommonData.rssFeedListModel.rssFeedList[rssFeedKey!] else { return }
@@ -28,8 +29,9 @@ class RssFeedDisplayTableViewCell: UITableViewCell {
             isDisplay.accessibilityIdentifier = isDisplay.isOn ? "filterMenu_rssFeedDisplay_switch": "filterMenu_rssFeedNotDisplay_switch"
         }
     }
-    override class func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
+        articleTaggedWithLabel.text = LStrings.articleTaggedWith.value
     }
     @IBAction func changedIsDisplay(_ sender: Any) {
         CommonData.rssFeedListModel.rssFeedList[rssFeedKey!]?.display = isDisplay.isOn
