@@ -18,7 +18,7 @@ class ArticleDetailViewController: UIViewController, Transitioner {
     // MARK:- ライフサイクル系
     override func viewDidLoad() {
         super.viewDidLoad()
-        let closeButton = UIBarButtonItem(title: "閉じる", style: .plain, target: self, action: #selector(close))
+        let closeButton = UIBarButtonItem(title: LStrings.close.value, style: .plain, target: self, action: #selector(close))
         navigationItem.leftBarButtonItem = closeButton
         // テスト用の設定
         view.accessibilityIdentifier = "articleDetail_view"
