@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -40,6 +41,7 @@
                     <constraint firstItem="7Ae-D0-9f9" firstAttribute="centerX" secondItem="6Ix-zz-ZqD" secondAttribute="centerX" id="seg-h3-CWC"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" name="MainBG"/>
             <connections>
                 <outlet property="addNewRssFeedLabel" destination="qaR-7X-UZn" id="R6o-pK-3U6"/>
             </connections>
@@ -48,5 +50,8 @@
     </objects>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <namedColor name="MainBG">
+            <color red="1" green="0.22100633382797241" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
