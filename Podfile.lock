@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.4.1)
   - KeychainAccess (4.2.2)
   - LineSDKSwift (5.7.0):
     - LineSDKSwift/Core (= 5.7.0)
@@ -12,6 +13,7 @@ PODS:
   - SideMenu (6.5.0)
 
 DEPENDENCIES:
+  - Alamofire
   - KeychainAccess
   - LineSDKSwift
   - Nuke
@@ -20,6 +22,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - KeychainAccess
     - LineSDKSwift
     - Nuke
@@ -28,6 +31,7 @@ SPEC REPOS:
     - SideMenu
 
 SPEC CHECKSUMS:
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
   LineSDKSwift: f9c232f89185b887b5725aa278325f3a23e33bbc
   Nuke: 44439f7a92e665a4f927ecd73cb51f91d93b0e0c
@@ -35,6 +39,6 @@ SPEC CHECKSUMS:
   RealmSwift: a522ad39715e8b4e491af4460059bc32b84f5a9b
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: 39634b59b5ef492e5482687d4edc9fc43db4cff2
+PODFILE CHECKSUM: 2fd657238f42aac1e89dc347a4b767b5d75a6a11
 
 COCOAPODS: 1.10.1

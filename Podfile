@@ -9,6 +9,7 @@ target 'RssReader' do
   pod 'RealmSwift'
   pod 'LineSDKSwift'
   pod 'KeychainAccess'
+  pod 'Alamofire'
   # Pods for RssReader
 
   target 'RssReaderTests' do
