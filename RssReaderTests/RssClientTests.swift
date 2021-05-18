@@ -6,25 +6,43 @@
 //
 
 import XCTest
+import Foundation
 @testable import RssReader
+import Alamofire
 
 class RssClientTests: XCTestCase {
-
-    func testExample() throws {
+    var timeCount = 0
+    @objc func timerUpdate() {
+        timeCount += 1
+    }
+    func testFetchAPI() throws {
         let rssApiUrl = QiitaType().makeJsonUrl(tag: "swift")
-        
         var urlSessionItems: [Item]?
         var alamofireItems: [Item]?
+        // 待ち合わせ用のカウンター
+        var asynchronousMeetingCount = 0
         
-        RssClient.fetchItems(rssApiUrl: rssApiUrl) { items in
-            urlSessionItems = items
-        }
+        
         
         RssClient.fetchItems2(rssApiUrl: rssApiUrl) { items in
-            alamofireItems = items
+            urlSessionItems = items
+            asynchronousMeetingCount += 1
+            print("fetchItems完了")
         }
         
-        sleep(3)
+        RssClient.fetchItems(rssApiUrl: rssApiUrl) { items in
+            alamofireItems = items
+            asynchronousMeetingCount += 1
+            print("fetchItems2完了")
+        }
+        
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerUpdate), userInfo: true, repeats: true)
+        while asynchronousMeetingCount < 2 {
+            if timeCount > 5 {
+                break
+            }
+        }
+        
         XCTContext.runActivity(named: "URLSessionとAlamofireのAPI結果テスト") { _ in
             if urlSessionItems == nil && alamofireItems == nil {
                 XCTAssertTrue(true)
