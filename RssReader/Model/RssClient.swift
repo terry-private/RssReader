@@ -65,6 +65,7 @@ class RssClient {
                 }
             case .failure(let error):
                 print("error", error)
+                completion(nil)
             }
         }
         task.resume()
