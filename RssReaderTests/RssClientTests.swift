@@ -23,6 +23,7 @@ class RssClientTests: XCTestCase {
         RssClient.fetchItems2(rssApiUrl: rssApiUrl) { items in
             alamofireItems = items
         }
+        
         sleep(3)
         XCTContext.runActivity(named: "URLSessionとAlamofireのAPI結果テスト") { _ in
             if urlSessionItems == nil && alamofireItems == nil {
@@ -30,6 +31,9 @@ class RssClientTests: XCTestCase {
                 print("Both items are nil")
                 return
             }
+            XCTAssertNotNil(urlSessionItems, "urlSessionの結果がnilでした。")
+            XCTAssertNotNil(alamofireItems, "alamofireの結果がnilでした。")
+            
             let items1 = urlSessionItems!.sorted { $0.link < $1.link}
             let items2 = alamofireItems!.sorted { $0.link < $1.link}
             for i in 0..<items1.count {
