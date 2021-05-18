@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -28,7 +29,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購読する記事を追加" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaR-7X-UZn">
                                 <rect key="frame" x="40" y="0.0" width="129" height="30"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="MainLabel"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -40,6 +41,12 @@
                     <constraint firstItem="7Ae-D0-9f9" firstAttribute="centerX" secondItem="6Ix-zz-ZqD" secondAttribute="centerX" id="seg-h3-CWC"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" name="MainBG"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgroundColor">
+                    <color key="value" name="Selection"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="addNewRssFeedLabel" destination="qaR-7X-UZn" id="R6o-pK-3U6"/>
             </connections>
@@ -48,5 +55,14 @@
     </objects>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <namedColor name="MainBG">
+            <color red="1" green="0.61157888174057007" blue="0.57950454950332642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainLabel">
+            <color red="0.38592860102653503" green="7.4505805691682525e-10" blue="7.4505805691682525e-10" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Selection">
+            <color red="1" green="1" blue="1" alpha="0.50011973285675049" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

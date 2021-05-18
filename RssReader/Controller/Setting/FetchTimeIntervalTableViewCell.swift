@@ -18,6 +18,7 @@ class FetchTimeIntervalTableViewCell: UITableViewCell {
             let title = String(timeIntervals[i]) + (timeIntervals[i] == 1 ? LStrings.singularFormOfMinute.value : LStrings.pluralFormOfMinute.value)
             fetchTimeIntervalSegmentedControl.setTitle(title, forSegmentAt: i)
         }
+        fetchTimeIntervalSegmentedControl.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor:UIColor(named: "MainLabel")!], for: .normal)
     }
     @IBAction func ChangedFetchTimeInterval(_ sender: Any) {
         CommonData.filterModel.fetchTimeInterval = timeIntervals[fetchTimeIntervalSegmentedControl.selectedSegmentIndex]

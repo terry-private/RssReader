@@ -16,6 +16,7 @@ class OrderByTableViewCell: UITableViewCell {
             let title = i == 0 ? LStrings.descending.value : LStrings.ascending.value
             orderBySegmentedControl.setTitle(title, forSegmentAt: i)
         }
+        orderBySegmentedControl.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor:UIColor(named: "MainLabel")!], for: .normal)
     }
     @IBAction func orderByChanged(_ sender: Any) {
         CommonData.filterModel.orderByDesc = orderBySegmentedControl.selectedSegmentIndex == 0

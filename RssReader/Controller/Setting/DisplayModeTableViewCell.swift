@@ -13,4 +13,7 @@ class DisplayModeTableViewCell: UITableViewCell {
     @IBAction func changedDisplayMode(_ sender: Any) {
         CommonData.filterModel.displayMode = DisplayMode.allCases[displayModeSegmentedControl.selectedSegmentIndex]
     }
+    override func awakeFromNib() {
+        displayModeSegmentedControl.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor:UIColor(named: "MainLabel")!], for: .normal)
+    }
 }

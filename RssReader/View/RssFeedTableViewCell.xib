@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -31,7 +32,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUb-Yn-KyM">
                                         <rect key="frame" x="0.0" y="0.0" width="51.5" height="13.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="MainLabel"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="KZ8-Hz-dfB">
@@ -40,25 +41,25 @@
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="「" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Omn-i4-dda">
                                                 <rect key="frame" x="0.0" y="0.0" width="14.5" height="17"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="MainLabel"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TagNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfa-rO-gt0">
                                                 <rect key="frame" x="16.5" y="0.0" width="96" height="17"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="MainLabel"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="」" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCo-mf-e2c">
                                                 <rect key="frame" x="114.5" y="0.0" width="14.5" height="17"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="MainLabel"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タグのついた記事" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M28-Zd-I4q">
                                                 <rect key="frame" x="131" y="0.0" width="90" height="17"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="MainLabel"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -74,6 +75,7 @@
                     <constraint firstItem="2AP-vc-EOO" firstAttribute="leading" secondItem="kJr-4w-Ui0" secondAttribute="leading" constant="10" id="oNY-dQ-r9x"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" name="MainBG"/>
             <connections>
                 <outlet property="articleTaggedWithLabel" destination="M28-Zd-I4q" id="MB4-Jw-AHb"/>
                 <outlet property="faviconImageView" destination="K7S-3v-8pU" id="tFe-xc-Jnb"/>
@@ -83,4 +85,12 @@
             <point key="canvasLocation" x="-141" y="110"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="MainBG">
+            <color red="1" green="0.61157888174057007" blue="0.57950454950332642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainLabel">
+            <color red="0.38592860102653503" green="7.4505805691682525e-10" blue="7.4505805691682525e-10" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
