@@ -28,6 +28,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="MainBG"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgroundColor">
+                                                <color key="value" name="Selection"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -53,6 +58,9 @@
     <resources>
         <namedColor name="MainBG">
             <color red="1" green="0.61157888174057007" blue="0.57950454950332642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Selection">
+            <color red="1" green="0.0" blue="0.0" alpha="0.50011973285675049" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
