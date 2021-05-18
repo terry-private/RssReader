@@ -9,8 +9,14 @@ import UIKit
 
 class PubDateAfterTableViewCell: UITableViewCell {
     @IBOutlet weak var pubDateAfterSegmentedControl: UISegmentedControl!
-    override class func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
+        // セグメント毎のタイトルをローカライズ
+        for i in 1...7 {
+            var title = String(i)
+            title += i == 1 ? LStrings.singularFormOfDay.value : LStrings.pluralFormOfDay.value
+            pubDateAfterSegmentedControl.setTitle(title, forSegmentAt: i-1)
+        }
     }
     @IBAction func pubDateAfterChanged(_ sender: Any) {
         CommonData.filterModel.pubDateAfter = pubDateAfterSegmentedControl.selectedSegmentIndex + 1

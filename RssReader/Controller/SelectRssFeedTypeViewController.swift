@@ -27,7 +27,7 @@ class SelectRssFeedTypeViewController: UIViewController, SelectRssFeedTypeViewCo
         setAccessibilityIdentifier()
         rssFeedTypeListTableView.delegate = self
         rssFeedTypeListTableView.dataSource = self
-        let closeButton = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: #selector(close))
+        let closeButton = UIBarButtonItem(title: LStrings.cancel.value, style: .plain, target: self, action: #selector(close))
         navigationItem.leftBarButtonItem = closeButton
     }
     @objc func close(){

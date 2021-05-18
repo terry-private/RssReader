@@ -26,21 +26,21 @@ class QiitaType: RssFeedTypeProtocol {
         
         // アラート画面でTagを入力させます。
         var alertTextField: UITextField?
-        let alert = UIAlertController(title: "Qiitaの購読記事", message: "タグを入力", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: LStrings.rssTypeOfQiita.value, message: LStrings.inputTag.value, preferredStyle: UIAlertController.Style.alert)
         alert.view.accessibilityIdentifier = "qiita_alert"
         
         // テキストフィールド追加
         alert.addTextField(configurationHandler: {(textField: UITextField!) in
             alertTextField = textField
             textField.text = ""
-            textField.placeholder = "タグ"
+            textField.placeholder = LStrings.tag.value
         })
         alertTextField?.accessibilityIdentifier = "alert_textField"
         
         // キャンセルボタン追加
         alert.addAction(
             UIAlertAction(
-                title: "キャンセル",
+                title: LStrings.cancel.value,
                 style: UIAlertAction.Style.cancel,
                 handler: nil
             )
@@ -49,7 +49,7 @@ class QiitaType: RssFeedTypeProtocol {
         // 確定ボタン追加
         alert.addAction(
             UIAlertAction(
-                title: "確定",
+                title: LStrings.enter.value,
                 style: UIAlertAction.Style.default) { _ in
                 if let text = alertTextField?.text {
                     if text == "" { return }

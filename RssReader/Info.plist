@@ -25,8 +25,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-                <string>line3rdp.$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-				<string>com.googleusercontent.apps.766606991723-vvodo63i3jv2ddcuqh8qj8j0lrcdq9ko</string>
+				<string>line3rdp.$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 			</array>
 		</dict>
 	</array>

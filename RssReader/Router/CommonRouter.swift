@@ -14,7 +14,7 @@ class CommonRouter {
     /// SplashView = Transitioner + FUIAuthDelegate
     class func toAuth<T>(view: T) where T: Transitioner {
         let loginViewController = LoginViewController()
-        loginViewController.navigationItem.title = "ログイン"
+        loginViewController.navigationItem.title = LStrings.login.value
         let nav = UINavigationController(loginViewController)
         nav.modalPresentationStyle = .fullScreen
         view.present(nav, animated: true, completion: nil)
@@ -23,7 +23,7 @@ class CommonRouter {
     class func toNewAccountPropertyView(view: Transitioner, defaultData: [String: String]) {
         let storyboard = UIStoryboard(name: "AccountProperty", bundle: nil)
         let accountPropertyVC = storyboard.instantiateViewController(identifier: "AccountPropertyViewController") as! AccountPropertyViewController
-        accountPropertyVC.navigationItem.title = "新規アカウント作成"
+        accountPropertyVC.navigationItem.title = LStrings.createANewAccount.value
         accountPropertyVC.defaultData = defaultData
         view.pushViewController(accountPropertyVC, animated: true)
     }
@@ -32,7 +32,7 @@ class CommonRouter {
         let storyboard = UIStoryboard(name: "AccountProperty", bundle: nil)
         let accountPropertyVC = storyboard.instantiateViewController(identifier: "AccountPropertyViewController") as! AccountPropertyViewController
         accountPropertyVC.useCase = .EditAccount
-        accountPropertyVC.navigationItem.title = "アカウント情報"
+        accountPropertyVC.navigationItem.title = LStrings.accountProperty.value
         let nav = UINavigationController(accountPropertyVC)
         nav.modalPresentationStyle = .fullScreen
         view.present(nav,animated: true, completion: nil)
@@ -41,14 +41,14 @@ class CommonRouter {
     class func toMailLoginView<T>(view: T) where T: Transitioner {
         let storyboard = UIStoryboard(name: "MailLogin", bundle: nil)
         let mailLoginVC = storyboard.instantiateViewController(identifier: "MailLoginViewController") as! MailLoginViewController
-        mailLoginVC.navigationItem.title = "メールログイン"
+        mailLoginVC.navigationItem.title = LStrings.mailLogin.value
         view.pushViewController(mailLoginVC, animated: true)
     }
     
     class func toSelectRssFeedView(view: Transitioner) {
         let storyboard = UIStoryboard(name: "SelectRssFeed", bundle: nil)
         let selectRssFeedViewController = storyboard.instantiateViewController(identifier: "SelectRssFeedViewController") as! SelectRssFeedViewController
-        selectRssFeedViewController.navigationItem.title = "RSS Feedの選択"
+        selectRssFeedViewController.navigationItem.title = LStrings.selectRssFeed.value
         let nav = UINavigationController(selectRssFeedViewController)
         nav.modalPresentationStyle = .fullScreen
         view.present(nav,animated: true, completion: nil)
@@ -57,7 +57,7 @@ class CommonRouter {
     class func toSelectRssFeedTypeView<T>(view: T) where T: Transitioner, T: SelectRssFeedDelegate {
         let storyboard = UIStoryboard(name: "SelectRssFeedType", bundle: nil)
         let selectRssFeedTypeViewController = storyboard.instantiateViewController(identifier: "SelectRssFeedTypeViewController") as! SelectRssFeedTypeViewController
-        selectRssFeedTypeViewController.navigationItem.title = "購読記事の選択"
+        selectRssFeedTypeViewController.navigationItem.title = LStrings.selectRssFeedType.value
         selectRssFeedTypeViewController.delegate = view
         let nav = UINavigationController(selectRssFeedTypeViewController)
         view.present(nav, animated: true, completion: nil)
@@ -66,7 +66,7 @@ class CommonRouter {
     class func toSelectYahooTagView<T>(view: T) where T: Transitioner, T: SelectRssFeedDelegate {
         let storyboard = UIStoryboard(name: "SelectYahooTag", bundle: nil)
         let selectYahooTagViewController = storyboard.instantiateViewController(identifier: "SelectYahooTagViewController") as! SelectYahooTagViewController
-        selectYahooTagViewController.navigationItem.title = "Yahoo!Newsタグの選択"
+        selectYahooTagViewController.navigationItem.title = LStrings.selectYahooNewsTag.value
         selectYahooTagViewController.delegate = view
         view.pushViewController(selectYahooTagViewController, animated: true)
     }
@@ -85,7 +85,7 @@ class CommonRouter {
         let storyboard = UIStoryboard(name: "FilterMenu", bundle: nil)
         let filterMenuViewController = storyboard.instantiateViewController(withIdentifier: "FilterMenuViewController") as! FilterMenuViewController
         filterMenuViewController.articleKeySortable = view
-        filterMenuViewController.navigationItem.title = "フィルター"
+        filterMenuViewController.navigationItem.title = LStrings.filter.value
         let nav = SideMenuNavigationController(rootViewController: filterMenuViewController)
         nav.menuWidth = view.view.bounds.width - 40
         nav.presentationStyle = .menuSlideIn

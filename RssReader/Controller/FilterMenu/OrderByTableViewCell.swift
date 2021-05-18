@@ -9,8 +9,13 @@ import UIKit
 
 class OrderByTableViewCell: UITableViewCell {
     @IBOutlet weak var orderBySegmentedControl: UISegmentedControl!
-    override class func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
+        // セグメント毎のタイトルをローカライズ
+        for i in 0...1 {
+            let title = i == 0 ? LStrings.descending.value : LStrings.ascending.value
+            orderBySegmentedControl.setTitle(title, forSegmentAt: i)
+        }
     }
     @IBAction func orderByChanged(_ sender: Any) {
         CommonData.filterModel.orderByDesc = orderBySegmentedControl.selectedSegmentIndex == 0

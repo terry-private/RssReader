@@ -12,6 +12,7 @@ class RssFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var faviconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tagNameLabel: UILabel!
+    @IBOutlet weak var articleTaggedWithLabel: UILabel!
     var rssFeed: RssFeedProtocol? {
         didSet {
             if let url = URL(string: rssFeed?.faviconUrl ?? "") {
@@ -27,8 +28,9 @@ class RssFeedTableViewCell: UITableViewCell {
             tagNameLabel.accessibilityIdentifier = "rssFeedTableViewCell_tagName_label"
         }
     }
-    override class func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
+        articleTaggedWithLabel.text = LStrings.articleTaggedWith.value
     }
 }
 

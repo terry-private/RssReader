@@ -51,13 +51,13 @@ extension FilterMenuViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "ソート"
+            return LStrings.sort.value
         case 1:
-            return "既読の表示"
+            return LStrings.displayOfRead.value
         case 2:
-            return "表示日数"
+            return LStrings.daysOfDisplay.value
         case 3:
-            return "購読記事の表示"
+            return LStrings.displayArticle.value
         default:
             return ""
         }

@@ -8,10 +8,15 @@
 import UIKit
 
 class MailLoginViewController: UIViewController, Transitioner {
+    
+    @IBOutlet weak var mailTitleLabel: UILabel!
     @IBOutlet weak var mailTextField: UITextField!
+    @IBOutlet weak var passwordTitleLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordValidationRuleLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var newAccountButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.accessibilityIdentifier = "mailLogin_view"
@@ -37,6 +42,16 @@ class MailLoginViewController: UIViewController, Transitioner {
         
         newAccountButton.accessibilityIdentifier = "mailLogin_newAccount_button"
         validation()
+        setLocalizableString()
+    }
+    
+    func setLocalizableString() {
+        mailTitleLabel.text = LStrings.emailAddress.value
+        passwordTitleLabel.text = LStrings.password.value
+        passwordValidationRuleLabel.text = LStrings.halfAlphanumeric6_12.value
+        passwordValidationRuleLabel.numberOfLines = 0
+        loginButton.setTitle(LStrings.login.value, for: .normal)
+        newAccountButton.setTitle(LStrings.createANewAccount.value, for: .normal)
     }
     
     /// 入力値が正しい場合のみ確定ボタンを有効にします。

@@ -71,7 +71,7 @@ class LaterReadListViewController: UIViewController, Transitioner {
         let hamburgerMenuButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(presentFilterMenu))
         hamburgerMenuButton.tintColor = .systemBlue
         navigationItem.leftBarButtonItem = hamburgerMenuButton
-        navigationItem.title = "後で読む"
+        navigationItem.title = LStrings.laterRead.value
         
         // テストのための設定
         hamburgerMenuButton.accessibilityIdentifier = "laterReadList_filterMenu_Button"
@@ -139,7 +139,7 @@ extension LaterReadListViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let isRead = CommonData.rssFeedListModel.articleList[self.laterReadListKeys[indexPath.row]]!.read
-        let title =  isRead ? "未読にする": "既読にする"
+        let title =  isRead ? LStrings.toNotRead.value: LStrings.toRead.value
         let readAction = UIContextualAction(style: .normal, title: title) { (action, view, completionHandler) in
             CommonData.rssFeedListModel.changeRead(articleKey: self.laterReadListKeys[indexPath.row], read: !isRead)
             self.keysSort()
@@ -184,20 +184,20 @@ extension LaterReadListViewController: UICollectionViewDelegate, UICollectionVie
         let actionProvider: ([UIMenuElement]) -> UIMenu? = { _ in
             // 既読⇄未読
             let read = article.read
-            let readAction = UIAction(title: read ? "未読にする" : "既読にする", image: UIImage(systemName: read ? "checkmark.circle.fill" : "checkmark.circle")) { _ in
+            let readAction = UIAction(title: read ? LStrings.toNotRead.value: LStrings.toRead.value, image: UIImage(systemName: read ? "checkmark.circle.fill" : "checkmark.circle")) { _ in
                 CommonData.rssFeedListModel.changeRead(articleKey: article.item.link, read: !read)
                 self.keysSort()
             }
             // お気に入り
             let newIsStar = article.isStar
-            let starAction = UIAction(title: newIsStar ? "お気に入り解除" : "お気に入り", image: UIImage(systemName: newIsStar ? "star.fill" : "star")) { _ in
+            let starAction = UIAction(title: newIsStar ? LStrings.toNotFavorite.value : LStrings.toFavorite.value, image: UIImage(systemName: newIsStar ? "star.fill" : "star")) { _ in
                 CommonData.rssFeedListModel.changeStar(articleKey: article.item.link, isStar: !newIsStar)
                 self.keysSort()
             }
             
             // 後で読む
             let laterRead = article.laterRead
-            let laterReadAction = UIAction(title: laterRead ? "後で読むを解除" : "後で読む", image: UIImage(systemName: "tray")) { _ in
+            let laterReadAction = UIAction(title: laterRead ? LStrings.toNotLaterRead.value : LStrings.toLaterRead.value, image: UIImage(systemName: "tray")) { _ in
                 CommonData.rssFeedListModel.changeLaterRead(articleKey: article.item.link, laterRead: !laterRead)
                 self.keysSort()
             }
@@ -207,7 +207,7 @@ extension LaterReadListViewController: UICollectionViewDelegate, UICollectionVie
             starAction.accessibilityIdentifier = newIsStar ? "collectionView_unStar_button": "collectionView_star_button"
             laterReadAction.accessibilityIdentifier = laterRead ? "collectionView_unLaterRead_button": "collectionView_laterRead_button"
             
-            return UIMenu(title: "編集", image: nil, identifier: nil, children: [readAction, starAction, laterReadAction])
+            return UIMenu(title: LStrings.edit.value, image: nil, identifier: nil, children: [readAction, starAction, laterReadAction])
         }
 
         return UIContextMenuConfiguration(identifier: nil,

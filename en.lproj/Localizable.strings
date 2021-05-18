@@ -1,0 +1,91 @@
+/* 
+  Localizable.strings
+  RssReader
+  Created by 若江照仁 on 2021/05/14.
+  
+*/
+
+// MainTabBar
+"latestArticles" = "Latest Articles";
+"laterRead" = "Later Read";
+"favorite" = "Favorite";
+"setting" = "Setting";
+
+// LoginView
+"idLoginButtonTitle" = "Log in with ID";
+"loginAlertMessage" = "Please input ID.";
+"errorAlertTitle" = "Input Errors";
+"halfAlphanumeric8_12" = "Half-Width Alphanumeric & 8~12characters";
+"countErrorMessage" = "Please input using more than 8 characters but less than 12";
+"alphanumericErrorMessage" = "Please input using alphanumeric";
+
+// MailLoginView
+"mailLogin" = "Login with Email";
+
+// AccountPropertyView
+"profileImage" = "Profile Image";
+"accountProperty" = "Account Property";
+
+// ArticleStatus
+"toRead" = "To read";
+"toNotRead" = "To not read";
+"toFavorite" = "To favorite";
+"toNotFavorite" = "To not favorite";
+"toLaterRead" = "To later read";
+"toNotLaterRead" = "To not later read";
+
+// RssFeed
+"selectRssFeed" = "Select RSS Feed";
+"selectRssFeedType" = "Select RSS Feed Type";
+"articleTaggedWith" = "Articles tagged with";
+"subscribeTo" = "Subscribe to ";
+"singularFormOfRssFeed" = " RssFeed";
+"pluralFormOfRssFeed" = " RssFeeds";
+"addNewRssFeed" = "Add New RssFeed";
+
+// Qiita
+"rssTypeOfQiita" = "Qiita's article";
+
+// Yahoo
+"yahooNews" = "Yahoo!News";
+"selectYahooNewsTag" = "Select Yahoo!News Tag";
+
+// Setting
+"refreshInterval" = "Refresh interval";
+"displayMode" = "Display mode";
+"subscriptionArticles" = "Subscription articles";
+"singularFormOfMinute" = "min";
+"pluralFormOfMinute" = "mins";
+
+// Filter
+"filter" = "Filter";
+"sort" = "Sort";
+"orderByIssueDate" = "Issue date";
+"orderByTypeOfRssFeed" = "Type of RSS Feed";
+"descending" = "Descending";
+"ascending" = "Ascending";
+"displayOfRead" = "Display of read";
+"displayRead" = "Display read article";
+"daysOfDisplay" = "Days of display";
+"singularFormOfDay" = "day";
+"pluralFormOfDay" = "days";
+"displayArticle" = "Display article";
+
+// Common
+"login" = "Login";
+"logout" = "Logout";
+"done" = "Done";
+"enter" = "Enter";
+"cancel" = "Cancel";
+"close" = "Close";
+"back" = "Back";
+"edit" = "Edit";
+
+// AppWord
+"emailAddress" = "Email address";
+"password" = "Password";
+"username" = "User name";
+"tag" = "Tag name";
+"inputTag" = "Input tag name";
+"halfAlphanumeric6_12" = "Half-Width Alphanumeric & 6~12characters";
+"createANewAccount" = "Create a new account";

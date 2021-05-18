@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2AP-vc-EOO">
-                        <rect key="frame" x="10" y="10" width="293.5" height="41"/>
+                        <rect key="frame" x="10" y="10" width="261" height="41"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K7S-3v-8pU">
                                 <rect key="frame" x="0.0" y="5.5" width="30" height="30"/>
@@ -26,7 +26,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Qiy-dL-CRJ">
-                                <rect key="frame" x="40" y="3.5" width="253.5" height="34"/>
+                                <rect key="frame" x="40" y="5.5" width="221" height="30.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUb-Yn-KyM">
                                         <rect key="frame" x="0.0" y="0.0" width="51.5" height="13.5"/>
@@ -35,28 +35,28 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="KZ8-Hz-dfB">
-                                        <rect key="frame" x="0.0" y="13.5" width="253.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="13.5" width="221" height="17"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="「" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Omn-i4-dda">
-                                                <rect key="frame" x="0.0" y="0.0" width="17.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="14.5" height="17"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TagNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfa-rO-gt0">
-                                                <rect key="frame" x="19.5" y="0.0" width="114" height="20.5"/>
+                                                <rect key="frame" x="16.5" y="0.0" width="96" height="17"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="」" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCo-mf-e2c">
-                                                <rect key="frame" x="135.5" y="0.0" width="17.5" height="20.5"/>
+                                                <rect key="frame" x="114.5" y="0.0" width="14.5" height="17"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タグのついた記事" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M28-Zd-I4q">
-                                                <rect key="frame" x="155" y="0.0" width="98.5" height="20.5"/>
+                                                <rect key="frame" x="131" y="0.0" width="90" height="17"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -75,6 +75,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="articleTaggedWithLabel" destination="M28-Zd-I4q" id="MB4-Jw-AHb"/>
                 <outlet property="faviconImageView" destination="K7S-3v-8pU" id="tFe-xc-Jnb"/>
                 <outlet property="tagNameLabel" destination="dfa-rO-gt0" id="yG3-Lh-umV"/>
                 <outlet property="titleLabel" destination="IUb-Yn-KyM" id="9by-Lt-tFa"/>

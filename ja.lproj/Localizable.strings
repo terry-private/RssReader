@@ -1,0 +1,92 @@
+/*
+  Localizable.strings
+  RssReader
+
+  Created by 若江照仁 on 2021/05/14.
+  
+*/
+
+// MainTabBar
+"latestArticles" = "最新記事";
+"laterRead" = "後で読む";
+"favorite" = "お気に入り";
+"setting" = "設定";
+
+// LoginView
+"idLoginButtonTitle" = "ログインIDの入力";
+"loginAlertMessage" = "ログインIDを入力してください。";
+"errorAlertTitle" = "入力エラー";
+"halfAlphanumeric8_12" = "半角英数字 8~12文字";
+"countErrorMessage" = "ログインIDは8〜12文字です。";
+"alphanumericErrorMessage" = "ログインIDは英数字のみです。";
+
+// MailLoginView
+"mailLogin" = "メールログイン";
+
+// AccountPropertyView
+"profileImage" = "プロフィール画像";
+"accountProperty" = "アカウント情報";
+
+// ArticleStatus
+"toRead" = "既読にする";
+"toNotRead" = "未読にする";
+"toFavorite" = "お気に入り";
+"toNotFavorite" = "お気に入り解除";
+"toLaterRead" = "後で読む";
+"toNotLaterRead" = "後で読む解除";
+
+// RssFeed
+"selectRssFeed" = "RSS Feedの選択";
+"selectRssFeedType" = "記事タイプを選択";
+"articleTaggedWith" = "タグのついた記事";
+"subscribeTo" = "購読する記事：";
+"singularFormOfRssFeed" = "件";
+"pluralFormOfRssFeed" = "件";
+"addNewRssFeed" = "購読するRssFeedを追加";
+
+// Qiita
+"rssTypeOfQiita" = "Qiitaの購読記事";
+
+// Yahoo
+"yahooNews" = "Yahoo!ニュース";
+"selectYahooNewsTag" = "Yahoo!Newsタグの選択";
+
+// Setting
+"refreshInterval" = "RSS取得間隔";
+"displayMode" = "表示モード";
+"subscriptionArticles" = "購読記事一覧";
+"singularFormOfMinute" = "分";
+"pluralFormOfMinute" = "分";
+
+// Filter
+"filter" = "フィルター";
+"sort" = "ソート";
+"orderByIssueDate" = "発効日順";
+"orderByTypeOfRssFeed" = "記事タイプ順";
+"descending" = "降順";
+"ascending" = "昇順";
+"displayOfRead" = "既読の表示";
+"displayRead" = "既読を表示する";
+"daysOfDisplay" = "表示日数";
+"singularFormOfDay" = "日";
+"pluralFormOfDay" = "日";
+"displayArticle" = "購読記事の表示";
+
+// CommonWord
+"login" = "ログイン";
+"logout" = "ログアウト";
+"done" = "完了";
+"enter" = "確定";
+"cancel" = "キャンセル";
+"close" = "閉じる";
+"back" = "戻る";
+"edit" = "編集";
+
+// AppWord
+"emailAddress" = "メールアドレス";
+"password" = "パスワード";
+"username" = "名前";
+"tag" = "タグ";
+"inputTag" = "タグを入力";
+"halfAlphanumeric6_12" = "半角英数字 6~12文字";
+"createANewAccount" = "新規アカウント作成";
