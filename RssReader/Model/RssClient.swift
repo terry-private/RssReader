@@ -69,4 +69,9 @@ class RssClient {
         })
         task.resume()
     }
+    
+    class func fetchItems2(rssApiUrl: String, completion: @escaping ([Item]?) -> Void) {
+
+        completion(nil)
+    }
 }
