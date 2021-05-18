@@ -51,7 +51,7 @@ class CommonRouter {
         selectRssFeedViewController.navigationItem.title = LStrings.selectRssFeed.value
         let nav = UINavigationController(selectRssFeedViewController)
         nav.modalPresentationStyle = .fullScreen
-        view.present(nav,animated: true, completion: nil)
+        view.present(nav, animated: true, completion: nil)
     }
     
     class func toSelectRssFeedTypeView<T>(view: T) where T: Transitioner, T: SelectRssFeedDelegate {
@@ -79,6 +79,7 @@ class CommonRouter {
         let nav = UINavigationController(rootViewController: articleDetailViewController)
         nav.modalPresentationStyle = .fullScreen
         nav.navigationBar.barTintColor = .init(named: "MainBG")
+        nav.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(named: "MainLabel")!]
         view.present(nav, animated: true, completion: nil)
     }
     
@@ -92,6 +93,7 @@ class CommonRouter {
         nav.presentationStyle = .menuSlideIn
         nav.presentationStyle.presentingEndAlpha = 0.5
         nav.leftSide = true
+        nav.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(named: "MainLabel")!]
         view.present(nav, animated: true, completion: nil)
     }
 }

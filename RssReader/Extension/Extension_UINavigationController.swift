@@ -11,5 +11,7 @@ extension UINavigationController {
     convenience init(_ vc: UIViewController) {
         self.init(rootViewController: vc)
         navigationBar.prefersLargeTitles = true
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(named: "MainLabel")!]
+        navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(named: "MainLabel")!]
     }
 }
