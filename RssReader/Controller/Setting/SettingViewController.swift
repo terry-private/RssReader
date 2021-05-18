@@ -79,7 +79,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     // セクションヘッダーの色を変えられるようにしてます。
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         // 背景色を変更する
-        view.tintColor = .systemPink
+        view.tintColor = .init(named: "SectionHeader")
         
         let header = view as! UITableViewHeaderFooterView
         // テキスト色を変更する
