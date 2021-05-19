@@ -17,22 +17,25 @@ class RssClientTests: XCTestCase {
         var urlSessionItems: [Item]?
         var alamofireItems: [Item]?
         
-        let expectation = self.expectation(description: "Alamofire待ち")
-        let expectation2 = self.expectation(description: "URLSessionQueue待ち")
+        // 非同期処理の待ち合わせ用
+        let ex1 = self.expectation(description: "Alamofire待ち")
+        let ex2 = self.expectation(description: "URLSessionQueue待ち")
         
         RssClient.fetchItems(rssApiUrl: rssApiUrl) { items in
             alamofireItems = items
             print("fetchItems完了")
-            expectation.fulfill()
+            ex1.fulfill()
         }
         
         RssClient.fetchItems2(rssApiUrl: rssApiUrl) { items in
             urlSessionItems = items
             print("fetchItems2完了")
-            expectation2.fulfill()
+            ex2.fulfill()
         }
         
-        self.waitForExpectations(timeout: 10)
+        // ここで全てのXCTestExpectationで.fulfill()が呼ばれるまで待ちます。
+        // ただしtimeout: 10で10秒たっても完了しない場合はFailとします。
+        waitForExpectations(timeout: 10)
         
         XCTContext.runActivity(named: "URLSessionとAlamofireのAPI結果テスト") { _ in
             if urlSessionItems == nil && alamofireItems == nil {
@@ -46,7 +49,7 @@ class RssClientTests: XCTestCase {
             let items1 = urlSessionItems!.sorted { $0.link < $1.link}
             let items2 = alamofireItems!.sorted { $0.link < $1.link}
             for i in 0..<items1.count {
-                XCTAssertTrue(items1[i].link == items2[i].link)
+                XCTAssertEqual(items1[i].link, items2[i].link)
             }
         }
     }
