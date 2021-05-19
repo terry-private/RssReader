@@ -17,17 +17,22 @@ class RssClientTests: XCTestCase {
         var urlSessionItems: [Item]?
         var alamofireItems: [Item]?
         
-        RssClient.fetchItems2(rssApiUrl: rssApiUrl) { items in
-            urlSessionItems = items
-            print("fetchItems完了")
-        }
+        let expectation = self.expectation(description: "Alamofire待ち")
+        let expectation2 = self.expectation(description: "URLSessionQueue待ち")
         
         RssClient.fetchItems(rssApiUrl: rssApiUrl) { items in
             alamofireItems = items
-            print("fetchItems2完了")
+            print("fetchItems完了")
+            expectation.fulfill()
         }
         
-        sleep(5)
+        RssClient.fetchItems2(rssApiUrl: rssApiUrl) { items in
+            urlSessionItems = items
+            print("fetchItems2完了")
+            expectation2.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 10)
         
         XCTContext.runActivity(named: "URLSessionとAlamofireのAPI結果テスト") { _ in
             if urlSessionItems == nil && alamofireItems == nil {
@@ -44,7 +49,5 @@ class RssClientTests: XCTestCase {
                 XCTAssertTrue(items1[i].link == items2[i].link)
             }
         }
-        
     }
-
 }
