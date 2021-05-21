@@ -7,20 +7,11 @@
 
 import Foundation
 
-/// 既存のArticleList, Feed, Itemは利用して
-/// Articleを書き換えます。一旦コピーします。
-struct RssArticle {
-    let item: Item
-    let rssFeedTitle: String
-    let rssFeedUrl: String
-    let rssFeedFaviconUrl: String
-    let tag: String
-    var read: Bool = false
-    var laterRead: Bool = false
-    var isStar: Bool = false
-    var sortKey: String {
-        return rssFeedTitle + tag + (item.pubDate?.description ?? "") + item.link
-    }
+/// 既存のFeed, Itemは利用して
+/// ArticleListを書き換えます。一旦コピーします。
+struct RssArticleList: Codable {
+    let feed: Feed
+    let items: [Item]
     /// レスポンスからわかりやすいオブジェクトへと変換する関数。
     ///
     /// ただし、サーバーがエラーを返してきた場合などは変換できないので、
@@ -30,12 +21,11 @@ struct RssArticle {
     static func from(response: Response) -> Either<TransformError, Self> {
         switch response.statusCode {
         case .ok:
-            guard let title = String(data: response.payload, encoding: .utf8) else {
-                // エンコード失敗の場合は.malformedDataとしてエラーメッセージを流す。
+            let decoder = JSONDecoder()
+            guard let articleList = try? decoder.decode(RssArticleList.self, from: response.payload) else {
                 return .left(.malformedData(debugInfo: "not UTF-8 String"))
             }
-            let item = Item(title: title, pubDate: "", link: "", guid: "")
-            return Either.right(RssArticle(item: item, rssFeedTitle: "", rssFeedUrl: "", rssFeedFaviconUrl: "", tag: ""))
+            return Either.right(articleList)
         default:
             return Either.left(.unexpectedStatusCode(debugInfo: "\(response.statusCode)")
             )

@@ -30,28 +30,35 @@ class WebAPITests: XCTestCase {
         WebAPI.call(with: input)
     }
     
-    func testResopnse() {
+    func testResponse() {
+        // 仮のデータを作ります。
+        let item = Item(title: "testItem", pubDate: nil, link: "", guid: "")
+        let feed = Feed(url: "", title: "testFeed", link: "", author: "", description: "", image: "")
+        let articleList = RssArticleList(feed: feed, items: [item])
+        
+        let data = try! JSONEncoder().encode(articleList)
+        
         // 仮のレスポンスを定義する。
         let response: Response = (
             statusCode: .ok,
             headers: [:],
-            payload: "this is a response text".data(using: .utf8)!
+            payload: data
         )
         
         // GitHubZen.from 関数を呼び出してみる。
-        let errorOrArticle = RssArticle.from(response: response)
+        let errorOrArticleList = RssArticleList.from(response: response)
         
         // 結果は、エラーか禅なフレーズのどちらか。
-        switch errorOrArticle {
+        switch errorOrArticleList {
         case let .left(error):
             // 上の仮のレスポンスであれば、エラーにはならないはず。
             // そういう場合は、XCTFail という関数でこちらにきてしまったことをわかるようにする。
             XCTFail("\(error)")
             
-        case let .right(article):
+        case let .right(articleList):
             // 上の仮のレスポンスの禅なフレーズをちゃんと読み取れたかどうか検証したい。
             // そういう場合は、XCTAssertEqual という関数で内容があっているかどうかを検証する。
-            XCTAssertEqual(article.item.title, "this is a response text")
+            XCTAssertEqual(articleList.items[0].title, "testItem")
         }
     }
 }
