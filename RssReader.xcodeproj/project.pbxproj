@@ -39,6 +39,7 @@
 		0925C85426536D7E006401C1 /* Extension_UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C85326536D7E006401C1 /* Extension_UITableViewCell.swift */; };
 		0925C85626538325006401C1 /* RssClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C85526538325006401C1 /* RssClientTests.swift */; };
 		0925C8A526575EB4006401C1 /* WebAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8A426575EB4006401C1 /* WebAPITests.swift */; };
+		0925C8A72657606E006401C1 /* WebAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8A62657606E006401C1 /* WebAPI.swift */; };
 		092B65BB26316655002799AD /* FilterMenuViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B65BA26316655002799AD /* FilterMenuViewPage.swift */; };
 		092B65C326316E46002799AD /* FilterMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B65C226316E46002799AD /* FilterMenuUITests.swift */; };
 		095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */; };
@@ -174,6 +175,7 @@
 		0925C85326536D7E006401C1 /* Extension_UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UITableViewCell.swift; sourceTree = "<group>"; };
 		0925C85526538325006401C1 /* RssClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssClientTests.swift; sourceTree = "<group>"; };
 		0925C8A426575EB4006401C1 /* WebAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAPITests.swift; sourceTree = "<group>"; };
+		0925C8A62657606E006401C1 /* WebAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAPI.swift; sourceTree = "<group>"; };
 		092B65BA26316655002799AD /* FilterMenuViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuViewPage.swift; sourceTree = "<group>"; };
 		092B65C226316E46002799AD /* FilterMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuUITests.swift; sourceTree = "<group>"; };
 		095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewController.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 		0925C8A326575B43006401C1 /* WebAPI */ = {
 			isa = PBXGroup;
 			children = (
+				0925C8A62657606E006401C1 /* WebAPI.swift */,
 			);
 			path = WebAPI;
 			sourceTree = "<group>";
@@ -948,6 +951,7 @@
 				095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */,
 				0912527D25E87E8700F9CFCA /* RssFeedDisplayTableViewCell.swift in Sources */,
 				096A1AA625D7CC8300EBC589 /* RssFeed.swift in Sources */,
+				0925C8A72657606E006401C1 /* WebAPI.swift in Sources */,
 				09902EFA2611084300B2B9A0 /* MailLoginViewController.swift in Sources */,
 				0912525A25E7F68000F9CFCA /* ContainReadTableViewCell.swift in Sources */,
 				0975611725B2985A007B0D3F /* DummyRouter.swift in Sources */,
