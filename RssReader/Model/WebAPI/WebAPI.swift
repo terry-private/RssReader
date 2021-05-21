@@ -119,29 +119,28 @@ enum HTTPStatus {
 
 // MARK:- WebAPI
 enum WebAPI {
-    static func call(with input: Input, _ completion: @escaping (Output) -> Void) {
+    
+    // MARK: - URLSessionを使った実装です。
+    static func call(with input: Input, _ block: @escaping (Output) -> Void) {
+        // URLSession へ渡す URLRequest を作成する。
+        let urlRequest = self.createURLRequest(by: input)
         
-        // 実際にサーバーと通信するコードはまだはっきりしていないので、
-        // Timer を使って非同期なコード実行だけを再現する。
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+        // レスポンス受信後のコールバックを登録する。
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, urlResponse, error) in
             
-            // 仮のレスポンスをでっちあげる。
-            let item = Item(title: "testItem", pubDate: nil, link: "", guid: "")
-            let feed = Feed(url: "", title: "testFeed", link: "", author: "", description: "", image: "")
-            let articleList = RssArticleList(feed: feed, items: [item])
-            
-            let data = try! JSONEncoder().encode(articleList)
-            
-            let response: Response = (
-                statusCode: .ok,
-                headers: [:],
-                payload: data
+            // 受信したレスポンスまたは通信エラーを Output オブジェクトへ変換する。
+            let output = self.createOutput(
+                data: data,
+                urlResponse: urlResponse as? HTTPURLResponse,
+                error: error
             )
             
-            // 仮のレスポンスでコールバックを呼び出す。
-            completion(.hasResponse(response))
+            // コールバックに Output オブジェクトを渡す。
+            block(output)
         }
+        task.resume()
     }
+    
     // ビルドを通すために call 関数を用意しておく。
     static func call(with input: Input) {
         self.call(with: input) { _ in

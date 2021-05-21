@@ -95,6 +95,7 @@ class WebAPITests: XCTestCase {
                 // 正しく呼び出せていれば GitHubZen が帰ってくるはずなので、
                 // 右側が nil ではなく値が入っていることを確認する。
                 XCTAssertNotNil(errorOrArticleList.right)
+                print(errorOrArticleList.right!.items[0].title)
             }
             
             expectation.fulfill()
