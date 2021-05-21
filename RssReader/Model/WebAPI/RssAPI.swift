@@ -21,4 +21,23 @@ struct RssArticle {
     var sortKey: String {
         return rssFeedTitle + tag + (item.pubDate?.description ?? "") + item.link
     }
+    /// レスポンスからわかりやすいオブジェクトへと変換する関数。
+    ///
+    /// ただし、サーバーがエラーを返してきた場合などは変換できないので、
+    /// その場合はエラーを返す。つまり、戻り値はエラーがわかりやすいオブジェクトになる。
+    /// このような、「どちらか」を意味する Either という型で表現する。
+    /// Self が左でなく右なのは、正しいと Right をかけた慣例。
+    static func from(response: Response) -> Either<TransformError, Self> {
+        // TODO
+    }
+    
+    
+    /// Rss API の変換で起きうるエラーの一覧。
+    enum TransformError {
+        /// HTTP ステータスコードが OK 以外だった場合のエラー。
+        case unexpectedStatusCode(debugInfo: String)
+        
+        /// ペイロードが壊れた文字列だった場合のエラー。
+        case malformedData(debugInfo: String)
+    }
 }
