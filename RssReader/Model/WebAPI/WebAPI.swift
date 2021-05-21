@@ -58,3 +58,10 @@ enum HTTPMethodAndPayload {
         }
     }
 }
+
+enum WebAPI {
+    // ビルドを通すために call 関数を用意しておく。
+    static func call(with input: Input) {
+        // TODO: もう少しインターフェースが固まったら実装する。
+    }
+}

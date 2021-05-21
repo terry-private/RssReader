@@ -6,11 +6,27 @@
 //
 
 import XCTest
+@testable import RssReader
 
 class WebAPITests: XCTestCase {
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testRequest() {
+        let rssApiUrl = URL(string: QiitaType().makeJsonUrl(tag: "swift"))!
+        // リクエストを作成する。
+        let input: Request = (
+            
+            url: rssApiUrl,
+            
+            queries: [],
+            
+            // 特にヘッダーもいらない。
+            headers: [:],
+            
+            // HTTP メソッドは GET のみ対応している。
+            methodAndPayload: .get
+        )
+        
+        // この内容で API を呼び出す（注: WebAPI.call は後で定義する）。
+        WebAPI.call(with: input)
     }
 }
