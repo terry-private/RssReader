@@ -7,9 +7,9 @@
 
 import Foundation
 
+// MARK:- Input
 /// API への入力は Request そのもの。
 typealias Input = Request
-
 
 /// Request は以下の要素から構成される:
 typealias Request = (
@@ -27,7 +27,6 @@ typealias Request = (
     /// 表現するために、後述する enum を使っている。
     methodAndPayload: HTTPMethodAndPayload
 )
-
 
 /// HTTP メソッドとペイロードの組み合わせ。
 enum HTTPMethodAndPayload {
@@ -59,6 +58,66 @@ enum HTTPMethodAndPayload {
     }
 }
 
+// MARK:- Output
+/// API の出力にをあらわす enum。
+/// API の出力でありえるのは、
+enum Output {
+    /// レスポンスがある場合か、
+    case hasResponse(Response)
+
+    /// 通信エラーでレスポンスがない場合。
+    case noResponse(ConnectionError)
+}
+
+/// 通信エラー。
+enum ConnectionError {
+    /// データまたはレスポンスが存在しない場合のエラー。
+    case noDataOrNoResponse(debugInfo: String)
+}
+
+/// API のレスポンス。構成要素は、以下の3つ。
+typealias Response = (
+    /// レスポンスの意味をあらわすステータスコード。
+    statusCode: HTTPStatus,
+
+    /// HTTP ヘッダー。
+    headers: [String: String],
+
+    /// レスポンスの本文。
+    payload: Data
+)
+
+/// HTTPステータスコードを読みやすくする型。
+enum HTTPStatus {
+    /// OK の場合。HTTP ステータスコードでは 200 にあたる。
+    case ok
+
+    /// OK ではなかった場合の例。
+    /// notFound の HTTP ステータスコードは 404 で、
+    /// リクエストで要求された項目が存在しなかったことを意味する。
+    case notFound
+
+    /// 他にもステータスコードはあるが、全部定義するのは面倒なので、
+    /// 必要ペースで定義できるようにする。
+    case unsupported(code: Int)
+
+    /// HTTP ステータスコードから HTTPステータス型を作る関数。
+    static func from(code: Int) -> HTTPStatus {
+        switch code {
+        case 200:
+            // 200 は OK の意味。
+            return .ok
+        case 404:
+            // 404 は notFound の意味。
+            return .notFound
+        default:
+            // それ以外はまだ対応しない。
+            return .unsupported(code: code)
+        }
+    }
+}
+
+// MARK:- WebAPI
 enum WebAPI {
     // ビルドを通すために call 関数を用意しておく。
     static func call(with input: Input) {

@@ -29,4 +29,21 @@ class WebAPITests: XCTestCase {
         // この内容で API を呼び出す（注: WebAPI.call は後で定義する）。
         WebAPI.call(with: input)
     }
+    
+    func testResopnse() {
+        // 仮のレスポンスを定義する。
+        let response: Response = (
+            // ステータスコードは 200 OK なはず。
+            statusCode: .ok,
+            
+            // 読み取るべきヘッダーは特にない。
+            headers: [:],
+            
+            // Zen API のレスポンスは、禅なフレーズの文字列。
+            payload: "this is a response text".data(using: .utf8)!
+        )
+        
+        // TODO: このままだとペイロードが Data になってしまっていて使いづらいので、
+        // よりわかりやすいレスポンスのオブジェクトへと変換する。
+    }
 }
