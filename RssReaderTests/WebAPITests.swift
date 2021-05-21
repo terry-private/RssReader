@@ -62,7 +62,7 @@ class WebAPITests: XCTestCase {
         }
     }
     
-    func testRequestAndResopnse() {
+    func testRequestAndResponse() {
         let expectation = self.expectation(description: "API を待つ")
         let rssApiUrl = URL(string: QiitaType().makeJsonUrl(tag: "swift"))!
         // これまでと同じようにリクエストを作成する。

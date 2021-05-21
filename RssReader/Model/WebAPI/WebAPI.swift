@@ -119,8 +119,33 @@ enum HTTPStatus {
 
 // MARK:- WebAPI
 enum WebAPI {
+    static func call(with input: Input, _ completion: @escaping (Output) -> Void) {
+        
+        // 実際にサーバーと通信するコードはまだはっきりしていないので、
+        // Timer を使って非同期なコード実行だけを再現する。
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+            
+            // 仮のレスポンスをでっちあげる。
+            let item = Item(title: "testItem", pubDate: nil, link: "", guid: "")
+            let feed = Feed(url: "", title: "testFeed", link: "", author: "", description: "", image: "")
+            let articleList = RssArticleList(feed: feed, items: [item])
+            
+            let data = try! JSONEncoder().encode(articleList)
+            
+            let response: Response = (
+                statusCode: .ok,
+                headers: [:],
+                payload: data
+            )
+            
+            // 仮のレスポンスでコールバックを呼び出す。
+            completion(.hasResponse(response))
+        }
+    }
     // ビルドを通すために call 関数を用意しておく。
     static func call(with input: Input) {
-        // TODO: もう少しインターフェースが固まったら実装する。
+        self.call(with: input) { _ in
+            // NOTE: コールバック無しバージョンは一旦何もしない
+        }
     }
 }
