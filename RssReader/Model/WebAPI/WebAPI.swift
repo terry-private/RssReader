@@ -148,4 +148,54 @@ enum WebAPI {
             // NOTE: コールバック無しバージョンは一旦何もしない
         }
     }
+    
+    // Input から URLRequest を作成する関数。
+    static private func createURLRequest(by input: Input) -> URLRequest {
+        // URL から URLRequest を作成する。
+        var request = URLRequest(url: input.url)
+        
+        // HTTP メソッドを設定する。
+        request.httpMethod = input.methodAndPayload.method
+        
+        // リクエストの本文を設定する。
+        request.httpBody = input.methodAndPayload.body
+        
+        // HTTP ヘッダを設定する。
+        request.allHTTPHeaderFields = input.headers
+        
+        return request
+    }
+    
+    // URLSession.dataTask のコールバック引数から Output オブジェクトを作成する関数。
+    static private func createOutput(
+        data: Data?,
+        urlResponse: HTTPURLResponse?,
+        error: Error?
+    ) -> Output {
+        // データと URLResponse がなければ通信エラー。
+        guard let data = data, let response = urlResponse else {
+            // エラーの内容を debugInfo に格納して通信エラーを返す。
+            return .noResponse(.noDataOrNoResponse(debugInfo: error.debugDescription))
+        }
+        
+        // HTTP ヘッダーを URLResponse から取り出して Output 型の
+        // HTTP ヘッダーの型 [String: String] と一致するように変換する。
+        var headers: [String: String] = [:]
+        for (key, value) in response.allHeaderFields.enumerated() {
+            headers[key.description] = String(describing: value)
+        }
+        
+        // Output オブジェクトを作成して返す。
+        return .hasResponse((
+            // HTTP ステータスコードから HTTPStatus を作成する。
+            statusCode: .from(code: response.statusCode),
+            
+            // 変換後の HTTP ヘッダーを返す。
+            headers: headers,
+            
+            // レスポンスの本文をそのまま返す。
+            payload: data
+        ))
+    }
+
 }
