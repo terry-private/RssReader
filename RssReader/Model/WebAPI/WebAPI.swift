@@ -35,13 +35,15 @@ enum HTTPMethodAndPayload {
     case get
 
     /// POST メソッドの定義（必要になるまでは省略）。
-    // case post(payload: Data?)
+//    case post(payload: Data?)
 
     /// メソッドの文字列表現。
     var method: String {
         switch self {
         case .get:
             return "GET"
+//        case .post:
+//            return "POST"
         }
     }
 
@@ -51,6 +53,8 @@ enum HTTPMethodAndPayload {
         case .get:
             // GET はペイロードを取れないので nil。
             return nil
+//        case let .post(payload):
+//            return payload
         }
     }
 }
