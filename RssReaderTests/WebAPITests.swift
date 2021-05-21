@@ -33,17 +33,25 @@ class WebAPITests: XCTestCase {
     func testResopnse() {
         // 仮のレスポンスを定義する。
         let response: Response = (
-            // ステータスコードは 200 OK なはず。
             statusCode: .ok,
-            
-            // 読み取るべきヘッダーは特にない。
             headers: [:],
-            
-            // Zen API のレスポンスは、禅なフレーズの文字列。
             payload: "this is a response text".data(using: .utf8)!
         )
         
-        // TODO: このままだとペイロードが Data になってしまっていて使いづらいので、
-        // よりわかりやすいレスポンスのオブジェクトへと変換する。
+        // GitHubZen.from 関数を呼び出してみる。
+        let errorOrArticle = RssArticle.from(response: response)
+        
+        // 結果は、エラーか禅なフレーズのどちらか。
+        switch errorOrArticle {
+        case let .left(error):
+            // 上の仮のレスポンスであれば、エラーにはならないはず。
+            // そういう場合は、XCTFail という関数でこちらにきてしまったことをわかるようにする。
+            XCTFail("\(error)")
+            
+        case let .right(article):
+            // 上の仮のレスポンスの禅なフレーズをちゃんと読み取れたかどうか検証したい。
+            // そういう場合は、XCTAssertEqual という関数で内容があっているかどうかを検証する。
+            XCTAssertEqual(article.item.title, "this is a response text")
+        }
     }
 }

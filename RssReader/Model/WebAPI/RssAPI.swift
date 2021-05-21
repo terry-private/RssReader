@@ -28,9 +28,19 @@ struct RssArticle {
     /// このような、「どちらか」を意味する Either という型で表現する。
     /// Self が左でなく右なのは、正しいと Right をかけた慣例。
     static func from(response: Response) -> Either<TransformError, Self> {
-        // TODO
+        switch response.statusCode {
+        case .ok:
+            guard let title = String(data: response.payload, encoding: .utf8) else {
+                // エンコード失敗の場合は.malformedDataとしてエラーメッセージを流す。
+                return .left(.malformedData(debugInfo: "not UTF-8 String"))
+            }
+            let item = Item(title: title, pubDate: "", link: "", guid: "")
+            return Either.right(RssArticle(item: item, rssFeedTitle: "", rssFeedUrl: "", rssFeedFaviconUrl: "", tag: ""))
+        default:
+            return Either.left(.unexpectedStatusCode(debugInfo: "\(response.statusCode)")
+            )
+        }
     }
-    
     
     /// Rss API の変換で起きうるエラーの一覧。
     enum TransformError {
