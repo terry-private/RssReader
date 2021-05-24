@@ -32,6 +32,54 @@ struct RssArticleList: Codable {
         }
     }
     
+    /// RssFeed記事を取得する関数
+    static func fetch(urlString: String,
+        // コールバック経由で、接続エラーか変換エラーか GitHubZen のいずれかを受け取れるようにする。
+        _ block: @escaping (Either<Either<ConnectionError, TransformError>, Self>) -> Void
+        
+        // コールバックの引数の型が少しわかりづらいが、次の3パターンになる。
+        //
+        // - 接続エラーの場合     → .left(.left(ConnectionEither))
+        // - 変換エラーの場合     → .left(.right(TransformError))
+        // - 正常に取得できた場合 → .right(RssArticleList)
+    ) {
+        // URL が生成できない場合は不正な URL エラーを返す
+        guard let url = URL(string: urlString) else {
+            block(.left(.left(.malformedURL(debugInfo: urlString))))
+            return
+        }
+        
+        // RssFeedを取得するパラメータがないので入力は固定値になる。
+        let input: Input = (
+            url: url,
+            queries: [],
+            headers: [:],
+            methodAndPayload: .get
+        )
+        
+        // GitHub Zen API を呼び出す。
+        WebAPI.call(with: input) { output in
+            switch output {
+            case let .noResponse(connectionError):
+                // 接続エラーの場合は、接続エラーを渡す。
+                block(.left(.left(connectionError)))
+                
+            case let .hasResponse(response):
+                // レスポンスがわかりやすくなるように GitHubZen へと変換する。
+                let errorOrZen = from(response: response)
+                
+                switch errorOrZen {
+                case let .left(error):
+                    // 変換エラーの場合は、変換エラーを渡す。
+                    block(.left(.right(error)))
+                    
+                case let .right(article):
+                    // 正常に変換できた場合は、GitHubZen オブジェクトを渡す。
+                    block(.right(article))
+                }
+            }
+        }
+    }
     /// Rss API の変換で起きうるエラーの一覧。
     enum TransformError {
         /// HTTP ステータスコードが OK 以外だった場合のエラー。
