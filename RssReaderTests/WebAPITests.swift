@@ -9,23 +9,17 @@ import XCTest
 @testable import RssReader
 
 class WebAPITests: XCTestCase {
-
+    // 共通のテスト用オブジェクトをまとめておく。
+    var rssApiUrl: URL { URL(string: QiitaType().makeJsonUrl(tag: "swift"))! }
+    // これまでと同じようにリクエストを作成する。
+    var input: Input { Input(
+        url: rssApiUrl,
+        queries: [],
+        headers: [:],
+        methodAndPayload: .get
+    )}
+    
     func testRequest() {
-        let rssApiUrl = URL(string: QiitaType().makeJsonUrl(tag: "swift"))!
-        // リクエストを作成する。
-        let input: Request = (
-            
-            url: rssApiUrl,
-            
-            queries: [],
-            
-            // 特にヘッダーもいらない。
-            headers: [:],
-            
-            // HTTP メソッドは GET のみ対応している。
-            methodAndPayload: .get
-        )
-        
         // この内容で API を呼び出す（注: WebAPI.call は後で定義する）。
         WebAPI.call(with: input)
     }
@@ -64,14 +58,6 @@ class WebAPITests: XCTestCase {
     
     func testRequestAndResponse() {
         let expectation = self.expectation(description: "API を待つ")
-        let rssApiUrl = URL(string: QiitaType().makeJsonUrl(tag: "swift"))!
-        // これまでと同じようにリクエストを作成する。
-        let input: Input = (
-            url: rssApiUrl,
-            queries: [],
-            headers: [:],
-            methodAndPayload: .get
-        )
         
         // このリクエストで API を呼び出す。
         // WebAPI.call の結果は、非同期なのでコールバックになるはず。
@@ -106,15 +92,6 @@ class WebAPITests: XCTestCase {
     
     func testRequestAndResponseByAF() {
         let expectation = self.expectation(description: "API を待つ")
-        let rssApiUrl = URL(string: QiitaType().makeJsonUrl(tag: "swift"))!
-        // これまでと同じようにリクエストを作成する。
-        let input: Input = (
-            url: rssApiUrl,
-            queries: [],
-            headers: [:],
-            methodAndPayload: .get
-        )
-        
         // このリクエストで API を呼び出す。
         // WebAPI.call の結果は、非同期なのでコールバックになるはず。
         // また、コールバックの引数は Output 型（レスポンスありか通信エラー）になるはず。
@@ -144,5 +121,41 @@ class WebAPITests: XCTestCase {
         }
         
         self.waitForExpectations(timeout: 10)
+    }
+    
+    // URLSessionパフォーマンステスト
+    func testPerformanceCall() throws {
+        self.measure {
+            let expectation = self.expectation(description: "URLSession")
+            WebAPI.call(with: input) { output in
+                switch output {
+                case let .noResponse(connectionError):
+                    XCTFail("\(connectionError)")
+                case let .hasResponse(response):
+                    let errorOrArticleList = RssArticleList.from(response: response)
+                    XCTAssertNotNil(errorOrArticleList.right)
+                }
+                expectation.fulfill()
+            }
+            self.waitForExpectations(timeout: 10)
+        }
+    }
+    
+    // Alamofireパフォーマンステスト
+    func testPerformanceCallByAF() throws {
+        self.measure {
+            let expectation = self.expectation(description: "Alamofire")
+            WebAPI.callByAF(with: input) { output in
+                switch output {
+                case let .noResponse(connectionError):
+                    XCTFail("\(connectionError)")
+                case let .hasResponse(response):
+                    let errorOrArticleList = RssArticleList.from(response: response)
+                    XCTAssertNotNil(errorOrArticleList.right)
+                }
+                expectation.fulfill()
+            }
+            self.waitForExpectations(timeout: 10)
+        }
     }
 }
