@@ -74,6 +74,9 @@ enum Output {
 enum ConnectionError {
     /// データまたはレスポンスが存在しない場合のエラー。
     case noDataOrNoResponse(debugInfo: String)
+    
+    /// 不正な URL の場合のエラー。
+    case malformedURL(debugInfo: String)
 }
 
 /// API のレスポンス。構成要素は、以下の3つ。
