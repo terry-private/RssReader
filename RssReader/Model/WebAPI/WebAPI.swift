@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 // MARK:- Input
 /// API への入力は Request そのもの。
@@ -196,5 +197,24 @@ enum WebAPI {
             payload: data
         ))
     }
-
+    
+    // MARK: - Alamofire製のcallByAF()を実装します。
+    static func callByAF(with input: Input, _ block: @escaping (Output) -> Void) {
+        
+        let method = HTTPMethod(rawValue: input.methodAndPayload.method)
+         
+        let headers = HTTPHeaders(input.headers)
+        
+        
+        AF.request(input.url, method: method, headers: headers).response { response in
+            let output = createOutput(data: response.data, urlResponse: response.response, error: response.error)
+            block(output)
+        }.resume()
+    }
+    // ビルドを通すために callByAF 関数を用意しておく。
+    static func callByAF(with input: Input) {
+        self.call(with: input) { _ in
+            // NOTE: コールバック無しバージョンは一旦何もしない
+        }
+    }
 }
