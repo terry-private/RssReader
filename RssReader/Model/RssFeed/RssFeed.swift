@@ -75,25 +75,47 @@ extension RssFeed: RssFeedProtocol {
         }
     }
     
+    // WebAPIおよびRssArticleListリプレイス前のコード
+//    func fetchArticle2(completion: @escaping ([String: Article]?) -> Void){
+//        // RssClientの別スレっっどの処理中にRealmObject(今回はself)にアクセスできないため別名の変数をこの関数内で保持しておきます。
+//        let myTag = self.tag
+//        let myTitle = self.title
+//        let myUrl = self.url
+//        let myFaviconUrl = self.faviconUrl
+//        RssClient.fetchItems(rssApiUrl: url) { (response) in
+//            var articles: [String: Article] = [:]
+//            guard let items = response else {
+//                completion(nil)
+//                return
+//            }
+//            for item in items {
+//                if !CommonData.rssFeedListModel.articleList.keys.contains(item.link) {
+//                    articles[item.link] = Article(item: item, rssFeedTitle: myTitle, rssFeedUrl: myUrl, rssFeedFaviconUrl: myFaviconUrl, tag: myTag)
+//                }
+//            }
+//            completion(articles)
+//        }
+//    }
     
     func fetchArticle(completion: @escaping ([String: Article]?) -> Void){
-        // RssClientの別スレっっどの処理中にRealmObject(今回はself)にアクセスできないため別名の変数をこの関数内で保持しておきます。
         let myTag = self.tag
         let myTitle = self.title
         let myUrl = self.url
         let myFaviconUrl = self.faviconUrl
-        RssClient.fetchItems(rssApiUrl: url) { (response) in
-            var articles: [String: Article] = [:]
-            guard let items = response else {
+        RssArticleList.fetch(urlString: url) { (errorOrArticle) in
+            switch errorOrArticle {
+            case let .left(error):
+                print(error)
                 completion(nil)
-                return
-            }
-            for item in items {
-                if !CommonData.rssFeedListModel.articleList.keys.contains(item.link) {
-                    articles[item.link] = Article(item: item, rssFeedTitle: myTitle, rssFeedUrl: myUrl, rssFeedFaviconUrl: myFaviconUrl, tag: myTag)
+            case let .right(articleList):
+                var articles: [String: Article] = [:]
+                for item in articleList.items {
+                    if !CommonData.rssFeedListModel.articleList.keys.contains(item.link) {
+                        articles[item.link] = Article(item: item, rssFeedTitle: myTitle, rssFeedUrl: myUrl, rssFeedFaviconUrl: myFaviconUrl, tag: myTag)
+                    }
                 }
+                completion(articles)
             }
-            completion(articles)
         }
     }
 }
