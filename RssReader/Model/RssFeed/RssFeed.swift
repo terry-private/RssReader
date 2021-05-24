@@ -97,6 +97,7 @@ extension RssFeed: RssFeedProtocol {
 //        }
 //    }
     
+    /// WebAPI, RssArticleListを使った実装です。
     func fetchArticle(completion: @escaping ([String: Article]?) -> Void){
         let myTag = self.tag
         let myTitle = self.title
