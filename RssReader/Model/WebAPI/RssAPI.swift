@@ -57,24 +57,21 @@ struct RssArticleList: Codable {
             methodAndPayload: .get
         )
         
-        // GitHub Zen API を呼び出す。
-        WebAPI.call(with: input) { output in
+        // Alamofireの方の実装をしています。
+        WebAPI.callByAF(with: input) { output in
             switch output {
             case let .noResponse(connectionError):
                 // 接続エラーの場合は、接続エラーを渡す。
                 block(.left(.left(connectionError)))
                 
             case let .hasResponse(response):
-                // レスポンスがわかりやすくなるように GitHubZen へと変換する。
                 let errorOrZen = from(response: response)
                 
                 switch errorOrZen {
                 case let .left(error):
-                    // 変換エラーの場合は、変換エラーを渡す。
                     block(.left(.right(error)))
                     
                 case let .right(article):
-                    // 正常に変換できた場合は、GitHubZen オブジェクトを渡す。
                     block(.right(article))
                 }
             }
