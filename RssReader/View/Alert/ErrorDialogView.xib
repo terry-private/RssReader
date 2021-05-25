@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wCq-Uy-LQJ" customClass="ErrorDialogView" customModule="RssReader" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Exf-PS-BZS">
+                    <rect key="frame" x="57" y="29" width="300" height="166"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gzK-2Z-0F6">
+                            <rect key="frame" x="20" y="20" width="360" height="141"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pGU-VZ-jJn">
+                                    <rect key="frame" x="0.0" y="0.0" width="360" height="35.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9F-gr-CQl">
+                                            <rect key="frame" x="0.0" y="0.0" width="360" height="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" name="MainLabel"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2l-Ze-C4f">
+                                            <rect key="frame" x="0.0" y="22" width="360" height="13.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" name="MainLabel"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxl-B7-3d5">
+                                    <rect key="frame" x="0.0" y="73" width="360" height="0.5"/>
+                                    <color key="backgroundColor" name="MainLabel"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="0.5" id="NbZ-6I-eHt"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="5Mn-Vf-0op">
+                                    <rect key="frame" x="0.0" y="111" width="360" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="OK"/>
+                                    <connections>
+                                        <action selector="tappedOKButton:" destination="wCq-Uy-LQJ" eventType="touchUpInside" id="rBM-3V-MFB"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" name="MainBG"/>
+                    <constraints>
+                        <constraint firstItem="gzK-2Z-0F6" firstAttribute="leading" secondItem="Exf-PS-BZS" secondAttribute="leading" constant="20" id="GAb-B6-5t3"/>
+                        <constraint firstAttribute="bottom" secondItem="gzK-2Z-0F6" secondAttribute="bottom" constant="5" id="SV5-eo-3RI"/>
+                        <constraint firstAttribute="width" constant="300" id="i60-sF-lZr"/>
+                        <constraint firstItem="gzK-2Z-0F6" firstAttribute="top" secondItem="Exf-PS-BZS" secondAttribute="top" constant="20" id="tcn-kQ-kDk"/>
+                        <constraint firstAttribute="trailing" secondItem="gzK-2Z-0F6" secondAttribute="trailing" constant="20" id="zhL-nc-eHr"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Exf-PS-BZS" firstAttribute="centerY" secondItem="wCq-Uy-LQJ" secondAttribute="centerY" id="4U4-Nq-37O"/>
+                <constraint firstItem="Exf-PS-BZS" firstAttribute="centerX" secondItem="wCq-Uy-LQJ" secondAttribute="centerX" id="hKJ-dJ-dYr"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="dialogView" destination="Exf-PS-BZS" id="69P-Iv-3WS"/>
+                <outlet property="messageLabel" destination="V2l-Ze-C4f" id="WUt-l0-eil"/>
+                <outlet property="titleLabel" destination="u9F-gr-CQl" id="fTt-hB-Jyd"/>
+            </connections>
+            <point key="canvasLocation" x="-213.04347826086959" y="66.294642857142861"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="MainBG">
+            <color red="1" green="0.6119999885559082" blue="0.57999998331069946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainLabel">
+            <color red="0.38600000739097595" green="0.0" blue="0.36500000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
