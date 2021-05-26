@@ -41,7 +41,7 @@
             <color red="1" green="0.61157888174057007" blue="0.57950454950332642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MainLabel">
-            <color red="0.38592860102653503" green="7.4505805691682525e-10" blue="7.4505805691682525e-10" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.38592860102653503" green="7.4505805691682525e-10" blue="0.36451506614685059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
