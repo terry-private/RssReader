@@ -47,6 +47,8 @@
 		0925C8B9265BA9C6006401C1 /* ErrorDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8B8265BA9C6006401C1 /* ErrorDialogView.swift */; };
 		0925C8BB265BB651006401C1 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8BA265BB651006401C1 /* AlertController.swift */; };
 		0925C8BF265C8E6F006401C1 /* Extension_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8BE265C8E6F006401C1 /* Extension_UIViewController.swift */; };
+		0925C8C2265E4523006401C1 /* CouponMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8C1265E4523006401C1 /* CouponMapViewController.swift */; };
+		0925C8C5265E48A1006401C1 /* CouponMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0925C8C4265E48A1006401C1 /* CouponMap.storyboard */; };
 		092B65BB26316655002799AD /* FilterMenuViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B65BA26316655002799AD /* FilterMenuViewPage.swift */; };
 		092B65C326316E46002799AD /* FilterMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B65C226316E46002799AD /* FilterMenuUITests.swift */; };
 		095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */; };
@@ -190,6 +192,8 @@
 		0925C8B8265BA9C6006401C1 /* ErrorDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDialogView.swift; sourceTree = "<group>"; };
 		0925C8BA265BB651006401C1 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		0925C8BE265C8E6F006401C1 /* Extension_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIViewController.swift; sourceTree = "<group>"; };
+		0925C8C1265E4523006401C1 /* CouponMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponMapViewController.swift; sourceTree = "<group>"; };
+		0925C8C4265E48A1006401C1 /* CouponMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CouponMap.storyboard; sourceTree = "<group>"; };
 		092B65BA26316655002799AD /* FilterMenuViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuViewPage.swift; sourceTree = "<group>"; };
 		092B65C226316E46002799AD /* FilterMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuUITests.swift; sourceTree = "<group>"; };
 		095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewController.swift; sourceTree = "<group>"; };
@@ -398,6 +402,14 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
+		0925C8C3265E4779006401C1 /* CouponMap */ = {
+			isa = PBXGroup;
+			children = (
+				0925C8C1265E4523006401C1 /* CouponMapViewController.swift */,
+			);
+			path = CouponMap;
+			sourceTree = "<group>";
+		};
 		092B65B926316628002799AD /* FilterMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -452,6 +464,7 @@
 				0983205025DFF0A700AA8662 /* SelectRssFeedType.storyboard */,
 				099BB89925DD05DB003AF947 /* RssFeedTableViewCell.xib */,
 				09174EA925E403A600756E6D /* SelectYahooTag.storyboard */,
+				0925C8C4265E48A1006401C1 /* CouponMap.storyboard */,
 				0925C8BD265C8CE3006401C1 /* Alert */,
 				09902F012611B1F800B2B9A0 /* Login */,
 				0912528F25E8CA2C00F9CFCA /* Article */,
@@ -468,6 +481,7 @@
 				0975615625B85F50007B0D3F /* MainTabBarController.swift */,
 				095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */,
 				0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */,
+				0925C8C3265E4779006401C1 /* CouponMap */,
 				09902EF82611081A00B2B9A0 /* Login */,
 				09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */,
 				099BB89E25DD0672003AF947 /* RssFeedTableViewCell.swift */,
@@ -835,6 +849,7 @@
 				09902F032611B25100B2B9A0 /* AccountProperty.storyboard in Resources */,
 				099BB89A25DD05DB003AF947 /* RssFeedTableViewCell.xib in Resources */,
 				0912527825E87AA100F9CFCA /* RssFeedDisplayTableViewCell.xib in Resources */,
+				0925C8C5265E48A1006401C1 /* CouponMap.storyboard in Resources */,
 				0925C84B264E3A7F006401C1 /* Localizable.strings in Resources */,
 				09174EE425E573E100756E6D /* AddNewRssFeedTableViewCell.xib in Resources */,
 				0912529E25E9190700F9CFCA /* LaterReadList.storyboard in Resources */,
@@ -1037,6 +1052,7 @@
 				09ACE2212597245800FDB597 /* LoginModel.swift in Sources */,
 				09B8031D2590CF9100CA2D19 /* AppDelegate.swift in Sources */,
 				09B8031F2590CF9100CA2D19 /* SceneDelegate.swift in Sources */,
+				0925C8C2265E4523006401C1 /* CouponMapViewController.swift in Sources */,
 				0975614425B731CF007B0D3F /* RssClient.swift in Sources */,
 				09688C7925F3788D007925B3 /* PreviewViewController.swift in Sources */,
 				09174EAF25E405D700756E6D /* SelectYahooTagViewController.swift in Sources */,
