@@ -77,7 +77,7 @@ extension RssFeed: RssFeedProtocol {
     
     // WebAPIおよびRssArticleListリプレイス前のコード
 //    func fetchArticle2(completion: @escaping ([String: Article]?) -> Void){
-//        // RssClientの別スレっっどの処理中にRealmObject(今回はself)にアクセスできないため別名の変数をこの関数内で保持しておきます。
+//        // RssClientの別スレッドの処理中にRealmObject(今回はself)にアクセスできないため別名の変数をこの関数内で保持しておきます。
 //        let myTag = self.tag
 //        let myTitle = self.title
 //        let myUrl = self.url
