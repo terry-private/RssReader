@@ -16,6 +16,7 @@ enum LStrings: String {
     case latestArticles
     case laterRead
     case favorite
+    case couponMap
     case setting
     
     // LoginView

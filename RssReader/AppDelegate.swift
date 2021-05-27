@@ -8,6 +8,7 @@
 import UIKit
 import RealmSwift
 import LineSDK
+import GoogleMaps
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         LoginManager.shared.setup(channelID: "1655768312", universalLinkURL: nil)
+        GMSServices.provideAPIKey("AIzaSyBPekACKXneaSB8Z_JqjZYfnAhdr_DFhuM")
         
         #if DebugSecure
             print("DebugSecure")
