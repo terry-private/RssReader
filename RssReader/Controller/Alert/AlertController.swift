@@ -116,7 +116,6 @@ class AlertAnimation: NSObject, UIViewControllerAnimatedTransitioning {
                             alert.alertView.transform = CGAffineTransform.identity
                         })
                         transitionContext.completeTransition(true) })
-        
     }
     
     //閉じる時のアニメーション
