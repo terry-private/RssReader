@@ -83,10 +83,8 @@ class WebAPITests: XCTestCase {
                 XCTAssertNotNil(errorOrArticleList.right)
                 print(errorOrArticleList.right!.items[0].title)
             }
-            
             expectation.fulfill()
         }
-        
         self.waitForExpectations(timeout: 10)
     }
     
@@ -105,7 +103,6 @@ class WebAPITests: XCTestCase {
                 // もし、通信エラーが起きていたらわかるようにしておく。
                 XCTFail("\(connectionError)")
                 
-                
             case let .hasResponse(response):
                 // レスポンスがちゃんときていた場合は、わかりやすいオブジェクトへと
                 // 変換してみる。
@@ -116,10 +113,8 @@ class WebAPITests: XCTestCase {
                 XCTAssertNotNil(errorOrArticleList.right)
                 print(errorOrArticleList.right!.items[0].title)
             }
-            
             expectation.fulfill()
         }
-        
         self.waitForExpectations(timeout: 10)
     }
     

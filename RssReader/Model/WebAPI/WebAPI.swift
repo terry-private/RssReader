@@ -208,12 +208,12 @@ enum WebAPI {
          
         let headers = HTTPHeaders(input.headers)
         
-        
         AF.request(input.url, method: method, headers: headers).response { response in
             let output = createOutput(data: response.data, urlResponse: response.response, error: response.error)
             block(output)
         }.resume()
     }
+    
     // ビルドを通すために callByAF 関数を用意しておく。
     static func callByAF(with input: Input) {
         self.call(with: input) { _ in
