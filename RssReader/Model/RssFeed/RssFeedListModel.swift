@@ -122,8 +122,8 @@ class RssFeedListModel: RssFeedListModelProtocol {
         self.rssFeedListModelDelegate = rssFeedListModelDelegate
         loadCounter = rssFeedList.count
         let rssFeeds = rssFeedList
-        for key in rssFeeds.keys {
-            rssFeeds[key]!.fetchArticle { (articles) in
+        for rssFeed in rssFeeds.values {
+            rssFeed.fetchArticle { (articles) in
                 if let articleList = articles {
                     self.articleList += articleList // extensionで辞書の足し算をできるようにしてます。
                 }
