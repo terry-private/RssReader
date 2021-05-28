@@ -12,7 +12,7 @@ class HotpepperAPITests: XCTestCase {
     
     func testFetchRestaurants() throws {
         let expectation = self.expectation(description: "API")
-        HotpepperAPI.fetchRestaurants(latitude: 35.3, longitude: 136.11) { errorOrRestaurants in
+        HotpepperAPI.fetchRestaurants(latitude: 34.7699858, longitude: 135.4131484) { errorOrRestaurants in
             // エラーかレスポンスがきたらコールバックが実行されて欲しい。
             // できれば、結果はすでに変換済みの RssArticleList オブジェクトを受け取りたい。
             

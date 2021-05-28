@@ -154,9 +154,12 @@ enum WebAPI {
     
     // Input から URLRequest を作成する関数。
     static private func createURLRequest(by input: Input) -> URLRequest {
-        // URL から URLRequest を作成する。
-        var request = URLRequest(url: input.url)
+        // クエリに対応させます。
+        var urlComponents = URLComponents(string: input.url.absoluteString)!
+        urlComponents.queryItems = input.queries
         
+        // URL から URLRequest を作成する。
+        var request = URLRequest(url: urlComponents.url!)
         // HTTP メソッドを設定する。
         request.httpMethod = input.methodAndPayload.method
         
