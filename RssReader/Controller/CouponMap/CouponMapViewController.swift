@@ -36,11 +36,39 @@ class CouponMapViewController: UIViewController, Transitioner {
         locationManager.delegate = self
         placesClient = GMSPlacesClient.shared()
     }
+    
+    /// 現在地に強制的に飛びます。
     func toHere() {
-        
         let camera = GMSCameraPosition.camera(withTarget: locationManager.location!.coordinate, zoom: 15.0)
         mapView.animate(to: camera)
-        
+    }
+    
+    func fetchRestaurants() {
+        let center = mapView.camera.target
+        HotpepperAPI.fetchRestaurants(latitude: center.latitude, longitude: center.longitude) { errorOrRestaurants in
+            switch errorOrRestaurants {
+            case let .left(error):
+                print(error)
+                
+            case let .right(restaurants):
+                self.displaySearchedSuccess(restaurants: restaurants)
+            }
+        }
+    }
+    func displaySearchedSuccess(restaurants: [Restaurant]) {
+        for restaurant in restaurants {
+            putMarker(restaurant: restaurant)
+        }
+    }
+    // MARK: Other
+    private func putMarker(restaurant: Restaurant) {
+        let marker = CustomGMSMarker()
+        marker.id = restaurant.id
+        marker.name = restaurant.name
+        marker.imageURL = restaurant.photoURL
+        marker.position = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
+        marker.appearAnimation = GMSMarkerAnimation.pop
+        marker.map = mapView
     }
 }
 
@@ -94,6 +122,11 @@ extension CouponMapViewController: GMSMapViewDelegate {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 265))
 
         return view
+    }
+    
+    /// mapが変化するたびに呼ばれる
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        fetchRestaurants()
     }
     
 }
