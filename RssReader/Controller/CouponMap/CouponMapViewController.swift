@@ -39,7 +39,8 @@ class CouponMapViewController: UIViewController, Transitioner {
     func toHere() {
         
         let camera = GMSCameraPosition.camera(withTarget: locationManager.location!.coordinate, zoom: 15.0)
-        self.mapView.animate(to: camera)
+        mapView.animate(to: camera)
+        
     }
 }
 
@@ -61,8 +62,6 @@ extension CouponMapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // マップの初期描画
-        
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -74,29 +73,13 @@ extension CouponMapViewController: CLLocationManagerDelegate {
             break
         case .denied, .restricted:
             // 位置情報の使用を許可していない
-            manager.requestTemporaryFullAccuracyAuthorization(withPurposeKey: "WantsToSearch") { error in
-                print("ok")
-            }
             presentErrorAlert(title: "確認", message: "RssReaderで位置情報を取得することができません。設定から位置情報を許可してください。")
-//            manager.requestTemporaryFullAccuracyAuthorization(withPurposeKey: "WantsToSearch")
             return
         default:
             // Unhandled case
             return
         }
         
-        switch manager.accuracyAuthorization {
-        case .fullAccuracy: break
-            // 正確な位置情報の使用を許可している
-        case .reducedAccuracy: break
-            // 正確な位置情報の使用を許可していない
-        default: break
-            // Unhandled case
-        }
-        if manager.authorizationStatus != CLAuthorizationStatus.authorizedWhenInUse {
-            // アプリの位置情報許可をOFFにしている場合
-            
-        }
     }
 }
 

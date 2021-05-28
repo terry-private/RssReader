@@ -49,6 +49,9 @@
 		0925C8BF265C8E6F006401C1 /* Extension_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8BE265C8E6F006401C1 /* Extension_UIViewController.swift */; };
 		0925C8C2265E4523006401C1 /* CouponMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8C1265E4523006401C1 /* CouponMapViewController.swift */; };
 		0925C8C5265E48A1006401C1 /* CouponMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0925C8C4265E48A1006401C1 /* CouponMap.storyboard */; };
+		0925C8C8265F9DA7006401C1 /* HotpepperAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8C7265F9DA6006401C1 /* HotpepperAPI.swift */; };
+		0925C8CA265FA152006401C1 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8C9265FA152006401C1 /* Restaurant.swift */; };
+		0925C8CC266082C6006401C1 /* HotpepperAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8CB266082C6006401C1 /* HotpepperAPITests.swift */; };
 		092B65BB26316655002799AD /* FilterMenuViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B65BA26316655002799AD /* FilterMenuViewPage.swift */; };
 		092B65C326316E46002799AD /* FilterMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B65C226316E46002799AD /* FilterMenuUITests.swift */; };
 		095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */; };
@@ -194,6 +197,9 @@
 		0925C8BE265C8E6F006401C1 /* Extension_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIViewController.swift; sourceTree = "<group>"; };
 		0925C8C1265E4523006401C1 /* CouponMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponMapViewController.swift; sourceTree = "<group>"; };
 		0925C8C4265E48A1006401C1 /* CouponMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CouponMap.storyboard; sourceTree = "<group>"; };
+		0925C8C7265F9DA6006401C1 /* HotpepperAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotpepperAPI.swift; sourceTree = "<group>"; };
+		0925C8C9265FA152006401C1 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		0925C8CB266082C6006401C1 /* HotpepperAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotpepperAPITests.swift; sourceTree = "<group>"; };
 		092B65BA26316655002799AD /* FilterMenuViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuViewPage.swift; sourceTree = "<group>"; };
 		092B65C226316E46002799AD /* FilterMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuUITests.swift; sourceTree = "<group>"; };
 		095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewController.swift; sourceTree = "<group>"; };
@@ -410,6 +416,15 @@
 			path = CouponMap;
 			sourceTree = "<group>";
 		};
+		0925C8C6265F9D7A006401C1 /* Hotpeppers */ = {
+			isa = PBXGroup;
+			children = (
+				0925C8C7265F9DA6006401C1 /* HotpepperAPI.swift */,
+				0925C8C9265FA152006401C1 /* Restaurant.swift */,
+			);
+			path = Hotpeppers;
+			sourceTree = "<group>";
+		};
 		092B65B926316628002799AD /* FilterMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,6 +517,7 @@
 				0975613E25B73155007B0D3F /* ArticleList.swift */,
 				0975614325B731CF007B0D3F /* RssClient.swift */,
 				0912521025E68D1300F9CFCA /* FilterModel.swift */,
+				0925C8C6265F9D7A006401C1 /* Hotpeppers */,
 				0925C8A326575B43006401C1 /* WebAPI */,
 				096A1AAA25D7CD6000EBC589 /* RssFeed */,
 			);
@@ -681,6 +697,7 @@
 				0925C85526538325006401C1 /* RssClientTests.swift */,
 				0925C8A426575EB4006401C1 /* WebAPITests.swift */,
 				0925C8AE265B77D3006401C1 /* RssArticleListTests.swift */,
+				0925C8CB266082C6006401C1 /* HotpepperAPITests.swift */,
 			);
 			path = RssReaderTests;
 			sourceTree = "<group>";
@@ -1035,6 +1052,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0925C8CA265FA152006401C1 /* Restaurant.swift in Sources */,
 				09ACE22F2597275800FDB597 /* Extension_Date.swift in Sources */,
 				0912521B25E7D7E000F9CFCA /* FilterMenuViewController.swift in Sources */,
 				095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */,
@@ -1042,6 +1060,7 @@
 				0925C8B9265BA9C6006401C1 /* ErrorDialogView.swift in Sources */,
 				096A1AA625D7CC8300EBC589 /* RssFeed.swift in Sources */,
 				0925C8A72657606E006401C1 /* WebAPI.swift in Sources */,
+				0925C8C8265F9DA7006401C1 /* HotpepperAPI.swift in Sources */,
 				09902EFA2611084300B2B9A0 /* MailLoginViewController.swift in Sources */,
 				0912525A25E7F68000F9CFCA /* ContainReadTableViewCell.swift in Sources */,
 				0975611725B2985A007B0D3F /* DummyRouter.swift in Sources */,
@@ -1098,6 +1117,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0925C8CC266082C6006401C1 /* HotpepperAPITests.swift in Sources */,
 				09902F77261AFCF800B2B9A0 /* LoginViewTests.swift in Sources */,
 				09B803342590CF9300CA2D19 /* RssReaderTests.swift in Sources */,
 				0925C85626538325006401C1 /* RssClientTests.swift in Sources */,
@@ -1536,6 +1556,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
