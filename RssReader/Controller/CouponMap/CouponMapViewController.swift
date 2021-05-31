@@ -17,6 +17,12 @@ class CouponMapViewController: UIViewController, Transitioner {
     var placesClient: GMSPlacesClient!
     var preciseLocationZoomLevel: Float = 15.0
     var approximateLocationZoomLevel: Float = 10.0
+    var infomationView: RestaurantInfomationView?
+    var currentMarkers = [CustomGMSMarker]()
+    
+    var shouldRemoveInfo = false
+    // fetchを呼ぶタイミングを遅らせるためのタイマー
+    weak var timer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,32 +49,65 @@ class CouponMapViewController: UIViewController, Transitioner {
         mapView.animate(to: camera)
     }
     
-    func fetchRestaurants() {
-        let center = mapView.camera.target
+    func lazyFetch() {
+        if timer != nil{
+            timer.invalidate()
+        }
+        
+        timer = Timer.scheduledTimer(
+            timeInterval: 0.6,
+            target: self,
+            selector: #selector(self.fetchRestaurants),
+            userInfo: nil,
+            repeats: false
+        )
+    }
+    
+    @objc private func fetchRestaurants() {
+        let center = self.mapView.camera.target
         HotpepperAPI.fetchRestaurants(latitude: center.latitude, longitude: center.longitude) { errorOrRestaurants in
             switch errorOrRestaurants {
             case let .left(error):
                 print(error)
-                
             case let .right(restaurants):
                 self.displaySearchedSuccess(restaurants: restaurants)
             }
         }
     }
+    
     func displaySearchedSuccess(restaurants: [Restaurant]) {
-        for restaurant in restaurants {
-            putMarker(restaurant: restaurant)
+        DispatchQueue.main.async {
+            var newMarkers = [CustomGMSMarker]()
+            var oldRestaurants = [Restaurant]()
+            for marker in self.currentMarkers {
+                if restaurants.contains(marker.restaurant) {
+                    newMarkers.append(marker)
+                    oldRestaurants.append(marker.restaurant)
+                } else {
+                    // 新しいレストランリストに無い旧リストのレストランを消去
+                    marker.map = nil
+                }
+            }
+            for restaurant in restaurants {
+                if oldRestaurants.contains(restaurant) { continue }
+                // 旧リストに無い新しいレストランのみ表示
+                self.putMarker(restaurant: restaurant)
+            }
+            self.currentMarkers = newMarkers
         }
     }
-    // MARK: Other
+    
+    // MARK: マーカー操作
     private func putMarker(restaurant: Restaurant) {
         let marker = CustomGMSMarker()
-        marker.id = restaurant.id
-        marker.name = restaurant.name
-        marker.imageURL = restaurant.photoURL
+        marker.restaurant = restaurant
         marker.position = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
         marker.appearAnimation = GMSMarkerAnimation.pop
-        marker.map = mapView
+        DispatchQueue.main.async { [weak self] in
+            marker.map = self!.mapView
+            self!.currentMarkers.append(marker)
+            self?.shouldRemoveInfo = true
+        }
     }
 }
 
@@ -123,20 +162,33 @@ extension CouponMapViewController: GMSMapViewDelegate {
 
         return view
     }
-    
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        guard let marker = marker as? CustomGMSMarker else {
+            return false
+        }
+        infomationView?.removeFromSuperview()
+        shouldRemoveInfo = false
+        infomationView = Bundle.main.loadNibNamed("RestaurantInfomationView", owner: self)?.first as? RestaurantInfomationView
+        infomationView?.restaurant = marker.restaurant
+        infomationView?.center.x = mapView.center.x
+        infomationView?.center.y += 30
+        mapView.addSubview(infomationView!)
+        return false
+    }
     /// mapが変化するたびに呼ばれる
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-        fetchRestaurants()
+        lazyFetch()
+        if shouldRemoveInfo { infomationView?.removeFromSuperview() }
+    }
+    //吹き出しを消した時呼ばれる
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        infomationView?.removeFromSuperview()
     }
     
 }
 class CustomGMSMarker: GMSMarker {
     
-    public var id: String!
-    public var name: String!
-    public var category: String!
-    public var imageURL: String!
-    public var restaurantURL: String!
+    public var restaurant: Restaurant!
     
     /// 初期化
     override init() {

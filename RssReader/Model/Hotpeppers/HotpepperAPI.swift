@@ -31,7 +31,8 @@ enum HotpepperAPI: HotpepperProtocol {
                 URLQueryItem(name: "format", value: "json"),
                 URLQueryItem(name: "lat", value: latitude.description),
                 URLQueryItem(name: "lng", value: longitude.description),
-                URLQueryItem(name: "range", value: "3")
+                URLQueryItem(name: "range", value: "3"),
+                URLQueryItem(name: "count", value: "20")
             ],
             headers: [:],
             methodAndPayload: .get

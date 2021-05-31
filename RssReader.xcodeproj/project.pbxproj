@@ -78,6 +78,8 @@
 		097DC1EE25EF7B6D00DAE7BD /* FetchTimeIntervalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097DC1ED25EF7B6D00DAE7BD /* FetchTimeIntervalTableViewCell.swift */; };
 		0983205125DFF0A700AA8662 /* SelectRssFeedType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0983205025DFF0A700AA8662 /* SelectRssFeedType.storyboard */; };
 		0983205625DFF92000AA8662 /* SelectRssFeedTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */; };
+		098C70752660D99D00CB63BE /* RestaurantInfomationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 098C70742660D99D00CB63BE /* RestaurantInfomationView.xib */; };
+		098C70782660DB9900CB63BE /* RestaurantInfomationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C70772660DB9900CB63BE /* RestaurantInfomationView.swift */; };
 		098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C0259375BC00EAD41F /* Transitioner.swift */; };
 		098FCC3C2626D3BD0060F40A /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCC3B2626D3BD0060F40A /* MainTabBar.swift */; };
 		098FCC422626E45B0060F40A /* SelectRssFeedViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCC412626E45B0060F40A /* SelectRssFeedViewPage.swift */; };
@@ -226,6 +228,8 @@
 		097DC1ED25EF7B6D00DAE7BD /* FetchTimeIntervalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTimeIntervalTableViewCell.swift; sourceTree = "<group>"; };
 		0983205025DFF0A700AA8662 /* SelectRssFeedType.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectRssFeedType.storyboard; sourceTree = "<group>"; };
 		0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedTypeViewController.swift; sourceTree = "<group>"; };
+		098C70742660D99D00CB63BE /* RestaurantInfomationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantInfomationView.xib; sourceTree = "<group>"; };
+		098C70772660DB9900CB63BE /* RestaurantInfomationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfomationView.swift; sourceTree = "<group>"; };
 		098D56C0259375BC00EAD41F /* Transitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitioner.swift; sourceTree = "<group>"; };
 		098FCC3B2626D3BD0060F40A /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		098FCC412626E45B0060F40A /* SelectRssFeedViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewPage.swift; sourceTree = "<group>"; };
@@ -412,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				0925C8C1265E4523006401C1 /* CouponMapViewController.swift */,
+				098C70772660DB9900CB63BE /* RestaurantInfomationView.swift */,
 			);
 			path = CouponMap;
 			sourceTree = "<group>";
@@ -471,6 +476,15 @@
 			path = Yahoo;
 			sourceTree = "<group>";
 		};
+		098C70762660D9E900CB63BE /* CouponMap */ = {
+			isa = PBXGroup;
+			children = (
+				0925C8C4265E48A1006401C1 /* CouponMap.storyboard */,
+				098C70742660D99D00CB63BE /* RestaurantInfomationView.xib */,
+			);
+			path = CouponMap;
+			sourceTree = "<group>";
+		};
 		098D56BC2593750E00EAD41F /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,7 +493,7 @@
 				0983205025DFF0A700AA8662 /* SelectRssFeedType.storyboard */,
 				099BB89925DD05DB003AF947 /* RssFeedTableViewCell.xib */,
 				09174EA925E403A600756E6D /* SelectYahooTag.storyboard */,
-				0925C8C4265E48A1006401C1 /* CouponMap.storyboard */,
+				098C70762660D9E900CB63BE /* CouponMap */,
 				0925C8BD265C8CE3006401C1 /* Alert */,
 				09902F012611B1F800B2B9A0 /* Login */,
 				0912528F25E8CA2C00F9CFCA /* Article */,
@@ -875,6 +889,7 @@
 				09B803292590CF9200CA2D19 /* LaunchScreen.storyboard in Resources */,
 				09ACE24A25977DED00FDB597 /* ArticleList.storyboard in Resources */,
 				0912528225E8C43200F9CFCA /* ArticleTableViewCell.xib in Resources */,
+				098C70752660D99D00CB63BE /* RestaurantInfomationView.xib in Resources */,
 				09902EF42611056A00B2B9A0 /* MailLogin.storyboard in Resources */,
 				0983205125DFF0A700AA8662 /* SelectRssFeedType.storyboard in Resources */,
 				097DC1E125EF752E00DAE7BD /* FetchTimeInterval.xib in Resources */,
@@ -1067,6 +1082,7 @@
 				099BB89F25DD0672003AF947 /* RssFeedTableViewCell.swift in Sources */,
 				097DC1EE25EF7B6D00DAE7BD /* FetchTimeIntervalTableViewCell.swift in Sources */,
 				0912528725E8C92800F9CFCA /* ArticleTableViewCell.swift in Sources */,
+				098C70782660DB9900CB63BE /* RestaurantInfomationView.swift in Sources */,
 				099BB8B325DD5B47003AF947 /* Extension_UINavigationController.swift in Sources */,
 				09ACE2212597245800FDB597 /* LoginModel.swift in Sources */,
 				09B8031D2590CF9100CA2D19 /* AppDelegate.swift in Sources */,
