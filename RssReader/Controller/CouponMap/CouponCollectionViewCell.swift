@@ -6,23 +6,27 @@
 //
 
 import UIKit
-import WebKit
+import Nuke
 
 class CouponCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var headerImage: UIImageView!
+    @IBOutlet weak var restaurantImage: UIImageView!
     @IBOutlet weak var filmButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
     weak var delegate: SelectShopDelegate?
+    var pageNumber = 0
     var selectedRestaurant: Bool = false {
         didSet{
-            filmButton.backgroundColor = selectedRestaurant ? .clear : .systemFill
+            filmButton.backgroundColor = selectedRestaurant ? .clear : .black
         }
     }
     var restaurant: Restaurant? {
         didSet{
-            if let url = URL(string: restaurant?.couponURL ?? "") {
-                let request = URLRequest(url: url)
-                webView.load(request)
+            Nuke.loadImage(with: URL(string: "https://www.hotpepper.jp/favicon.ico")!, into: headerImage)
+            if let url = URL(string: restaurant?.photoURL ?? "") {
+                Nuke.loadImage(with: url, into: restaurantImage)
             }
+            nameLabel.text = restaurant?.name
         }
     }
     override func awakeFromNib() {

@@ -82,6 +82,7 @@
 		098C70782660DB9900CB63BE /* RestaurantInfomationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C70772660DB9900CB63BE /* RestaurantInfomationView.swift */; };
 		098C707A2664B2A800CB63BE /* CouponCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 098C70792664B2A800CB63BE /* CouponCollectionViewCell.xib */; };
 		098C707E2664BB8800CB63BE /* CouponCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C707D2664BB8800CB63BE /* CouponCollectionViewCell.swift */; };
+		098C70802665C87A00CB63BE /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C707F2665C87A00CB63BE /* FlowLayout.swift */; };
 		098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C0259375BC00EAD41F /* Transitioner.swift */; };
 		098FCC3C2626D3BD0060F40A /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCC3B2626D3BD0060F40A /* MainTabBar.swift */; };
 		098FCC422626E45B0060F40A /* SelectRssFeedViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCC412626E45B0060F40A /* SelectRssFeedViewPage.swift */; };
@@ -234,6 +235,7 @@
 		098C70772660DB9900CB63BE /* RestaurantInfomationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfomationView.swift; sourceTree = "<group>"; };
 		098C70792664B2A800CB63BE /* CouponCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CouponCollectionViewCell.xib; sourceTree = "<group>"; };
 		098C707D2664BB8800CB63BE /* CouponCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponCollectionViewCell.swift; sourceTree = "<group>"; };
+		098C707F2665C87A00CB63BE /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
 		098D56C0259375BC00EAD41F /* Transitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitioner.swift; sourceTree = "<group>"; };
 		098FCC3B2626D3BD0060F40A /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		098FCC412626E45B0060F40A /* SelectRssFeedViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewPage.swift; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 				0925C8C1265E4523006401C1 /* CouponMapViewController.swift */,
 				098C707D2664BB8800CB63BE /* CouponCollectionViewCell.swift */,
 				098C70772660DB9900CB63BE /* RestaurantInfomationView.swift */,
+				098C707F2665C87A00CB63BE /* FlowLayout.swift */,
 			);
 			path = CouponMap;
 			sourceTree = "<group>";
@@ -1124,6 +1127,7 @@
 				095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */,
 				0983205625DFF92000AA8662 /* SelectRssFeedTypeViewController.swift in Sources */,
 				091251DC25E629E800F9CFCA /* ArticleDetailViewController.swift in Sources */,
+				098C70802665C87A00CB63BE /* FlowLayout.swift in Sources */,
 				099BB88F25DCDAA8003AF947 /* SettingViewController.swift in Sources */,
 				098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */,
 				0925C8A926578BCB006401C1 /* RssAPI.swift in Sources */,

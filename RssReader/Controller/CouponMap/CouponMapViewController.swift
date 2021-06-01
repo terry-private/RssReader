@@ -16,6 +16,16 @@ protocol SelectShopDelegate: AnyObject {
 /// マーカーにRestaurantを保持します。
 class CustomGMSMarker: GMSMarker {
     public var restaurant: Restaurant!
+    func selectedImage() {
+        let infomationView = Bundle.main.loadNibNamed("RestaurantInfomationView", owner: self)?.first as? RestaurantInfomationView
+        infomationView?.restaurant = restaurant
+        iconView = infomationView
+        icon = nil
+    }
+    func unSelectedImage() {
+        iconView = nil
+        icon = GMSMarker.markerImage(with: nil)
+    }
 }
 
 class CouponMapViewController: UIViewController, Transitioner {
@@ -30,8 +40,9 @@ class CouponMapViewController: UIViewController, Transitioner {
     var selectedMarker: CustomGMSMarker?
     var currentMarkers = [CustomGMSMarker]()
     var currentRestaurants = [Restaurant]()
+    var currentPage = 0
     var couponCellId = "couponCellId"
-    
+    lazy var flowLayout = FlowLayout()
     var shouldRemoveInfo = false
     // fetchを呼ぶタイミングを遅らせるためのタイマー
     weak var timer: Timer!
@@ -54,22 +65,35 @@ class CouponMapViewController: UIViewController, Transitioner {
         locationManager.delegate = self
         placesClient = GMSPlacesClient.shared()
         
+        navigationItem.title = LStrings.couponMap.value
         setCollectionView()
+    }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        shopCollectionView.visibleCells.forEach { cell in
+            transformScale(cell: cell)
+        }
+    }
+    private func transformScale(cell: UICollectionViewCell) {
+        let cellCenter: CGPoint = shopCollectionView.convert(cell.center, to: nil)
+        let screenCenterX: CGFloat = UIScreen.main.bounds.width / 2
+        let reductionRatio: CGFloat = -0.0005
+        let maxScale: CGFloat = 1
+        let cellCenterDisX: CGFloat = abs(screenCenterX - cellCenter.x)
+        let newScale = reductionRatio * cellCenterDisX + maxScale
+        cell.transform = CGAffineTransform(scaleX: newScale, y: newScale)
     }
     
     private func setCollectionView() {
         shopCollectionView.delegate = self
         shopCollectionView.dataSource = self
         shopCollectionView.register(UINib(nibName: "CouponCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: couponCellId)
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 20
-        let space : CGFloat = 20
-        let cellSize : CGFloat = shopCollectionView.bounds.height - space
-        layout.sectionInset = UIEdgeInsets(top: 10, left: (shopCollectionView.bounds.width-cellSize)/2, bottom: 10, right: shopCollectionView.bounds.width/4-30)
-        layout.itemSize = CGSize(width: cellSize, height: cellSize)
-        shopCollectionView.collectionViewLayout = layout
+        shopCollectionView.decelerationRate = .fast
+        flowLayout.scrollDirection = .horizontal
+        let space = shopCollectionView.bounds.width*0.15
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: space, bottom: 0, right: space)
+        shopCollectionView.collectionViewLayout = flowLayout
     }
     
     /// 現在地に強制的に飛びます。
@@ -93,8 +117,23 @@ class CouponMapViewController: UIViewController, Transitioner {
     }
     
     @objc private func fetchRestaurants() {
-        let center = self.mapView.camera.target
-        HotpepperAPI.fetchRestaurants(latitude: center.latitude, longitude: center.longitude) { errorOrRestaurants in
+        let camera = self.mapView.camera
+        let center = camera.target
+        var range = 5
+        switch camera.zoom {
+        case 15.7...21:
+            range = 1
+        case 14.7..<15.7:
+            range = 2
+        case 14.2..<14.7:
+            range = 3
+        case 13.8..<14.2:
+            range = 4
+        default:
+            break
+        }
+        
+        HotpepperAPI.fetchRestaurants(range: range,latitude: center.latitude, longitude: center.longitude) { errorOrRestaurants in
             switch errorOrRestaurants {
             case let .left(error):
                 print(error)
@@ -102,6 +141,21 @@ class CouponMapViewController: UIViewController, Transitioner {
                 self.displaySearchedSuccess(restaurants: restaurants)
             }
         }
+    }
+    
+    func setCurrentPage(animated: Bool = false) {
+        guard let selectedMarker = selectedMarker else {return}
+        var index = -1
+        for i in 0..<currentRestaurants.count {
+            if currentRestaurants[i] == selectedMarker.restaurant! {
+                index = i
+                break
+            }
+        }
+        if index == -1 { return }
+        let x = shopCollectionView.bounds.width*0.7*CGFloat(index)
+        shopCollectionView.setContentOffset(CGPoint(x: x, y: 0), animated: animated)
+        shopCollectionView.reloadData()
     }
     
     func displaySearchedSuccess(restaurants: [Restaurant]) {
@@ -118,26 +172,35 @@ class CouponMapViewController: UIViewController, Transitioner {
             for restaurant in restaurants {
                 if self.currentRestaurants.contains(restaurant) { continue }
                 // 旧リストに無い新しいレストランのみ表示
-                self.putMarker(restaurant: restaurant)
+                let marker = self.makeMarkerFrom(restaurant: restaurant)
+                marker.map = self.mapView
+                newMarkers.append(marker)
             }
             self.currentMarkers = newMarkers
-            self.currentRestaurants = restaurants
+            let newRestaurants = newMarkers.map { $0.restaurant! }
+            self.currentRestaurants = newRestaurants
+            
+            if let selectedMarker = self.selectedMarker {
+                if !newRestaurants.contains(selectedMarker.restaurant) {
+                    self.selectedMarker = nil
+                }
+            }
+            if self.selectedMarker == nil && newMarkers.count > 0 { self.selectedMarker = newMarkers[0]
+                newMarkers[0].selectedImage()
+            }
             self.shopCollectionView.reloadData()
+            self.setCurrentPage()
         }
     }
     
     // MARK: マーカー操作
-    private func putMarker(restaurant: Restaurant) {
+    private func makeMarkerFrom(restaurant: Restaurant) -> CustomGMSMarker{
         let marker = CustomGMSMarker()
         marker.restaurant = restaurant
         marker.position = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
         marker.appearAnimation = GMSMarkerAnimation.pop
-        marker.icon = GMSMarker.markerImage(with: nil)
-        DispatchQueue.main.async { [weak self] in
-            marker.map = self!.mapView
-            self!.currentMarkers.append(marker)
-            self?.shouldRemoveInfo = true
-        }
+        marker.unSelectedImage()
+        return marker
     }
 }
 
@@ -185,16 +248,10 @@ extension CouponMapViewController: CLLocationManagerDelegate {
     }
     
     func didTapAt(marker: CustomGMSMarker) {
-        infomationView?.removeFromSuperview()
-        shouldRemoveInfo = false
-        infomationView = Bundle.main.loadNibNamed("RestaurantInfomationView", owner: self)?.first as? RestaurantInfomationView
-        infomationView?.restaurant = marker.restaurant
-        infomationView?.center.x = mapView.center.x
-        infomationView?.center.y += 80
-        mapView.addSubview(infomationView!)
-        selectedMarker?.icon = GMSMarker.markerImage(with: nil)
-        marker.icon = GMSMarker.markerImage(with: .systemBlue)
+        selectedMarker?.unSelectedImage()
+        marker.selectedImage()
         selectedMarker = marker
+        setCurrentPage(animated: true)
     }
 }
 
@@ -209,14 +266,6 @@ extension CouponMapViewController: GMSMapViewDelegate {
     /// mapが変化するたびに呼ばれる
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         lazyFetch()
-        if shouldRemoveInfo { infomationView?.removeFromSuperview() }
-    }
-    // 任意タップで吹き出しを消す
-    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        infomationView?.removeFromSuperview()
-        selectedMarker?.icon = GMSMarker.markerImage(with: nil)
-        selectedMarker = nil
-        shopCollectionView.reloadData()
     }
 }
 
@@ -225,20 +274,40 @@ extension CouponMapViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return currentRestaurants.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: couponCellId, for: indexPath) as! CouponCollectionViewCell
         cell.restaurant = currentRestaurants[indexPath.row]
         cell.delegate = self
+        cell.pageNumber = indexPath.row
         if cell.restaurant == selectedMarker?.restaurant {
             cell.selectedRestaurant = true
         } else {
             cell.selectedRestaurant = false
         }
+        transformScale(cell: cell)
         return cell
     }
 
+}
 
+extension CouponMapViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(
+            width: collectionView.bounds.width * 0.7,
+            height: collectionView.bounds.height * 0.9
+        )
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        flowLayout.prepareForPaging()
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        shopCollectionView.visibleCells.forEach { cell in
+            transformScale(cell: cell)
+        }
+    }
 }
 
 
@@ -250,9 +319,28 @@ extension CouponMapViewController: SelectShopDelegate{
         }
         for m in currentMarkers {
             if m.restaurant == restaurant {
-                goCenter(marker: m)
+//                goCenter(marker: m)
                 didTapAt(marker: m)
-                shopCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .right, animated: true)
+//                shopCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .right, animated: true)
+            }
+        }
+    }
+}
+
+extension CouponMapViewController: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        // スクロール完了時に、表示中のページ番号を取得する
+        if let collectionView = scrollView as? UICollectionView {
+            for cell in collectionView.visibleCells {
+                let cellCenter: CGFloat = shopCollectionView.convert(cell.center, to: nil).x
+                let screenCenterX: CGFloat = UIScreen.main.bounds.width / 2
+                if screenCenterX-1 < cellCenter && cellCenter < screenCenterX+1 {
+                    
+                    let currentInfoCell = cell as! CouponCollectionViewCell
+                    currentPage = currentInfoCell.pageNumber
+                    didTapAt(marker: currentMarkers[currentPage])
+                    shopCollectionView.reloadData()
+                }
             }
         }
     }

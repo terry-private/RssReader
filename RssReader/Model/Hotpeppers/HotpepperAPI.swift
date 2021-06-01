@@ -9,7 +9,7 @@ import Foundation
 
 protocol HotpepperProtocol {
     associatedtype HotpepperError
-    static func fetchRestaurants(latitude: Double, longitude: Double, completion: @escaping (Either<Either<ConnectionError, HotpepperError>, [Restaurant]>) -> Void)
+    static func fetchRestaurants(range: Int, latitude: Double, longitude: Double, completion: @escaping (Either<Either<ConnectionError, HotpepperError>, [Restaurant]>) -> Void)
 }
 
 enum HotpepperAPI: HotpepperProtocol {
@@ -18,7 +18,7 @@ enum HotpepperAPI: HotpepperProtocol {
     private static var apiKey: String { "5362aa11cb87fd63" }
     private static var baseURL: String { "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/" }
     
-    static func fetchRestaurants(latitude: Double, longitude: Double, completion: @escaping (Either<Either<ConnectionError, HotpepperError>, [Restaurant]>) -> Void) {
+    static func fetchRestaurants(range: Int = 3, latitude: Double, longitude: Double, completion: @escaping (Either<Either<ConnectionError, HotpepperError>, [Restaurant]>) -> Void) {
         guard let url = URL(string: baseURL) else {
             completion(.left(.left(.malformedURL(debugInfo: "\(baseURL) is not url"))))
             return
@@ -31,7 +31,7 @@ enum HotpepperAPI: HotpepperProtocol {
                 URLQueryItem(name: "format", value: "json"),
                 URLQueryItem(name: "lat", value: latitude.description),
                 URLQueryItem(name: "lng", value: longitude.description),
-                URLQueryItem(name: "range", value: "3"),
+                URLQueryItem(name: "range", value: range.description),
                 URLQueryItem(name: "count", value: "20"),
                 URLQueryItem(name: "ktai_coupon", value: "0")
             ],

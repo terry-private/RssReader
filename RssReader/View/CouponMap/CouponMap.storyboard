@@ -22,7 +22,7 @@
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="riB-1z-Ekf">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="260"/>
-                                        <color key="backgroundColor" name="MainBG"/>
+                                        <color key="backgroundColor" name="SectionHeader"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="260" id="oWg-Gi-gmH"/>
                                         </constraints>
@@ -63,6 +63,9 @@
     <resources>
         <namedColor name="MainBG">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SectionHeader">
+            <color red="0.89999997615814209" green="0.89999997615814209" blue="0.89999997615814209" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
