@@ -305,7 +305,7 @@ extension CouponMapViewController: UICollectionViewDelegateFlowLayout {
 extension CouponMapViewController: SelectShopDelegate{
     func selectAt(restaurant: Restaurant) {
         if selectedMarker?.restaurant == restaurant {
-            print("go detail")
+            CommonRouter.toCouponDetailView(view: self, restaurant: restaurant)
             return
         }
         for m in currentMarkers {
