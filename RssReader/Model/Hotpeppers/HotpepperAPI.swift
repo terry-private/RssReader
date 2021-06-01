@@ -32,7 +32,8 @@ enum HotpepperAPI: HotpepperProtocol {
                 URLQueryItem(name: "lat", value: latitude.description),
                 URLQueryItem(name: "lng", value: longitude.description),
                 URLQueryItem(name: "range", value: "3"),
-                URLQueryItem(name: "count", value: "20")
+                URLQueryItem(name: "count", value: "20"),
+                URLQueryItem(name: "ktai_coupon", value: "0")
             ],
             headers: [:],
             methodAndPayload: .get

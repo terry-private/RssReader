@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="z8i-uh-dL8">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="riB-1z-Ekf">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="260"/>
                                         <color key="backgroundColor" name="MainBG"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="300" id="oWg-Gi-gmH"/>
+                                            <constraint firstAttribute="height" constant="260" id="oWg-Gi-gmH"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LEh-W4-5YB">
                                             <size key="itemSize" width="128" height="128"/>
@@ -35,7 +35,7 @@
                                         <cells/>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="acp-Cp-1cS" customClass="GMSMapView">
-                                        <rect key="frame" x="0.0" y="300" width="414" height="596"/>
+                                        <rect key="frame" x="0.0" y="260" width="414" height="592"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -47,7 +47,7 @@
                             <constraint firstItem="z8i-uh-dL8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8SV-KI-VWT"/>
                             <constraint firstAttribute="bottom" secondItem="z8i-uh-dL8" secondAttribute="bottom" id="A3j-2w-K2g"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="z8i-uh-dL8" secondAttribute="trailing" id="O2L-Jw-mN9"/>
-                            <constraint firstItem="z8i-uh-dL8" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="yOS-Ik-CX3"/>
+                            <constraint firstItem="z8i-uh-dL8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="yOS-Ik-CX3"/>
                         </constraints>
                     </view>
                     <connections>

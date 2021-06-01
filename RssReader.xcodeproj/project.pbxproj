@@ -80,6 +80,8 @@
 		0983205625DFF92000AA8662 /* SelectRssFeedTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */; };
 		098C70752660D99D00CB63BE /* RestaurantInfomationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 098C70742660D99D00CB63BE /* RestaurantInfomationView.xib */; };
 		098C70782660DB9900CB63BE /* RestaurantInfomationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C70772660DB9900CB63BE /* RestaurantInfomationView.swift */; };
+		098C707A2664B2A800CB63BE /* CouponCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 098C70792664B2A800CB63BE /* CouponCollectionViewCell.xib */; };
+		098C707E2664BB8800CB63BE /* CouponCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C707D2664BB8800CB63BE /* CouponCollectionViewCell.swift */; };
 		098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C0259375BC00EAD41F /* Transitioner.swift */; };
 		098FCC3C2626D3BD0060F40A /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCC3B2626D3BD0060F40A /* MainTabBar.swift */; };
 		098FCC422626E45B0060F40A /* SelectRssFeedViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCC412626E45B0060F40A /* SelectRssFeedViewPage.swift */; };
@@ -230,6 +232,8 @@
 		0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedTypeViewController.swift; sourceTree = "<group>"; };
 		098C70742660D99D00CB63BE /* RestaurantInfomationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantInfomationView.xib; sourceTree = "<group>"; };
 		098C70772660DB9900CB63BE /* RestaurantInfomationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfomationView.swift; sourceTree = "<group>"; };
+		098C70792664B2A800CB63BE /* CouponCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CouponCollectionViewCell.xib; sourceTree = "<group>"; };
+		098C707D2664BB8800CB63BE /* CouponCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponCollectionViewCell.swift; sourceTree = "<group>"; };
 		098D56C0259375BC00EAD41F /* Transitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitioner.swift; sourceTree = "<group>"; };
 		098FCC3B2626D3BD0060F40A /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		098FCC412626E45B0060F40A /* SelectRssFeedViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewPage.swift; sourceTree = "<group>"; };
@@ -416,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				0925C8C1265E4523006401C1 /* CouponMapViewController.swift */,
+				098C707D2664BB8800CB63BE /* CouponCollectionViewCell.swift */,
 				098C70772660DB9900CB63BE /* RestaurantInfomationView.swift */,
 			);
 			path = CouponMap;
@@ -481,6 +486,7 @@
 			children = (
 				0925C8C4265E48A1006401C1 /* CouponMap.storyboard */,
 				098C70742660D99D00CB63BE /* RestaurantInfomationView.xib */,
+				098C70792664B2A800CB63BE /* CouponCollectionViewCell.xib */,
 			);
 			path = CouponMap;
 			sourceTree = "<group>";
@@ -898,6 +904,7 @@
 				0912522825E7F1CC00F9CFCA /* ContainReadTableViewCell.xib in Resources */,
 				0925C852265255E6006401C1 /* Colors.xcassets in Resources */,
 				09688C5525F289A9007925B3 /* ArticleCollectionViewCell.xib in Resources */,
+				098C707A2664B2A800CB63BE /* CouponCollectionViewCell.xib in Resources */,
 				099BB89525DD035A003AF947 /* AccountProperty.xib in Resources */,
 				095F95F725985F88007DC2D5 /* SelectRssFeed.storyboard in Resources */,
 				0925C8B7265BA67D006401C1 /* ErrorDialogView.xib in Resources */,
@@ -1079,6 +1086,7 @@
 				09902EFA2611084300B2B9A0 /* MailLoginViewController.swift in Sources */,
 				0912525A25E7F68000F9CFCA /* ContainReadTableViewCell.swift in Sources */,
 				0975611725B2985A007B0D3F /* DummyRouter.swift in Sources */,
+				098C707E2664BB8800CB63BE /* CouponCollectionViewCell.swift in Sources */,
 				099BB89F25DD0672003AF947 /* RssFeedTableViewCell.swift in Sources */,
 				097DC1EE25EF7B6D00DAE7BD /* FetchTimeIntervalTableViewCell.swift in Sources */,
 				0912528725E8C92800F9CFCA /* ArticleTableViewCell.swift in Sources */,

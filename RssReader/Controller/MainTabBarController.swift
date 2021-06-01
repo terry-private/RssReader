@@ -51,7 +51,7 @@ class MainTabBarController: UITabBarController, Transitioner {
         let bar = UITabBarItem(title: LStrings.couponMap.value, image: UIImage(systemName: "mappin.and.ellipse"), tag: 0)
         bar.accessibilityIdentifier = "couponMap_bar"
         couponMapViewController.tabBarItem = bar
-        return UINavigationController(couponMapViewController)
+        return UINavigationController(couponMapViewController, prefersLargeTitles: false)
     }
     
     private var settingNav: UINavigationController {

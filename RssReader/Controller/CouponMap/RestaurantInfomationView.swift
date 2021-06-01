@@ -30,4 +30,7 @@ class RestaurantInfomationView: UIView {
         labelBackView.layer.cornerRadius = radius
         labelShadowView.layer.cornerRadius = radius
     }
+    @IBAction func tappedLabelBackView(_ sender: Any) {
+        print("tapped")
+    }
 }

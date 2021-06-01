@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view userInteractionEnabled="NO" contentMode="scaleToFill" id="iN0-l3-epB" customClass="RestaurantInfomationView" customModule="RssReader" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RestaurantInfomationView" customModule="RssReader" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="270" height="54"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -17,7 +17,7 @@
                     <rect key="frame" x="4" y="4" width="266" height="50"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXh-Rb-CdI">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXh-Rb-CdI" customClass="UIControl">
                     <rect key="frame" x="0.0" y="0.0" width="266" height="50"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="5ec-Y5-blL">
@@ -47,6 +47,9 @@
                         <constraint firstAttribute="height" constant="50" id="i7e-N5-Kgp"/>
                         <constraint firstAttribute="trailing" secondItem="5ec-Y5-blL" secondAttribute="trailing" constant="2" id="vcl-s3-AhT"/>
                     </constraints>
+                    <connections>
+                        <action selector="tappedLabelBackView:" destination="iN0-l3-epB" eventType="touchUpInside" id="M4R-qv-Pxf"/>
+                    </connections>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
