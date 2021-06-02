@@ -16,6 +16,11 @@
           <string>cstr6suwn9.skadnetwork</string>
         </dict>
       </array>
+      <key>AdUnitIDs</key>
+  <dict>
+      <key>banner</key>
+      <string>$(BANNER_ID)</string>
+  </dict>
     <!-- end -->
     <key>NSAppTransportSecurity</key>
     <dict>
