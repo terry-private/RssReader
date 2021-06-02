@@ -6,6 +6,17 @@
 	<string>写真にアクセスしてもよろしいでしょうか？</string>
     <key>NSCameraUsageDescription</key>
     <string>QRコードを読み込むのに使用します。</string>
+    <!-- AdMob用の記述 start -->
+    <key>GADApplicationIdentifier</key>
+    <string>$(GADApplicationIdentifier)</string>
+    <key>SKAdNetworkItems</key>
+      <array>
+        <dict>
+          <key>SKAdNetworkIdentifier</key>
+          <string>cstr6suwn9.skadnetwork</string>
+        </dict>
+      </array>
+    <!-- end -->
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSAllowsArbitraryLoads</key>
