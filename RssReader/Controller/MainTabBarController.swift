@@ -46,6 +46,14 @@ class MainTabBarController: UITabBarController, Transitioner {
         return UINavigationController(starListViewController)
     }
     
+    private var couponMapNav: UINavigationController {
+        let couponMapViewController = UIStoryboard(name: "CouponMap", bundle: nil).instantiateViewController(identifier: "CouponMapViewController") as! CouponMapViewController
+        let bar = UITabBarItem(title: LStrings.couponMap.value, image: UIImage(systemName: "mappin.and.ellipse"), tag: 0)
+        bar.accessibilityIdentifier = "couponMap_bar"
+        couponMapViewController.tabBarItem = bar
+        return UINavigationController(couponMapViewController, prefersLargeTitles: false)
+    }
+    
     private var settingNav: UINavigationController {
         get {
             let settingViewController = UIStoryboard(name: "Setting", bundle: nil).instantiateViewController(identifier: "SettingViewController") as! SettingViewController
@@ -65,6 +73,6 @@ class MainTabBarController: UITabBarController, Transitioner {
     }
 
     func setupTab() {
-        viewControllers = [articleListNav, laterReadNav, starListNav, settingNav]
+        viewControllers = [articleListNav, laterReadNav, starListNav, couponMapNav, settingNav]
     }
 }

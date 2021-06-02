@@ -10,6 +10,8 @@ target 'RssReader' do
   pod 'LineSDKSwift'
   pod 'KeychainAccess'
   pod 'Alamofire'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
   # Pods for RssReader
 
   target 'RssReaderTests' do

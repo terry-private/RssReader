@@ -4,6 +4,11 @@
 <dict>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>写真にアクセスしてもよろしいでしょうか？</string>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -29,6 +34,13 @@
 			</array>
 		</dict>
 	</array>
+    <key>NSLocationTemporaryUsageDescriptionDictionary</key>
+    <dict>
+       <key>WantsToSearch</key>
+       <string>近隣のクーポンを利用可能な店舗を探すために正確な位置情報が必要です。</string>
+    </dict>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>近隣のクーポンを利用可能な店舗を探すために位置情報が必要です。</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
