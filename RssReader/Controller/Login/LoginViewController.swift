@@ -32,7 +32,7 @@ class LoginViewController: UIViewController, Transitioner {
         #endif
         
         setIndicator()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor(named: "MainBG")
         
     }
     
@@ -124,6 +124,8 @@ class LoginViewController: UIViewController, Transitioner {
         self.present(alert, animated: true, completion: nil)
     }
     private func validError(error: String) {
+        presentErrorAlert(title: LStrings.errorAlertTitle.value, message: error)
+        return
         let errorAlert = UIAlertController(title: LStrings.errorAlertTitle.value,
                                               message: error,
                                               preferredStyle: .alert)

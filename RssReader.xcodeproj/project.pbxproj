@@ -43,6 +43,10 @@
 		0925C8A926578BCB006401C1 /* RssAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8A826578BCB006401C1 /* RssAPI.swift */; };
 		0925C8AB26579353006401C1 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8AA26579353006401C1 /* Either.swift */; };
 		0925C8AF265B77D3006401C1 /* RssArticleListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8AE265B77D3006401C1 /* RssArticleListTests.swift */; };
+		0925C8B7265BA67D006401C1 /* ErrorDialogView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0925C8B6265BA67D006401C1 /* ErrorDialogView.xib */; };
+		0925C8B9265BA9C6006401C1 /* ErrorDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8B8265BA9C6006401C1 /* ErrorDialogView.swift */; };
+		0925C8BB265BB651006401C1 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8BA265BB651006401C1 /* AlertController.swift */; };
+		0925C8BF265C8E6F006401C1 /* Extension_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8BE265C8E6F006401C1 /* Extension_UIViewController.swift */; };
 		092B65BB26316655002799AD /* FilterMenuViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B65BA26316655002799AD /* FilterMenuViewPage.swift */; };
 		092B65C326316E46002799AD /* FilterMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B65C226316E46002799AD /* FilterMenuUITests.swift */; };
 		095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */; };
@@ -182,6 +186,10 @@
 		0925C8A826578BCB006401C1 /* RssAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssAPI.swift; sourceTree = "<group>"; };
 		0925C8AA26579353006401C1 /* Either.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 		0925C8AE265B77D3006401C1 /* RssArticleListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssArticleListTests.swift; sourceTree = "<group>"; };
+		0925C8B6265BA67D006401C1 /* ErrorDialogView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorDialogView.xib; sourceTree = "<group>"; };
+		0925C8B8265BA9C6006401C1 /* ErrorDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDialogView.swift; sourceTree = "<group>"; };
+		0925C8BA265BB651006401C1 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		0925C8BE265C8E6F006401C1 /* Extension_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIViewController.swift; sourceTree = "<group>"; };
 		092B65BA26316655002799AD /* FilterMenuViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuViewPage.swift; sourceTree = "<group>"; };
 		092B65C226316E46002799AD /* FilterMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuUITests.swift; sourceTree = "<group>"; };
 		095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewController.swift; sourceTree = "<group>"; };
@@ -373,6 +381,23 @@
 			path = WebAPI;
 			sourceTree = "<group>";
 		};
+		0925C8BC265C8CCB006401C1 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				0925C8BA265BB651006401C1 /* AlertController.swift */,
+				0925C8B8265BA9C6006401C1 /* ErrorDialogView.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		0925C8BD265C8CE3006401C1 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				0925C8B6265BA67D006401C1 /* ErrorDialogView.xib */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		092B65B926316628002799AD /* FilterMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,6 +452,7 @@
 				0983205025DFF0A700AA8662 /* SelectRssFeedType.storyboard */,
 				099BB89925DD05DB003AF947 /* RssFeedTableViewCell.xib */,
 				09174EA925E403A600756E6D /* SelectYahooTag.storyboard */,
+				0925C8BD265C8CE3006401C1 /* Alert */,
 				09902F012611B1F800B2B9A0 /* Login */,
 				0912528F25E8CA2C00F9CFCA /* Article */,
 				0912521525E6925400F9CFCA /* FilterMenu */,
@@ -445,6 +471,7 @@
 				09902EF82611081A00B2B9A0 /* Login */,
 				09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */,
 				099BB89E25DD0672003AF947 /* RssFeedTableViewCell.swift */,
+				0925C8BC265C8CCB006401C1 /* Alert */,
 				0912528B25E8C9DE00F9CFCA /* Article */,
 				0912521925E7D7CA00F9CFCA /* FilterMenu */,
 				099BB8A325DD096C003AF947 /* Setting */,
@@ -579,6 +606,7 @@
 			isa = PBXGroup;
 			children = (
 				09ACE22E2597275800FDB597 /* Extension_Date.swift */,
+				0925C8BE265C8E6F006401C1 /* Extension_UIViewController.swift */,
 				096A1B2325DA554600EBC589 /* Extension_Dictionary.swift */,
 				099BB8B225DD5B47003AF947 /* Extension_UINavigationController.swift */,
 				09EDB06C2608DCC900E2F78A /* Extension_String.swift */,
@@ -823,6 +851,7 @@
 				09688C5525F289A9007925B3 /* ArticleCollectionViewCell.xib in Resources */,
 				099BB89525DD035A003AF947 /* AccountProperty.xib in Resources */,
 				095F95F725985F88007DC2D5 /* SelectRssFeed.storyboard in Resources */,
+				0925C8B7265BA67D006401C1 /* ErrorDialogView.xib in Resources */,
 				09688C5F25F36C07007925B3 /* DisplayMode.xib in Resources */,
 				0912520C25E687BD00F9CFCA /* FilterMenu.storyboard in Resources */,
 				09B803262590CF9200CA2D19 /* Assets.xcassets in Resources */,
@@ -959,6 +988,7 @@
 				0912521B25E7D7E000F9CFCA /* FilterMenuViewController.swift in Sources */,
 				095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */,
 				0912527D25E87E8700F9CFCA /* RssFeedDisplayTableViewCell.swift in Sources */,
+				0925C8B9265BA9C6006401C1 /* ErrorDialogView.swift in Sources */,
 				096A1AA625D7CC8300EBC589 /* RssFeed.swift in Sources */,
 				0925C8A72657606E006401C1 /* WebAPI.swift in Sources */,
 				09902EFA2611084300B2B9A0 /* MailLoginViewController.swift in Sources */,
@@ -974,6 +1004,7 @@
 				0975614425B731CF007B0D3F /* RssClient.swift in Sources */,
 				09688C7925F3788D007925B3 /* PreviewViewController.swift in Sources */,
 				09174EAF25E405D700756E6D /* SelectYahooTagViewController.swift in Sources */,
+				0925C8BF265C8E6F006401C1 /* Extension_UIViewController.swift in Sources */,
 				099BB8A825DD1171003AF947 /* AccountPropertyTableViewCell.swift in Sources */,
 				096A1AB625D7CE3E00EBC589 /* YahooTag.swift in Sources */,
 				0975611625B2985A007B0D3F /* DummyModel.swift in Sources */,
@@ -1003,6 +1034,7 @@
 				0925C8A926578BCB006401C1 /* RssAPI.swift in Sources */,
 				0925C85426536D7E006401C1 /* Extension_UITableViewCell.swift in Sources */,
 				096A1AAD25D7CD9A00EBC589 /* QiitaType.swift in Sources */,
+				0925C8BB265BB651006401C1 /* AlertController.swift in Sources */,
 				0925C8AB26579353006401C1 /* Either.swift in Sources */,
 				097AFF9F25C07736007AC6FA /* ArticleListRouter.swift in Sources */,
 				09ACE21C25964E4500FDB597 /* UserConfig.swift in Sources */,
