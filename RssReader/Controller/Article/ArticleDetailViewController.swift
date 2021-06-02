@@ -48,7 +48,7 @@ class ArticleDetailViewController: UIViewController, Transitioner {
         webView.goForward()
     }
     @IBAction func toSafari(_ sender: Any) {
-        guard let url = URL(string: article?.item.link ?? "") else { return }
+        guard let url = webView.url else { return }
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler:  nil)
         }

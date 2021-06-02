@@ -83,6 +83,17 @@ class CommonRouter {
         view.present(nav, animated: true, completion: nil)
     }
     
+    class func toCouponDetailView(view: Transitioner, restaurant: Restaurant) {
+        let storyboard = UIStoryboard(name: "CouponDetail", bundle: nil)
+        let couponDetailView = storyboard.instantiateViewController(identifier: "CouponDetailViewController") as! CouponDetailViewController
+        couponDetailView.navigationItem.title = restaurant.name
+        couponDetailView.restaurant = restaurant
+        let nav = UINavigationController(rootViewController: couponDetailView)
+        nav.navigationBar.barTintColor = .init(named: "MainBG")
+        nav.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(named: "MainLabel")!]
+        view.present(nav, animated: true, completion: nil)
+    }
+    
     class func toFilterMenuView<T>(view: T) where T: Transitioner, T: KeysSortable {
         let storyboard = UIStoryboard(name: "FilterMenu", bundle: nil)
         let filterMenuViewController = storyboard.instantiateViewController(withIdentifier: "FilterMenuViewController") as! FilterMenuViewController

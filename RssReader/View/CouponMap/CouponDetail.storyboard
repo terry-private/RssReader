@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Coupon Detail View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="CouponDetailViewController" id="Y6W-OH-hqX" customClass="CouponDetailViewController" customModule="RssReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ndj-i4-SmM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kmB-fv-iJ8">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4pf-bJ-5ms">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="754"/>
+                                        <color key="backgroundColor" name="MainBG"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9nI-Bo-8Vg">
+                                        <rect key="frame" x="0.0" y="754" width="414" height="64"/>
+                                        <items>
+                                            <barButtonItem image="chevron.left" catalog="system" id="97p-6v-Izj">
+                                                <connections>
+                                                    <action selector="goBack:" destination="Y6W-OH-hqX" id="xpf-5I-1vi"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="UFx-fe-Vpn"/>
+                                            <barButtonItem image="chevron.right" catalog="system" id="RG5-rl-rvg">
+                                                <connections>
+                                                    <action selector="goForward:" destination="Y6W-OH-hqX" id="EKc-ea-GXa"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="mKk-Q0-b7V"/>
+                                            <barButtonItem image="safari" catalog="system" id="EFQ-Yt-93X">
+                                                <connections>
+                                                    <action selector="toSafari:" destination="Y6W-OH-hqX" id="OB5-DH-ctf"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                        <color key="barTintColor" name="MainBG"/>
+                                    </toolbar>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oej-tY-qzM"/>
+                        <color key="backgroundColor" name="MainBG"/>
+                        <constraints>
+                            <constraint firstItem="kmB-fv-iJ8" firstAttribute="top" secondItem="oej-tY-qzM" secondAttribute="top" id="1ni-5k-ylk"/>
+                            <constraint firstItem="kmB-fv-iJ8" firstAttribute="leading" secondItem="oej-tY-qzM" secondAttribute="leading" id="6Hk-SE-euH"/>
+                            <constraint firstItem="oej-tY-qzM" firstAttribute="trailing" secondItem="kmB-fv-iJ8" secondAttribute="trailing" id="cJH-0e-56n"/>
+                            <constraint firstItem="oej-tY-qzM" firstAttribute="bottom" secondItem="kmB-fv-iJ8" secondAttribute="bottom" id="tAz-F7-ihV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="4pf-bJ-5ms" id="n71-LO-RXe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="26" y="80"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="safari" catalog="system" width="128" height="121"/>
+        <namedColor name="MainBG">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

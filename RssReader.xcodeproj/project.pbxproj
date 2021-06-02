@@ -83,6 +83,8 @@
 		098C707A2664B2A800CB63BE /* CouponCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 098C70792664B2A800CB63BE /* CouponCollectionViewCell.xib */; };
 		098C707E2664BB8800CB63BE /* CouponCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C707D2664BB8800CB63BE /* CouponCollectionViewCell.swift */; };
 		098C70802665C87A00CB63BE /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C707F2665C87A00CB63BE /* FlowLayout.swift */; };
+		098C708226662C4000CB63BE /* CouponDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 098C708126662C4000CB63BE /* CouponDetail.storyboard */; };
+		098C708426662D2E00CB63BE /* CouponDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C708326662D2E00CB63BE /* CouponDetailViewController.swift */; };
 		098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C0259375BC00EAD41F /* Transitioner.swift */; };
 		098FCC3C2626D3BD0060F40A /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCC3B2626D3BD0060F40A /* MainTabBar.swift */; };
 		098FCC422626E45B0060F40A /* SelectRssFeedViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCC412626E45B0060F40A /* SelectRssFeedViewPage.swift */; };
@@ -236,6 +238,8 @@
 		098C70792664B2A800CB63BE /* CouponCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CouponCollectionViewCell.xib; sourceTree = "<group>"; };
 		098C707D2664BB8800CB63BE /* CouponCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponCollectionViewCell.swift; sourceTree = "<group>"; };
 		098C707F2665C87A00CB63BE /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
+		098C708126662C4000CB63BE /* CouponDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CouponDetail.storyboard; sourceTree = "<group>"; };
+		098C708326662D2E00CB63BE /* CouponDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponDetailViewController.swift; sourceTree = "<group>"; };
 		098D56C0259375BC00EAD41F /* Transitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitioner.swift; sourceTree = "<group>"; };
 		098FCC3B2626D3BD0060F40A /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		098FCC412626E45B0060F40A /* SelectRssFeedViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewPage.swift; sourceTree = "<group>"; };
@@ -425,6 +429,7 @@
 				098C707D2664BB8800CB63BE /* CouponCollectionViewCell.swift */,
 				098C70772660DB9900CB63BE /* RestaurantInfomationView.swift */,
 				098C707F2665C87A00CB63BE /* FlowLayout.swift */,
+				098C708326662D2E00CB63BE /* CouponDetailViewController.swift */,
 			);
 			path = CouponMap;
 			sourceTree = "<group>";
@@ -490,6 +495,7 @@
 				0925C8C4265E48A1006401C1 /* CouponMap.storyboard */,
 				098C70742660D99D00CB63BE /* RestaurantInfomationView.xib */,
 				098C70792664B2A800CB63BE /* CouponCollectionViewCell.xib */,
+				098C708126662C4000CB63BE /* CouponDetail.storyboard */,
 			);
 			path = CouponMap;
 			sourceTree = "<group>";
@@ -906,6 +912,7 @@
 				09174EAA25E403A600756E6D /* SelectYahooTag.storyboard in Resources */,
 				0912522825E7F1CC00F9CFCA /* ContainReadTableViewCell.xib in Resources */,
 				0925C852265255E6006401C1 /* Colors.xcassets in Resources */,
+				098C708226662C4000CB63BE /* CouponDetail.storyboard in Resources */,
 				09688C5525F289A9007925B3 /* ArticleCollectionViewCell.xib in Resources */,
 				098C707A2664B2A800CB63BE /* CouponCollectionViewCell.xib in Resources */,
 				099BB89525DD035A003AF947 /* AccountProperty.xib in Resources */,
@@ -1113,6 +1120,7 @@
 				0912525F25E7F77400F9CFCA /* SortTypeTableViewCell.swift in Sources */,
 				096A1B2425DA554600EBC589 /* Extension_Dictionary.swift in Sources */,
 				09ACE24225977DC100FDB597 /* ArticleListViewController.swift in Sources */,
+				098C708426662D2E00CB63BE /* CouponDetailViewController.swift in Sources */,
 				0975615725B85F50007B0D3F /* MainTabBarController.swift in Sources */,
 				0912527325E80F3500F9CFCA /* PubDateAfterTableViewCell.swift in Sources */,
 				09688C7425F36EB4007925B3 /* DisplayModeTableViewCell.swift in Sources */,
