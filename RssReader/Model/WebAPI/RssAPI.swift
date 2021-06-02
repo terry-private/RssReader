@@ -77,6 +77,7 @@ struct RssArticleList: Codable {
             }
         }
     }
+    
     /// Rss API の変換で起きうるエラーの一覧。
     enum TransformError {
         /// HTTP ステータスコードが OK 以外だった場合のエラー。

@@ -17,7 +17,6 @@ enum Either<Left, Right> {
     /// Either<A, B> の B の方の型。
     case right(Right)
 
-
     /// もし、左側の型ならその値を、右側の型なら nil を返す。
     var left: Left? {
         switch self {

@@ -27,11 +27,8 @@ class RssArticleListTests: XCTestCase {
                 XCTAssertNotNil(article)
                 print(article.feed.title)
             }
-            
             expectation.fulfill()
         }
-        
         self.waitForExpectations(timeout: 10)
     }
-
 }
