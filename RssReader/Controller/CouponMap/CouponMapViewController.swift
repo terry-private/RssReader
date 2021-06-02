@@ -101,6 +101,14 @@ class CouponMapViewController: UIViewController, Transitioner {
     @objc private func fetchRestaurants() {
         let camera = self.mapView.camera
         let center = camera.target
+        
+        /* rangeで検索範囲を指定できます。
+         1: 300m
+         2: 500m
+         3: 1000m (初期値)
+         4: 2000m
+         5: 3000m
+         */
         var range = 5
         switch camera.zoom {
         case 15.7...21:
