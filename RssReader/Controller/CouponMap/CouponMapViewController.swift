@@ -63,7 +63,14 @@ class CouponMapViewController: UIViewController, Transitioner {
         locationManager.delegate = self
         
         navigationItem.title = LStrings.couponMap.value
+        
+        let cameraButton = UIBarButtonItem(image: UIImage(systemName: "camera"), style: .plain, target: self, action: #selector(toCameraView))
+        navigationItem.rightBarButtonItem = cameraButton
         setCollectionView()
+    }
+    
+    @objc private func toCameraView() {
+        
     }
     
     private func setCollectionView() {

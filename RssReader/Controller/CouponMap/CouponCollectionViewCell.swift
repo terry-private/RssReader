@@ -20,9 +20,14 @@ class CouponCollectionViewCell: UICollectionViewCell {
             filmButton.backgroundColor = selectedRestaurant ? .clear : .black
         }
     }
+    
+    // ヘッダーのデザイン候補
+    // https://www.hotpepper.jp/favicon.ico
+    // https://imgfp.hotp.jp/SYS/smartphone/images/logo_renewal.png
+    // https://imgfp.hotp.jp/SYS/SP/images/logo/logo_hpg_coupon_detail.png
     var restaurant: Restaurant? {
         didSet{
-            Nuke.loadImage(with: URL(string: "https://www.hotpepper.jp/favicon.ico")!, into: headerImage)
+            Nuke.loadImage(with: URL(string: "https://imgfp.hotp.jp/SYS/SP/images/logo/logo_hpg_coupon_detail.png")!, into: headerImage)
             if let url = URL(string: restaurant?.photoURL ?? "") {
                 Nuke.loadImage(with: url, into: restaurantImage)
             }
