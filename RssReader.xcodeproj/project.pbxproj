@@ -85,6 +85,9 @@
 		098C70802665C87A00CB63BE /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C707F2665C87A00CB63BE /* FlowLayout.swift */; };
 		098C708226662C4000CB63BE /* CouponDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 098C708126662C4000CB63BE /* CouponDetail.storyboard */; };
 		098C708426662D2E00CB63BE /* CouponDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C708326662D2E00CB63BE /* CouponDetailViewController.swift */; };
+		098C7087266712B200CB63BE /* QRCamaraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C7086266712B200CB63BE /* QRCamaraViewController.swift */; };
+		098C7089266712F600CB63BE /* QRCodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C7088266712F600CB63BE /* QRCodeReader.swift */; };
+		098C708B266732C900CB63BE /* QRCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 098C708A266732C900CB63BE /* QRCamera.storyboard */; };
 		098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D56C0259375BC00EAD41F /* Transitioner.swift */; };
 		098FCC3C2626D3BD0060F40A /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCC3B2626D3BD0060F40A /* MainTabBar.swift */; };
 		098FCC422626E45B0060F40A /* SelectRssFeedViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FCC412626E45B0060F40A /* SelectRssFeedViewPage.swift */; };
@@ -240,6 +243,9 @@
 		098C707F2665C87A00CB63BE /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
 		098C708126662C4000CB63BE /* CouponDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CouponDetail.storyboard; sourceTree = "<group>"; };
 		098C708326662D2E00CB63BE /* CouponDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponDetailViewController.swift; sourceTree = "<group>"; };
+		098C7086266712B200CB63BE /* QRCamaraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCamaraViewController.swift; sourceTree = "<group>"; };
+		098C7088266712F600CB63BE /* QRCodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeReader.swift; sourceTree = "<group>"; };
+		098C708A266732C900CB63BE /* QRCamera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QRCamera.storyboard; sourceTree = "<group>"; };
 		098D56C0259375BC00EAD41F /* Transitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitioner.swift; sourceTree = "<group>"; };
 		098FCC3B2626D3BD0060F40A /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		098FCC412626E45B0060F40A /* SelectRssFeedViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewPage.swift; sourceTree = "<group>"; };
@@ -500,6 +506,15 @@
 			path = CouponMap;
 			sourceTree = "<group>";
 		};
+		098C70852667127200CB63BE /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				098C7086266712B200CB63BE /* QRCamaraViewController.swift */,
+				098C7088266712F600CB63BE /* QRCodeReader.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		098D56BC2593750E00EAD41F /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,6 +523,7 @@
 				0983205025DFF0A700AA8662 /* SelectRssFeedType.storyboard */,
 				099BB89925DD05DB003AF947 /* RssFeedTableViewCell.xib */,
 				09174EA925E403A600756E6D /* SelectYahooTag.storyboard */,
+				098C708A266732C900CB63BE /* QRCamera.storyboard */,
 				098C70762660D9E900CB63BE /* CouponMap */,
 				0925C8BD265C8CE3006401C1 /* Alert */,
 				09902F012611B1F800B2B9A0 /* Login */,
@@ -525,6 +541,7 @@
 				0975615625B85F50007B0D3F /* MainTabBarController.swift */,
 				095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */,
 				0983205525DFF92000AA8662 /* SelectRssFeedTypeViewController.swift */,
+				098C70852667127200CB63BE /* Camera */,
 				0925C8C3265E4779006401C1 /* CouponMap */,
 				09902EF82611081A00B2B9A0 /* Login */,
 				09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */,
@@ -906,6 +923,7 @@
 				0912528225E8C43200F9CFCA /* ArticleTableViewCell.xib in Resources */,
 				098C70752660D99D00CB63BE /* RestaurantInfomationView.xib in Resources */,
 				09902EF42611056A00B2B9A0 /* MailLogin.storyboard in Resources */,
+				098C708B266732C900CB63BE /* QRCamera.storyboard in Resources */,
 				0983205125DFF0A700AA8662 /* SelectRssFeedType.storyboard in Resources */,
 				097DC1E125EF752E00DAE7BD /* FetchTimeInterval.xib in Resources */,
 				0912525525E7F43100F9CFCA /* SortTypeTableViewCell.xib in Resources */,
@@ -1088,6 +1106,7 @@
 				09ACE22F2597275800FDB597 /* Extension_Date.swift in Sources */,
 				0912521B25E7D7E000F9CFCA /* FilterMenuViewController.swift in Sources */,
 				095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */,
+				098C7087266712B200CB63BE /* QRCamaraViewController.swift in Sources */,
 				0912527D25E87E8700F9CFCA /* RssFeedDisplayTableViewCell.swift in Sources */,
 				0925C8B9265BA9C6006401C1 /* ErrorDialogView.swift in Sources */,
 				096A1AA625D7CC8300EBC589 /* RssFeed.swift in Sources */,
@@ -1113,6 +1132,7 @@
 				099BB8A825DD1171003AF947 /* AccountPropertyTableViewCell.swift in Sources */,
 				096A1AB625D7CE3E00EBC589 /* YahooTag.swift in Sources */,
 				0975611625B2985A007B0D3F /* DummyModel.swift in Sources */,
+				098C7089266712F600CB63BE /* QRCodeReader.swift in Sources */,
 				09902F082611B48200B2B9A0 /* AccountPropertyViewController.swift in Sources */,
 				09174ED925E53ADC00756E6D /* CommonData.swift in Sources */,
 				091252A325E9195F00F9CFCA /* LaterReadListViewController.swift in Sources */,

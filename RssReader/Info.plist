@@ -4,6 +4,8 @@
 <dict>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>写真にアクセスしてもよろしいでしょうか？</string>
+    <key>NSCameraUsageDescription</key>
+    <string>QRコードを読み込むのに使用します。</string>
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSAllowsArbitraryLoads</key>

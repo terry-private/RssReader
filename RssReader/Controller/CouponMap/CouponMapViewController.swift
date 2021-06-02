@@ -70,7 +70,8 @@ class CouponMapViewController: UIViewController, Transitioner {
     }
     
     @objc private func toCameraView() {
-        
+        print("toCamera")
+        CommonRouter.toQRCameraView(view: self)
     }
     
     private func setCollectionView() {

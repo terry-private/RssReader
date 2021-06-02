@@ -52,6 +52,9 @@
 "yahooNews" = "Yahoo!ニュース";
 "selectYahooNewsTag" = "Yahoo!Newsタグの選択";
 
+// Coupon
+"QRCodeReader" = "QRコードリーダー";
+
 // Setting
 "refreshInterval" = "RSS取得間隔";
 "displayMode" = "表示モード";
