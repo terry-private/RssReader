@@ -12,6 +12,7 @@ target 'RssReader' do
   pod 'Alamofire'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'Google-Mobile-Ads-SDK'
   # Pods for RssReader
 
   target 'RssReaderTests' do

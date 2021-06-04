@@ -7,6 +7,7 @@
 
 import UIKit
 import Nuke
+import GoogleMobileAds
 
 protocol ArticleListViewControllerProtocol: Transitioner{
     
@@ -36,6 +37,8 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
     
     var timer = Timer()
     
+    var bannerView: GADBannerView!
+    
     //MARK:- ライフサイクル関連
     
     override func viewDidLoad() {
@@ -43,13 +46,31 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         setUpTable()
         setUpCollection()
         
+        // バナー広告
+        let adUnitIDs = Bundle.main.object(forInfoDictionaryKey: "AdUnitIDs") as? [String: String]
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = adUnitIDs!["banner"]
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        
         // テストのための設定
         view.accessibilityIdentifier = "articleList_view"
         articleTableView.accessibilityIdentifier = "articleList_table"
         articleCollectionView.accessibilityIdentifier = "articleList_collectionView"
-        
     }
     
+    // バナーの表示
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        bannerView.insetsLayoutMarginsFromSafeArea = true
+        view.addSubview(bannerView)
+        
+        NSLayoutConstraint.activate([
+            bannerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -tabBarController!.tabBar.bounds.height),
+            bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // FilterModel.displayModeでテーブルとコレクションのどちらを表示するかの切り替え

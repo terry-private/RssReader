@@ -10,6 +10,7 @@ import RealmSwift
 import LineSDK
 import GoogleMaps
 import GooglePlaces
+import GoogleMobileAds
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LoginManager.shared.setup(channelID: "1655768312", universalLinkURL: nil)
         GMSServices.provideAPIKey("AIzaSyBPekACKXneaSB8Z_JqjZYfnAhdr_DFhuM")
         GMSPlacesClient.provideAPIKey("AIzaSyBPekACKXneaSB8Z_JqjZYfnAhdr_DFhuM")
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         
         #if DebugSecure
             print("DebugSecure")
