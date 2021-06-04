@@ -58,6 +58,9 @@ enum LStrings: String {
     case yahooNews
     case selectYahooNewsTag
     
+    // Coupon
+    case QRCodeReader
+    
     // Setting
     case refreshInterval
     case displayMode

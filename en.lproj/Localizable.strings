@@ -51,6 +51,9 @@
 "yahooNews" = "Yahoo!News";
 "selectYahooNewsTag" = "Select Yahoo!News Tag";
 
+// Coupon
+"QRCodeReader" = "QR Code Reader";
+
 // Setting
 "refreshInterval" = "Refresh interval";
 "displayMode" = "Display mode";

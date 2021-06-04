@@ -8,11 +8,11 @@
 import Foundation
 import SideMenu
 
-class CommonRouter {
+enum CommonRouter {
     /// 認証画面へ
     /// - Parameter view: FUIAuthDelegateが必要
     /// SplashView = Transitioner + FUIAuthDelegate
-    class func toAuth<T>(view: T) where T: Transitioner {
+    static func toAuth<T>(view: T) where T: Transitioner {
         let loginViewController = LoginViewController()
         loginViewController.navigationItem.title = LStrings.login.value
         let nav = UINavigationController(loginViewController)
@@ -20,7 +20,15 @@ class CommonRouter {
         view.present(nav, animated: true, completion: nil)
     }
     
-    class func toNewAccountPropertyView(view: Transitioner, defaultData: [String: String]) {
+    static func toQRCameraView(view: Transitioner) {
+        let storyboard = UIStoryboard(name: "QRCamera", bundle: nil)
+        let qRCameraViewController = storyboard.instantiateViewController(identifier: "QRCameraViewController") as! QRCameraViewController
+        qRCameraViewController.navigationItem.title = LStrings.QRCodeReader.value
+        let nav = UINavigationController(qRCameraViewController, prefersLargeTitles: false)
+        view.present(nav, animated: true, completion: nil)
+    }
+    
+    static func toNewAccountPropertyView(view: Transitioner, defaultData: [String: String]) {
         let storyboard = UIStoryboard(name: "AccountProperty", bundle: nil)
         let accountPropertyVC = storyboard.instantiateViewController(identifier: "AccountPropertyViewController") as! AccountPropertyViewController
         accountPropertyVC.navigationItem.title = LStrings.createANewAccount.value
@@ -28,7 +36,7 @@ class CommonRouter {
         view.pushViewController(accountPropertyVC, animated: true)
     }
     
-    class func toEditAccountPropertyView(view: Transitioner) {
+    static func toEditAccountPropertyView(view: Transitioner) {
         let storyboard = UIStoryboard(name: "AccountProperty", bundle: nil)
         let accountPropertyVC = storyboard.instantiateViewController(identifier: "AccountPropertyViewController") as! AccountPropertyViewController
         accountPropertyVC.useCase = .EditAccount
@@ -38,14 +46,14 @@ class CommonRouter {
         view.present(nav,animated: true, completion: nil)
     }
     
-    class func toMailLoginView<T>(view: T) where T: Transitioner {
+    static func toMailLoginView<T>(view: T) where T: Transitioner {
         let storyboard = UIStoryboard(name: "MailLogin", bundle: nil)
         let mailLoginVC = storyboard.instantiateViewController(identifier: "MailLoginViewController") as! MailLoginViewController
         mailLoginVC.navigationItem.title = LStrings.mailLogin.value
         view.pushViewController(mailLoginVC, animated: true)
     }
     
-    class func toSelectRssFeedView(view: Transitioner) {
+    static func toSelectRssFeedView(view: Transitioner) {
         let storyboard = UIStoryboard(name: "SelectRssFeed", bundle: nil)
         let selectRssFeedViewController = storyboard.instantiateViewController(identifier: "SelectRssFeedViewController") as! SelectRssFeedViewController
         selectRssFeedViewController.navigationItem.title = LStrings.selectRssFeed.value
@@ -54,7 +62,7 @@ class CommonRouter {
         view.present(nav, animated: true, completion: nil)
     }
     
-    class func toSelectRssFeedTypeView<T>(view: T) where T: Transitioner, T: SelectRssFeedDelegate {
+    static func toSelectRssFeedTypeView<T>(view: T) where T: Transitioner, T: SelectRssFeedDelegate {
         let storyboard = UIStoryboard(name: "SelectRssFeedType", bundle: nil)
         let selectRssFeedTypeViewController = storyboard.instantiateViewController(identifier: "SelectRssFeedTypeViewController") as! SelectRssFeedTypeViewController
         selectRssFeedTypeViewController.navigationItem.title = LStrings.selectRssFeedType.value
@@ -63,7 +71,7 @@ class CommonRouter {
         view.present(nav, animated: true, completion: nil)
     }
     
-    class func toSelectYahooTagView<T>(view: T) where T: Transitioner, T: SelectRssFeedDelegate {
+    static func toSelectYahooTagView<T>(view: T) where T: Transitioner, T: SelectRssFeedDelegate {
         let storyboard = UIStoryboard(name: "SelectYahooTag", bundle: nil)
         let selectYahooTagViewController = storyboard.instantiateViewController(identifier: "SelectYahooTagViewController") as! SelectYahooTagViewController
         selectYahooTagViewController.navigationItem.title = LStrings.selectYahooNewsTag.value
@@ -71,7 +79,7 @@ class CommonRouter {
         view.pushViewController(selectYahooTagViewController, animated: true)
     }
     
-    class func toArticleDetailView(view: Transitioner, article: Article) {
+    static func toArticleDetailView(view: Transitioner, article: Article) {
         let storyboard = UIStoryboard(name: "ArticleDetail", bundle: nil)
         let articleDetailViewController = storyboard.instantiateViewController(identifier: "ArticleDetailViewController") as! ArticleDetailViewController
         articleDetailViewController.navigationItem.title = article.item.title
@@ -83,7 +91,7 @@ class CommonRouter {
         view.present(nav, animated: true, completion: nil)
     }
     
-    class func toCouponDetailView(view: Transitioner, restaurant: Restaurant) {
+    static func toCouponDetailView(view: Transitioner, restaurant: Restaurant) {
         let storyboard = UIStoryboard(name: "CouponDetail", bundle: nil)
         let couponDetailView = storyboard.instantiateViewController(identifier: "CouponDetailViewController") as! CouponDetailViewController
         couponDetailView.navigationItem.title = restaurant.name
@@ -94,7 +102,7 @@ class CommonRouter {
         view.present(nav, animated: true, completion: nil)
     }
     
-    class func toFilterMenuView<T>(view: T) where T: Transitioner, T: KeysSortable {
+    static func toFilterMenuView<T>(view: T) where T: Transitioner, T: KeysSortable {
         let storyboard = UIStoryboard(name: "FilterMenu", bundle: nil)
         let filterMenuViewController = storyboard.instantiateViewController(withIdentifier: "FilterMenuViewController") as! FilterMenuViewController
         filterMenuViewController.articleKeySortable = view
