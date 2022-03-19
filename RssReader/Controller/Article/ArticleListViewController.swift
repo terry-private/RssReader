@@ -48,7 +48,7 @@ class ArticleListViewController: UIViewController, ArticleListViewControllerProt
         
         // バナー広告
         let adUnitIDs = Bundle.main.object(forInfoDictionaryKey: "AdUnitIDs") as? [String: String]
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView = GADBannerView(adSize: GADAdSizeBanner)
         addBannerViewToView(bannerView)
         bannerView.adUnitID = adUnitIDs!["banner"]
         bannerView.rootViewController = self
