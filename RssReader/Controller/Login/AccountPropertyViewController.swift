@@ -216,7 +216,7 @@ class AccountPropertyViewController: UIViewController, Transitioner {
         CommonData.loginModel.userConfig.userID = mailTextField.text
         CommonData.loginModel.userConfig.password = passwordTextField.text
         CommonData.loginModel.userConfig.displayName = usernameTextField.text
-        CommonData.loginModel.userConfig.latestLoginDate = Date()
+        CommonData.loginModel.userConfig.latestLoginDate = Date.current()
         dismiss(animated: true, completion: nil)
     }
     @IBAction func tappedLogoutButton(_ sender: Any) {

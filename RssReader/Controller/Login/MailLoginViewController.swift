@@ -102,7 +102,7 @@ class MailLoginViewController: UIViewController, Transitioner {
         
         // 既存のアカウントの場合だけログイン成功
         if isMailType && isSameMail && isSamePassword {
-            CommonData.loginModel.userConfig.latestLoginDate = Date()
+            CommonData.loginModel.userConfig.latestLoginDate = Date.current()
             navigationController?.dismiss(animated: true, completion: nil)
             return
         }

@@ -114,7 +114,7 @@ class LoginViewController: UIViewController, Transitioner {
                 }
                 CommonData.loginModel.userConfig.userID = text
                 CommonData.loginModel.userConfig.displayName = text
-                CommonData.loginModel.userConfig.latestLoginDate = Date()
+                CommonData.loginModel.userConfig.latestLoginDate = Date.current()
                 self.dismiss(animated: true)
                 
             }
@@ -176,7 +176,7 @@ extension LoginViewController: LoginButtonDelegate {
             CommonData.loginModel.userConfig.userID = profile.userID
             CommonData.loginModel.userConfig.displayName = profile.displayName
             CommonData.loginModel.userConfig.photoURL = profile.pictureURL
-            CommonData.loginModel.userConfig.latestLoginDate = Date()
+            CommonData.loginModel.userConfig.latestLoginDate = Date.current()
         }
         dismiss(animated: true, completion: nil)
     }

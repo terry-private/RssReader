@@ -43,8 +43,8 @@ private let longDateFormatter = DateFormatter.longDateFormatter()
 private let pubDateFormatter = DateFormatter.pubDateFormatter()
 
 extension Date {
-    init() {
-        self = Date(timeIntervalSinceNow: TimeInterval(TimeZone.japan.secondsFromGMT()))
+    static func current() -> Date {
+        return Date(timeIntervalSinceNow: TimeInterval(TimeZone.japan.secondsFromGMT()))
     }
     init(string: String) {
         self = pubDateFormatter.date(from: string)!

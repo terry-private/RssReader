@@ -41,7 +41,7 @@ class DummyLoginModel: LoginProtocol {
         userConfig.userID = userID
         userConfig.photoURL = photoURL
         userConfig.displayName = displayName
-        userConfig.latestLoginDate = Date()
+        userConfig.latestLoginDate = Date.current()
     }
 }
 

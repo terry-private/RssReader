@@ -84,7 +84,7 @@ extension FilterModelProtocol {
             if article.laterRead { continue }
             if let pubDateString = article.item.pubDate {
                 let pubDate = Date(string: pubDateString)
-                if pubDate < Date().addingTimeInterval(TimeInterval(-60 * 60 * 24 * pubDateAfter)) {
+                if pubDate < Date.current().addingTimeInterval(TimeInterval(-60 * 60 * 24 * pubDateAfter)) {
                     continue
                 }
             }

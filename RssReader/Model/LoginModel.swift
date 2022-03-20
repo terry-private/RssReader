@@ -103,8 +103,8 @@ final class LoginModel: LoginProtocol {
             }
         case "mail":
             if let latestLoginDate = userConfig.latestLoginDate {
-                if latestLoginDate > Date().addingTimeInterval(-60 * 60 * 24 * 7) {
-                    userConfig.latestLoginDate = Date()
+                if latestLoginDate > Date.current().addingTimeInterval(-60 * 60 * 24 * 7) {
+                    userConfig.latestLoginDate = Date.current()
                     autoLoginDelegate.didAutoLogin(isSuccess: true)
                     return
                 }
@@ -120,7 +120,7 @@ final class LoginModel: LoginProtocol {
         userConfig.userID = userID
         userConfig.photoURL = photoURL
         userConfig.displayName = displayName
-        userConfig.latestLoginDate = Date()
+        userConfig.latestLoginDate = Date.current()
     }
 }
 
