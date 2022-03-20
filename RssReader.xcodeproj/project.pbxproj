@@ -33,6 +33,7 @@
 		09174ED925E53ADC00756E6D /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174ED825E53ADC00756E6D /* CommonData.swift */; };
 		09174EE425E573E100756E6D /* AddNewRssFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09174EE325E573E100756E6D /* AddNewRssFeedTableViewCell.xib */; };
 		091C89DD2606E0F2003AE7B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C89DC2606E0F2003AE7B6 /* LoginViewController.swift */; };
+		092313C327E5B72500699718 /* LoginModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092313C227E5B72500699718 /* LoginModelTests.swift */; };
 		0925C84B264E3A7F006401C1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0925C84D264E3A7F006401C1 /* Localizable.strings */; };
 		0925C850264E4466006401C1 /* LStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C84F264E4466006401C1 /* LStrings.swift */; };
 		0925C852265255E6006401C1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0925C851265255E6006401C1 /* Colors.xcassets */; };
@@ -54,6 +55,7 @@
 		0925C8CC266082C6006401C1 /* HotpepperAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8CB266082C6006401C1 /* HotpepperAPITests.swift */; };
 		092B65BB26316655002799AD /* FilterMenuViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B65BA26316655002799AD /* FilterMenuViewPage.swift */; };
 		092B65C326316E46002799AD /* FilterMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B65C226316E46002799AD /* FilterMenuUITests.swift */; };
+		09508C4A27E6CF8C0001F754 /* LoginDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09508C4927E6CF8C0001F754 /* LoginDelegateMock.swift */; };
 		095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */; };
 		095F95F725985F88007DC2D5 /* SelectRssFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */; };
 		095FDBEC25A754E2007C8922 /* CommonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FDBEB25A754E2007C8922 /* CommonRouter.swift */; };
@@ -189,6 +191,7 @@
 		09174ED825E53ADC00756E6D /* CommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
 		09174EE325E573E100756E6D /* AddNewRssFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewRssFeedTableViewCell.xib; sourceTree = "<group>"; };
 		091C89DC2606E0F2003AE7B6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		092313C227E5B72500699718 /* LoginModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModelTests.swift; sourceTree = "<group>"; };
 		0925C848264E38AC006401C1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0925C84C264E3A7F006401C1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0925C84E264E3ABD006401C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -212,6 +215,7 @@
 		0925C8CB266082C6006401C1 /* HotpepperAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotpepperAPITests.swift; sourceTree = "<group>"; };
 		092B65BA26316655002799AD /* FilterMenuViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuViewPage.swift; sourceTree = "<group>"; };
 		092B65C226316E46002799AD /* FilterMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuUITests.swift; sourceTree = "<group>"; };
+		09508C4927E6CF8C0001F754 /* LoginDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDelegateMock.swift; sourceTree = "<group>"; };
 		095F95F125985F52007DC2D5 /* SelectRssFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRssFeedViewController.swift; sourceTree = "<group>"; };
 		095F95F625985F88007DC2D5 /* SelectRssFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectRssFeed.storyboard; sourceTree = "<group>"; };
 		095FDBEB25A754E2007C8922 /* CommonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRouter.swift; sourceTree = "<group>"; };
@@ -465,6 +469,15 @@
 				0975611525B2985A007B0D3F /* DummyRouter.swift */,
 			);
 			path = Dummy;
+			sourceTree = "<group>";
+		};
+		09508C4827E6CF5C0001F754 /* LoginTest */ = {
+			isa = PBXGroup;
+			children = (
+				092313C227E5B72500699718 /* LoginModelTests.swift */,
+				09508C4927E6CF8C0001F754 /* LoginDelegateMock.swift */,
+			);
+			path = LoginTest;
 			sourceTree = "<group>";
 		};
 		096A1AAA25D7CD6000EBC589 /* RssFeed */ = {
@@ -744,6 +757,7 @@
 				0925C8A426575EB4006401C1 /* WebAPITests.swift */,
 				0925C8AE265B77D3006401C1 /* RssArticleListTests.swift */,
 				0925C8CB266082C6006401C1 /* HotpepperAPITests.swift */,
+				09508C4827E6CF5C0001F754 /* LoginTest */,
 			);
 			path = RssReaderTests;
 			sourceTree = "<group>";
@@ -1173,7 +1187,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09508C4A27E6CF8C0001F754 /* LoginDelegateMock.swift in Sources */,
 				0925C8CC266082C6006401C1 /* HotpepperAPITests.swift in Sources */,
+				092313C327E5B72500699718 /* LoginModelTests.swift in Sources */,
 				09902F77261AFCF800B2B9A0 /* LoginViewTests.swift in Sources */,
 				09B803342590CF9300CA2D19 /* RssReaderTests.swift in Sources */,
 				0925C85626538325006401C1 /* RssClientTests.swift in Sources */,

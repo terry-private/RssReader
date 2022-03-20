@@ -8,18 +8,18 @@
 import Foundation
 import UIKit
 
-protocol Transitioner where Self: UIViewController {
+protocol Transitioner {
     func pushViewController(_ viewController: UIViewController, animated: Bool)
     func popViewController(animated: Bool)
     func popToRootViewController(animated: Bool)
     func popToViewController(_ viewController: UIViewController, animated: Bool)
-    func present(viewController: UIViewController,
+    func present(_ viewController: UIViewController,
                  animated: Bool,
                  completion: (() -> ())?)
     func dismiss(animated: Bool)
 }
 
-extension Transitioner {
+extension Transitioner  where Self: UIViewController {
     func pushViewController(_ viewController: UIViewController,
                             animated: Bool) {
         guard let nc = navigationController else { return }
@@ -37,7 +37,7 @@ extension Transitioner {
     func popToViewController(_ viewController: UIViewController, animated: Bool) {
     }
 
-    func present(viewController: UIViewController, animated: Bool, completion: (() -> ())? = nil) {
+    func present(_ viewController: UIViewController, animated: Bool, completion: (() -> ())? = nil) {
         print("Transitioner>present")
         present(viewController, animated: animated, completion: completion)
     }
