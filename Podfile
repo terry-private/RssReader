@@ -23,5 +23,9 @@ target 'RssReader' do
   target 'RssReaderUITests' do
     # Pods for testing
   end
+  
+  target 'RssWidgetExtension' do
+    inherit! :search_paths
+  end
 
 end

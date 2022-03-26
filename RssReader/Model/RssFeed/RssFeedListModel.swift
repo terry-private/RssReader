@@ -27,7 +27,7 @@ class RssFeedListModel: RssFeedListModelProtocol {
     var typeList: [RssFeedTypeProtocol] = [QiitaType(), YahooType()]
     var rssFeedList: [String: RssFeedProtocol] {
         get {
-            let realm = try! Realm()
+            let realm = RealmManager.realm
             var rssFeeds = [String: RssFeedProtocol]()
             let realmRssFeeds = realm.objects(RssFeed.self)
             for rssFeed in realmRssFeeds {
@@ -36,7 +36,7 @@ class RssFeedListModel: RssFeedListModelProtocol {
             return rssFeeds
         }
         set {
-            let realm = try! Realm()
+            let realm = RealmManager.realm
             let results = realm.objects(RssFeed.self)
             // newValueにない元々のRssFeedを消す動作をするのと同時に
             // 元々あるRssFeedは重複してaddしないように重複リストを作成します。
@@ -65,7 +65,7 @@ class RssFeedListModel: RssFeedListModelProtocol {
     }
     var articleList: [String: Article] {
         get {
-            let realm = try! Realm()
+            let realm = RealmManager.realm
             let realmArticles = realm.objects(RealmArticle.self)
             var articles = [String: Article]()
             for realmArticle in realmArticles {
@@ -78,7 +78,7 @@ class RssFeedListModel: RssFeedListModelProtocol {
             return articles
         }
         set {
-            let realm = try! Realm()
+            let realm = RealmManager.realm
             let realmArticles = realm.objects(RealmArticle.self)
             // newValueにない元々のRssFeedを消す動作をするのと同時に
             // 元々あるRssFeedは重複してaddしないように重複リストを作成します。
@@ -145,7 +145,7 @@ class RssFeedListModel: RssFeedListModelProtocol {
     }
     
     func changeStar(articleKey: String, isStar: Bool) {
-        let realm = try! Realm()
+        let realm = RealmManager.realm
         let article = realm.object(ofType: RealmArticle.self, forPrimaryKey: articleKey)
         try! realm.write {
             article?.isStar = isStar
@@ -153,7 +153,7 @@ class RssFeedListModel: RssFeedListModelProtocol {
     }
     
     func changeLaterRead(articleKey: String, laterRead: Bool) {
-        let realm = try! Realm()
+        let realm = RealmManager.realm
         let article = realm.object(ofType: RealmArticle.self, forPrimaryKey: articleKey)
         try! realm.write {
             article?.laterRead = laterRead
@@ -161,7 +161,7 @@ class RssFeedListModel: RssFeedListModelProtocol {
     }
     
     func changeRead(articleKey: String, read: Bool) {
-        let realm = try! Realm()
+        let realm = RealmManager.realm
         let article = realm.object(ofType: RealmArticle.self, forPrimaryKey: articleKey)
         try! realm.write {
             article?.read = read

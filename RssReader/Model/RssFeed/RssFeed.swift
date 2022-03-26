@@ -68,7 +68,7 @@ extension RssFeed: RssFeedProtocol {
             return _display
         }
         set {
-            let realm = try! Realm()
+            let realm = RealmManager.realm
             try! realm.write {
                 _display = newValue
             }
