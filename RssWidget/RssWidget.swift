@@ -57,7 +57,7 @@ struct RssWidgetEntryView : View {
     var entry: Provider.Entry
     var body: some View {
         VStack{
-            Text("オススメ記事2")
+            Text("オススメ記事")
                 .font(.headline)
                 .frame(width: .infinity, height: 20, alignment: Alignment(horizontal: .leading, vertical: .center))
                 .fixedSize(horizontal: true, vertical: true)
@@ -69,6 +69,7 @@ struct RssWidgetEntryView : View {
                 Text(entry.article?.item.title ?? "No Item" )
                     .font(.body)
             }
+            .padding()
         }
     }
 }
