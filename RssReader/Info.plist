@@ -8,7 +8,7 @@
     <string>QRコードを読み込むのに使用します。</string>
     <!-- AdMob用の記述 start -->
     <key>GADApplicationIdentifier</key>
-    <string>$(GADApplicationIdentifier)</string>
+    <string>ca-app-pub-3923452159083916~8760424053</string>
     <key>SKAdNetworkItems</key>
       <array>
         <dict>

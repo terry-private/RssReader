@@ -5,7 +5,7 @@
 //  Created by 若江照仁 on 2021/01/07.
 //
 
-import Foundation
+import UIKit
 import SideMenu
 
 enum CommonRouter {

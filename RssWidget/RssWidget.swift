@@ -7,7 +7,6 @@
 
 import WidgetKit
 import SwiftUI
-import Nuke
 
 struct Provider: TimelineProvider {
     var articles: [Article] = {

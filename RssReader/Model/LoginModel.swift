@@ -5,7 +5,7 @@
 //  Created by 若江照仁 on 2020/12/26.
 //
 
-import Foundation
+import UIKit
 import RealmSwift
 import LineSDK
 
