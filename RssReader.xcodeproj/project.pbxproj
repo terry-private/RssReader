@@ -164,6 +164,10 @@
 		09EF62812823C53600780452 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 09EF62802823C53600780452 /* GoogleMobileAds */; };
 		09EF62832823C86F00780452 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 09EF62822823C86F00780452 /* Realm */; };
 		09EF62852823C87300780452 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 09EF62842823C87300780452 /* RealmSwift */; };
+		09EF628828240A5700780452 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 09EF628728240A5700780452 /* RxCocoa */; };
+		09EF628A28240A5700780452 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 09EF628928240A5700780452 /* RxRelay */; };
+		09EF628C28240A5700780452 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 09EF628B28240A5700780452 /* RxSwift */; };
+		09EF628E28240A5700780452 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 09EF628D28240A5700780452 /* RxTest */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -382,15 +386,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09EF628E28240A5700780452 /* RxTest in Frameworks */,
 				09EF62702823BD6A00780452 /* RealmSwift in Frameworks */,
 				09EF627E2823C07900780452 /* GooglePlaces in Frameworks */,
+				09EF628828240A5700780452 /* RxCocoa in Frameworks */,
 				09EF62732823BD9700780452 /* LineSDK in Frameworks */,
 				09EF62812823C53600780452 /* GoogleMobileAds in Frameworks */,
 				09EF626D2823BCC100780452 /* SideMenu in Frameworks */,
+				09EF628C28240A5700780452 /* RxSwift in Frameworks */,
 				09EF62792823BE1000780452 /* Alamofire in Frameworks */,
 				09EF626A2823BC4A00780452 /* Nuke in Frameworks */,
 				09EF627C2823C07900780452 /* GoogleMaps in Frameworks */,
 				09EF62762823BDDC00780452 /* KeychainAccess in Frameworks */,
+				09EF628A28240A5700780452 /* RxRelay in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -959,6 +967,10 @@
 				09EF627B2823C07900780452 /* GoogleMaps */,
 				09EF627D2823C07900780452 /* GooglePlaces */,
 				09EF62802823C53600780452 /* GoogleMobileAds */,
+				09EF628728240A5700780452 /* RxCocoa */,
+				09EF628928240A5700780452 /* RxRelay */,
+				09EF628B28240A5700780452 /* RxSwift */,
+				09EF628D28240A5700780452 /* RxTest */,
 			);
 			productName = RssReader;
 			productReference = 09B803192590CF9100CA2D19 /* RssReader.app */;
@@ -1044,6 +1056,7 @@
 				09EF62772823BE1000780452 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				09EF627A2823C07900780452 /* XCRemoteSwiftPackageReference "GoogleMaps-SP" */,
 				09EF627F2823C53500780452 /* XCRemoteSwiftPackageReference "GoogleMobileAds" */,
+				09EF628628240A5600780452 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 09B8031A2590CF9100CA2D19 /* Products */;
 			projectDirPath = "";
@@ -2208,6 +2221,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		09EF628628240A5600780452 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2265,6 +2286,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 09EF626E2823BD6A00780452 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		09EF628728240A5700780452 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09EF628628240A5600780452 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		09EF628928240A5700780452 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09EF628628240A5600780452 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		09EF628B28240A5700780452 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09EF628628240A5600780452 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		09EF628D28240A5700780452 /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09EF628628240A5600780452 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
