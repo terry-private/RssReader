@@ -87,7 +87,6 @@ enum CommonRouter {
             return ArticleDetailViewController(coder, viewModel: viewModel)
         } 
         articleDetailViewController.navigationItem.title = article.item.title
-        articleDetailViewController.article = article
         let nav = UINavigationController(rootViewController: articleDetailViewController)
         nav.modalPresentationStyle = .fullScreen
         nav.navigationBar.barTintColor = .init(named: "MainBG")
