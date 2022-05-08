@@ -80,8 +80,12 @@ enum CommonRouter {
     }
     
     static func toArticleDetailView(view: Transitioner, article: Article) {
+        let model = ArticleDetailModel(article)
+        let viewModel = ArticleDetailViewModel(model: model)
         let storyboard = UIStoryboard(name: "ArticleDetail", bundle: nil)
-        let articleDetailViewController = storyboard.instantiateViewController(identifier: "ArticleDetailViewController") as! ArticleDetailViewController
+        let articleDetailViewController = storyboard.instantiateViewController(identifier: "ArticleDetailViewController") { coder in
+            return ArticleDetailViewController(coder, viewModel: viewModel)
+        } 
         articleDetailViewController.navigationItem.title = article.item.title
         articleDetailViewController.article = article
         let nav = UINavigationController(rootViewController: articleDetailViewController)

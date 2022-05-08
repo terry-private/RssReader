@@ -8,18 +8,52 @@
 import UIKit
 import WebKit
 import RealmSwift
+import RxSwift
+import RxCocoa
 
-class ArticleDetailViewController: UIViewController, Transitioner {
+final class ArticleDetailViewController: UIViewController, Transitioner {
+    typealias Input = ArticleDetailViewModelInput
+    typealias Output = ArticleDetailViewModelOutput
+    
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var laterTrayButton: UIBarButtonItem!
+    
     var article: Article?
+    
+    private let input: Input
+    private let output: Output
+    private let disposeBag = DisposeBag()
+
+    
+    init?(_ coder: NSCoder, viewModel: Input & Output) {
+        input = viewModel
+        output = viewModel
+        super.init(coder: coder)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK:- ライフサイクル系
     override func viewDidLoad() {
         super.viewDidLoad()
         let closeButton = UIBarButtonItem(title: LStrings.close.value, style: .plain, target: self, action: #selector(close))
         navigationItem.leftBarButtonItem = closeButton
+        
+        laterTrayButton.rx.tap
+            .bind(to: input.tappedStar)
+            .disposed(by: disposeBag)
+        
+        output.laterReadButtonImage
+            .drive(laterTrayButton.rx.image)
+            .disposed(by: disposeBag)
+        
+        output.laterReadButtonColor
+            .drive(laterTrayButton.rx.tintColor)
+            .disposed(by: disposeBag)
+        
         // テスト用の設定
         view.accessibilityIdentifier = "articleDetail_view"
         closeButton.accessibilityIdentifier = "articleDetail_close_button"

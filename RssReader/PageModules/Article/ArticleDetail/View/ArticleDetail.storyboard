@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXA-yR-qUi">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="754"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="556"/>
                                         <color key="backgroundColor" name="MainBG"/>
                                         <wkWebViewConfiguration key="configuration">
                                             <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -28,7 +29,7 @@
                                         </wkWebViewConfiguration>
                                     </wkWebView>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZlP-JL-3D9">
-                                        <rect key="frame" x="0.0" y="754" width="414" height="64"/>
+                                        <rect key="frame" x="0.0" y="556" width="414" height="262"/>
                                         <items>
                                             <barButtonItem image="chevron.left" catalog="system" id="mdh-Db-SXC">
                                                 <connections>
@@ -42,11 +43,7 @@
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="KM2-DQ-THS"/>
-                                            <barButtonItem image="tray" catalog="system" id="xxA-YT-uoF">
-                                                <connections>
-                                                    <action selector="tappedLaterReadButton:" destination="nHK-Zy-z6y" id="3Hw-SC-XL9"/>
-                                                </connections>
-                                            </barButtonItem>
+                                            <barButtonItem image="tray" catalog="system" id="xxA-YT-uoF"/>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="tzg-2s-shd"/>
                                             <barButtonItem image="safari" catalog="system" id="m5r-W8-Qfu">
                                                 <connections>
@@ -59,7 +56,7 @@
                                 </subviews>
                             </stackView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="sMt-Dm-lNR">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Sdz-8C-6Mu"/>
@@ -68,11 +65,11 @@
                             <constraint firstItem="Sdz-8C-6Mu" firstAttribute="trailing" secondItem="KK8-3b-RIO" secondAttribute="trailing" id="IjY-wE-Mg0"/>
                             <constraint firstItem="KK8-3b-RIO" firstAttribute="leading" secondItem="Sdz-8C-6Mu" secondAttribute="leading" id="P94-ue-J61"/>
                             <constraint firstItem="KK8-3b-RIO" firstAttribute="top" secondItem="Sdz-8C-6Mu" secondAttribute="top" id="US0-em-uz2"/>
-                            <constraint firstItem="Sdz-8C-6Mu" firstAttribute="bottom" secondItem="sMt-Dm-lNR" secondAttribute="bottom" id="UqK-n6-0JC"/>
-                            <constraint firstItem="sMt-Dm-lNR" firstAttribute="leading" secondItem="Sdz-8C-6Mu" secondAttribute="leading" id="d2j-C5-CtV"/>
-                            <constraint firstItem="sMt-Dm-lNR" firstAttribute="trailing" secondItem="Sdz-8C-6Mu" secondAttribute="trailing" id="dgy-Mx-F4W"/>
+                            <constraint firstAttribute="bottom" secondItem="sMt-Dm-lNR" secondAttribute="bottom" id="UqK-n6-0JC"/>
+                            <constraint firstItem="sMt-Dm-lNR" firstAttribute="leading" secondItem="f5W-7z-dqe" secondAttribute="leading" id="d2j-C5-CtV"/>
+                            <constraint firstItem="sMt-Dm-lNR" firstAttribute="trailing" secondItem="f5W-7z-dqe" secondAttribute="trailing" id="dgy-Mx-F4W"/>
                             <constraint firstItem="Sdz-8C-6Mu" firstAttribute="bottom" secondItem="KK8-3b-RIO" secondAttribute="bottom" id="fH9-W3-h8K"/>
-                            <constraint firstItem="sMt-Dm-lNR" firstAttribute="top" secondItem="Sdz-8C-6Mu" secondAttribute="top" id="tNE-N4-wxG"/>
+                            <constraint firstItem="sMt-Dm-lNR" firstAttribute="top" secondItem="f5W-7z-dqe" secondAttribute="top" id="tNE-N4-wxG"/>
                         </constraints>
                     </view>
                     <connections>

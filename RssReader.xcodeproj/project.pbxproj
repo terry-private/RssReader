@@ -167,7 +167,9 @@
 		09EF628828240A5700780452 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 09EF628728240A5700780452 /* RxCocoa */; };
 		09EF628A28240A5700780452 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 09EF628928240A5700780452 /* RxRelay */; };
 		09EF628C28240A5700780452 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 09EF628B28240A5700780452 /* RxSwift */; };
-		09EF628E28240A5700780452 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 09EF628D28240A5700780452 /* RxTest */; };
+		09EF629328240D4B00780452 /* ArticleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EF629228240D4B00780452 /* ArticleDetailViewModel.swift */; };
+		09EF629528240D6500780452 /* ArticleDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EF629428240D6500780452 /* ArticleDetailModel.swift */; };
+		09EF629A2824384500780452 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 09EF62992824384500780452 /* RxTest */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -368,6 +370,8 @@
 		09B8033E2590CF9300CA2D19 /* RssReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssReaderUITests.swift; sourceTree = "<group>"; };
 		09B803402590CF9300CA2D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09EDB06C2608DCC900E2F78A /* Extension_String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_String.swift; sourceTree = "<group>"; };
+		09EF629228240D4B00780452 /* ArticleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewModel.swift; sourceTree = "<group>"; };
+		09EF629428240D6500780452 /* ArticleDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,7 +390,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09EF628E28240A5700780452 /* RxTest in Frameworks */,
 				09EF62702823BD6A00780452 /* RealmSwift in Frameworks */,
 				09EF627E2823C07900780452 /* GooglePlaces in Frameworks */,
 				09EF628828240A5700780452 /* RxCocoa in Frameworks */,
@@ -406,6 +409,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09EF629A2824384500780452 /* RxTest in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,7 +454,6 @@
 			children = (
 				09ACE24125977DC100FDB597 /* ArticleListViewController.swift */,
 				0912528625E8C92800F9CFCA /* ArticleTableViewCell.swift */,
-				091251DB25E629E800F9CFCA /* ArticleDetailViewController.swift */,
 				0912529825E8DD3D00F9CFCA /* StarListViewController.swift */,
 				09688C5925F294D9007925B3 /* ArticleCollectionViewCell.swift */,
 				091252A225E9195F00F9CFCA /* LaterReadListViewController.swift */,
@@ -464,7 +467,6 @@
 			children = (
 				09ACE24925977DED00FDB597 /* ArticleList.storyboard */,
 				0912528125E8C43200F9CFCA /* ArticleTableViewCell.xib */,
-				091251D625E5F92F00F9CFCA /* ArticleDetail.storyboard */,
 				09688C5425F289A9007925B3 /* ArticleCollectionViewCell.xib */,
 				0912529D25E9190700F9CFCA /* LaterReadList.storyboard */,
 				0912529325E8D30A00F9CFCA /* StarList.storyboard */,
@@ -805,7 +807,6 @@
 				09B8033D2590CF9300CA2D19 /* RssReaderUITests */,
 				09508C5827EEF2E80001F754 /* RssWidget */,
 				09B8031A2590CF9100CA2D19 /* Products */,
-				B16E10101782F733D8B19CAD /* Pods */,
 				41417AFA67F7D1031837683C /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -824,13 +825,13 @@
 		09B8031B2590CF9100CA2D19 /* RssReader */ = {
 			isa = PBXGroup;
 			children = (
-				09EF62652823B88800780452 /* PageModules */,
 				09508C7E27EF5B350001F754 /* RssReaderRelease.entitlements */,
 				09508C7527EF3EC90001F754 /* RssReaderDebugSecure.entitlements */,
 				09B8031C2590CF9100CA2D19 /* AppDelegate.swift */,
 				09B8031E2590CF9100CA2D19 /* SceneDelegate.swift */,
 				09B803272590CF9200CA2D19 /* LaunchScreen.storyboard */,
 				0925C84F264E4466006401C1 /* LStrings.swift */,
+				09EF62652823B88800780452 /* PageModules */,
 				092DCC6925A4AED00036A339 /* Dummy */,
 				098D56BE2593757300EAD41F /* Model */,
 				098D56BC2593750E00EAD41F /* View */,
@@ -896,8 +897,36 @@
 		09EF62672823B8A900780452 /* ArticleDetail */ = {
 			isa = PBXGroup;
 			children = (
+				09EF629028240ACA00780452 /* Model */,
+				09EF628F28240AC000780452 /* View */,
+				09EF629128240AD300780452 /* ViewModel */,
 			);
 			path = ArticleDetail;
+			sourceTree = "<group>";
+		};
+		09EF628F28240AC000780452 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				091251DB25E629E800F9CFCA /* ArticleDetailViewController.swift */,
+				091251D625E5F92F00F9CFCA /* ArticleDetail.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		09EF629028240ACA00780452 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				09EF629428240D6500780452 /* ArticleDetailModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		09EF629128240AD300780452 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				09EF629228240D4B00780452 /* ArticleDetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		41417AFA67F7D1031837683C /* Frameworks */ = {
@@ -909,13 +938,6 @@
 				09508C5627EEF2E80001F754 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B16E10101782F733D8B19CAD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -970,7 +992,6 @@
 				09EF628728240A5700780452 /* RxCocoa */,
 				09EF628928240A5700780452 /* RxRelay */,
 				09EF628B28240A5700780452 /* RxSwift */,
-				09EF628D28240A5700780452 /* RxTest */,
 			);
 			productName = RssReader;
 			productReference = 09B803192590CF9100CA2D19 /* RssReader.app */;
@@ -990,6 +1011,9 @@
 				09B803312590CF9300CA2D19 /* PBXTargetDependency */,
 			);
 			name = RssReaderTests;
+			packageProductDependencies = (
+				09EF62992824384500780452 /* RxTest */,
+			);
 			productName = RssReaderTests;
 			productReference = 09B8032F2590CF9300CA2D19 /* RssReaderTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1203,6 +1227,7 @@
 				0912529925E8DD3D00F9CFCA /* StarListViewController.swift in Sources */,
 				091C89DD2606E0F2003AE7B6 /* LoginViewController.swift in Sources */,
 				096A1ABE25D7CECD00EBC589 /* YahooType.swift in Sources */,
+				09EF629528240D6500780452 /* ArticleDetailModel.swift in Sources */,
 				096A1ACB25D8E13700EBC589 /* RssFeedListModel.swift in Sources */,
 				095F95F225985F52007DC2D5 /* SelectRssFeedViewController.swift in Sources */,
 				0983205625DFF92000AA8662 /* SelectRssFeedTypeViewController.swift in Sources */,
@@ -1210,6 +1235,7 @@
 				091251DC25E629E800F9CFCA /* ArticleDetailViewController.swift in Sources */,
 				098C70802665C87A00CB63BE /* FlowLayout.swift in Sources */,
 				099BB88F25DCDAA8003AF947 /* SettingViewController.swift in Sources */,
+				09EF629328240D4B00780452 /* ArticleDetailViewModel.swift in Sources */,
 				098D56C1259375BC00EAD41F /* Transitioner.swift in Sources */,
 				0925C8A926578BCB006401C1 /* RssAPI.swift in Sources */,
 				0925C85426536D7E006401C1 /* Extension_UITableViewCell.swift in Sources */,
@@ -2302,7 +2328,7 @@
 			package = 09EF628628240A5600780452 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
-		09EF628D28240A5700780452 /* RxTest */ = {
+		09EF62992824384500780452 /* RxTest */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 09EF628628240A5600780452 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxTest;
