@@ -7,7 +7,6 @@
 
 import UIKit
 import WebKit
-//import RealmSwift
 import RxSwift
 import RxCocoa
 
@@ -15,22 +14,21 @@ final class ArticleDetailViewController: UIViewController, Transitioner {
     typealias Input = ArticleDetailViewModelInput
     typealias Output = ArticleDetailViewModelOutput
     
+    private let input: Input
+    private let output: Output
+    private let disposeBag = DisposeBag()
+    
     @IBOutlet private weak var webView: WKWebView!
     @IBOutlet private weak var indicator: UIActivityIndicatorView!
     @IBOutlet private weak var laterTrayButton: UIBarButtonItem!
     @IBOutlet private weak var backButton: UIBarButtonItem!
     @IBOutlet private weak var forwardButton: UIBarButtonItem!
+    @IBOutlet private weak var safariButton: UIBarButtonItem!
     
     private let closeButton = UIBarButtonItem()
     private let starButton = UIBarButtonItem()
     
-    var article: Article?
-    
-    private let input: Input
-    private let output: Output
-    private let disposeBag = DisposeBag()
-
-    
+    // MARK: - init
     init?(_ coder: NSCoder, viewModel: Input & Output) {
         input = viewModel
         output = viewModel
@@ -41,7 +39,7 @@ final class ArticleDetailViewController: UIViewController, Transitioner {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK:- ライフサイクル系
+    // MARK: - lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigationItems()
@@ -50,22 +48,7 @@ final class ArticleDetailViewController: UIViewController, Transitioner {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadUrl()
-    }
-    
-    @IBAction func toSafari(_ sender: Any) {
-        guard let url = webView.url else { return }
-        if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler:  nil)
-        }
-    }
-    
-    // MARK:- メソッド系
-    func loadUrl() {
-        if let url = URL(string: article?.item.link ?? "") {
-            let request = URLRequest(url: url)
-            webView.load(request)
-        }
+        input.viewWillAppear.accept({}())
     }
 }
 
@@ -106,7 +89,18 @@ private extension ArticleDetailViewController {
             .bind(to: input.tappedForward)
             .disposed(by: disposeBag)
         
+        safariButton.rx.tap
+            .bind(to: input.tappedSafari)
+            .disposed(by: disposeBag)
+        
         // MARK: Output
+        // load
+        output.load
+            .bind(to: Binder(self) { _, url in
+                self.webView.load(URLRequest(url: url))
+            })
+            .disposed(by: disposeBag)
+        
         // close
         output.close
             .bind(to: Binder(self) { _, _ in
@@ -145,6 +139,15 @@ private extension ArticleDetailViewController {
         output.goForward
             .bind(to: Binder(self) { _, _ in
                 self.webView.goForward()
+            })
+            .disposed(by: disposeBag)
+        
+        output.openSafari
+            .bind(to: Binder(self) { _, _ in
+                guard let url = self.webView.url else { return }
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler:  nil)
+                }
             })
             .disposed(by: disposeBag)
         

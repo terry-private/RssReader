@@ -37,11 +37,7 @@
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="KM2-DQ-THS"/>
                                             <barButtonItem image="tray" catalog="system" id="xxA-YT-uoF"/>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="tzg-2s-shd"/>
-                                            <barButtonItem image="safari" catalog="system" id="m5r-W8-Qfu">
-                                                <connections>
-                                                    <action selector="toSafari:" destination="nHK-Zy-z6y" id="awT-4B-PR1"/>
-                                                </connections>
-                                            </barButtonItem>
+                                            <barButtonItem image="safari" catalog="system" id="m5r-W8-Qfu"/>
                                         </items>
                                         <color key="barTintColor" name="MainBG"/>
                                     </toolbar>
@@ -69,6 +65,7 @@
                         <outlet property="forwardButton" destination="tkn-Yp-uxh" id="zgt-1r-ql5"/>
                         <outlet property="indicator" destination="sMt-Dm-lNR" id="Pb2-Dl-4Xc"/>
                         <outlet property="laterTrayButton" destination="xxA-YT-uoF" id="lpJ-zM-WyW"/>
+                        <outlet property="safariButton" destination="m5r-W8-Qfu" id="Nf1-cz-FwW"/>
                         <outlet property="webView" destination="jXA-yR-qUi" id="6qf-Ai-fHQ"/>
                     </connections>
                 </viewController>

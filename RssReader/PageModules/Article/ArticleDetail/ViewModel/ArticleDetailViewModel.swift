@@ -10,17 +10,21 @@ import RxSwift
 import RxCocoa
 
 protocol ArticleDetailViewModelInput: AnyObject {
+    var viewWillAppear: PublishRelay<Void> { get }
     var tappedClose: PublishRelay<Void> { get }
     var tappedStar: PublishRelay<Void> { get }
     var tappedLaterRead: PublishRelay<Void> { get }
     var tappedBack: PublishRelay<Void> { get }
     var tappedForward: PublishRelay<Void> { get }
+    var tappedSafari: PublishRelay<Void> { get }
 }
 
 protocol ArticleDetailViewModelOutput: AnyObject {
+    var load: Observable<URL> { get }
     var close: Observable<Void> { get }
     var goBack: Observable<Void> { get }
     var goForward: Observable<Void> { get }
+    var openSafari: Observable<Void> { get }
     
     var starButtonImage: Driver<UIImage> { get }
     var starButtonTintColor: Driver<UIColor> { get }
@@ -33,13 +37,16 @@ protocol ArticleDetailViewModelOutput: AnyObject {
 
 final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailViewModelOutput {
     // MARK: Input
+    let viewWillAppear = PublishRelay<Void>()
     let tappedClose = PublishRelay<Void>()
     let tappedStar = PublishRelay<Void>()
     let tappedLaterRead = PublishRelay<Void>()
     let tappedBack = PublishRelay<Void>()
     let tappedForward = PublishRelay<Void>()
+    let tappedSafari = PublishRelay<Void>()
     
     // MARK: Output
+    let load: Observable<URL>
     let close: Observable<Void>
     let starButtonImage: Driver<UIImage>
     let starButtonTintColor: Driver<UIColor>
@@ -51,6 +58,7 @@ final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailVi
     
     let goBack: Observable<Void>
     let goForward: Observable<Void>
+    let openSafari: Observable<Void>
     
     private let model: ArticleDetailUseCase
     private let disposeBag = DisposeBag()
@@ -125,5 +133,18 @@ final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailVi
         tappedForward
             .bind(to: _goForward)
             .disposed(by: disposeBag)
+        
+        let _openSafari = PublishRelay<Void>()
+        openSafari = _openSafari.asObservable()
+        tappedSafari
+            .bind(to: _openSafari)
+            .disposed(by: disposeBag)
+        
+        load = viewWillAppear
+            .map { _ in
+                URL(string: try! model.article.value().item.link)!
+            }
+            .asObservable()
+        
     }
 }
