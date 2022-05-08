@@ -77,10 +77,6 @@ final class ArticleDetailViewController: UIViewController, Transitioner {
         view.accessibilityIdentifier = "articleDetail_view"
         closeButton.accessibilityIdentifier = "articleDetail_close_button"
         webView.accessibilityIdentifier = "articleDetail_webView"
-        starButton.accessibilityIdentifier = "articleDetail_notStar_button"
-        starButton.accessibilityIdentifier = "articleDetail_star_button"
-        laterTrayButton.accessibilityIdentifier = "articleDetail_laterRead_button"
-        laterTrayButton.accessibilityIdentifier = "articleDetail_notLaterRead_button"
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

@@ -17,8 +17,10 @@ protocol ArticleDetailViewModelInput: AnyObject {
 protocol ArticleDetailViewModelOutput: AnyObject {
     var starButtonImage: Driver<UIImage> { get }
     var starButtonTintColor: Driver<UIColor> { get }
+    var starButtonAccessibilityIdentifier: Driver<String> { get }
     var laterReadButtonImage: Driver<UIImage> { get }
     var laterReadButtonTintColor: Driver<UIColor> { get }
+    var laterReadButtonAccessibilityIdentifier: Driver<String> { get }
 }
 
 final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailViewModelOutput {
@@ -29,9 +31,11 @@ final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailVi
     // MARK: Output
     let starButtonImage: Driver<UIImage>
     let starButtonTintColor: Driver<UIColor>
+    let starButtonAccessibilityIdentifier: Driver<String>
     
     let laterReadButtonImage: Driver<UIImage>
     let laterReadButtonTintColor: Driver<UIColor>
+    let laterReadButtonAccessibilityIdentifier: Driver<String>
     
     
     private let model: ArticleDetailUseCase
@@ -63,6 +67,12 @@ final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailVi
             }
             .asDriver(onErrorDriveWith: .empty())
         
+        starButtonAccessibilityIdentifier = model.article
+            .map { article in
+                article.isStar ? "articleDetail_star_button" : "articleDetail_notStar_button"
+            }
+            .asDriver(onErrorDriveWith: .empty())
+        
         // later read button
         laterReadButtonImage = model.article
             .map { article in
@@ -73,6 +83,12 @@ final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailVi
         laterReadButtonTintColor = model.article
             .map { article in
                 article.laterRead ? .systemGreen : .systemBlue
+            }
+            .asDriver(onErrorDriveWith: .empty())
+        
+        laterReadButtonAccessibilityIdentifier = model.article
+            .map { article in
+                article.laterRead ? "articleDetail_laterRead_button" : "articleDetail_notLaterRead_button"
             }
             .asDriver(onErrorDriveWith: .empty())
     }
