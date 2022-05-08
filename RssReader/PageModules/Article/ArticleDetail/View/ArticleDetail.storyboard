@@ -31,17 +31,9 @@
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZlP-JL-3D9">
                                         <rect key="frame" x="0.0" y="556" width="414" height="262"/>
                                         <items>
-                                            <barButtonItem image="chevron.left" catalog="system" id="mdh-Db-SXC">
-                                                <connections>
-                                                    <action selector="goBack:" destination="nHK-Zy-z6y" id="528-zk-fCK"/>
-                                                </connections>
-                                            </barButtonItem>
+                                            <barButtonItem image="chevron.left" catalog="system" id="mdh-Db-SXC"/>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="CCN-ba-hfy"/>
-                                            <barButtonItem image="chevron.right" catalog="system" id="tkn-Yp-uxh">
-                                                <connections>
-                                                    <action selector="goForward:" destination="nHK-Zy-z6y" id="dUO-cB-cmK"/>
-                                                </connections>
-                                            </barButtonItem>
+                                            <barButtonItem image="chevron.right" catalog="system" id="tkn-Yp-uxh"/>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="KM2-DQ-THS"/>
                                             <barButtonItem image="tray" catalog="system" id="xxA-YT-uoF"/>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="tzg-2s-shd"/>
@@ -73,6 +65,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="mdh-Db-SXC" id="pL8-iw-sn5"/>
+                        <outlet property="forwardButton" destination="tkn-Yp-uxh" id="zgt-1r-ql5"/>
                         <outlet property="indicator" destination="sMt-Dm-lNR" id="Pb2-Dl-4Xc"/>
                         <outlet property="laterTrayButton" destination="xxA-YT-uoF" id="lpJ-zM-WyW"/>
                         <outlet property="webView" destination="jXA-yR-qUi" id="6qf-Ai-fHQ"/>

@@ -18,6 +18,8 @@ final class ArticleDetailViewController: UIViewController, Transitioner {
     @IBOutlet private weak var webView: WKWebView!
     @IBOutlet private weak var indicator: UIActivityIndicatorView!
     @IBOutlet private weak var laterTrayButton: UIBarButtonItem!
+    @IBOutlet private weak var backButton: UIBarButtonItem!
+    @IBOutlet private weak var forwardButton: UIBarButtonItem!
     
     private let closeButton = UIBarButtonItem()
     private let starButton = UIBarButtonItem()
@@ -51,13 +53,6 @@ final class ArticleDetailViewController: UIViewController, Transitioner {
         loadUrl()
     }
     
-    // MARK:- @IBAction
-    @IBAction func goBack(_ sender: Any) {
-        webView.goBack()
-    }
-    @IBAction func goForward(_ sender: Any) {
-        webView.goForward()
-    }
     @IBAction func toSafari(_ sender: Any) {
         guard let url = webView.url else { return }
         if UIApplication.shared.canOpenURL(url) {
@@ -81,7 +76,6 @@ private extension ArticleDetailViewController {
         navigationItem.rightBarButtonItem = starButton
     }
     
-    
     /// Set accessibilityIdentifier for UITest
     func setAccessibilityIdentifier() {
         view.accessibilityIdentifier = "articleDetail_view"
@@ -104,10 +98,18 @@ private extension ArticleDetailViewController {
             .bind(to: input.tappedLaterRead)
             .disposed(by: disposeBag)
         
+        backButton.rx.tap
+            .bind(to: input.tappedBack)
+            .disposed(by: disposeBag)
+        
+        forwardButton.rx.tap
+            .bind(to: input.tappedForward)
+            .disposed(by: disposeBag)
+        
         // MARK: Output
         // close
         output.close
-            .bind(to: Binder(self) {_, _ in
+            .bind(to: Binder(self) { _, _ in
                 self.dismiss(animated: true)
             })
             .disposed(by: disposeBag)
@@ -133,6 +135,19 @@ private extension ArticleDetailViewController {
         output.laterReadButtonAccessibilityIdentifier
             .drive(laterTrayButton.rx.accessibilityIdentifier)
             .disposed(by: disposeBag)
+        
+        // goBack & goForward
+        output.goBack
+            .bind(to: Binder(self) { _, _ in
+                self.webView.goBack()
+            })
+            .disposed(by: disposeBag)
+        output.goForward
+            .bind(to: Binder(self) { _, _ in
+                self.webView.goForward()
+            })
+            .disposed(by: disposeBag)
+        
     }
 }
 

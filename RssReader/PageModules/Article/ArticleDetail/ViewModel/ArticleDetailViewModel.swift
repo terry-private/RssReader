@@ -10,13 +10,17 @@ import RxSwift
 import RxCocoa
 
 protocol ArticleDetailViewModelInput: AnyObject {
+    var tappedClose: PublishRelay<Void> { get }
     var tappedStar: PublishRelay<Void> { get }
     var tappedLaterRead: PublishRelay<Void> { get }
-    var tappedClose: PublishRelay<Void> { get }
+    var tappedBack: PublishRelay<Void> { get }
+    var tappedForward: PublishRelay<Void> { get }
 }
 
 protocol ArticleDetailViewModelOutput: AnyObject {
     var close: Observable<Void> { get }
+    var goBack: Observable<Void> { get }
+    var goForward: Observable<Void> { get }
     
     var starButtonImage: Driver<UIImage> { get }
     var starButtonTintColor: Driver<UIColor> { get }
@@ -32,6 +36,8 @@ final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailVi
     let tappedClose = PublishRelay<Void>()
     let tappedStar = PublishRelay<Void>()
     let tappedLaterRead = PublishRelay<Void>()
+    let tappedBack = PublishRelay<Void>()
+    let tappedForward = PublishRelay<Void>()
     
     // MARK: Output
     let close: Observable<Void>
@@ -43,6 +49,8 @@ final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailVi
     let laterReadButtonTintColor: Driver<UIColor>
     let laterReadButtonAccessibilityIdentifier: Driver<String>
     
+    let goBack: Observable<Void>
+    let goForward: Observable<Void>
     
     private let model: ArticleDetailUseCase
     private let disposeBag = DisposeBag()
@@ -104,5 +112,18 @@ final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailVi
                 article.laterRead ? "articleDetail_laterRead_button" : "articleDetail_notLaterRead_button"
             }
             .asDriver(onErrorDriveWith: .empty())
+        
+        // goBack & goForward
+        let _goBack = PublishRelay<Void>()
+        goBack = _goBack.asObservable()
+        tappedBack
+            .bind(to: _goBack)
+            .disposed(by: disposeBag)
+        
+        let _goForward = PublishRelay<Void>()
+        goForward = _goForward.asObservable()
+        tappedForward
+            .bind(to: _goForward)
+            .disposed(by: disposeBag)
     }
 }
