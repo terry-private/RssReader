@@ -7,7 +7,7 @@
 
 import UIKit
 import WebKit
-import RealmSwift
+//import RealmSwift
 import RxSwift
 import RxCocoa
 
@@ -19,6 +19,7 @@ final class ArticleDetailViewController: UIViewController, Transitioner {
     @IBOutlet private weak var indicator: UIActivityIndicatorView!
     @IBOutlet private weak var laterTrayButton: UIBarButtonItem!
     
+    private let closeButton = UIBarButtonItem()
     private let starButton = UIBarButtonItem()
     
     var article: Article?
@@ -41,50 +42,15 @@ final class ArticleDetailViewController: UIViewController, Transitioner {
     // MARK:- ライフサイクル系
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = starButton
-        let closeButton = UIBarButtonItem(title: LStrings.close.value, style: .plain, target: self, action: #selector(close))
-        navigationItem.leftBarButtonItem = closeButton
-        
-        // MARK: Input
-        starButton.rx.tap
-            .bind(to: input.tappedStar)
-            .disposed(by: disposeBag)
-        
-        laterTrayButton.rx.tap
-            .bind(to: input.tappedLaterRead)
-            .disposed(by: disposeBag)
-        
-        // MARK: Output
-        // star
-        output.starButtonImage
-            .drive(starButton.rx.image)
-            .disposed(by: disposeBag)
-        
-        output.starButtonTintColor
-            .drive(starButton.rx.tintColor)
-            .disposed(by: disposeBag)
-        
-        // laterRead
-        output.laterReadButtonImage
-            .drive(laterTrayButton.rx.image)
-            .disposed(by: disposeBag)
-        
-        output.laterReadButtonTintColor
-            .drive(laterTrayButton.rx.tintColor)
-            .disposed(by: disposeBag)
-        
-        // テスト用の設定
-        view.accessibilityIdentifier = "articleDetail_view"
-        closeButton.accessibilityIdentifier = "articleDetail_close_button"
-        webView.accessibilityIdentifier = "articleDetail_webView"
+        setUpNavigationItems()
+        setAccessibilityIdentifier()
+        bindAllItems()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadUrl()
     }
-    @objc func close() {
-        dismiss(animated: true)
-    }
+    
     // MARK:- @IBAction
     @IBAction func goBack(_ sender: Any) {
         webView.goBack()
@@ -105,6 +71,68 @@ final class ArticleDetailViewController: UIViewController, Transitioner {
             let request = URLRequest(url: url)
             webView.load(request)
         }
+    }
+}
+
+private extension ArticleDetailViewController {
+    func setUpNavigationItems() {
+        closeButton.title = LStrings.close.value
+        navigationItem.leftBarButtonItem = closeButton
+        navigationItem.rightBarButtonItem = starButton
+    }
+    
+    
+    /// Set accessibilityIdentifier for UITest
+    func setAccessibilityIdentifier() {
+        view.accessibilityIdentifier = "articleDetail_view"
+        closeButton.accessibilityIdentifier = "articleDetail_close_button"
+        webView.accessibilityIdentifier = "articleDetail_webView"
+    }
+    
+    /// Bind all items to viewModel
+    func bindAllItems() {
+        // MARK: Input
+        closeButton.rx.tap
+            .bind(to: input.tappedClose)
+            .disposed(by: disposeBag)
+        
+        starButton.rx.tap
+            .bind(to: input.tappedStar)
+            .disposed(by: disposeBag)
+        
+        laterTrayButton.rx.tap
+            .bind(to: input.tappedLaterRead)
+            .disposed(by: disposeBag)
+        
+        // MARK: Output
+        // close
+        output.close
+            .bind(to: Binder(self) {_, _ in
+                self.dismiss(animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        // star
+        output.starButtonImage
+            .drive(starButton.rx.image)
+            .disposed(by: disposeBag)
+        output.starButtonTintColor
+            .drive(starButton.rx.tintColor)
+            .disposed(by: disposeBag)
+        output.starButtonAccessibilityIdentifier
+            .drive(starButton.rx.accessibilityIdentifier)
+            .disposed(by: disposeBag)
+        
+        // laterRead
+        output.laterReadButtonImage
+            .drive(laterTrayButton.rx.image)
+            .disposed(by: disposeBag)
+        output.laterReadButtonTintColor
+            .drive(laterTrayButton.rx.tintColor)
+            .disposed(by: disposeBag)
+        output.laterReadButtonAccessibilityIdentifier
+            .drive(laterTrayButton.rx.accessibilityIdentifier)
+            .disposed(by: disposeBag)
     }
 }
 

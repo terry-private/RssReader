@@ -12,12 +12,16 @@ import RxCocoa
 protocol ArticleDetailViewModelInput: AnyObject {
     var tappedStar: PublishRelay<Void> { get }
     var tappedLaterRead: PublishRelay<Void> { get }
+    var tappedClose: PublishRelay<Void> { get }
 }
 
 protocol ArticleDetailViewModelOutput: AnyObject {
+    var close: Observable<Void> { get }
+    
     var starButtonImage: Driver<UIImage> { get }
     var starButtonTintColor: Driver<UIColor> { get }
     var starButtonAccessibilityIdentifier: Driver<String> { get }
+    
     var laterReadButtonImage: Driver<UIImage> { get }
     var laterReadButtonTintColor: Driver<UIColor> { get }
     var laterReadButtonAccessibilityIdentifier: Driver<String> { get }
@@ -25,10 +29,12 @@ protocol ArticleDetailViewModelOutput: AnyObject {
 
 final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailViewModelOutput {
     // MARK: Input
+    let tappedClose = PublishRelay<Void>()
     let tappedStar = PublishRelay<Void>()
     let tappedLaterRead = PublishRelay<Void>()
     
     // MARK: Output
+    let close: Observable<Void>
     let starButtonImage: Driver<UIImage>
     let starButtonTintColor: Driver<UIColor>
     let starButtonAccessibilityIdentifier: Driver<String>
@@ -54,6 +60,13 @@ final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailVi
             .disposed(by: disposeBag)
         
         // MARK: Output
+        // close button
+        let _close = PublishRelay<Void>()
+        close = _close.asObservable()
+        tappedClose
+            .bind(to: _close)
+            .disposed(by: disposeBag)
+        
         // star button
         starButtonImage = model.article
             .map { article in
