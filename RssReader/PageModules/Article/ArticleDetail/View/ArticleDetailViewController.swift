@@ -15,9 +15,11 @@ final class ArticleDetailViewController: UIViewController, Transitioner {
     typealias Input = ArticleDetailViewModelInput
     typealias Output = ArticleDetailViewModelOutput
     
-    @IBOutlet weak var webView: WKWebView!
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
-    @IBOutlet weak var laterTrayButton: UIBarButtonItem!
+    @IBOutlet private weak var webView: WKWebView!
+    @IBOutlet private weak var indicator: UIActivityIndicatorView!
+    @IBOutlet private weak var laterTrayButton: UIBarButtonItem!
+    
+    private let starButton = UIBarButtonItem()
     
     var article: Article?
     
@@ -39,18 +41,35 @@ final class ArticleDetailViewController: UIViewController, Transitioner {
     // MARK:- ライフサイクル系
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = starButton
         let closeButton = UIBarButtonItem(title: LStrings.close.value, style: .plain, target: self, action: #selector(close))
         navigationItem.leftBarButtonItem = closeButton
         
-        laterTrayButton.rx.tap
+        // MARK: Input
+        starButton.rx.tap
             .bind(to: input.tappedStar)
             .disposed(by: disposeBag)
         
+        laterTrayButton.rx.tap
+            .bind(to: input.tappedLaterRead)
+            .disposed(by: disposeBag)
+        
+        // MARK: Output
+        // star
+        output.starButtonImage
+            .drive(starButton.rx.image)
+            .disposed(by: disposeBag)
+        
+        output.starButtonTintColor
+            .drive(starButton.rx.tintColor)
+            .disposed(by: disposeBag)
+        
+        // laterRead
         output.laterReadButtonImage
             .drive(laterTrayButton.rx.image)
             .disposed(by: disposeBag)
         
-        output.laterReadButtonColor
+        output.laterReadButtonTintColor
             .drive(laterTrayButton.rx.tintColor)
             .disposed(by: disposeBag)
         
@@ -58,21 +77,17 @@ final class ArticleDetailViewController: UIViewController, Transitioner {
         view.accessibilityIdentifier = "articleDetail_view"
         closeButton.accessibilityIdentifier = "articleDetail_close_button"
         webView.accessibilityIdentifier = "articleDetail_webView"
+        starButton.accessibilityIdentifier = "articleDetail_notStar_button"
+        starButton.accessibilityIdentifier = "articleDetail_star_button"
+        laterTrayButton.accessibilityIdentifier = "articleDetail_laterRead_button"
+        laterTrayButton.accessibilityIdentifier = "articleDetail_notLaterRead_button"
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadUrl()
-        setLaterReadButton()
-        setStarButton()
     }
     @objc func close() {
         dismiss(animated: true)
-    }
-    @objc func tappedStar() {
-        let newIsStar = !article!.isStar
-        article?.isStar = newIsStar
-        CommonData.rssFeedListModel.changeStar(articleKey: article!.item.link, isStar: newIsStar)
-        setStarButton()
     }
     // MARK:- @IBAction
     @IBAction func goBack(_ sender: Any) {
@@ -87,50 +102,12 @@ final class ArticleDetailViewController: UIViewController, Transitioner {
             UIApplication.shared.open(url, options: [:], completionHandler:  nil)
         }
     }
-    @IBAction func tappedLaterReadButton(_ sender: Any) {
-        let newLaterRead = !article!.laterRead
-        article?.laterRead = newLaterRead
-        CommonData.rssFeedListModel.changeLaterRead(articleKey: article!.item.link, laterRead: newLaterRead)
-        setLaterReadButton()
-    }
     
     // MARK:- メソッド系
     func loadUrl() {
         if let url = URL(string: article?.item.link ?? "") {
             let request = URLRequest(url: url)
             webView.load(request)
-        }
-    }
-    func setStarButton() {
-        let isStar = CommonData.rssFeedListModel.articleList[article!.item.link]?.isStar
-        if isStar ?? false {
-            let starButton = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(tappedStar))
-            starButton.tintColor = .systemYellow
-            navigationItem.rightBarButtonItem = starButton
-            //テスト用の設定
-            starButton.accessibilityIdentifier = "articleDetail_notStar_button"
-        } else {
-            let starButton = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(tappedStar))
-            starButton.tintColor = .systemGray
-            navigationItem.rightBarButtonItem = starButton
-            //テスト用の設定
-            starButton.accessibilityIdentifier = "articleDetail_star_button"
-        }
-    }
-    
-    func setLaterReadButton() {
-        if CommonData.rssFeedListModel.articleList[(article?.item.link)!]?.laterRead ?? false {
-            laterTrayButton.image = UIImage(systemName: "tray.fill")
-            laterTrayButton.tintColor = .systemGreen
-            
-            // テストのための設定
-            laterTrayButton.accessibilityIdentifier = "articleDetail_laterRead_button"
-        } else {
-            laterTrayButton.image = UIImage(systemName: "tray")
-            laterTrayButton.tintColor = .systemBlue
-            
-            // テストのための設定
-            laterTrayButton.accessibilityIdentifier = "articleDetail_notLaterRead_button"
         }
     }
 }

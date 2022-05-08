@@ -11,6 +11,8 @@ import RxRelay
 
 protocol ArticleDetailUseCase {
     var article: BehaviorSubject<Article> { get }
+    func toggleStar()
+    func toggleLaterRead()
 }
 
 final class ArticleDetailModel: ArticleDetailUseCase {
@@ -19,11 +21,18 @@ final class ArticleDetailModel: ArticleDetailUseCase {
     
     init(_ article: Article) {
         self.article = BehaviorSubject(value: article)
-        self.article.subscribe(
-            onNext: {article in
-                CommonData.rssFeedListModel.changeLaterRead(articleKey: article.item.link, laterRead: article.laterRead)
-            }, onError: {_ in }, onCompleted: {}
-        )
-        .disposed(by: disposeBag)
+    }
+    
+    func toggleStar() {
+        var newArticle = try! article.value()
+        newArticle.isStar = !newArticle.isStar
+        CommonData.rssFeedListModel.changeStar(articleKey: newArticle.item.link, isStar: newArticle.isStar)
+        article.onNext(newArticle)
+    }
+    func toggleLaterRead() {
+        var newArticle = try! article.value()
+        newArticle.laterRead = !newArticle.laterRead
+        CommonData.rssFeedListModel.changeLaterRead(articleKey: newArticle.item.link, laterRead: newArticle.laterRead)
+        article.onNext(newArticle)
     }
 }
