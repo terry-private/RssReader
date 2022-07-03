@@ -26,13 +26,13 @@ protocol ArticleDetailViewModelOutput: AnyObject {
     var goForward: Observable<Void> { get }
     var openSafari: Observable<Void> { get }
     
-    var starButtonImage: Driver<UIImage> { get }
-    var starButtonTintColor: Driver<UIColor> { get }
-    var starButtonAccessibilityIdentifier: Driver<String> { get }
+    var starButtonImage: Observable<UIImage> { get }
+    var starButtonTintColor: Observable<UIColor> { get }
+    var starButtonAccessibilityIdentifier: Observable<String> { get }
     
-    var laterReadButtonImage: Driver<UIImage> { get }
-    var laterReadButtonTintColor: Driver<UIColor> { get }
-    var laterReadButtonAccessibilityIdentifier: Driver<String> { get }
+    var laterReadButtonImage: Observable<UIImage> { get }
+    var laterReadButtonTintColor: Observable<UIColor> { get }
+    var laterReadButtonAccessibilityIdentifier: Observable<String> { get }
 }
 
 final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailViewModelOutput {
@@ -48,13 +48,13 @@ final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailVi
     // MARK: Output
     let load: Observable<URL>
     let close: Observable<Void>
-    let starButtonImage: Driver<UIImage>
-    let starButtonTintColor: Driver<UIColor>
-    let starButtonAccessibilityIdentifier: Driver<String>
+    let starButtonImage: Observable<UIImage>
+    let starButtonTintColor: Observable<UIColor>
+    let starButtonAccessibilityIdentifier: Observable<String>
     
-    let laterReadButtonImage: Driver<UIImage>
-    let laterReadButtonTintColor: Driver<UIColor>
-    let laterReadButtonAccessibilityIdentifier: Driver<String>
+    let laterReadButtonImage: Observable<UIImage>
+    let laterReadButtonTintColor: Observable<UIColor>
+    let laterReadButtonAccessibilityIdentifier: Observable<String>
     
     let goBack: Observable<Void>
     let goForward: Observable<Void>
@@ -101,42 +101,50 @@ final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailVi
             .disposed(by: disposeBag)
         
         // star button
-        starButtonImage = model.article
+        let _starButtonImage = model.article
             .map { article in
                 UIImage(systemName: article.isStar ?  "star.fill" : "star")!
             }
             .asDriver(onErrorDriveWith: .empty())
         
-        starButtonTintColor = model.article
+        starButtonImage = _starButtonImage.asObservable()
+        
+        let _starButtonTintColor: Driver<UIColor> = model.article
             .map { article in
                 article.isStar ? .systemYellow : .systemGray
             }
             .asDriver(onErrorDriveWith: .empty())
         
-        starButtonAccessibilityIdentifier = model.article
+        starButtonTintColor = _starButtonTintColor.asObservable()
+        
+        let _starButtonAccessibilityIdentifier = model.article
             .map { article in
                 article.isStar ? "articleDetail_star_button" : "articleDetail_notStar_button"
             }
             .asDriver(onErrorDriveWith: .empty())
+        starButtonAccessibilityIdentifier = _starButtonAccessibilityIdentifier.asObservable()
         
         // later read button
-        laterReadButtonImage = model.article
+        let _laterReadButtonImage = model.article
             .map { article in
                 UIImage(systemName: article.laterRead ?  "tray.fill" : "tray")!
             }
             .asDriver(onErrorDriveWith: .empty())
+        laterReadButtonImage = _laterReadButtonImage.asObservable()
         
-        laterReadButtonTintColor = model.article
+        let _laterReadButtonTintColor: Driver<UIColor> = model.article
             .map { article in
                 article.laterRead ? .systemGreen : .systemBlue
             }
             .asDriver(onErrorDriveWith: .empty())
+        laterReadButtonTintColor = _laterReadButtonTintColor.asObservable()
         
-        laterReadButtonAccessibilityIdentifier = model.article
+        let _laterReadButtonAccessibilityIdentifier = model.article
             .map { article in
                 article.laterRead ? "articleDetail_laterRead_button" : "articleDetail_notLaterRead_button"
             }
             .asDriver(onErrorDriveWith: .empty())
+        laterReadButtonAccessibilityIdentifier = _laterReadButtonAccessibilityIdentifier.asObservable()
         
         // goBack & goForward
         let _goBack = PublishRelay<Void>()

@@ -110,24 +110,24 @@ private extension ArticleDetailViewController {
         
         // star
         output.starButtonImage
-            .drive(starButton.rx.image)
+            .bind(to: starButton.rx.image)
             .disposed(by: disposeBag)
         output.starButtonTintColor
-            .drive(starButton.rx.tintColor)
+            .bind(to: starButton.rx.tintColor)
             .disposed(by: disposeBag)
         output.starButtonAccessibilityIdentifier
-            .drive(starButton.rx.accessibilityIdentifier)
+            .bind(to: starButton.rx.accessibilityIdentifier)
             .disposed(by: disposeBag)
         
         // laterRead
         output.laterReadButtonImage
-            .drive(laterTrayButton.rx.image)
+            .bind(to: laterTrayButton.rx.image)
             .disposed(by: disposeBag)
         output.laterReadButtonTintColor
-            .drive(laterTrayButton.rx.tintColor)
+            .bind(to: laterTrayButton.rx.tintColor)
             .disposed(by: disposeBag)
         output.laterReadButtonAccessibilityIdentifier
-            .drive(laterTrayButton.rx.accessibilityIdentifier)
+            .bind(to: laterTrayButton.rx.accessibilityIdentifier)
             .disposed(by: disposeBag)
         
         // goBack & goForward
