@@ -12,13 +12,12 @@ import RxCocoa
 protocol ArticleDetailViewModelInput: AnyObject {
 //    var viewWillAppear: PublishRelay<Void> { get }
     var viewWillAppear: AnyObserver<Void> { get }
-    
-    var tappedClose: PublishRelay<Void> { get }
-    var tappedStar: PublishRelay<Void> { get }
-    var tappedLaterRead: PublishRelay<Void> { get }
-    var tappedBack: PublishRelay<Void> { get }
-    var tappedForward: PublishRelay<Void> { get }
-    var tappedSafari: PublishRelay<Void> { get }
+    var tappedClose: AnyObserver<Void> { get }
+    var tappedStar: AnyObserver<Void> { get }
+    var tappedLaterRead: AnyObserver<Void> { get }
+    var tappedBack: AnyObserver<Void> { get }
+    var tappedForward: AnyObserver<Void> { get }
+    var tappedSafari: AnyObserver<Void> { get }
 }
 
 protocol ArticleDetailViewModelOutput: AnyObject {
@@ -40,12 +39,12 @@ protocol ArticleDetailViewModelOutput: AnyObject {
 final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailViewModelOutput {
     // MARK: Input
     let viewWillAppear: AnyObserver<Void>
-    let tappedClose = PublishRelay<Void>()
-    let tappedStar = PublishRelay<Void>()
-    let tappedLaterRead = PublishRelay<Void>()
-    let tappedBack = PublishRelay<Void>()
-    let tappedForward = PublishRelay<Void>()
-    let tappedSafari = PublishRelay<Void>()
+    let tappedClose: AnyObserver<Void>
+    let tappedStar: AnyObserver<Void>
+    let tappedLaterRead: AnyObserver<Void>
+    let tappedBack: AnyObserver<Void>
+    let tappedForward: AnyObserver<Void>
+    let tappedSafari: AnyObserver<Void>
     
     // MARK: Output
     let load: Observable<URL>
@@ -69,19 +68,55 @@ final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailVi
         self.model = model
         
         // MARK: Input
-        tappedStar
+        
+        let _tappedClose = PublishRelay<Void>()
+        tappedClose = AnyObserver<Void> { event in
+            guard case .next(let element) = event else { return }
+            _tappedClose.accept(element)
+        }
+        
+        let _tappedStar = PublishRelay<Void>()
+        tappedStar = AnyObserver<Void> { event in
+            guard case .next(let element) = event else { return }
+            _tappedStar.accept(element)
+        }
+        _tappedStar
             .subscribe(onNext: { model.toggleStar() })
             .disposed(by: disposeBag)
         
-        tappedLaterRead
+        let _tappedLaterRead = PublishRelay<Void>()
+        tappedLaterRead = AnyObserver<Void> { event in
+            guard case .next(let element) = event else { return }
+            _tappedLaterRead.accept(element)
+        }
+        _tappedLaterRead
             .subscribe(onNext: { model.toggleLaterRead() })
             .disposed(by: disposeBag)
+        
+        let _tappedBack = PublishRelay<Void>()
+        tappedBack = AnyObserver<Void> { event in
+            guard case .next(let element) = event else { return }
+            _tappedBack.accept(element)
+        }
+        
+        
+        let _tappedForward = PublishRelay<Void>()
+        tappedForward = AnyObserver<Void> { event in
+            guard case .next(let element) = event else { return }
+            _tappedForward.accept(element)
+        }
+        
+        let _tappedSafari = PublishRelay<Void>()
+        tappedSafari = AnyObserver<Void> { event in
+            guard case .next(let element) = event else { return }
+            _tappedSafari.accept(element)
+        }
         
         // MARK: Output
         // close button
         let _close = PublishRelay<Void>()
         close = _close.asObservable()
-        tappedClose
+        _tappedClose
             .bind(to: _close)
             .disposed(by: disposeBag)
         
@@ -126,19 +161,19 @@ final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailVi
         // goBack & goForward
         let _goBack = PublishRelay<Void>()
         goBack = _goBack.asObservable()
-        tappedBack
+        _tappedBack
             .bind(to: _goBack)
             .disposed(by: disposeBag)
         
         let _goForward = PublishRelay<Void>()
         goForward = _goForward.asObservable()
-        tappedForward
+        _tappedForward
             .bind(to: _goForward)
             .disposed(by: disposeBag)
         
         let _openSafari = PublishRelay<Void>()
         openSafari = _openSafari.asObservable()
-        tappedSafari
+        _tappedSafari
             .bind(to: _openSafari)
             .disposed(by: disposeBag)
         let _viewWillAppear = PublishRelay<()>()
