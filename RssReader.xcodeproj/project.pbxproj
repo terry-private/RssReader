@@ -32,6 +32,7 @@
 		09174EAF25E405D700756E6D /* SelectYahooTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */; };
 		09174ED925E53ADC00756E6D /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174ED825E53ADC00756E6D /* CommonData.swift */; };
 		09174EE425E573E100756E6D /* AddNewRssFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09174EE325E573E100756E6D /* AddNewRssFeedTableViewCell.xib */; };
+		0918E1732871999E007E9D5B /* Extension_AnyObserverConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918E1722871999E007E9D5B /* Extension_AnyObserverConvertible.swift */; };
 		091C89DD2606E0F2003AE7B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C89DC2606E0F2003AE7B6 /* LoginViewController.swift */; };
 		092313C327E5B72500699718 /* LoginModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092313C227E5B72500699718 /* LoginModelTests.swift */; };
 		0925C84B264E3A7F006401C1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0925C84D264E3A7F006401C1 /* Localizable.strings */; };
@@ -237,6 +238,7 @@
 		09174EAE25E405D700756E6D /* SelectYahooTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYahooTagViewController.swift; sourceTree = "<group>"; };
 		09174ED825E53ADC00756E6D /* CommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
 		09174EE325E573E100756E6D /* AddNewRssFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewRssFeedTableViewCell.xib; sourceTree = "<group>"; };
+		0918E1722871999E007E9D5B /* Extension_AnyObserverConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_AnyObserverConvertible.swift; sourceTree = "<group>"; };
 		091C89DC2606E0F2003AE7B6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		092313C227E5B72500699718 /* LoginModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModelTests.swift; sourceTree = "<group>"; };
 		0925C848264E38AC006401C1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -795,6 +797,7 @@
 				09EDB06C2608DCC900E2F78A /* Extension_String.swift */,
 				0925C85326536D7E006401C1 /* Extension_UITableViewCell.swift */,
 				094BECD3287183480038C844 /* Extension_Rx+UIViewController.swift */,
+				0918E1722871999E007E9D5B /* Extension_AnyObserverConvertible.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1217,6 +1220,7 @@
 				091252A325E9195F00F9CFCA /* LaterReadListViewController.swift in Sources */,
 				0912521125E68D1300F9CFCA /* FilterModel.swift in Sources */,
 				0912525F25E7F77400F9CFCA /* SortTypeTableViewCell.swift in Sources */,
+				0918E1732871999E007E9D5B /* Extension_AnyObserverConvertible.swift in Sources */,
 				096A1B2425DA554600EBC589 /* Extension_Dictionary.swift in Sources */,
 				09ACE24225977DC100FDB597 /* ArticleListViewController.swift in Sources */,
 				098C708426662D2E00CB63BE /* CouponDetailViewController.swift in Sources */,

@@ -10,7 +10,6 @@ import RxSwift
 import RxCocoa
 
 protocol ArticleDetailViewModelInput: AnyObject {
-//    var viewWillAppear: PublishRelay<Void> { get }
     var viewWillAppear: AnyObserver<Void> { get }
     var tappedClose: AnyObserver<Void> { get }
     var tappedStar: AnyObserver<Void> { get }
@@ -70,47 +69,28 @@ final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailVi
         // MARK: Input
         
         let _tappedClose = PublishRelay<Void>()
-        tappedClose = AnyObserver<Void> { event in
-            guard case .next(let element) = event else { return }
-            _tappedClose.accept(element)
-        }
+        tappedClose = _tappedClose.asObserver()
         
         let _tappedStar = PublishRelay<Void>()
-        tappedStar = AnyObserver<Void> { event in
-            guard case .next(let element) = event else { return }
-            _tappedStar.accept(element)
-        }
         _tappedStar
             .subscribe(onNext: { model.toggleStar() })
             .disposed(by: disposeBag)
+        tappedStar = _tappedStar.asObserver()
         
         let _tappedLaterRead = PublishRelay<Void>()
-        tappedLaterRead = AnyObserver<Void> { event in
-            guard case .next(let element) = event else { return }
-            _tappedLaterRead.accept(element)
-        }
         _tappedLaterRead
             .subscribe(onNext: { model.toggleLaterRead() })
             .disposed(by: disposeBag)
+        tappedLaterRead = _tappedLaterRead.asObserver()
         
         let _tappedBack = PublishRelay<Void>()
-        tappedBack = AnyObserver<Void> { event in
-            guard case .next(let element) = event else { return }
-            _tappedBack.accept(element)
-        }
-        
+        tappedBack = _tappedBack.asObserver()
         
         let _tappedForward = PublishRelay<Void>()
-        tappedForward = AnyObserver<Void> { event in
-            guard case .next(let element) = event else { return }
-            _tappedForward.accept(element)
-        }
+        tappedForward = _tappedForward.asObserver()
         
         let _tappedSafari = PublishRelay<Void>()
-        tappedSafari = AnyObserver<Void> { event in
-            guard case .next(let element) = event else { return }
-            _tappedSafari.accept(element)
-        }
+        tappedSafari = _tappedSafari.asObserver()
         
         // MARK: Output
         // close button
