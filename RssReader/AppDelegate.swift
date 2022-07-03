@@ -49,6 +49,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIView.setAnimationsEnabled(false)
         }
         
+        // TabBarが透明になるのを防ぐ
+        if #available(iOS 15.0, *) {
+            // disable UITab bar transparent
+            let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithDefaultBackground()
+            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+            UITabBar.appearance().standardAppearance = tabBarAppearance
+        }
+        
         return true
     }
     
