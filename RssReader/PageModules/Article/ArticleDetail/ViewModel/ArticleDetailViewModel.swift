@@ -67,6 +67,8 @@ final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailVi
         self.model = model
         
         // MARK: Input
+        let _viewWillAppear = PublishRelay<()>()
+        viewWillAppear = _viewWillAppear.asObserver()
         
         let _tappedClose = PublishRelay<Void>()
         tappedClose = _tappedClose.asObserver()
@@ -164,11 +166,6 @@ final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailVi
         _tappedSafari
             .bind(to: _openSafari)
             .disposed(by: disposeBag)
-        let _viewWillAppear = PublishRelay<()>()
-        viewWillAppear = AnyObserver<Void> { event in
-            guard case .next(let element) = event else { return }
-            _viewWillAppear.accept(element)
-        }
         load = _viewWillAppear
             .map { _ in
                 URL(string: try! model.article.value().item.link)!
