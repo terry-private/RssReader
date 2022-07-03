@@ -65,92 +65,39 @@ private extension ArticleDetailViewController {
     /// Bind all items to viewModel
     func bindAllItems() {
         // MARK: Input
-        rx.viewWillAppear
-            .bind(to: input.viewWillAppear)
-            .disposed(by: disposeBag)
-        
-        closeButton.rx.tap
-            .bind(to: input.tappedClose)
-            .disposed(by: disposeBag)
-        
-        starButton.rx.tap
-            .bind(to: input.tappedStar)
-            .disposed(by: disposeBag)
-        
-        laterTrayButton.rx.tap
-            .bind(to: input.tappedLaterRead)
-            .disposed(by: disposeBag)
-        
-        backButton.rx.tap
-            .bind(to: input.tappedBack)
-            .disposed(by: disposeBag)
-        
-        forwardButton.rx.tap
-            .bind(to: input.tappedForward)
-            .disposed(by: disposeBag)
-        
-        safariButton.rx.tap
-            .bind(to: input.tappedSafari)
-            .disposed(by: disposeBag)
+        disposeBag ~
+            rx.viewWillAppear ~> input.viewWillAppear ~
+            closeButton.rx.tap ~> input.tappedClose ~
+            starButton.rx.tap ~> input.tappedStar ~
+            laterTrayButton.rx.tap ~> input.tappedLaterRead ~
+            backButton.rx.tap ~> input.tappedBack ~
+            forwardButton.rx.tap ~> input.tappedForward ~
+            safariButton.rx.tap ~> input.tappedSafari
         
         // MARK: Output
-        // load
-        output.load
-            .bind(to: Binder(self) { _, url in
-                self.webView.load(URLRequest(url: url))
-            })
-            .disposed(by: disposeBag)
+        let load = Binder(self) { _, url in self.webView.load(URLRequest(url: url)) }
+        let close = Binder<Void>(self) { _, _  in self.dismiss(animated: true) }
+        let goBack = Binder<Void>(self) { _, _ in self.webView.goBack() }
+        let goForward = Binder<Void>(self) { _, _ in self.webView.goForward() }
+        let openSafari = Binder<Void>(self) { _, _ in
+            guard let url = self.webView.url else { return }
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler:  nil)
+            }
+        }
         
-        // close
-        output.close
-            .bind(to: Binder(self) { _, _ in
-                self.dismiss(animated: true)
-            })
-            .disposed(by: disposeBag)
-        
-        // star
-        output.starButtonImage
-            .bind(to: starButton.rx.image)
-            .disposed(by: disposeBag)
-        output.starButtonTintColor
-            .bind(to: starButton.rx.tintColor)
-            .disposed(by: disposeBag)
-        output.starButtonAccessibilityIdentifier
-            .bind(to: starButton.rx.accessibilityIdentifier)
-            .disposed(by: disposeBag)
-        
-        // laterRead
-        output.laterReadButtonImage
-            .bind(to: laterTrayButton.rx.image)
-            .disposed(by: disposeBag)
-        output.laterReadButtonTintColor
-            .bind(to: laterTrayButton.rx.tintColor)
-            .disposed(by: disposeBag)
-        output.laterReadButtonAccessibilityIdentifier
-            .bind(to: laterTrayButton.rx.accessibilityIdentifier)
-            .disposed(by: disposeBag)
-        
-        // goBack & goForward
-        output.goBack
-            .bind(to: Binder(self) { _, _ in
-                self.webView.goBack()
-            })
-            .disposed(by: disposeBag)
-        output.goForward
-            .bind(to: Binder(self) { _, _ in
-                self.webView.goForward()
-            })
-            .disposed(by: disposeBag)
-        
-        output.openSafari
-            .bind(to: Binder(self) { _, _ in
-                guard let url = self.webView.url else { return }
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url, options: [:], completionHandler:  nil)
-                }
-            })
-            .disposed(by: disposeBag)
-        
+        disposeBag ~
+            output.load ~> load ~
+            output.close ~> close ~
+            output.starButtonImage ~> starButton.rx.image ~
+            output.starButtonTintColor ~> starButton.rx.tintColor ~
+            output.starButtonAccessibilityIdentifier ~> starButton.rx.accessibilityIdentifier ~
+            output.laterReadButtonImage ~> laterTrayButton.rx.image ~
+            output.laterReadButtonTintColor ~> laterTrayButton.rx.tintColor ~
+            output.laterReadButtonAccessibilityIdentifier ~> laterTrayButton.rx.accessibilityIdentifier ~
+            output.goBack ~> goBack ~
+            output.goForward ~> goForward ~
+            output.openSafari ~> openSafari
     }
 }
 

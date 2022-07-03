@@ -33,6 +33,8 @@
 		09174ED925E53ADC00756E6D /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09174ED825E53ADC00756E6D /* CommonData.swift */; };
 		09174EE425E573E100756E6D /* AddNewRssFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09174EE325E573E100756E6D /* AddNewRssFeedTableViewCell.xib */; };
 		0918E1732871999E007E9D5B /* Extension_AnyObserverConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918E1722871999E007E9D5B /* Extension_AnyObserverConvertible.swift */; };
+		0918E1752871D2F8007E9D5B /* Extension_ObservableType+operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918E1742871D2F8007E9D5B /* Extension_ObservableType+operator.swift */; };
+		0918E1772871D5D6007E9D5B /* Extension_DisposeBag+operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918E1762871D5D6007E9D5B /* Extension_DisposeBag+operator.swift */; };
 		091C89DD2606E0F2003AE7B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C89DC2606E0F2003AE7B6 /* LoginViewController.swift */; };
 		092313C327E5B72500699718 /* LoginModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092313C227E5B72500699718 /* LoginModelTests.swift */; };
 		0925C84B264E3A7F006401C1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0925C84D264E3A7F006401C1 /* Localizable.strings */; };
@@ -239,6 +241,8 @@
 		09174ED825E53ADC00756E6D /* CommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
 		09174EE325E573E100756E6D /* AddNewRssFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewRssFeedTableViewCell.xib; sourceTree = "<group>"; };
 		0918E1722871999E007E9D5B /* Extension_AnyObserverConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_AnyObserverConvertible.swift; sourceTree = "<group>"; };
+		0918E1742871D2F8007E9D5B /* Extension_ObservableType+operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension_ObservableType+operator.swift"; sourceTree = "<group>"; };
+		0918E1762871D5D6007E9D5B /* Extension_DisposeBag+operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension_DisposeBag+operator.swift"; sourceTree = "<group>"; };
 		091C89DC2606E0F2003AE7B6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		092313C227E5B72500699718 /* LoginModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModelTests.swift; sourceTree = "<group>"; };
 		0925C848264E38AC006401C1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -798,6 +802,8 @@
 				0925C85326536D7E006401C1 /* Extension_UITableViewCell.swift */,
 				094BECD3287183480038C844 /* Extension_Rx+UIViewController.swift */,
 				0918E1722871999E007E9D5B /* Extension_AnyObserverConvertible.swift */,
+				0918E1742871D2F8007E9D5B /* Extension_ObservableType+operator.swift */,
+				0918E1762871D5D6007E9D5B /* Extension_DisposeBag+operator.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1206,6 +1212,7 @@
 				09ACE2212597245800FDB597 /* LoginModel.swift in Sources */,
 				09B8031D2590CF9100CA2D19 /* AppDelegate.swift in Sources */,
 				09B8031F2590CF9100CA2D19 /* SceneDelegate.swift in Sources */,
+				0918E1752871D2F8007E9D5B /* Extension_ObservableType+operator.swift in Sources */,
 				0925C8C2265E4523006401C1 /* CouponMapViewController.swift in Sources */,
 				0975614425B731CF007B0D3F /* RssClient.swift in Sources */,
 				09688C7925F3788D007925B3 /* PreviewViewController.swift in Sources */,
@@ -1253,6 +1260,7 @@
 				097AFF9F25C07736007AC6FA /* ArticleListRouter.swift in Sources */,
 				09ACE21C25964E4500FDB597 /* UserConfig.swift in Sources */,
 				0912526925E8087D00F9CFCA /* OrderByTableViewCell.swift in Sources */,
+				0918E1772871D5D6007E9D5B /* Extension_DisposeBag+operator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
