@@ -10,7 +10,9 @@ import RxSwift
 import RxCocoa
 
 protocol ArticleDetailViewModelInput: AnyObject {
-    var viewWillAppear: PublishRelay<Void> { get }
+//    var viewWillAppear: PublishRelay<Void> { get }
+    var viewWillAppear: AnyObserver<Void> { get }
+    
     var tappedClose: PublishRelay<Void> { get }
     var tappedStar: PublishRelay<Void> { get }
     var tappedLaterRead: PublishRelay<Void> { get }
@@ -37,7 +39,7 @@ protocol ArticleDetailViewModelOutput: AnyObject {
 
 final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailViewModelOutput {
     // MARK: Input
-    let viewWillAppear = PublishRelay<Void>()
+    let viewWillAppear: AnyObserver<Void>
     let tappedClose = PublishRelay<Void>()
     let tappedStar = PublishRelay<Void>()
     let tappedLaterRead = PublishRelay<Void>()
@@ -139,8 +141,12 @@ final class ArticleDetailViewModel: ArticleDetailViewModelInput, ArticleDetailVi
         tappedSafari
             .bind(to: _openSafari)
             .disposed(by: disposeBag)
-        
-        load = viewWillAppear
+        let _viewWillAppear = PublishRelay<()>()
+        viewWillAppear = AnyObserver<Void> { event in
+            guard case .next(let element) = event else { return }
+            _viewWillAppear.accept(element)
+        }
+        load = _viewWillAppear
             .map { _ in
                 URL(string: try! model.article.value().item.link)!
             }

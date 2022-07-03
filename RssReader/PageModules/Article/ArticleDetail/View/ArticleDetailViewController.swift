@@ -16,7 +16,7 @@ final class ArticleDetailViewController: UIViewController, Transitioner {
     
     private let input: Input
     private let output: Output
-    private let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
     
     @IBOutlet private weak var webView: WKWebView!
     @IBOutlet private weak var indicator: UIActivityIndicatorView!
@@ -46,10 +46,6 @@ final class ArticleDetailViewController: UIViewController, Transitioner {
         setAccessibilityIdentifier()
         bindAllItems()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        input.viewWillAppear.accept({}())
-    }
 }
 
 private extension ArticleDetailViewController {
@@ -69,6 +65,10 @@ private extension ArticleDetailViewController {
     /// Bind all items to viewModel
     func bindAllItems() {
         // MARK: Input
+        rx.viewWillAppear
+            .bind(to: input.viewWillAppear)
+            .disposed(by: disposeBag)
+        
         closeButton.rx.tap
             .bind(to: input.tappedClose)
             .disposed(by: disposeBag)
